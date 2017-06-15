@@ -1,5 +1,11 @@
 SEMANTIC CONSTRAINTS
-
-1.	A rating must be between 1 and 5.
-2.	There must exist at least one manager.
-3.	
+1.	 A city/attraction must have a rating between 1 and 5.
+2.	 There must exist at least one manager.
+3.	 Emails must contain @
+4.   Emails must contain a valid ending (.com, edu, etc.)
+5.   Password must be at least 6 characters
+6.   Password must contain a capital letter and a number
+7.   Users can only have one review per attraction/city
+8.   Comments must be less than or equal to 250 words
+9.   A comment is required for a new city
+10.  
