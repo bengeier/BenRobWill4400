@@ -1,0 +1,5 @@
+SEMANTIC CONSTRAINTS
+
+1.	A rating must be between 1 and 5.
+2.	There must exist at least one manager.
+3.	
