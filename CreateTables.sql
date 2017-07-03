@@ -2,16 +2,18 @@ CREATE SCHEMA `RateACity` ;
 
 CREATE TABLE `RateACity`.`REGULAR_USER` (
 `Email` VARCHAR(45) NOT NULL,
-`Password` VARCHAR(45) NOT NULL,
+`Password` INT NOT NULL,
 `DateJoined` DATETIME NULL,
 `IsSuspended` TINYINT(1) NULL DEFAULT 0,
-PRIMARY KEY (`Email`));
-  
+PRIMARY KEY (`Email`),
+CHECK (Email IN('@', '.')) );
+   
 CREATE TABLE `RateACity`.`MANAGER` (
 `Email` VARCHAR(45) NOT NULL,
-`Password` VARCHAR(45) NOT NULL,
+`Password` INT NOT NULL,
 `DateJoined` DATETIME NULL,
-PRIMARY KEY (`Email`));
+PRIMARY KEY (`Email`),
+CHECK (Email IN('@', '.')) );
   
 CREATE TABLE `RateACity`.`REVIEW` (
 `UserEmail` VARCHAR(50) NOT NULL,
@@ -19,9 +21,11 @@ CREATE TABLE `RateACity`.`REVIEW` (
 `Rating` INT NOT NULL,
 `Comment` VARCHAR(45) NOT NULL,
 `CreateDate` DATETIME NOT NULL,
-PRIMARY KEY (`UserEmail`),
-FOREIGN KEY (`UserEmail`) REFERENCES `RateACity`.`____` (`____`),
-FOREIGN KEY (`ReviewableEID`) REFERENCES `RateACity`.`____` (`____`) );
+PRIMARY KEY (`UserEmail`, `REVIEWABLE_EID`),
+FOREIGN KEY (`UserEmail`) REFERENCES `RateACity`.`REGULAR_USER` (`Email`),
+FOREIGN KEY (`ReviewableEID`) REFERENCES `RateACity`.`REVIEWABLE_ENTITY` (`EntityID`),
+CHECK (Rating>0 AND Rating<6),
+CHECK (UserEmail IN('@', '.')) );
   
   
 CREATE TABLE `RateACity`.`REVIEWABLE_ENTITY` (
@@ -30,7 +34,8 @@ CREATE TABLE `RateACity`.`REVIEWABLE_ENTITY` (
 `UserEmail` VARCHAR(45) NOT NULL,
 `SubmitDate` DATETIME NOT NULL,
 PRIMARY KEY (`EntityID`), 
-FOREIGN KEY (`UserEmail`) REFERENCES `RateACity`.`____` (`____`) );
+FOREIGN KEY (`UserEmail`) REFERENCES `RateACity`.`REGULAR_USER` (`Email`),
+CHECK (UserEmail IN('@', '.'))) );
    
    
 CREATE TABLE `RateACity`.`CITY` (
@@ -47,7 +52,7 @@ CREATE TABLE `RateACity`.`ATTRACTION` (
 `StreetAddress` VARCHAR(45) NOT NULL,
 `AttractionName` VARCHAR(45) NOT NULL,
 `Description` VARCHAR(45) NOT NULL,
-PRIMARY KEY (`AttractionEID`),
+PRIMARY KEY (`AttractionEID`, `StreetAddress`),
 FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`REVIEWABLE_ENTITY` (`EntityID`),
 FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`CITY` (`CityEID`) );
 
