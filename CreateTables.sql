@@ -58,16 +58,16 @@ PRIMARY KEY (`AttractionEID`, `Hours`),
 FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`ATTRACTION` (`AttractionEID`) );
 
 CREATE TABLE `RateACity`.`CATEGORY` (
-  `CName` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`CName`));
+`CName` VARCHAR(45) NOT NULL,
+PRIMARY KEY (`CName`));
 
 CREATE TABLE `RateACity`.`FALLS_UNDER` (
-  `AttractionEID` INT NOT NULL,
-  `CName` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`AttractionEID`, `CName`),
-  INDEX `CatName_idx` (`CName` ASC),
-  FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`ATTRACTION` (`AttractionEID`),
-  FOREIGN KEY (`CName`) REFERENCES `RateACity`.`CATEGORY` (`CName`) );
+`AttractionEID` INT NOT NULL,
+`CName` VARCHAR(45) NOT NULL,
+PRIMARY KEY (`AttractionEID`, `CName`),
+INDEX `CatName_idx` (`CName` ASC),
+FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`ATTRACTION` (`AttractionEID`),
+FOREIGN KEY (`CName`) REFERENCES `RateACity`.`CATEGORY` (`CName`) );
 
 
 
