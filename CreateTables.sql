@@ -7,6 +7,7 @@ CREATE TABLE `RateACity`.`USER` (
 `IsManager` TINYINT(1) NULL DEFAULT 0,
 `IsSuspended` TINYINT(1) NULL DEFAULT 0,
 <<<<<<< HEAD
+<<<<<<< HEAD
 PRIMARY KEY (`Email`),
 CHECK (Email IN('@', '.')) );
    
@@ -18,6 +19,8 @@ PRIMARY KEY (`Email`),
 CHECK (Email IN('@', '.')) );
   
 =======
+=======
+>>>>>>> a3314091c81b4289d6d11afbff50b29f61064d73
 PRIMARY KEY (`Email`));
   
   CREATE TABLE `RateACity`.`REVIEWABLE_ENTITY` (
@@ -28,6 +31,9 @@ PRIMARY KEY (`Email`));
 PRIMARY KEY (`EntityID`), 
 FOREIGN KEY (`UserEmail`) REFERENCES `RateACity`.`USER` (`Email`) );
 
+<<<<<<< HEAD
+>>>>>>> a3314091c81b4289d6d11afbff50b29f61064d73
+=======
 >>>>>>> a3314091c81b4289d6d11afbff50b29f61064d73
 CREATE TABLE `RateACity`.`REVIEW` (
 `UserEmail` VARCHAR(50) NOT NULL,
@@ -35,6 +41,7 @@ CREATE TABLE `RateACity`.`REVIEW` (
 `Rating` INT NOT NULL,
 `Comment` VARCHAR(45) NOT NULL,
 `CreateDate` DATETIME NOT NULL,
+<<<<<<< HEAD
 <<<<<<< HEAD
 PRIMARY KEY (`UserEmail`, `REVIEWABLE_EID`),
 FOREIGN KEY (`UserEmail`) REFERENCES `RateACity`.`REGULAR_USER` (`Email`),
@@ -54,10 +61,15 @@ CHECK (UserEmail IN('@', '.'))) );
    
    
 =======
+=======
+>>>>>>> a3314091c81b4289d6d11afbff50b29f61064d73
 PRIMARY KEY (`UserEmail`),
 FOREIGN KEY (`UserEmail`) REFERENCES `RateACity`.`USER` (`Email`),
 FOREIGN KEY (`ReviewableEID`) REFERENCES `RateACity`.`REVIEWABLE_ENTITY` (`EntityID`) );
 
+<<<<<<< HEAD
+>>>>>>> a3314091c81b4289d6d11afbff50b29f61064d73
+=======
 >>>>>>> a3314091c81b4289d6d11afbff50b29f61064d73
 CREATE TABLE `RateACity`.`CITY` (
 `CityEID` INT NOT NULL,
