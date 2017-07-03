@@ -1,10 +1,12 @@
 CREATE SCHEMA `RateACity` ;
 
-CREATE TABLE `RateACity`.`REGULAR_USER` (
+CREATE TABLE `RateACity`.`USER` (
 `Email` VARCHAR(45) NOT NULL,
 `Password` INT NOT NULL,
 `DateJoined` DATETIME NULL,
+`IsManager` TINYINT(1) NULL DEFAULT 0,
 `IsSuspended` TINYINT(1) NULL DEFAULT 0,
+<<<<<<< HEAD
 PRIMARY KEY (`Email`),
 CHECK (Email IN('@', '.')) );
    
@@ -15,12 +17,25 @@ CREATE TABLE `RateACity`.`MANAGER` (
 PRIMARY KEY (`Email`),
 CHECK (Email IN('@', '.')) );
   
+=======
+PRIMARY KEY (`Email`));
+  
+  CREATE TABLE `RateACity`.`REVIEWABLE_ENTITY` (
+`EntityID` INT NOT NULL,
+`IsPending` TINYINT(1) NOT NULL DEFAULT 0,
+`UserEmail` VARCHAR(45) NOT NULL,
+`SubmitDate` DATETIME NOT NULL,
+PRIMARY KEY (`EntityID`), 
+FOREIGN KEY (`UserEmail`) REFERENCES `RateACity`.`USER` (`Email`) );
+
+>>>>>>> a3314091c81b4289d6d11afbff50b29f61064d73
 CREATE TABLE `RateACity`.`REVIEW` (
 `UserEmail` VARCHAR(50) NOT NULL,
 `ReviewableEID` INT NOT NULL UNIQUE,
 `Rating` INT NOT NULL,
 `Comment` VARCHAR(45) NOT NULL,
 `CreateDate` DATETIME NOT NULL,
+<<<<<<< HEAD
 PRIMARY KEY (`UserEmail`, `REVIEWABLE_EID`),
 FOREIGN KEY (`UserEmail`) REFERENCES `RateACity`.`REGULAR_USER` (`Email`),
 FOREIGN KEY (`ReviewableEID`) REFERENCES `RateACity`.`REVIEWABLE_ENTITY` (`EntityID`),
@@ -38,13 +53,19 @@ FOREIGN KEY (`UserEmail`) REFERENCES `RateACity`.`REGULAR_USER` (`Email`),
 CHECK (UserEmail IN('@', '.'))) );
    
    
+=======
+PRIMARY KEY (`UserEmail`),
+FOREIGN KEY (`UserEmail`) REFERENCES `RateACity`.`USER` (`Email`),
+FOREIGN KEY (`ReviewableEID`) REFERENCES `RateACity`.`REVIEWABLE_ENTITY` (`EntityID`) );
+
+>>>>>>> a3314091c81b4289d6d11afbff50b29f61064d73
 CREATE TABLE `RateACity`.`CITY` (
 `CityEID` INT NOT NULL,
 `CityName` VARCHAR(45) NOT NULL,
 `Country` VARCHAR(45) NOT NULL,
 `State` VARCHAR(45) NULL,
-PRIMARY KEY (`EID`),
-FOREIGN KEY (`EID`) REFERENCES `RateACity`.`REVIEWABLE_ENTITY` (`EntityID`));
+PRIMARY KEY (`CityEID`),
+FOREIGN KEY (`CityEID`) REFERENCES `RateACity`.`REVIEWABLE_ENTITY` (`EntityID`));
     
 CREATE TABLE `RateACity`.`ATTRACTION` (
 `AttractionEID` INT NOT NULL,
@@ -73,6 +94,7 @@ PRIMARY KEY (`AttractionEID`, `CName`),
 INDEX `CatName_idx` (`CName` ASC),
 FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`ATTRACTION` (`AttractionEID`),
 FOREIGN KEY (`CName`) REFERENCES `RateACity`.`CATEGORY` (`CName`) );
+
 
 
 
