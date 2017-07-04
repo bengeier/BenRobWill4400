@@ -1,5 +1,6 @@
-CS 4400 Final Project
+# CS 4400 Final Project
 
+## Members of the Dream Team
 Mike "10,000 calorie diet" Xiao
 
 Rob "guys I swear I have a girlfriend" Secondman
