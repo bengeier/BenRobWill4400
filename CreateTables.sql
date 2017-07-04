@@ -15,7 +15,7 @@ CREATE TABLE `RateACity`.`REVIEWABLE_ENTITY` (
 `UserEmail` VARCHAR(45) NOT NULL,
 `SubmitDate` DATETIME NOT NULL,
 PRIMARY KEY (`EntityID`), 
-FOREIGN KEY (`UserEmail`) REFERENCES `RateACity`.`USER` (`Email`),
+FOREIGN KEY (`UserEmail`) REFERENCES `RateACity`.`USER` (`Email`) ON UPDATE CASCADE,
 CHECK (UserEmail IN('@', '.')) );
    
 CREATE TABLE `RateACity`.`REVIEW` (
@@ -25,7 +25,7 @@ CREATE TABLE `RateACity`.`REVIEW` (
 `Comment` VARCHAR(45) NOT NULL,
 `CreateDate` DATETIME NOT NULL,
 PRIMARY KEY (`UserEmail`, `ReviewableEID`),
-FOREIGN KEY (`UserEmail`) REFERENCES `RateACity`.`USER` (`Email`),
+FOREIGN KEY (`UserEmail`) REFERENCES `RateACity`.`USER` (`Email`) ON UPDATE CASCADE,
 FOREIGN KEY (`ReviewableEID`) REFERENCES `RateACity`.`REVIEWABLE_ENTITY` (`EntityID`),
 CHECK (Rating>0 AND Rating<6),
 CHECK (UserEmail IN('@', '.')) );
