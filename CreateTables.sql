@@ -35,7 +35,7 @@ CREATE TABLE `RateACity`.`REVIEWABLE_ENTITY` (
 `SubmitDate` DATETIME NOT NULL,
 PRIMARY KEY (`EntityID`), 
 FOREIGN KEY (`UserEmail`) REFERENCES `RateACity`.`REGULAR_USER` (`Email`),
-CHECK (UserEmail IN('@', '.'))) );
+CHECK (UserEmail IN('@', '.')) );
    
    
 CREATE TABLE `RateACity`.`CITY` (
