@@ -65,6 +65,11 @@ PRIMARY KEY (`AttractionEID`, `CName`),
 FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`ATTRACTION` (`AttractionEID`),
 FOREIGN KEY (`CName`) REFERENCES `RateACity`.`CATEGORY` (`CName`) );
 
+CREATE TABLE `RateACity`.`CONTACT_INFO`  (
+`ContactInfo` VARCHAR(45),
+`AttractionEID` INT,
+PRIMARY KEY (`ContactInfo`),
+FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`ATTRACTION` (`AttractionEID`) );
 
 
 
