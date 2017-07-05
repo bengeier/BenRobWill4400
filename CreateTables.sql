@@ -1,7 +1,7 @@
 CREATE SCHEMA `RateACity` ;
 
 CREATE TABLE `RateACity`.`USER` (
-`Email` VARCHAR(45) NOT NULL,
+`Email` VARCHAR(45),
 `Password` INT NOT NULL,
 `DateJoined` DATETIME NULL,
 `IsManager` TINYINT(1) NOT NULL DEFAULT 0,
@@ -10,17 +10,17 @@ PRIMARY KEY (`Email`),
 CHECK (Email IN('@', '.')) );
   
 CREATE TABLE `RateACity`.`REVIEWABLE_ENTITY` (
-`EntityID` INT NOT NULL,
+`EntityID` INT,
 `IsPending` TINYINT(1) NOT NULL DEFAULT 0,
-`UserEmail` VARCHAR(45) NOT NULL,
+`UserEmail` VARCHAR(45) NOT NULL UNIQUE,
 `SubmitDate` DATETIME NOT NULL,
 PRIMARY KEY (`EntityID`), 
 FOREIGN KEY (`UserEmail`) REFERENCES `RateACity`.`USER` (`Email`) ON UPDATE CASCADE,
 CHECK (UserEmail IN('@', '.')) );
    
 CREATE TABLE `RateACity`.`REVIEW` (
-`UserEmail` VARCHAR(50) NOT NULL,
-`ReviewableEID` INT NOT NULL UNIQUE,
+`UserEmail` VARCHAR(50),
+`ReviewableEID` INT,
 `Rating` INT NOT NULL,
 `Comment` VARCHAR(45) NOT NULL,
 `CreateDate` DATETIME NOT NULL,
@@ -31,7 +31,7 @@ CHECK (Rating>0 AND Rating<6),
 CHECK (UserEmail IN('@', '.')) );
    
 CREATE TABLE `RateACity`.`CITY` (
-`CityEID` INT NOT NULL,
+`CityEID` INT,
 `CityName` VARCHAR(45) NOT NULL,
 `Country` VARCHAR(45) NOT NULL,
 `State` VARCHAR(45) NULL,
@@ -39,28 +39,28 @@ PRIMARY KEY (`CityEID`),
 FOREIGN KEY (`CityEID`) REFERENCES `RateACity`.`REVIEWABLE_ENTITY` (`EntityID`));
     
 CREATE TABLE `RateACity`.`ATTRACTION` (
-`AttractionEID` INT NOT NULL,
+`AttractionEID` INT,
 `CityEID` INT NOT NULL,
 `StreetAddress` VARCHAR(45) NOT NULL,
 `AttractionName` VARCHAR(45) NOT NULL,
 `Description` VARCHAR(45) NOT NULL,
-PRIMARY KEY (`AttractionEID`, `StreetAddress`),
+PRIMARY KEY (`AttractionEID`),
 FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`REVIEWABLE_ENTITY` (`EntityID`),
 FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`CITY` (`CityEID`) );
 
 CREATE TABLE `RateACity`.`HOURS_OF_OPERATION` (
-`AttractionEID` INT NOT NULL,
-`Hours` VARCHAR(45) NOT NULL,
+`AttractionEID` INT,
+`Hours` VARCHAR(45),
 PRIMARY KEY (`AttractionEID`, `Hours`),
 FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`ATTRACTION` (`AttractionEID`) );
 
 CREATE TABLE `RateACity`.`CATEGORY` (
-`CName` VARCHAR(45) NOT NULL,
+`CName` VARCHAR(45),
 PRIMARY KEY (`CName`));
 
 CREATE TABLE `RateACity`.`FALLS_UNDER` (
-`AttractionEID` INT NOT NULL,
-`CName` VARCHAR(45) NOT NULL,
+`AttractionEID` INT,
+`CName` VARCHAR(45),
 PRIMARY KEY (`AttractionEID`, `CName`),
 FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`ATTRACTION` (`AttractionEID`),
 FOREIGN KEY (`CName`) REFERENCES `RateACity`.`CATEGORY` (`CName`) );
