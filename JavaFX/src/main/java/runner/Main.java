@@ -2,9 +2,11 @@ package main.java.runner;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import main.java.view.LoginView;
+import main.java.view.RootView;
 
 /**
  * Created by Rob on 7/3/2017.
@@ -12,9 +14,11 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../../resources/view/SignUp.fxml"));
-        primaryStage.setTitle("Hello World");
+        BorderPane root = RootView.instance;
+        primaryStage.setTitle("Rate a City");
         primaryStage.setScene(new Scene(root, 800, 600));
+        BorderPane loginPane = LoginView.instance;
+        root.setCenter(loginPane);
         primaryStage.show();
     }
 

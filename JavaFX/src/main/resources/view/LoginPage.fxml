@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="loginPane" fx:controller="main.java.view.LoginView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <Label alignment="CENTER" text="JavaFX is Terrible" textAlignment="CENTER" BorderPane.alignment="CENTER">
          <font>
@@ -52,7 +52,7 @@
                   </Label>
                </children>
             </GridPane>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" text="Log In">
+            <Button fx:id="logIn" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" text="Log In">
                <font>
                   <Font size="18.0" />
                </font>
@@ -60,7 +60,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefWidth="150.0" text="Sign Up">
+            <Button fx:id="toSignUp" mnemonicParsing="false" prefWidth="150.0" text="Sign Up">
                <font>
                   <Font size="18.0" />
                </font>
