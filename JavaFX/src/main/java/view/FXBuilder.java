@@ -10,6 +10,11 @@ import java.io.IOException;
  */
 public class FXBuilder {
 
+    /**
+     * Loads the .fxml file specified by fxmlName in main.resources.view
+     * @param fxmlName the file name of the .fxml file desired
+     * @return FXML Node if file is found, null if not
+     */
     public static Node getFXMLView(String fxmlName) {
         try {
             return FXMLLoader.load(FXBuilder.class.getResource("../../resources/view/" + fxmlName));
