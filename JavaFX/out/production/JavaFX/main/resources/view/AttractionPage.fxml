@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.AttractionView">
+<top>
+    <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <children>
+            <Label id="attractionNameID" text="{Attraction}">
+                <font>
+                    <Font size="24.0" />
+                </font>
+            </Label>
+        </children>
+    </HBox>
+</top>
+<center>
+    <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="308.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <children>
+            <GridPane gridLinesVisible="true" maxHeight="350.0" prefHeight="237.0" prefWidth="600.0">
+                <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="403.0" minWidth="10.0" prefWidth="286.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="347.0" minWidth="10.0" prefWidth="284.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <children>
+                  <Label prefHeight="25.0" prefWidth="250.0" text="Address:" />
+                  <Label prefHeight="25.0" prefWidth="250.0" text="Description:" GridPane.rowIndex="1" />
+                  <Label prefHeight="25.0" prefWidth="250.0" text="Average Rating (based on n ratings):" GridPane.rowIndex="2" />
+                  <Label prefHeight="25.0" prefWidth="250.0" text="Hours of Operation:" GridPane.rowIndex="3" />
+                  <Label prefHeight="25.0" prefWidth="250.0" text="Contact Info:" GridPane.rowIndex="4" />
+                  <Label prefHeight="25.0" prefWidth="250.0" text="Category:" GridPane.rowIndex="5" />
+                  <Label id="addressID" prefHeight="20.0" prefWidth="227.0" text="Label" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets left="8.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label id="descriptionID" prefHeight="25.0" prefWidth="250.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="8.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label id="averageRatingID" prefHeight="25.0" prefWidth="250.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="8.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label id="hoursOfOperationID" prefHeight="25.0" prefWidth="250.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="8.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label id="contactInfoID" prefHeight="25.0" prefWidth="250.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="8.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label id="categoryID" prefHeight="25.0" prefWidth="250.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets left="8.0" />
+                     </GridPane.margin>
+                  </Label>
+                </children>
+               <padding>
+                  <Insets left="15.0" right="15.0" />
+               </padding>
+            </GridPane>
+            <Button fx:id="reviewThisAttraction" mnemonicParsing="false" prefHeight="27.0" prefWidth="165.0" text="Review This Attraction">
+                <VBox.margin>
+                    <Insets top="10.0" />
+                </VBox.margin>
+            </Button>
+            <Button fx:id="viewAllReviews" mnemonicParsing="false" prefHeight="27.0" prefWidth="166.0" text="View All Reviews" />
+            <Button fx:id="back" mnemonicParsing="false" prefHeight="27.0" prefWidth="166.0" text="Back" />
+        </children>
+    </VBox>
+</center>
+<bottom>
+    <HBox alignment="CENTER" prefHeight="0.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+</bottom>
+</BorderPane>

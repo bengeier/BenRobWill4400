@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane fx:controller="main.java.view.UserReviewsView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <Label text="[USER]'s Reviews" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn prefWidth="118.0" text="City/Attraction" />
+          <TableColumn prefWidth="70.0" text="Rating" />
+            <TableColumn prefWidth="411.0" text="Comment" />
+        </columns>
+      </TableView>
+   </center>
+   <bottom>
+      <VBox alignment="TOP_CENTER" prefHeight="80.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <ComboBox prefWidth="150.0" promptText="Sort" />
+            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="150.0" text="Back" />
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>
