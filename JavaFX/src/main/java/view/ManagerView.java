@@ -1,5 +1,7 @@
 package main.java.view;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
 /**
@@ -7,4 +9,14 @@ import javafx.scene.layout.VBox;
  */
 public class ManagerView {
     public static VBox instance = (VBox) FXBuilder.getFXMLView("ManagerPage.fxml");
+
+    @FXML
+    Button logOut;
+
+    @FXML
+    public void initialize() {
+        logOut.setOnAction((event -> {
+            RootView.instance.setCenter(LoginView.instance);
+        }));
+    }
 }

@@ -69,6 +69,6 @@
             <Insets top="10.0" />
          </VBox.margin>
       </GridPane>
-      <Button mnemonicParsing="false" text="Log Out" />
+      <Button fx:id="logOut" mnemonicParsing="false" text="Log Out" />
    </children>
 </VBox>
