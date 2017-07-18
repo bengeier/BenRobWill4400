@@ -27,7 +27,7 @@ public class Main extends Application {
         primaryStage.show();
 
         // Establishes database connection. Reference this by using DBConnection.connection
-        DBConnection.createConnection();
+        //DBConnection.createConnection();
     }
 
 

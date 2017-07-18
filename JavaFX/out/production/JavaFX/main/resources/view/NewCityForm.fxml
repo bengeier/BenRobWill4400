@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.NewCityView">
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -67,8 +67,8 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" prefWidth="200.0" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                        <Button mnemonicParsing="false" prefWidth="200.0" text="Submit For Review" GridPane.halignment="CENTER">
+                        <Button fx:id="back" mnemonicParsing="false" prefWidth="200.0" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <Button fx:id="submit" mnemonicParsing="false" prefWidth="200.0" text="Submit For Review" GridPane.halignment="CENTER">
                            <GridPane.margin>
                               <Insets bottom="5.0" />
                            </GridPane.margin>

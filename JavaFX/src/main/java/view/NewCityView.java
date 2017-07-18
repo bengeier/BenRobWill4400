@@ -12,14 +12,17 @@ public class NewCityView{
     public static BorderPane instance = (BorderPane) FXBuilder.getFXMLView("NewCityForm.fxml");
 
 
-    //@FXML
-    //public void initialize() {
-        /*toSignUp.setOnAction((event -> {
-            RootView.instance.setCenter(SignUpView.instance);
+    @FXML
+    Button back, submit;
+
+    @FXML
+    public void initialize() {
+        back.setOnAction((event -> {
+            RootView.instance.setCenter(AllCitiesView.instance);
         }));
 
-        logIn.setOnAction((event -> {
-            RootView.instance.setCenter(UserView.instance);
-        }));*/
-    //}
+        submit.setOnAction((event -> {
+            // TODO
+        }));
+    }
 }

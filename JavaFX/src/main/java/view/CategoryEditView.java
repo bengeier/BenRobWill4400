@@ -5,10 +5,11 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
 /**
- * Created by Rob on 7/18/2017.
+ * Created by wepperson on 7/18/17.
  */
-public class NewAttractionView {
-    public static VBox instance = (VBox) FXBuilder.getFXMLView("NewAttractionForm.fxml");
+public class CategoryEditView {
+
+    public static VBox instance = (VBox) FXBuilder.getFXMLView("CategoryEditPage.fxml");
 
     @FXML
     Button back, submit;

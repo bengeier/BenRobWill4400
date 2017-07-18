@@ -62,7 +62,7 @@
             <Insets left="15.0" right="15.0" />
          </padding>
       </GridPane>
-      <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="141.0" text="Submit for Review" />
+      <Button fx:id="submit" mnemonicParsing="false" prefHeight="27.0" prefWidth="141.0" text="Submit for Review" />
       <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="140.0" text="Back" />
    </children>
 </VBox>

@@ -7,21 +7,17 @@ import javafx.scene.layout.BorderPane;
 /**
  * Created by wepperson on 7/18/17.
  */
-public class CategoryView {
+public class PendingCitiesListView {
 
-    public static BorderPane instance = (BorderPane) FXBuilder.getFXMLView("CategoryPage.fxml");
+    public static BorderPane instance = (BorderPane) FXBuilder.getFXMLView("PendingCitiesList.fxml");
 
     @FXML
-    Button addCategory, back;
+    Button back;
 
     @FXML
     public void initialize() {
         back.setOnAction((event -> {
             RootView.instance.setCenter(ManagerView.instance);
-        }));
-
-        addCategory.setOnAction((event -> {
-            RootView.instance.setCenter(CategoryEditView.instance);
         }));
     }
 }
