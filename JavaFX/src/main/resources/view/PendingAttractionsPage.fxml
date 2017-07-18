@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.PendingAttractionsView">
+    <center>
+        <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn editable="false" maxWidth="0.0" prefWidth="0.0" sortable="false">
+                    <columns>
+                        <TableColumn editable="false" maxWidth="0.0" prefWidth="0.0" />
+                    </columns>
+                </TableColumn>
+                <TableColumn prefWidth="120.0">
+                    <graphic>
+                        <Label alignment="CENTER" text="Attraction Name" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                    </graphic>
+                </TableColumn>
+                <TableColumn prefWidth="120.0">
+                    <graphic>
+                        <Label alignment="CENTER" text="City" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                    </graphic>
+                </TableColumn>
+                <TableColumn prefWidth="120.0">
+                    <graphic>
+                        <Label alignment="CENTER" text="Address" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                    </graphic>
+                </TableColumn>
+                <TableColumn prefWidth="120.0">
+                    <graphic>
+                        <Label alignment="CENTER" text="Category" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                    </graphic>
+                </TableColumn>
+                <TableColumn prefWidth="120.0">
+                    <graphic>
+                        <Label alignment="CENTER" text="Description" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                    </graphic>
+                </TableColumn>
+                <TableColumn prefWidth="120.0">
+                    <graphic>
+                        <Label alignment="CENTER" text="Hours" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                    </graphic>
+                </TableColumn>
+                <TableColumn prefWidth="120.0">
+                    <graphic>
+                        <Label alignment="CENTER" text="Contact Info" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                    </graphic>
+                </TableColumn>
+                <TableColumn prefWidth="120.0">
+                    <graphic>
+                        <Label alignment="CENTER" text="Submitted By" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                    </graphic>
+                </TableColumn>
+                <TableColumn prefWidth="120.0">
+                    <graphic>
+                        <Label alignment="CENTER" text="Rating" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                    </graphic>
+                </TableColumn>
+                <TableColumn prefWidth="120.0">
+                    <graphic>
+                        <Label alignment="CENTER" text="Comment" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                    </graphic>
+                </TableColumn>
+                <TableColumn prefWidth="120.0">
+                    <graphic>
+                        <Label alignment="CENTER" text="Approve" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                    </graphic>
+                </TableColumn>
+                <TableColumn prefWidth="120.0">
+                    <graphic>
+                        <Label alignment="CENTER" text="Delete" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                    </graphic>
+                </TableColumn>
+            </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+        </TableView>
+    </center>
+    <top>
+        <Label text="Pending Attractions" BorderPane.alignment="CENTER">
+            <font>
+                <Font size="48.0" />
+            </font>
+        </Label>
+    </top>
+    <bottom>
+        <VBox alignment="CENTER" prefHeight="105.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <ComboBox prefWidth="150.0" promptText="Sort" />
+                <Button fx:id="backToUser" mnemonicParsing="false" prefWidth="150.0" text="Back" />
+            </children>
+            <BorderPane.margin>
+                <Insets top="10.0" />
+            </BorderPane.margin>
+        </VBox>
+    </bottom>
+</BorderPane>
