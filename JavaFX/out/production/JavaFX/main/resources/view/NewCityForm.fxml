@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="300.0" text="New City Form" textAlignment="CENTER">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <GridPane prefWidth="602.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="214.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="415.0" minWidth="10.0" prefWidth="386.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" focusTraversable="true" prefHeight="21.0" prefWidth="295.0" text="Name: " textAlignment="RIGHT" />
+                  <TextField alignment="CENTER" maxWidth="300.0" GridPane.columnIndex="1" />
+                  <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="21.0" prefWidth="300.0" text="Country: " GridPane.rowIndex="1" />
+                  <TextField maxWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField maxWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField maxWidth="300.0" prefHeight="80.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" />
+                     </GridPane.margin></TextField>
+                  <Label alignment="CENTER_RIGHT" prefHeight="21.0" prefWidth="212.0" text="State: " GridPane.rowIndex="2" />
+                  <Label alignment="TOP_RIGHT" prefHeight="21.0" prefWidth="228.0" text="Comment*: " GridPane.rowIndex="4" />
+                  <Label alignment="CENTER_RIGHT" prefHeight="21.0" prefWidth="247.0" text="Rating: " GridPane.rowIndex="3" />
+                  <Slider blockIncrement="1.0" majorTickUnit="1.0" max="5.0" maxWidth="300.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Slider>
+               </children>
+            </GridPane>
+            <VBox prefHeight="176.0" prefWidth="600.0">
+               <children>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button mnemonicParsing="false" prefWidth="200.0" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" prefWidth="200.0" text="Submit For Review" GridPane.halignment="CENTER">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" />
+                           </GridPane.margin>
+                        </Button>
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+         </children></VBox>
+   </center>
+</BorderPane>
