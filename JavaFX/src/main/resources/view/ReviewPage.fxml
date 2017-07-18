@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.ReviewView">
+<top>
+    <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <children>
+            <Label id="attractionNameID" text="New {Attraction/City} Review">
+                <font>
+                    <Font size="24.0" />
+                </font>
+            </Label>
+        </children>
+    </HBox>
+</top>
+<center>
+    <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="308.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <children>
+            <GridPane maxHeight="350.0" prefHeight="237.0" prefWidth="600.0">
+                <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="403.0" minWidth="10.0" prefWidth="140.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="459.0" minWidth="10.0" prefWidth="430.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="250.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <children>
+                    <Label prefHeight="25.0" prefWidth="125.0" text="Rating*" />
+                    <Label prefHeight="25.0" prefWidth="125.0" text="Comment:" GridPane.rowIndex="1" />
+                  <TextArea prefHeight="187.0" prefWidth="396.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets right="15.0" />
+                     </GridPane.margin>
+                  </TextArea>
+                  <ComboBox prefWidth="150.0" promptText="Pick Rating" GridPane.columnIndex="1">
+                      <items>
+                          <FXCollections fx:factory="observableArrayList">
+                              <Integer fx:value="1" />
+                              <Integer fx:value="2" />
+                              <Integer fx:value="3" />
+                              <Integer fx:value="4" />
+                              <Integer fx:value="5" />
+                          </FXCollections>
+                      </items>
+                  </ComboBox>
+                </children>
+                <padding>
+                    <Insets left="15.0" right="15.0" />
+                </padding>
+            </GridPane>
+            <Button fx:id="submitReview" mnemonicParsing="false" prefHeight="27.0" prefWidth="166.0" text="Submit Review">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin></Button>
+            <Button fx:id="back" mnemonicParsing="false" prefHeight="27.0" prefWidth="166.0" text="Back" />
+        </children>
+    </VBox>
+</center>
+<bottom>
+    <HBox alignment="CENTER" prefHeight="0.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+</bottom>
+</BorderPane>

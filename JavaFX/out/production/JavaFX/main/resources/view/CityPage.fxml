@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <VBox alignment="TOP_CENTER" prefHeight="79.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="[CITY NAME]">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label text="Average Rating: NaN/5" />
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="458.0" minWidth="10.0" prefWidth="452.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="290.0" minWidth="10.0" prefWidth="148.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Attractions in [CITY NAME]" />
+                  <ComboBox prefWidth="150.0" promptText="Sort" GridPane.columnIndex="1" />
+               </children>
+            </GridPane>
+            <TableView prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn prefWidth="120.0" text="Name" />
+                <TableColumn prefWidth="135.0" text="Address" />
+                  <TableColumn prefWidth="120.0" text="Category" />
+                  <TableColumn prefWidth="75.0" text="Avg. Rating" />
+                  <TableColumn prefWidth="75.0" text="# of Ratings" />
+                  <TableColumn prefWidth="75.0" text="More Info" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <VBox alignment="TOP_CENTER" prefHeight="88.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" prefWidth="135.0" text="Review This City" />
+            <Button mnemonicParsing="false" prefWidth="135.0" text="View All Reviews" />
+            <Button mnemonicParsing="false" prefWidth="135.0" text="Back" />
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>
