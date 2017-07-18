@@ -20,7 +20,7 @@ public class AllAttractionListView {
         }));
 
         addNewAttraction.setOnAction((event -> {
-            RootView.instance.setCenter(UserView.instance);
+            RootView.instance.setCenter(NewAttractionView.instance);
         }));
     }
 }
