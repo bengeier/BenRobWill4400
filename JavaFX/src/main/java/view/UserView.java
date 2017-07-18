@@ -29,5 +29,9 @@ public class UserView {
                 + "cannot be undone. Do you wish to proceed?");
             alert.showAndWait();
         }));
+
+        viewAllCities.setOnAction((event -> {
+            RootView.instance.setCenter(AllCitiesView.instance);
+        }));
     }
 }
