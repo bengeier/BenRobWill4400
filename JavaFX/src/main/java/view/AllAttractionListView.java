@@ -11,7 +11,7 @@ public class AllAttractionListView {
     public static BorderPane instance = (BorderPane) FXBuilder.getFXMLView("AllAttractionList.fxml");
 
     @FXML
-    Button addNewAttraction, back;
+    Button add, back;
 
     @FXML
     public void initialize() {
@@ -19,7 +19,7 @@ public class AllAttractionListView {
             RootView.instance.setCenter(UserView.instance);
         }));
 
-        addNewAttraction.setOnAction((event -> {
+        add.setOnAction((event -> {
             RootView.instance.setCenter(NewAttractionView.instance);
         }));
     }

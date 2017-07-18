@@ -19,8 +19,6 @@ public class NewAttractionView {
             RootView.instance.setCenter(AllAttractionListView.instance);
         }));
 
-        submit.setOnAction((event -> {
-            // TODO
-        }));
+
     }
 }

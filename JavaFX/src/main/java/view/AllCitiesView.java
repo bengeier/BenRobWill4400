@@ -18,5 +18,9 @@ public class AllCitiesView {
         backToUser.setOnAction((event -> {
             RootView.instance.setCenter(UserView.instance);
         }));
+
+        addNewCity.setOnAction((event -> {
+            RootView.instance.setCenter(NewCityView.instance);
+        }));
     }
 }

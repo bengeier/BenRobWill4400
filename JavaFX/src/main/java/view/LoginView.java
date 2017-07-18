@@ -21,10 +21,7 @@ public class LoginView {
         }));
 
         logIn.setOnAction((event -> {
-            System.out.println("here1");
             RootView.instance.setCenter(UserView.instance);
-            System.out.println("here2");
-
         }));
     }
 }

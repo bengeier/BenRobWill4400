@@ -20,7 +20,6 @@ public class FXBuilder {
 
             return FXMLLoader.load(FXBuilder.class.getResource("../../resources/view/" + fxmlName));
         } catch (IOException e) {
-            System.out.println(fxmlName);
             System.out.println(e.getMessage());
         }
         return null;
