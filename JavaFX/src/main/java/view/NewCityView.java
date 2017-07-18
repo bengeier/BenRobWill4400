@@ -11,11 +11,9 @@ import javafx.scene.layout.BorderPane;
 public class NewCityView{
     public static BorderPane instance = (BorderPane) FXBuilder.getFXMLView("NewCityForm.fxml");
 
-    @FXML
-    private Button //toSignUp, logIn;
 
-    @FXML
-    public void initialize() {
+    //@FXML
+    //public void initialize() {
         /*toSignUp.setOnAction((event -> {
             RootView.instance.setCenter(SignUpView.instance);
         }));
@@ -23,5 +21,5 @@ public class NewCityView{
         logIn.setOnAction((event -> {
             RootView.instance.setCenter(UserView.instance);
         }));*/
-    }
+    //}
 }

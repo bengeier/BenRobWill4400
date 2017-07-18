@@ -33,5 +33,9 @@ public class UserView {
         viewAllCities.setOnAction((event -> {
             RootView.instance.setCenter(AllCitiesView.instance);
         }));
+
+//        myReviews.setOnAction((event -> {
+//            RootView.instance.setCenter(ReviewView.instance);
+//        }));
     }
 }

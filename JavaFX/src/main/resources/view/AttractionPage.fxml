@@ -88,13 +88,13 @@
                   <Insets left="15.0" right="15.0" />
                </padding>
             </GridPane>
-            <Button fx:id="viewAllAttractions" mnemonicParsing="false" prefHeight="27.0" prefWidth="165.0" text="Review This Attraction">
+            <Button fx:id="reviewThisAttraction" mnemonicParsing="false" prefHeight="27.0" prefWidth="165.0" text="Review This Attraction">
                 <VBox.margin>
                     <Insets top="10.0" />
                 </VBox.margin>
             </Button>
-            <Button fx:id="viewAllCities" mnemonicParsing="false" prefHeight="27.0" prefWidth="166.0" text="View All Reviews" />
-            <Button fx:id="myReviews" mnemonicParsing="false" prefHeight="27.0" prefWidth="166.0" text="Back" />
+            <Button fx:id="viewAllReviews" mnemonicParsing="false" prefHeight="27.0" prefWidth="166.0" text="View All Reviews" />
+            <Button fx:id="back" mnemonicParsing="false" prefHeight="27.0" prefWidth="166.0" text="Back" />
         </children>
     </VBox>
 </center>
