@@ -18,8 +18,8 @@
    <bottom>
       <VBox alignment="TOP_CENTER" prefHeight="80.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefWidth="150.0" text="Submit for Review" />
-            <Button mnemonicParsing="false" prefWidth="150.0" text="Back" />
+            <Button fx:id="submit" mnemonicParsing="false" prefWidth="150.0" text="Submit for Review" />
+            <Button fx:id="back" mnemonicParsing="false" prefWidth="150.0" text="Back" />
          </children>
       </VBox>
    </bottom>
