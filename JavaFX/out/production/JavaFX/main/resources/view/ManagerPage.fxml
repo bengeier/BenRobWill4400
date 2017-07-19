@@ -54,16 +54,16 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefWidth="175.0" text="View All Cities" />
-            <Button mnemonicParsing="false" prefWidth="175.0" text="View All Attractions" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" prefWidth="200.0" text="View Pending Cities" GridPane.columnIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" text="View Pending Attractions" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" prefWidth="175.0" text="View All Users" GridPane.columnIndex="2" />
-            <Button mnemonicParsing="false" prefWidth="175.0" text="Add New User" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" prefWidth="175.0" text="Add New Category" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" prefWidth="175.0" text="View All Categories" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" prefWidth="175.0" text="Add New City" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" prefWidth="175.0" text="Add New Attraction" GridPane.rowIndex="3" />
+            <Button fx:id="viewAllCities" mnemonicParsing="false" prefWidth="175.0" text="View All Cities" />
+            <Button fx:id="viewAllAttractions" mnemonicParsing="false" prefWidth="175.0" text="View All Attractions" GridPane.rowIndex="1" />
+            <Button fx:id="viewPendingCities" mnemonicParsing="false" prefWidth="200.0" text="View Pending Cities" GridPane.columnIndex="1" />
+            <Button fx:id="viewPendingAttractions" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" text="View Pending Attractions" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="viewAllUsers" mnemonicParsing="false" prefWidth="175.0" text="View All Users" GridPane.columnIndex="2" />
+            <Button fx:id="addNewUser" mnemonicParsing="false" prefWidth="175.0" text="Add New User" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button fx:id="addNewCategory" mnemonicParsing="false" prefWidth="175.0" text="Add New Category" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button fx:id="viewAllCategories" mnemonicParsing="false" prefWidth="175.0" text="View All Categories" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Button fx:id="addNewCity" mnemonicParsing="false" prefWidth="175.0" text="Add New City" GridPane.rowIndex="2" />
+            <Button fx:id="addNewAttraction" mnemonicParsing="false" prefWidth="175.0" text="Add New Attraction" GridPane.rowIndex="3" />
          </children>
          <VBox.margin>
             <Insets top="10.0" />

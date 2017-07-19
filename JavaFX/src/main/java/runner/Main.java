@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import main.java.sql.DBConnection;
 import main.java.view.LoginView;
 import main.java.view.RootView;
 
@@ -20,6 +21,8 @@ public class Main extends Application {
         BorderPane loginPane = LoginView.instance;
         root.setCenter(loginPane);
         primaryStage.show();
+
+        DBConnection.createConnection();
     }
 
 
