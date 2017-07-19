@@ -1,68 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.NewAttractionView">
-   <children>
-      <Label text="New Attraction">
+
+<BorderPane fx:controller="main.java.view.NewAttractionView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <Label text="New Attraction" BorderPane.alignment="CENTER">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <GridPane>
-        <columnConstraints>
-          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="290.0" minWidth="10.0" prefWidth="181.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="490.0" minWidth="10.0" prefWidth="389.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+   </top>
+   <bottom>
+      <VBox alignment="TOP_CENTER" prefHeight="80.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Name*: " />
-            <Label text="City*: " GridPane.rowIndex="1" />
-            <Label text="Address*: " GridPane.rowIndex="2" />
-            <Label text="Description*: " GridPane.rowIndex="3" />
-            <Label text="Hours of Operation: " GridPane.rowIndex="4" />
-            <Label text="Contact Info: " GridPane.rowIndex="5" />
-            <Label text="Category: " GridPane.rowIndex="6" />
-            <Label text="Rating*: " GridPane.rowIndex="7" />
-            <Label text="Comment*: " GridPane.rowIndex="8" />
-            <TextField maxWidth="300.0" GridPane.columnIndex="1" />
-            <TextField maxWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField maxWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField maxWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField maxWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField maxWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <ComboBox prefWidth="300.0" promptText="Select Rating" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <ComboBox prefWidth="300.0" promptText="Select Category" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <ComboBox prefWidth="300.0" promptText="Select City" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-            </ComboBox>
+            <Button fx:id="submit" mnemonicParsing="false" prefWidth="150.0" text="Submit for Review" />
+            <Button fx:id="back" mnemonicParsing="false" prefWidth="150.0" text="Back" />
          </children>
-         <padding>
-            <Insets left="15.0" right="15.0" />
-         </padding>
-      </GridPane>
-      <Button fx:id="submit" mnemonicParsing="false" prefHeight="27.0" prefWidth="141.0" text="Submit for Review" />
-      <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="140.0" text="Back" />
-   </children>
-</VBox>
+      </VBox>
+   </bottom>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane prefHeight="214.0" prefWidth="570.0">
+               <children>
+                  <TextField GridPane.columnIndex="1" />
+                  <TextField prefHeight="31.0" prefWidth="348.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="Name*: " />
+                  <Label text="Address*: " GridPane.rowIndex="1" />
+                  <Label text="Description*: " GridPane.rowIndex="2" />
+                  <Label prefHeight="44.0" prefWidth="133.0" text="Hours of Operation: " wrapText="true" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Contact Info: " GridPane.rowIndex="4" />
+                  <Label text="Comment*: " GridPane.rowIndex="5" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField prefHeight="48.0" prefWidth="271.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="352.0" minWidth="10.0" prefWidth="97.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="414.0" minWidth="10.0" prefWidth="408.0" />
+               </columnConstraints>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </VBox.margin>
+            </GridPane>
+            <HBox alignment="CENTER" prefHeight="69.0" prefWidth="600.0">
+               <children>
+                  <ComboBox prefWidth="150.0" promptText="City*" />
+                  <ComboBox prefWidth="150.0" promptText="Category*">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </ComboBox>
+                  <Label text="Rating*:">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Slider blockIncrement="1.0" majorTickUnit="1.0" max="5.0" maxWidth="300.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
