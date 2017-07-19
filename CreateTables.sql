@@ -23,15 +23,15 @@ CREATE TABLE `RateACity`.`REVIEW` (
 `Comment` VARCHAR(255) NOT NULL,
 `CreateDate` DATETIME NOT NULL,
 PRIMARY KEY (`UserEmail`, `ReviewableEID`),
-FOREIGN KEY (`UserEmail`) REFERENCES `RateACity`.`USER` (`Email`) ON UPDATE CASCADE,
+FOREIGN KEY (`UserEmail`) REFERENCES `RateACity`.`USER` (`Email`) ON UPDATE CASCADE ON DELETE CASCADE,
 FOREIGN KEY (`ReviewableEID`) REFERENCES `RateACity`.`REVIEWABLE_ENTITY` (`EntityID`),
 CHECK (Rating>0 AND Rating<6));
    
 CREATE TABLE `RateACity`.`CITY` (
 `CityEID` INT,
-`CityName` VARCHAR(45) NOT NULL,
+`CityName` VARCHAR(500) NOT NULL,
 `Country` VARCHAR(45) NOT NULL,
-`State` VARCHAR(45) NULL,
+`State` VARCHAR(500) NULL,
 PRIMARY KEY (`CityEID`),
 FOREIGN KEY (`CityEID`) REFERENCES `RateACity`.`REVIEWABLE_ENTITY` (`EntityID`));
     
@@ -43,13 +43,13 @@ CREATE TABLE `RateACity`.`ATTRACTION` (
 `Description` VARCHAR(45) NOT NULL,
 PRIMARY KEY (`AttractionEID`),
 FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`REVIEWABLE_ENTITY` (`EntityID`),
-FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`CITY` (`CityEID`) );
+FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`CITY` (`CityEID`) ON DELETE CASCADE );
 
 CREATE TABLE `RateACity`.`HOURS_OF_OPERATION` (
 `AttractionEID` INT,
 `Hours` VARCHAR(45),
 PRIMARY KEY (`AttractionEID`, `Hours`),
-FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`ATTRACTION` (`AttractionEID`) );
+FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`ATTRACTION` (`AttractionEID`) ON DELETE CASCADE );
 
 CREATE TABLE `RateACity`.`CATEGORY` (
 `CName` VARCHAR(45),
@@ -59,14 +59,14 @@ CREATE TABLE `RateACity`.`FALLS_UNDER` (
 `AttractionEID` INT,
 `CName` VARCHAR(45),
 PRIMARY KEY (`AttractionEID`, `CName`),
-FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`ATTRACTION` (`AttractionEID`),
-FOREIGN KEY (`CName`) REFERENCES `RateACity`.`CATEGORY` (`CName`) );
+FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`ATTRACTION` (`AttractionEID`) ON DELETE CASCADE,
+FOREIGN KEY (`CName`) REFERENCES `RateACity`.`CATEGORY` (`CName`) ON DELETE CASCADE );
 
 CREATE TABLE `RateACity`.`CONTACT_INFO`  (
 `ContactInfo` VARCHAR(45),
 `AttractionEID` INT,
 PRIMARY KEY (`AttractionEID`,`ContactInfo`),
-FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`ATTRACTION` (`AttractionEID`) );
+FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`ATTRACTION` (`AttractionEID`) ON DELETE CASCADE );
 
 
 
