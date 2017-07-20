@@ -228,11 +228,6 @@ INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitD
         ,'rob@gmail.com'
         ,'2017-06-14 00:30:00');
 
-INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
-    VALUES
-        (9
-        ,'09:00 - 07:00');
-
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
     VALUES
         (9
@@ -240,6 +235,11 @@ INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, Attract
         ,'Near Us,spain'
         ,'Segrada Familia'
         ,'Almost done?');
+
+INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
+    VALUES
+        (9
+        ,'09:00 - 07:00');
 
         /* 
             Atlanta
@@ -582,6 +582,26 @@ INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
         (23
         ,'09:00 - 05:00');
 
+        /* The Watch Factory */
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+    VALUES
+        (24
+        ,0
+        ,'will@gmail.com'
+        ,'2017-06-14 00:30:00');
+
+INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
+    VALUES
+        (23
+        ,5
+        ,'Between France and Switzerland'
+        ,'Mont SAleve'
+        ,'Its pointy.');
+
+INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
+    VALUES
+        (23
+        ,'09:00 - 05:00');
         /*
             Yeezy Land
         */
