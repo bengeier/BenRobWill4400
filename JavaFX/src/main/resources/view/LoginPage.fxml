@@ -28,8 +28,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField maxWidth="300.0" GridPane.columnIndex="1" />
-                  <TextField maxWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="email" maxWidth="300.0" GridPane.columnIndex="1" />
+                  <TextField fx:id="password" maxWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label text="Email: ">
                      <font>
                         <Font size="18.0" />
