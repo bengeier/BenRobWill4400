@@ -646,3 +646,361 @@ INSERT INTO RATEACITY.CATEGORY (CNAME)
 	VALUES
 		('Expensive');
         
+/*
+----- REVIEWS -----
+*/
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('rob@gmail.com', 
+    0, 
+    1, 
+    'I', 
+    '2017-04-14 02:00:00');
+INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('ben@yahoo.com', 
+    0, 
+    3, 
+    'hdkaslf sadjfkalj sdafjkldsj', 
+    '2017-04-16 00:00:00');
+
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('michael@msn.com', 
+    0, 
+    5, 
+    'sdfjklsadj sjdfklsj sdjfkl', 
+    '2017-06-14 00:02:00');
+
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('charlie@gmail.com', 
+    1, 
+    4, 
+    'This', 
+    '2017-06-14 00:00:00');
+
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('michael@msn.com', 
+    2, 
+    5, 
+    'City', 
+    '2017-06-14 20:00:00');
+    
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('rob@gmail.com', 
+    3, 
+    1, 
+    'I', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('ben@yahoo.com', 
+    3, 
+    3, 
+    'Love', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('will@hotmail.net', 
+    3, 
+    4, 
+    'This', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('michael@msn.com', 
+    3, 
+    5, 
+    'City', 
+    '2017-06-14 00:00:00');
+    
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('rob@gmail.com', 
+    4, 
+    1, 
+    'I', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('ben@yahoo.com', 
+    4, 
+    3, 
+    'Love', 
+    '2017-06-14 00:00:00');
+
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('michael@msn.com', 
+    4, 
+    5, 
+    'City', 
+    '2017-06-14 00:00:00');
+    
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('rob@gmail.com', 
+    5, 
+    1, 
+    'I', 
+    '2017-06-14 00:00:00');
+
+
+
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('michael@msn.com', 
+    6, 
+    5, 
+    'City', 
+    '2017-06-14 00:00:00');
+    
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('rob@gmail.com', 
+    7, 
+    1, 
+    'I', 
+    '2017-06-14 00:00:00');
+
+
+    
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('rob@gmail.com', 
+    8, 
+    1, 
+    'I', 
+    '2017-06-14 00:00:00');
+
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('michael@msn.com', 
+    8, 
+    0, 
+    'City', 
+    '2017-06-14 00:00:00');
+    
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('michael@msn.com', 
+    9, 
+    5, 
+    'City', 
+    '2017-06-14 00:00:00');
+    
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('rob@gmail.com', 
+    10, 
+    1, 
+    'I', 
+    '2017-06-14 00:00:00');
+
+    
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('rob@gmail.com', 
+    11, 
+    1, 
+    'I', 
+    '2017-06-14 00:00:00');
+
+    
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('rob@gmail.com', 
+    12, 
+    1, 
+    'I', 
+    '2017-06-14 00:00:00');
+
+    
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('rob@gmail.com', 
+    13, 
+    1, 
+    'I', 
+    '2017-06-14 00:00:00');
+
+
+INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('ben@yahoo.com', 
+    14, 
+    3, 
+    'Love', 
+    '2017-06-14 00:00:00');
+
+    
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('rob@gmail.com', 
+    15, 
+    1, 
+    'I', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('ben@yahoo.com', 
+    15, 
+    3, 
+    'Love', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('will@hotmail.net', 
+    15, 
+    4, 
+    'This', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('michael@msn.com', 
+    15, 
+    5, 
+    'City', 
+    '2017-06-14 00:00:00');
+    
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('rob@gmail.com', 
+    16, 
+    5, 
+    'I', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('ben@yahoo.com', 
+    16, 
+    5, 
+    'Love', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('yeezus@west.com', 
+    16, 
+    1, 
+    'This', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('hot@dog.com', 
+    16, 
+    1, 
+    'sfdjkl sdjfkl sdjfkl', 
+    '2017-06-14 00:00:00');
+    
+
+INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('ben@yahoo.com', 
+    17, 
+    3, 
+    'ajsfkdl sdajklf; sadfjkl;', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('harry@hotmail.net', 
+    17, 
+    4, 
+    'This', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('michael@msn.com', 
+    17, 
+    5, 
+    'City', 
+    '2017-06-14 00:00:00');
+    
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('frank@furt.com', 
+    18, 
+    1, 
+    'I', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('ben@yahoo.com', 
+    18, 
+    3, 
+    'Love', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('will@hotmail.net', 
+    18, 
+    4, 
+    'ajdfskl ajskl; sdfj;', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('michael@msn.com', 
+    18, 
+    5, 
+    'City', 
+    '2017-06-14 00:00:00');
+    
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('rob@gmail.com', 
+    19, 
+    1, 
+    'I', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('ben@yahoo.com', 
+    19, 
+    3, 
+    'Love', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('david@le.com', 
+    19, 
+    4, 
+    'This', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('michael@msn.com', 
+    19, 
+    5, 
+    'City', 
+    '2017-06-14 00:00:00');
+    
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('rob@gmail.com', 
+    20, 
+    1, 
+    'I', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('ben@yahoo.com', 
+    20, 
+    3, 
+    'Love', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('cliff@me.com', 
+    20, 
+    4, 
+    'This', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('michael@msn.com', 
+    20, 
+    5, 
+    'City', 
+    '2017-06-14 00:00:00');
+    
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('rob@gmail.com', 
+    21, 
+    1, 
+    'I', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('ben@yahoo.com', 
+    21, 
+    3, 
+    'Love', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('chrisj@gmail.com', 
+    21, 
+    4, 
+    'This', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('ben@temple.com', 
+    21, 
+    5, 
+    'City', 
+    '2017-06-14 00:00:00');
+    
+INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('ben@temple.com', 
+    22, 
+    3, 
+    'Love', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('anthony@vr.com', 
+    24, 
+    4, 
+    'This', 
+    '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    ('aman@gmail.com', 
+    23, 
+    5, 
+    'City', 
+    '2017-06-14 00:00:00');
+
+        
