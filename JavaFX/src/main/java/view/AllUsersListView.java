@@ -35,7 +35,7 @@ public class AllUsersListView {
         alert.showAndWait();
     }
 
-    private void promptForSuspsend() {
+    private void promptForSuspend() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirm Suspend Account");
         alert.setHeaderText("Are You Sure You Want to Suspend?");

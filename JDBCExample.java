@@ -10,7 +10,7 @@ import java.sql.Statement;
  * (You can do this by adding the .jar as a module in IntelliJ)
  * Created by Rob on 7/18/2017.
  */
-public class ExampleTwo {
+public class JDBCExample {
     /**
      * Edit these values depending on your server. DB_DRIVER should not change since we are all using the same JDBC driver
      */
