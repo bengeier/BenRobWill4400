@@ -43,7 +43,7 @@ public class LoginController {
     private static boolean isManager(String email, String password) throws SQLException {
 
         // TODO is this method really necessary??
-        
+
         String isManagerQuery = "SELECT COUNT(*) FROM RATEACITY.USER WHERE Email='"
                 + email +"' AND Password=" + password + " AND isManager=1";
         Statement isManagerStatement = DBConnection.connection.createStatement();

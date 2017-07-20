@@ -1,7 +1,39 @@
 package main.java.controller;
 
+import main.java.sql.DBConnection;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
- * Created by Rob on 7/6/2017.
+ * Created by Will on 7/20/2017.
  */
 public class SignUpController {
+
+    /**
+     * Handles sign up logic.
+     * @return 0 if sign up failed, 1 if successful
+     */
+    public static int signUp(String email, String password) {
+        if (email == null) {
+            throw new IllegalArgumentException("Email cannot be null.");
+        }
+
+        String query = "INSERT INTO RATEACITY.USER (Email, Password) VALUES (\"" + email + "\"," + password + ");";
+        System.out.println(query);
+
+        try {
+            Statement stmt = DBConnection.connection.createStatement();
+            int res = stmt.executeUpdate(query);
+
+            System.out.println("Successfully inserted!");
+
+            return res;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return 0;
+
+        }
+    }
 }
