@@ -332,7 +332,7 @@ INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitD
     VALUES
         (13
         ,0
-        ,'will@gmail.com'
+        ,'will@hotmail.net'
         ,'2017-06-14 00:30:00');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
@@ -353,7 +353,7 @@ INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitD
     VALUES
         (14
         ,1
-        ,'will@gmail.com'
+        ,'will@hotmail.net'
         ,'2017-06-14 00:30:00');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
@@ -374,7 +374,7 @@ INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitD
     VALUES
         (15
         ,0
-        ,'will@gmail.com'
+        ,'will@hotmail.net'
         ,'2017-06-14 00:30:00');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
@@ -412,7 +412,7 @@ INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitD
     VALUES
         (16
         ,0
-        ,'will@gmail.com'
+        ,'will@hotmail.net'
         ,'2017-06-14 00:30:00');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
@@ -428,7 +428,7 @@ INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitD
     VALUES
         (17
         ,0
-        ,'will@gmail.com'
+        ,'will@hotmail.net'
         ,'2017-06-14 00:30:00');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
@@ -444,7 +444,7 @@ INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitD
     VALUES
         (18
         ,0
-        ,'will@gmail.com'
+        ,'will@hotmail.net'
         ,'2017-06-14 00:30:00');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
@@ -476,7 +476,7 @@ INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitD
     VALUES
         (19
         ,0
-        ,'will@gmail.com'
+        ,'will@hotmail.net'
         ,'2017-06-14 00:30:00');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
@@ -497,7 +497,7 @@ INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitD
     VALUES
         (20
         ,0
-        ,'will@gmail.com'
+        ,'will@hotmail.net'
         ,'2017-06-14 00:30:00');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
@@ -518,7 +518,7 @@ INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitD
     VALUES
         (21
         ,0
-        ,'will@gmail.com'
+        ,'will@hotmail.net'
         ,'2017-06-14 00:30:00');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
@@ -550,7 +550,7 @@ INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitD
     VALUES
         (22
         ,0
-        ,'will@gmail.com'
+        ,'will@hotmail.net'
         ,'2017-06-14 00:30:00');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
@@ -566,7 +566,7 @@ INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitD
     VALUES
         (23
         ,0
-        ,'will@gmail.com'
+        ,'will@hotmail.net'
         ,'2017-06-14 00:30:00');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
@@ -574,7 +574,7 @@ INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, Attract
         (23
         ,5
         ,'Between France and Switzerland'
-        ,'Mont SAleve'
+        ,'Mont Saleve'
         ,'Its pointy.');
 
 INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
@@ -587,21 +587,21 @@ INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitD
     VALUES
         (24
         ,0
-        ,'will@gmail.com'
+        ,'will@hotmail.net'
         ,'2017-06-14 00:30:00');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
     VALUES
-        (23
+        (24
         ,5
-        ,'Between France and Switzerland'
-        ,'Mont SAleve'
-        ,'Its pointy.');
+        ,'Swissland'
+        ,'The Watch Factory'
+        ,'Ticky.');
 
 INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
     VALUES
-        (23
-        ,'09:00 - 05:00');
+        (24
+        ,'10:00 - 02:00');
         /*
             Yeezy Land
         */
