@@ -983,24 +983,3 @@ INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateD
     5, 
     'City', 
     '2017-06-14 00:00:00');
-    
-INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
-    ('ben@temple.com', 
-    22, 
-    3, 
-    'Love', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
-    ('anthony@vr.com', 
-    24, 
-    4, 
-    'This', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
-    ('aman@gmail.com', 
-    23, 
-    5, 
-    'City', 
-    '2017-06-14 00:00:00');
-
-        
