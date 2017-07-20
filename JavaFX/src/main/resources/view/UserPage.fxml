@@ -11,7 +11,7 @@
    <top>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Welcome ">
+            <Label fx:id="welcomeMessage" text="Welcome ">
                <font>
                   <Font size="24.0" />
                </font>

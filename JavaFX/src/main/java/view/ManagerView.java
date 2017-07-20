@@ -2,8 +2,10 @@ package main.java.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.VBox;
+import main.java.model.CurrentUser;
 
 import java.util.Optional;
 
@@ -11,14 +13,25 @@ import java.util.Optional;
  * Created by Rob on 7/18/2017.
  */
 public class ManagerView {
-    public static VBox instance = (VBox) FXBuilder.getFXMLView("ManagerPage.fxml");
+    // TODO: update other views to have private instance
+    static VBox instance = (VBox) FXBuilder.getFXMLView("ManagerPage.fxml");
+
+    public static VBox getInstance() {
+        instance = (VBox) FXBuilder.getFXMLView("ManagerPage.fxml");
+        return instance;
+    }
 
     @FXML
     private Button logOut, viewAllCities, viewAllAttractions, viewAllCategories, viewAllUsers, viewPendingCities,
         viewPendingAttractions, addNewCity, addNewUser, addNewAttraction, addNewCategory;
 
     @FXML
+    private Label welcomeMessage;
+
+    @FXML
     public void initialize() {
+        welcomeMessage.setText("Welcome " + CurrentUser.getEmail());
+
         logOut.setOnAction((event -> RootView.instance.setCenter(LoginView.instance)));
 
         viewAllCities.setOnAction((event -> RootView.instance.setCenter(AllCitiesView.instance)));
