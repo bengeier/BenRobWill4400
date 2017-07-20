@@ -7,9 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import main.java.controller.LoginController;
+import main.java.model.CurrentUser;
 
 /**
  * Created by Rob on 7/6/2017.
@@ -51,8 +51,11 @@ public class LoginView {
     private void logIn() {
         loginResult.setText("");
         if (LoginController.login(email.getText(), password.getText()) == 2) {
+
+            CurrentUser.setEmail(email.getText());
             RootView.instance.setCenter(ManagerView.instance);
         } else if (LoginController.login(email.getText(), password.getText()) == 1) {
+            CurrentUser.setEmail(email.getText());
             RootView.instance.setCenter(UserView.instance);
         } else {
             loginResult.setText("Incorrect Username/Password.");
