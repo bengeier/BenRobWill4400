@@ -21,33 +21,19 @@ public class LoginController {
         if (email == null) {
             throw new IllegalArgumentException("Email cannot be null.");
         }
-        String loginQuery = "SELECT COUNT(*) FROM RATEACITY.USER WHERE Email='"
+        String loginQuery = "SELECT COUNT(*), IsManager FROM RATEACITY.USER WHERE Email='"
                 + email + "' AND Password=" + password;
+
         try {
             Statement loginStatement = DBConnection.connection.createStatement();
             ResultSet loginResult = loginStatement.executeQuery(loginQuery);
 
             if (loginResult.next() && loginResult.getString("COUNT(*)").equals("1")) {
-                return isManager(email, password) ? 2 : 1;
+                return loginResult.getString("isManager").equals("1") ? 2 : 1;
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return 0;
-    }
-
-    /**
-     * Runs SQL query to determine if user is a manager or not
-     * @return true if user is manager, false if not
-     */
-    private static boolean isManager(String email, String password) throws SQLException {
-
-        // TODO is this method really necessary??
-        
-        String isManagerQuery = "SELECT COUNT(*) FROM RATEACITY.USER WHERE Email='"
-                + email +"' AND Password=" + password + " AND isManager=1";
-        Statement isManagerStatement = DBConnection.connection.createStatement();
-        ResultSet isManagerResult = isManagerStatement.executeQuery(isManagerQuery);
-        return isManagerResult.next() && isManagerResult.getString("COUNT(*)").equals("1");
     }
 }
