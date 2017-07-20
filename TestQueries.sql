@@ -1,7 +1,13 @@
-SELECT * 
-FROM RateACity.CITY
+# DROP Schema RateACity
+SELECT (CityName)
+FROM RateACity.REVIEWABLE_ENTITY NATURAL JOIN RateACity.CITY
 WHERE IsPending = 0
-ORDER BY Rating;
+ORDER BY CityName DESC;
 
-#INSERT INTO RateACity.CITY (CityEID, CityName, Country)
+#counting number of attractions per city
+SELECT COUNT (Attraction)
+FROM RateACity.Attraction AS E NATURAL JOIN RateACity.CITY
+
+
+#INSERT INTO RateACity.CITY (CityEID, CityName, Country)*/
 
