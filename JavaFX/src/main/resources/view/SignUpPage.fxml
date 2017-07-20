@@ -38,6 +38,7 @@
               </rowConstraints>
                <children>
                   <TextField fx:id="email" maxWidth="300.0" GridPane.columnIndex="1" />
+                   <PasswordField fx:id="password1" maxWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <PasswordField fx:id="password2" maxWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Label text="Email: ">
                      <font>
@@ -54,7 +55,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="password1" maxWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
                </children>
                <VBox.margin>
                   <Insets top="20.0" />
