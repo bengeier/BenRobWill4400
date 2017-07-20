@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -29,7 +31,6 @@
               </rowConstraints>
                <children>
                   <TextField fx:id="email" maxWidth="300.0" GridPane.columnIndex="1" />
-                  <TextField fx:id="password" maxWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label text="Email: ">
                      <font>
                         <Font size="18.0" />
@@ -40,9 +41,10 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
+                  <PasswordField fx:id="password" maxWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Button fx:id="logIn" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" text="Log In">
+            <Button fx:id="logIn" onAction="#logIn" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" text="Log In">
                <font>
                   <Font size="18.0" />
                </font>
@@ -50,11 +52,16 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="toSignUp" mnemonicParsing="false" prefWidth="150.0" text="Sign Up">
+            <Button fx:id="toSignUp" onAction="#logIn" mnemonicParsing="false" prefWidth="150.0" text="Sign Up">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
+            <Label fx:id="loginResult" textFill="#eb0b0b">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
          </children>
       </VBox>
    </center>

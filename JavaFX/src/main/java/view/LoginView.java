@@ -1,9 +1,13 @@
 package main.java.view;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import main.java.controller.LoginController;
 
@@ -17,7 +21,13 @@ public class LoginView {
     private Button toSignUp, logIn;
 
     @FXML
-    private TextField email, password;
+    private TextField email;
+
+    @FXML
+    private PasswordField password;
+
+    @FXML
+    private Label loginResult;
 
     @FXML
     public void initialize() {
@@ -25,10 +35,29 @@ public class LoginView {
             RootView.instance.setCenter(SignUpView.instance);
         }));
 
-        logIn.setOnAction((event -> {
-            if (LoginController.login(email.getText(), password.getText())) {
-                RootView.instance.setCenter(UserView.instance);
+        email.setOnKeyPressed(event -> {
+            if (event.getCode().equals(KeyCode.ENTER)) {
+                logIn();
             }
-        }));
+        });
+        password.setOnKeyPressed(event -> {
+            if (event.getCode().equals(KeyCode.ENTER)) {
+                logIn();
+            }
+        });
+    }
+
+    @FXML
+    private void logIn() {
+        loginResult.setText("");
+        if (LoginController.login(email.getText(), password.getText()) == 2) {
+            RootView.instance.setCenter(ManagerView.instance);
+        } else if (LoginController.login(email.getText(), password.getText()) == 1) {
+            RootView.instance.setCenter(UserView.instance);
+        } else {
+            loginResult.setText("Incorrect Username/Password.");
+        }
+        email.clear();
+        password.clear();
     }
 }
