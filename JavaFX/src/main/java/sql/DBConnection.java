@@ -16,8 +16,8 @@ public class DBConnection {
     private static final String DB_DRIVER = "com.mysql.jdbc.Driver"; // the file/package path for the JDBC driver
     private static final String DB_CONNECTION = "jdbc:mysql://localhost:3306/"; // The address for the database server
     private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "yes";
-
+    private static final String DB_PASSWORD = "test";
+    
     public static void createConnection() {
         try {
             Class.forName(DB_DRIVER);
