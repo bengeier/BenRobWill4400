@@ -29,18 +29,18 @@ CHECK (Rating>0 AND Rating<6));
    
 CREATE TABLE `RateACity`.`CITY` (
 `CityEID` INT,
-`CityName` VARCHAR(500) NOT NULL,
+`CityName` VARCHAR(45) NOT NULL,
 `Country` VARCHAR(45) NOT NULL,
-`State` VARCHAR(500) NULL,
+`State` VARCHAR(45) NULL,
 PRIMARY KEY (`CityEID`),
 FOREIGN KEY (`CityEID`) REFERENCES `RateACity`.`REVIEWABLE_ENTITY` (`EntityID`));
     
 CREATE TABLE `RateACity`.`ATTRACTION` (
 `AttractionEID` INT,
 `CityEID` INT NOT NULL,
-`StreetAddress` VARCHAR(45) NOT NULL,
+`StreetAddress` VARCHAR(500) NOT NULL,
 `AttractionName` VARCHAR(45) NOT NULL,
-`Description` VARCHAR(45) NOT NULL,
+`Description` VARCHAR(500) NOT NULL,
 PRIMARY KEY (`AttractionEID`),
 FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`REVIEWABLE_ENTITY` (`EntityID`),
 FOREIGN KEY (`AttractionEID`) REFERENCES `RateACity`.`CITY` (`CityEID`) ON DELETE CASCADE );
