@@ -220,6 +220,11 @@ INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
         (8
         ,'09:00 - sunset');
 
+INSERT INTO RATEACITY.contact_info (ContactInfo, AttractionEID)
+	VALUES
+		('678-624-5789'
+        ,8);
+
         /* Segrada Familia */
 INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
     VALUES
@@ -240,6 +245,11 @@ INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
     VALUES
         (9
         ,'09:00 - 07:00');
+        
+INSERT INTO RATEACITY.contact_info (ContactInfo, AttractionEID)
+	VALUES
+		('678-624-5789'
+        ,9);
 
         /* 
             Atlanta
@@ -294,6 +304,11 @@ INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
     VALUES
         (11
         ,'09:00 - 05:00');
+        
+INSERT INTO RATEACITY.contact_info (ContactInfo, AttractionEID)
+	VALUES
+		('678-624-5789'
+        ,11);
 
         /* Georgia Tech */
 INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
@@ -310,6 +325,11 @@ INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, Attract
         ,'North Avenue'
         ,'Georgia Tech'
         ,'We can do that.');
+        
+INSERT INTO RATEACITY.contact_info (ContactInfo, AttractionEID)
+	VALUES
+		('678-624-5789'
+        ,12);
 
         /* 
             Paris
@@ -347,6 +367,11 @@ INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
     VALUES
         (13
         ,'09:00 - sunset');
+        
+INSERT INTO RATEACITY.contact_info (ContactInfo, AttractionEID)
+	VALUES
+		('678-624-5789'
+        ,13);
 
         /* Arc de Triomf */
 INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
@@ -389,6 +414,11 @@ INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
     VALUES
         (15
         ,'09:00 - 05:00');
+        
+INSERT INTO RATEACITY.contact_info (ContactInfo, AttractionEID)
+	VALUES
+		('678-624-5789'
+        ,15);
 
         /*
             Boston 
@@ -492,6 +522,11 @@ INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
         (19
         ,'09:00 - sunset');
 
+INSERT INTO RATEACITY.contact_info (ContactInfo, AttractionEID)
+	VALUES
+		('678-624-5789'
+        ,19);
+
         /* The Forum */
 INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
     VALUES
@@ -512,6 +547,11 @@ INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
     VALUES
         (20
         ,'09:00 - sunset');
+
+INSERT INTO RATEACITY.contact_info (ContactInfo, AttractionEID)
+	VALUES
+		('678-624-5789'
+        ,20);
 
         /* The Spanish Steps */
 INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
@@ -545,63 +585,6 @@ INSERT INTO RATEACITY.CITY (CityEID, CityName, Country)
 		,'Geneva'
 		,'Switzerland');
 
-        /* The Jet */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
-    VALUES
-        (22
-        ,0
-        ,'will@hotmail.net'
-        ,'2017-06-14 00:30:00');
-
-INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
-    VALUES
-        (22
-        ,5
-        ,'You cant miss it'
-        ,'The Jet'
-        ,'Wet');
-
-        /* Mont Saleve */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
-    VALUES
-        (23
-        ,0
-        ,'will@hotmail.net'
-        ,'2017-06-14 00:30:00');
-
-INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
-    VALUES
-        (23
-        ,5
-        ,'Between France and Switzerland'
-        ,'Mont Saleve'
-        ,'Its pointy.');
-
-INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
-    VALUES
-        (23
-        ,'09:00 - 05:00');
-
-        /* The Watch Factory */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
-    VALUES
-        (24
-        ,0
-        ,'will@hotmail.net'
-        ,'2017-06-14 00:30:00');
-
-INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
-    VALUES
-        (24
-        ,5
-        ,'Swissland'
-        ,'The Watch Factory'
-        ,'Ticky.');
-
-INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
-    VALUES
-        (24
-        ,'10:00 - 02:00');
         /*
             Yeezy Land
         */
@@ -618,16 +601,48 @@ INSERT INTO RATEACITY.CITY (CityEID, CityName, Country, State)
 		,'West World'
 		,'Yeezy Land'
         ,'Narnia');
-
+        
 
 /*
------ REVIEWS -----
+----- Categories -----
 */
-insert into review (UserEmail, ReviewableEID, Rating, Comment, CreateDate) values 
-    ('rob@gmail.com', 0, 1, 'I', '2017-06-14 00:00:00');
-insert into review (UserEmail, ReviewableEID, Rating, Comment, CreateDate) values 
-    ('ben@yahoo.com', 0, 3, 'Love', '2017-06-14 00:00:00');
-insert into review (UserEmail, ReviewableEID, Rating, Comment, CreateDate) values 
-    ('will@hotmail.net', 0, 4, 'This', '2017-06-14 00:00:00');
-insert into review (UserEmail, ReviewableEID, Rating, Comment, CreateDate) values 
-    ('michael@msn.com', 0, 5, 'City', '2017-06-14 00:00:00');
+INSERT INTO RATEACITY.CATEGORY (CNAME)
+	VALUES
+		('Building');
+
+INSERT INTO RATEACITY.CATEGORY (CNAME)
+	VALUES
+		('Monuments');
+
+INSERT INTO RATEACITY.CATEGORY (CNAME)
+	VALUES
+		('Statues');
+
+INSERT INTO RATEACITY.CATEGORY (CNAME)
+	VALUES
+		('Churches');
+        
+INSERT INTO RATEACITY.CATEGORY (CNAME)
+	VALUES
+		('Plazas');
+        
+INSERT INTO RATEACITY.CATEGORY (CNAME)
+	VALUES
+		('Good View!');
+
+INSERT INTO RATEACITY.CATEGORY (CNAME)
+	VALUES
+		('Long Lines');
+        
+INSERT INTO RATEACITY.CATEGORY (CNAME)
+	VALUES
+		('Short Lines');
+        
+INSERT INTO RATEACITY.CATEGORY (CNAME)
+	VALUES
+		('Cheap');
+
+INSERT INTO RATEACITY.CATEGORY (CNAME)
+	VALUES
+		('Expensive');
+        
