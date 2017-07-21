@@ -10,6 +10,14 @@ public class Attraction {
     private String aveRating;
     private String numRatings;
 
+    public Attraction(String attraction, String category, String city, String aveRating, String numRatings) {
+        this.attraction = attraction;
+        this.category = category;
+        this.city = city;
+        this.aveRating = aveRating;
+        this.numRatings = numRatings;
+    }
+
     public String getAttraction() {
         return attraction;
     }
