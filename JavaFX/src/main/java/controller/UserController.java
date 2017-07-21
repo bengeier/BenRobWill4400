@@ -19,7 +19,10 @@ public class UserController {
     public static ObservableList<String> cityNamesList(String sort) {
         ObservableList<String> cityNamesList = FXCollections.observableArrayList();
 
-        String cityNamesQuery = "SELECT CityName FROM RateACity.City JOIN RateACity.REVIEWABLE_ENTITY ON CITY.CityEID=REVIEWABLE_ENTITY.EntityID WHERE ispending = 0";
+        String cityNamesQuery =
+                "SELECT CityName FROM RateACity.City \n" +
+                "JOIN RateACity.REVIEWABLE_ENTITY ON CITY.CityEID=REVIEWABLE_ENTITY.EntityID \n" +
+                "WHERE isPending = 0";
         if (sort.equals("A -> Z")) {
             cityNamesQuery += " ORDER BY CityName ASC";
         } else if (sort.equals("Z -> A")){

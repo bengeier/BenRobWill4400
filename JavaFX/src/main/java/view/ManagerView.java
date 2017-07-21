@@ -45,7 +45,8 @@ public class ManagerView {
         welcomeMessage.setText("Welcome " + CurrentState.getEmail() + "!");
 
         search.setOnAction(event -> {
-            if (cities.getValue().equals("City")) {
+            searchFail.setText("");
+            if (cities.getSelectionModel().isEmpty()) {
                 searchFail.setText("Please select a city");
             }
             //TODO: handle search function
