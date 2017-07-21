@@ -44,5 +44,5 @@ public class Attraction {
 
     public String getNumRatings() { return numRatings; }
 
-    public void setNumRatings()
+    public void setNumRatings(String numRatings) { this.numRatings = numRatings; }
 }
