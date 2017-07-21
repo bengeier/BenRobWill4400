@@ -74,19 +74,19 @@ public class SignUpView {
         if (!password1.getText().equals(password2.getText())) {
             // passwords dont match
             errorLabel.setText("Passwords must match!");
-        }
-
-        if (SignUpController.signUp(email.getText(), password2.getText()) == 0) {
+            password1.clear();
+            password2.clear();
+        } else if (SignUpController.signUp(email.getText(), password2.getText()) == 0) {
             // sign up failed
-            errorLabel.setText("Sign up failed!");
+            errorLabel.setText("Sign up failed! Try another email.");
         } else {
             errorLabel.setText("Success!");
-
+            email.clear();
+            password1.clear();
+            password2.clear();
             RootView.instance.setCenter(LoginView.getInstance());
 
         }
-        email.clear();
-        password1.clear();
-        password2.clear();
+
     }
 }
