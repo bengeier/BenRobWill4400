@@ -10,9 +10,9 @@ import java.util.Stack;
  */
 public class CurrentState {
 
-    private static String email;
-    private static String currentCity;
-    private static String currentCategory;
+    private static String email = "";
+    private static String currentCity = "";
+    private static String currentCategory = "";
 
     public static String getEmail() {
         return email;

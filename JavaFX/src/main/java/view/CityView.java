@@ -2,6 +2,7 @@ package main.java.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import main.java.model.CurrentState;
 
@@ -22,7 +23,14 @@ public class CityView {
     Button reviewThisCity, viewAllReviews, back;
 
     @FXML
+    Label cityName, cityAndCategory;
+
+    @FXML
     public void initialize() {
+        cityName.setText(CurrentState.getCurrentCity());
+        cityAndCategory.setText(CurrentState.getCurrentCategory()
+                + " Attractions in " + CurrentState.getCurrentCity());
+
         reviewThisCity.setOnAction((event -> {
             CurrentState.push(fxml);
             RootView.instance.setCenter(ReviewView.getInstance());

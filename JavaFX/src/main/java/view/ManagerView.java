@@ -45,11 +45,7 @@ public class ManagerView {
         welcomeMessage.setText("Welcome " + CurrentState.getEmail() + "!");
 
         search.setOnAction(event -> {
-            searchFail.setText("");
-            if (cities.getSelectionModel().isEmpty()) {
-                searchFail.setText("Please select a city");
-            }
-            //TODO: handle search function
+            search();
         });
 
         sort.setItems(FXCollections.observableArrayList("A -> Z", "Z -> A"));
@@ -128,5 +124,19 @@ public class ManagerView {
             Optional<String> newCategory = newCategoryDialog.showAndWait();
             //TODO: add newCategory to database
         }));
+    }
+
+    @FXML
+    private void search() {
+        searchFail.setText("");
+        if (cities.getSelectionModel().isEmpty()) {
+            searchFail.setText("Please select a city");
+        }
+        CurrentState.setCurrentCity(cities.getValue());
+        if (!categories.getSelectionModel().isEmpty()) {
+            CurrentState.setCurrentCategory(categories.getValue());
+        }
+        CurrentState.push(fxml);
+        RootView.instance.setCenter(CityView.getInstance());
     }
 }
