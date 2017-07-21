@@ -8,13 +8,13 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.AllCitiesView">
    <center>
-      <TableView fx:id="CitiesTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="citiesTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="120.0" text="City" />
-          <TableColumn prefWidth="120.0" text="Avg. Rating" />
-            <TableColumn prefWidth="120.0" text="Num. Ratings" />
-            <TableColumn prefWidth="120.0" text="# of Attractions" />
-            <TableColumn prefWidth="120.0" text="City Page" />
+          <TableColumn fx:id="cityCol" prefWidth="120.0" text="City" />
+          <TableColumn fx:id="avgRatingCol" prefWidth="120.0" text="Avg. Rating" />
+            <TableColumn fx:id="numRatingCol" prefWidth="120.0" text="Num. Ratings" />
+            <TableColumn fx:id="numAttractionCol" prefWidth="120.0" text="# of Attractions" />
+            <TableColumn fx:id="pageCol" prefWidth="120.0" text="City Page" />
         </columns>
       </TableView>
    </center>
