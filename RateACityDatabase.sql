@@ -272,7 +272,7 @@ INSERT INTO RATEACITY.CITY (CityEID, CityName, Country, State)
 INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
     VALUES
         (10
-        ,0
+        ,1
         ,'rob@gmail.com'
         ,'2017-06-14 00:30:00');
 

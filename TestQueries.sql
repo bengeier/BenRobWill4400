@@ -1,10 +1,7 @@
 #DROP Schema RateACity;
 #SELECT * FROM RateACity.Review AS E JOIN RateACity.City AS S ON E.ReviewableEID = S.CITYEID;
-/*(SELECT DISTINCT (CityName)
-FROM RateACity.REVIEWABLE_ENTITY NATURAL JOIN RateACity.CITY
-WHERE IsPending = 0
-ORDER BY CityName DESC) AS T 
-JOIN*/
+
+/**Pulls 4 columns from database for cities list*/
 SELECT City, AvgRating, NumRatings, NumAttractions FROM
 (SELECT * FROM
 (SELECT CityEID, CityName AS City, AVG(Rating) AS AvgRating, COUNT(Rating) AS NumRatings
@@ -17,19 +14,26 @@ JOIN RateACity.Reviewable_Entity AS R
 WHERE IsPending = 0 AND R.EntityID = CityEID
 ORDER BY City ASC) AS Result;
 
-/*
-#average rating for city
-SELECT AVG(Rating)
-FROM RateACity.Review AS E JOIN RateACity.CITY AS S ON E.ReviewableEID = S.CityEID;
 
-#counting number of ratings per city
-SELECT COUNT(*)
-FROM RateACity.Review AS E JOIN RateACity.City AS S ON E.ReviewableEID = S.CITYEID;
+/**Insert new data for New City Form*/
+/*INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+	VALUES(4,1,'monica@gatech.edu','2017-07-01 18:30:00');
+INSERT INTO RATEACITY.CITY (CityEID, CityName, Country, State)
+	VALUES(4,'Rome','Italy');
+*/
+    
+/**Pulls data for specific city for City Page */
+#SELECT AttractionName, StreetAddress,/* Category,*/ AvgRating, NumRatings FROM
+(SELECT * FROM
+(Select AttractionName, StreetAddress, Avg(Rating) as AvgRating, Count(Rating) as NumRatings
+FROM RateACity.Attraction AS A JOIN RateACity.City AS C #ON A.CityEID = 0
+JOIN RateACity.Review AS R #ON R.ReviewableEID = 0
+GROUP BY A.CityEID
+#WHERE
+#Falls_Under -> category
+) AS T
 
-#counting number of attractions per city	
-SELECT COUNT(*)
-FROM RateACity.Attraction E JOIN RateACity.CITY S ON E.CityEID = S.CityEID;
+)# AS Result
+;
 
-
-#INSERT INTO RateACity.CITY (CityEID, CityName, Country)*/
-
+SELECT * FROM RateACity.Attraction
