@@ -30,7 +30,7 @@ public class AllCitiesView {
     private TableView<City> citiesTable;
 
     @FXML
-    private TableColumn<City, String> cityCol, avgRatingCol, numRatingCol, numAttractionCol;
+    private TableColumn<City, String> cityCol, avgRatingCol, numRatingCol, numAttractionCol, link;
 
     @FXML
     public void initialize() {
@@ -55,6 +55,8 @@ public class AllCitiesView {
                 new PropertyValueFactory<City, String>("numRatings"));
         numAttractionCol.setCellValueFactory(
                 new PropertyValueFactory<City, String>("numAttractions"));
+        link.setCellValueFactory(
+                new PropertyValueFactory<City, String>("link"));
 
         citiesTable.setItems(AllCitiesListController.buildData());
     }
