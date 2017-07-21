@@ -6,8 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane fx:controller="main.java.view.UserView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.UserView">
    <top>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -25,7 +24,8 @@
             <GridPane>
               <columnConstraints>
                 <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="391.0" minWidth="10.0" prefWidth="365.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="292.0" minWidth="10.0" prefWidth="235.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="292.0" minWidth="10.0" prefWidth="161.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="292.0" minWidth="10.0" prefWidth="101.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -38,9 +38,15 @@
                   <TextField maxWidth="300.0" GridPane.rowIndex="1" />
                   <TextField maxWidth="300.0" GridPane.rowIndex="2" />
                   <Button mnemonicParsing="false" prefWidth="150.0" text="Search Attractions" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <ComboBox prefWidth="150.0" promptText="Cities" GridPane.columnIndex="1" />
-                  <ComboBox prefWidth="150.0" promptText="Sort" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <ComboBox prefWidth="150.0" promptText="Categories" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="cities" prefWidth="150.0" promptText="Cities" GridPane.columnIndex="1" />
+                  <ComboBox fx:id="sort" prefWidth="150.0" promptText="Sort" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <ComboBox fx:id="categories" prefWidth="150.0" promptText="Categories" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="search" mnemonicParsing="false" text="Search" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="15.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Label fx:id="searchFail" textFill="#eb0e0e" GridPane.rowIndex="3" />
                </children>
             </GridPane>
             <Button fx:id="viewAllAttractions" mnemonicParsing="false" prefWidth="150.0" text="View All Attractions">
