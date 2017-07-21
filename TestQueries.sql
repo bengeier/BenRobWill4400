@@ -1,10 +1,3 @@
-#DROP Schema RateACity;
-#SELECT * FROM RateACity.Review AS E JOIN RateACity.City AS S ON E.ReviewableEID = S.CITYEID;
-/*(SELECT DISTINCT (CityName)
-FROM RateACity.REVIEWABLE_ENTITY NATURAL JOIN RateACity.CITY
-WHERE IsPending = 0
-ORDER BY CityName DESC) AS T 
-JOIN*/
 
 /* 
 ----- CITY LIST -----
@@ -22,34 +15,30 @@ WHERE IsPending = 0 AND R.EntityID = CityEID
 ORDER BY City ASC) AS Result;
 
 /*
------ ATTRACTION LIST -----
+----- SAMPLE CITY PAGE -----
 */
-
-    
 /**Pulls data for specific city for City Page */
-#SELECT AttractionName, StreetAddress,/* Category,*/ AvgRating, NumRatings FROM
-(SELECT * FROM
-(Select AttractionName, StreetAddress, Country, State, F.CName, Avg(Rating) AS AvgRating, Count(Rating) AS NumRatings
-FROM RateACity.Attraction AS A JOIN RateACity.City AS C ON A.CityEID = C.CityEID
-JOIN RateACity.FALLS_UNDER AS F ON F.AttractionEID = A.AttractionEID
-JOIN RateACity.Category AS Cat ON Cat.CName = F.CName
-JOIN RateACity.REVIEWABLE_ENTITY AS R
-JOIN RateACity.Review AS Rev ON Rev.ReviewableEID = R.EntityID
-	WHERE IsPending = 0 AND R.EntityID = C.CityEID #AND Rev.ReviewableEID = R.EntityID
-    GROUP BY AttractionName
+/*TO DO: Get specific city's information*/
 
-#GROUP BY A.CityEID
+(SELECT CityName, AttractionName, StreetAddress, Country, State, CName, AvgRating, NumRatings FROM
+(Select CityName, AttractionEID, AttractionName, StreetAddress, Country, State, CName
+FROM RateACity.Attraction NATURAL JOIN RateACity.City 
+	NATURAL JOIN RateACity.FALLS_UNDER 
+	NATURAL JOIN RateACity.Category
+)AS U JOIN 
 
-#Falls_Under -> category
-) AS T
-
-)# AS Result
+(SELECT EntityID, Avg(Rating) AS AvgRating, Count(Rating) AS NumRatings
+FROM RateACity.REVIEWABLE_ENTITY AS R 
+	JOIN RateACity.Review AS Rev ON Rev.ReviewableEID = R.EntityID
+	WHERE IsPending = 0
+    GROUP BY EntityID
+) AS V 
+ON U.AttractionEID = V.EntityID)
 ;
 
-SELECT * FROM RateACity.Attraction;
-SELECT * FROM RateACity.FALLS_UNDER;
-
-
+/*
+----- ATTRACTION LIST -----
+*/
 select AttractionName, CName, CityName, AveRating, CountRating
 	from ((select * from rateacity.attraction 
 	natural left join rateacity.falls_under 
@@ -60,19 +49,4 @@ select AttractionName, CName, CityName, AveRating, CountRating
 		from rateacity.review group by ReviewableEID) as R 
 			on A.AttractionEID=R.ReviewableEID); 
 
-/*
-#average rating for city
-SELECT AVG(Rating)
-FROM RateACity.Review AS E JOIN RateACity.CITY AS S ON E.ReviewableEID = S.CityEID;
-
-#counting number of ratings per city
-SELECT COUNT(*)
-FROM RateACity.Review AS E JOIN RateACity.City AS S ON E.ReviewableEID = S.CITYEID;
-
-#counting number of attractions per city	
-SELECT COUNT(*)
-FROM RateACity.Attraction E JOIN RateACity.CITY S ON E.CityEID = S.CityEID;
-
-
-#INSERT INTO RateACity.CITY (CityEID, CityName, Country)*/
 
