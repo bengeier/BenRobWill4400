@@ -612,23 +612,23 @@ INSERT INTO RATEACITY.CATEGORY (CNAME)
 
 INSERT INTO RATEACITY.CATEGORY (CNAME)
 	VALUES
-		('Monuments');
+		('Monument');
 
 INSERT INTO RATEACITY.CATEGORY (CNAME)
 	VALUES
-		('Statues');
+		('Statue');
 
 INSERT INTO RATEACITY.CATEGORY (CNAME)
 	VALUES
-		('Churches');
+		('Church');
         
 INSERT INTO RATEACITY.CATEGORY (CNAME)
 	VALUES
-		('Plazas');
+		('Plaza');
         
 INSERT INTO RATEACITY.CATEGORY (CNAME)
 	VALUES
-		('Good View!');
+		('Good View');
 
 INSERT INTO RATEACITY.CATEGORY (CNAME)
 	VALUES
@@ -646,6 +646,9 @@ INSERT INTO RATEACITY.CATEGORY (CNAME)
 	VALUES
 		('Expensive');
         
+INSERT INTO RATEACITY.CATEGORY (CNAME)
+	VALUES
+		('Outdoors');
 /*
 ----- REVIEWS -----
 */
@@ -983,3 +986,100 @@ INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateD
     5, 
     'City', 
     '2017-06-14 00:00:00');
+
+/*
+----- FALLS_UNDER -----
+*/
+	/*Arc de Triomf, Spain*/
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(7,
+    'Monument');
+    /*Parc Guell*/
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(8,
+    'Outdoors');
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(8,
+    'Good View');
+    
+    /*La Sagrada Familia*/
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(9, 'Building');
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(9, 'Church');
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(9, 'Monument');
+
+	/*Beltline*/
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(10, 'Good View');
+    
+	/*Ponce City Market*/
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(11, 'Expensive');
+
+	/*North Avenue*/
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(12, 'Cheap');
+    
+	/*Eiffel Tower*/
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(13, 'Monument');
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(13, 'Good View');
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(13, 'Long Lines');
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(13, 'Expensive');
+
+	/*Arc de Triomphe, France*/
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(14, 'Monument');
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(14, 'Outdoors');
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(14, 'Good View');
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(14, 'Expensive');
+    
+	/*The Louvre*/
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(15, 'Building');
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(15, 'Long Lines');
+    
+    /*Fanueil Hall*/
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(16, 'Building');
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(16, 'Expensive');
+    
+    /*Boston Harbor*/
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(17, 'Good View');
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(17, 'Expensive');
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(17, 'Plaza');
+    
+    /*Boston Common*/
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(18, 'Outdoors');
+
+    /*Coliseum*/
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(19, 'Building');
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(19, 'Monument');
+    
+    /*The Forum*/
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(20, 'Plaza');
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(20, 'Building');
+    
+    
+    /*Spanish Steps*/
+INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
+	(21, 'Outdoors');
+    
