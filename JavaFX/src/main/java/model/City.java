@@ -9,6 +9,13 @@ public class City {
     private String numRatings;
     private String numAttractions;
 
+    public City (String city, String avgRating, String numRatings, String numAttractions) {
+        this.city = city;
+        this.avgRating = avgRating;
+        this.numRatings = numRatings;
+        this.numAttractions = numAttractions;
+    }
+
     public String getCity() {
         return city;
     }

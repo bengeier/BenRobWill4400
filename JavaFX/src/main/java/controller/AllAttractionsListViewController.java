@@ -2,6 +2,7 @@ package main.java.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import main.java.model.Attraction;
 import main.java.model.City;
 import main.java.sql.DBConnection;
 
@@ -9,13 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by Rob on 7/21/2017.
+ * Created by benge on 7/21/2017.
  */
-public class AllCitiesListController {
-
-    public static ObservableList<City> buildData() {
-        ObservableList<City> data = FXCollections.observableArrayList();
-        String cityQuery =
+public class AllAttractionsListViewController {
+    public static ObservableList<Attraction> buildData() {
+        ObservableList<Attraction> data = FXCollections.observableArrayList();
+        String attractionQuery =
                 "SELECT City, AvgRating, NumRatings, NumAttractions FROM\n" +
                         "(SELECT * FROM\n" +
                         "(SELECT CityEID, CityName AS City, AVG(Rating) AS AvgRating, COUNT(Rating) AS NumRatings\n" +
@@ -29,15 +29,18 @@ public class AllCitiesListController {
                         "ORDER BY City ASC) AS Result;";
 
         try {
-            ResultSet rs = DBConnection.connection.createStatement().executeQuery(cityQuery);
+            ResultSet rs = DBConnection.connection.createStatement().executeQuery(attractionQuery);
             while (rs.next()) {
-                City city = new City(
-                        rs.getString("City"),
-                        rs.getString("AvgRating"),
-                        rs.getString("NumRatings"),
-                        rs.getString("NumAttractions")
+                Attraction attraction = new Attraction(
+                        rs.getString("AttractionName"),
+                        rs.getString("CName"),
+                        rs.getString("CityName"),
+                        rs.getString("AveRating"),
+                        rs.getString("CountRating")
                 );
-                data.add(city);
+
+
+                data.add(attraction);
             }
             return data;
 
