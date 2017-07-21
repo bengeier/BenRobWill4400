@@ -22,7 +22,7 @@ public class AllCitiesListController {
                         "FROM RateACity.Review AS E JOIN RateACity.City AS S ON E.ReviewableEID=S.CityEID \n" +
                         "GROUP BY S.CITYEID) AS T \n" +
                         "NATURAL JOIN (SELECT S.CityEID, Count(AttractionEID) as NumAttractions \n" +
-                        "FROM RateACity.Attraction AS A JOIN RateACity.City AS S ON A.CityEID = S.CityEID\n" +
+                        "FROM RateACity.Attraction AS A RIGHT OUTER JOIN RateACity.City AS S ON A.CityEID = S.CityEID\n" +
                         "GROUP BY S.CityEID) AS U\n" +
                         "JOIN RateACity.Reviewable_Entity AS R\n" +
                         "WHERE IsPending = 0 AND R.EntityID = CityEID\n" +
