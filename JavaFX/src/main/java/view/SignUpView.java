@@ -19,7 +19,14 @@ import java.io.IOException;
  * Created by Rob on 7/6/2017.
  */
 public class SignUpView {
-    public static BorderPane instance = (BorderPane) FXBuilder.getFXMLView("SignUpPage.fxml");
+
+    private static String fxml = "SignUpPage.fxml";
+    private static BorderPane instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+
+    public static BorderPane getInstance() {
+        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+        return instance;
+    }
 
     @FXML
     Button backToLogin, signUp;
@@ -35,8 +42,10 @@ public class SignUpView {
 
     @FXML
     public void initialize() {
-        CurrentState.push(this.instance);
 
+        backToLogin.setOnAction((event -> {
+            RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
+        }));
 
         signUp.setOnAction((event -> {
             signUp();
@@ -73,7 +82,7 @@ public class SignUpView {
         } else {
             errorLabel.setText("Success!");
 
-            RootView.instance.setCenter(LoginView.instance);
+            RootView.instance.setCenter(LoginView.getInstance());
 
         }
         email.clear();

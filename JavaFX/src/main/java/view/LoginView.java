@@ -14,7 +14,14 @@ import main.java.model.CurrentState;
  * Created by Rob on 7/6/2017.
  */
 public class LoginView {
-    public static BorderPane instance = (BorderPane) FXBuilder.getFXMLView("LoginPage.fxml");
+
+    private static String fxml = "LoginPage.fxml";
+    private static BorderPane instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+
+    public static BorderPane getInstance() {
+        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+        return instance;
+    }
 
     @FXML
     private Button toSignUp, logIn;
@@ -31,12 +38,10 @@ public class LoginView {
     @FXML
     public void initialize() {
         toSignUp.setOnAction((event -> {
-            CurrentState.push(this.instance);
+            CurrentState.push(fxml);
 
-            RootView.instance.setCenter(SignUpView.instance);
+            RootView.instance.setCenter(SignUpView.getInstance());
         }));
-
-
 
         email.setOnKeyPressed(event -> {
             if (event.getCode().equals(KeyCode.ENTER)) {
@@ -54,12 +59,13 @@ public class LoginView {
     private void logIn() {
         loginResult.setText("");
         if (LoginController.login(email.getText(), password.getText()) == 2) {
-
             CurrentState.setEmail(email.getText());
-            RootView.instance.setCenter(ManagerView.instance);
+            RootView.instance.setCenter(ManagerView.getInstance());
+
         } else if (LoginController.login(email.getText(), password.getText()) == 1) {
             CurrentState.setEmail(email.getText());
-            RootView.instance.setCenter(UserView.instance);
+            RootView.instance.setCenter(UserView.getInstance());
+
         } else {
             loginResult.setText("Incorrect Username/Password.");
         }

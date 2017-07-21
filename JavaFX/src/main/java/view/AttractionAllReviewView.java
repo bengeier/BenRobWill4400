@@ -10,7 +10,14 @@ import main.java.model.CurrentState;
  */
 public class AttractionAllReviewView {
 
-    public static BorderPane instance = (BorderPane) FXBuilder.getFXMLView("AttractionAllReview.fxml");
+
+    private static String fxml = "AttractionAllReview.fxml";
+    private static BorderPane instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+
+    public static BorderPane getInstance() {
+        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+        return instance;
+    }
 
     @FXML
     Button reviewAttraction, back;
@@ -18,12 +25,12 @@ public class AttractionAllReviewView {
     @FXML
     public void initialize() {
         back.setOnAction((event -> {
-            RootView.instance.setCenter(CurrentState.pop());
-            CurrentState.push(this.instance);
+            RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
         }));
 
         reviewAttraction.setOnAction((event -> {
-            RootView.instance.setCenter(ReviewView.instance);
+            CurrentState.push(fxml);
+            RootView.instance.setCenter(ReviewView.getInstance());
         }));
     }
 }

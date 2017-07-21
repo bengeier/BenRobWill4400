@@ -20,13 +20,13 @@ public class CurrentState {
         email = e;
     }
 
-    private static Stack<BorderPane> lastVisited;
+    private static Stack<String> lastVisited = new Stack<>();
 
-    public static BorderPane pop() {
+    public static String pop() {
         return lastVisited.pop();
     }
 
-    public static void push(BorderPane x) {
+    public static void push(String x) {
         lastVisited.push(x);
     }
 }

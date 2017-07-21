@@ -18,7 +18,7 @@ public class Main extends Application {
         BorderPane root = RootView.instance;
         primaryStage.setTitle("Rate a City");
         primaryStage.setScene(new Scene(root, 800, 600));
-        BorderPane loginPane = LoginView.instance;
+        BorderPane loginPane = LoginView.getInstance();
         root.setCenter(loginPane);
         primaryStage.show();
 

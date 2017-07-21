@@ -3,12 +3,20 @@ package main.java.view;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import main.java.model.CurrentState;
 
 /**
  * Created by wepperson on 7/18/17.
  */
 public class ReviewView {
-    public static BorderPane instance = (BorderPane) FXBuilder.getFXMLView("ReviewPage.fxml");
+
+    private static String fxml = "ReviewPage.fxml";
+    private static BorderPane instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+
+    public static BorderPane getInstance() {
+        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+        return instance;
+    }
 
     @FXML
     Button submitReview, back;
@@ -16,7 +24,11 @@ public class ReviewView {
     @FXML
     public void initialize() {
         back.setOnAction((event -> {
-            RootView.instance.setCenter(UserView.instance);
+            RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
+        }));
+
+        submitReview.setOnAction((event -> {
+            // TODO
         }));
     }
 

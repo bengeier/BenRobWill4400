@@ -3,24 +3,31 @@ package main.java.view;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import main.java.model.CurrentState;
 
 /**
  * Created by wepperson on 7/18/17.
  */
 public class AllAttractionListView {
-    public static BorderPane instance = (BorderPane) FXBuilder.getFXMLView("AllAttractionList.fxml");
+    private static String fxml = "AllAttractionList.fxml";
+    private static BorderPane instance = (BorderPane) FXBuilder.getFXMLView(fxml);
 
+    public static BorderPane getInstance() {
+        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+        return instance;
+    }
     @FXML
     Button add, back;
 
     @FXML
     public void initialize() {
         back.setOnAction((event -> {
-            RootView.instance.setCenter(UserView.instance);
+            RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
         }));
 
         add.setOnAction((event -> {
-            RootView.instance.setCenter(NewAttractionView.instance);
+            CurrentState.push(fxml);
+            RootView.instance.setCenter(NewAttractionView.getInstance());
         }));
     }
 }

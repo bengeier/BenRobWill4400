@@ -5,20 +5,20 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
-import main.java.model.CurrentUser;
+import main.java.model.CurrentState;
 
 /**
  * Created by Rob on 7/6/2017.
  */
 public class UserView {
     // TODO: update other views to have private instance
-    public static BorderPane instance = (BorderPane) FXBuilder.getFXMLView("UserPage.fxml");
+    private static String fxml = "UserPage.fxml";
+    private static BorderPane instance = (BorderPane) FXBuilder.getFXMLView(fxml);
 
-    public BorderPane getInstance() {
-        instance = (BorderPane) FXBuilder.getFXMLView("UserPage.fxml");
+    public static BorderPane getInstance() {
+        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
         return instance;
     }
-
 
     @FXML
     private Button logOut, deleteAccount, myReviews, viewAllCities, viewAllAttractions;
@@ -28,10 +28,11 @@ public class UserView {
 
     @FXML
     public void initialize() {
-        welcomeMessage.setText(CurrentUser.getEmail());
+
+        welcomeMessage.setText("Welcome " + CurrentState.getEmail() + "!");
 
         logOut.setOnAction((event -> {
-            RootView.instance.setCenter(LoginView.instance);
+            RootView.instance.setCenter(LoginView.getInstance());
         }));
 
         deleteAccount.setOnAction((event -> {
@@ -45,15 +46,18 @@ public class UserView {
         }));
 
         viewAllCities.setOnAction((event -> {
-            RootView.instance.setCenter(AllCitiesView.instance);
+            CurrentState.push(fxml);
+            RootView.instance.setCenter(AllCitiesView.getInstance());
         }));
 
         myReviews.setOnAction((event -> {
-            RootView.instance.setCenter(UserReviewsView.instance);
+            CurrentState.push(fxml);
+            RootView.instance.setCenter(UserReviewsView.getInstance());
         }));
 
         viewAllAttractions.setOnAction((event -> {
-            RootView.instance.setCenter(AllAttractionListView.instance);
+            CurrentState.push(fxml);
+            RootView.instance.setCenter(AllAttractionListView.getInstance());
         }));
     }
 }

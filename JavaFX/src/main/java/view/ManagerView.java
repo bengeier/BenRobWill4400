@@ -4,8 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
-import javafx.scene.layout.VBox;
-import main.java.model.CurrentUser;
+import javafx.scene.layout.BorderPane;
+import main.java.model.CurrentState;
 
 import java.util.Optional;
 
@@ -14,10 +14,12 @@ import java.util.Optional;
  */
 public class ManagerView {
     // TODO: update other views to have private instance
-    static VBox instance = (VBox) FXBuilder.getFXMLView("ManagerPage.fxml");
 
-    public static VBox getInstance() {
-        instance = (VBox) FXBuilder.getFXMLView("ManagerPage.fxml");
+    private static String fxml = "ManagerPage.fxml";
+    private static BorderPane instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+
+    public static BorderPane getInstance() {
+        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
         return instance;
     }
 
@@ -30,27 +32,68 @@ public class ManagerView {
 
     @FXML
     public void initialize() {
-        welcomeMessage.setText("Welcome " + CurrentUser.getEmail());
+        welcomeMessage.setText("Welcome " + CurrentState.getEmail() + "!");
 
-        logOut.setOnAction((event -> RootView.instance.setCenter(LoginView.instance)));
+        logOut.setOnAction((event -> {
+            CurrentState.push(fxml);
+            RootView.instance.setCenter(LoginView.getInstance());
 
-        viewAllCities.setOnAction((event -> RootView.instance.setCenter(AllCitiesView.instance)));
+         }));
 
-        viewAllAttractions.setOnAction(event -> RootView.instance.setCenter(AllAttractionListView.instance));
+        viewAllCities.setOnAction((event -> {
+            CurrentState.push(fxml);
+            RootView.instance.setCenter(AllCitiesView.getInstance());
 
-        viewAllCategories.setOnAction(event -> RootView.instance.setCenter(CategoryView.instance));
+        }));
 
-        viewAllUsers.setOnAction(event -> RootView.instance.setCenter(AllUsersListView.instance));
+        viewAllAttractions.setOnAction((event -> {
+            CurrentState.push(fxml);
+            RootView.instance.setCenter(AllAttractionListView.getInstance());
 
-        viewPendingCities.setOnAction(event -> RootView.instance.setCenter(PendingCitiesListView.instance));
+        }));
 
-        viewPendingAttractions.setOnAction(event -> RootView.instance.setCenter(PendingAttractionsView.instance));
+        viewAllCategories.setOnAction((event -> {
+            CurrentState.push(fxml);
+            RootView.instance.setCenter(CategoryView.getInstance());
 
-        addNewCity.setOnAction((event -> RootView.instance.setCenter(NewCityView.instance)));
+        }));
 
-        addNewAttraction.setOnAction((event -> RootView.instance.setCenter(NewAttractionView.instance)));
+        viewAllUsers.setOnAction((event -> {
+            CurrentState.push(fxml);
+            RootView.instance.setCenter(AllUsersListView.getInstance());
 
-        addNewUser.setOnAction((event -> RootView.instance.setCenter(SignUpView.instance)));
+        }));
+
+        viewPendingCities.setOnAction((event -> {
+            CurrentState.push(fxml);
+            RootView.instance.setCenter(PendingCitiesListView.getInstance());
+
+        }));
+
+        viewPendingAttractions.setOnAction((event -> {
+            CurrentState.push(fxml);
+            RootView.instance.setCenter(PendingAttractionsView.getInstance());
+
+        }));
+
+        addNewCity.setOnAction((event -> {
+            CurrentState.push(fxml);
+            RootView.instance.setCenter(NewCityView.getInstance());
+
+        }));
+
+        addNewAttraction.setOnAction((event -> {
+            CurrentState.push(fxml);
+            RootView.instance.setCenter(NewAttractionView.getInstance());
+
+        }));
+
+        addNewUser.setOnAction((event -> {
+            CurrentState.push(fxml);
+            RootView.instance.setCenter(SignUpView.getInstance());
+
+        }));
+
 
         addNewCategory.setOnAction((event -> {
             TextInputDialog newCategoryDialog = new TextInputDialog();
