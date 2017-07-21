@@ -21,7 +21,7 @@ import java.io.IOException;
 public class SignUpView {
 
     private static String fxml = "SignUpPage.fxml";
-    private static BorderPane instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+    private static BorderPane instance;
 
     public static BorderPane getInstance() {
         instance = (BorderPane) FXBuilder.getFXMLView(fxml);

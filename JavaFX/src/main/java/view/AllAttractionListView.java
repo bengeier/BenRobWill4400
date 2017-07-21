@@ -9,13 +9,15 @@ import main.java.model.CurrentState;
  * Created by wepperson on 7/18/17.
  */
 public class AllAttractionListView {
+
     private static String fxml = "AllAttractionList.fxml";
-    private static BorderPane instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+    private static BorderPane instance;
 
     public static BorderPane getInstance() {
         instance = (BorderPane) FXBuilder.getFXMLView(fxml);
         return instance;
     }
+
     @FXML
     Button add, back;
 

@@ -12,7 +12,7 @@ import main.java.model.CurrentState;
 public class CategoryEditView {
 
     private static String fxml = "CategoryEditPage.fxml";
-    private static BorderPane instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+    private static BorderPane instance;
 
     public static BorderPane getInstance() {
         instance = (BorderPane) FXBuilder.getFXMLView(fxml);

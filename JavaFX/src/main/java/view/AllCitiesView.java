@@ -9,8 +9,9 @@ import main.java.model.CurrentState;
  * Created by Rob on 7/12/2017.
  */
 public class AllCitiesView {
+
     private static String fxml = "AllCitiesList.fxml";
-    private static BorderPane instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+    private static BorderPane instance;
 
     public static BorderPane getInstance() {
         instance = (BorderPane) FXBuilder.getFXMLView(fxml);

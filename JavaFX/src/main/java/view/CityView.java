@@ -11,7 +11,7 @@ import main.java.model.CurrentState;
 public class CityView {
 
     private static String fxml = "CityPage.fxml";
-    private static BorderPane instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+    private static BorderPane instance;
 
     public static BorderPane getInstance() {
         instance = (BorderPane) FXBuilder.getFXMLView(fxml);

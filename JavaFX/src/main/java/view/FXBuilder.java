@@ -17,7 +17,6 @@ public class FXBuilder {
      */
     public static Node getFXMLView(String fxmlName) {
         try {
-
             return FXMLLoader.load(FXBuilder.class.getResource("../../resources/view/" + fxmlName));
         } catch (IOException e) {
             System.out.println(e.getMessage());

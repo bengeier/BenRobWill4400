@@ -11,7 +11,7 @@ import main.java.model.CurrentState;
 public class PendingCitiesListView {
 
     private static String fxml = "PendingCitiesList.fxml";
-    private static BorderPane instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+    private static BorderPane instance;
 
     public static BorderPane getInstance() {
         instance = (BorderPane) FXBuilder.getFXMLView(fxml);

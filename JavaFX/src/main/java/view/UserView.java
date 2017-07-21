@@ -11,9 +11,9 @@ import main.java.model.CurrentState;
  * Created by Rob on 7/6/2017.
  */
 public class UserView {
-    // TODO: update other views to have private instance
+
     private static String fxml = "UserPage.fxml";
-    private static BorderPane instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+    private static BorderPane instance;
 
     public static BorderPane getInstance() {
         instance = (BorderPane) FXBuilder.getFXMLView(fxml);

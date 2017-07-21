@@ -10,9 +10,8 @@ import main.java.model.CurrentState;
  */
 public class CategoryView {
 
-
     private static String fxml = "CategoryPage.fxml";
-    private static BorderPane instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+    private static BorderPane instance;
 
     public static BorderPane getInstance() {
         instance = (BorderPane) FXBuilder.getFXMLView(fxml);

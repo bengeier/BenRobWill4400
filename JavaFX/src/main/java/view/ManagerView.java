@@ -16,7 +16,7 @@ public class ManagerView {
     // TODO: update other views to have private instance
 
     private static String fxml = "ManagerPage.fxml";
-    private static BorderPane instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+    private static BorderPane instance;
 
     public static BorderPane getInstance() {
         instance = (BorderPane) FXBuilder.getFXMLView(fxml);
