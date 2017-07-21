@@ -9,7 +9,14 @@ import main.java.model.CurrentState;
  * Created by Rob on 7/12/2017.
  */
 public class AllCitiesView {
-    public static BorderPane instance = (BorderPane) FXBuilder.getFXMLView("AllCitiesList.fxml");
+
+    private static String fxml = "AllCitiesList.fxml";
+    private static BorderPane instance;
+
+    public static BorderPane getInstance() {
+        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+        return instance;
+    }
 
     @FXML
     Button addNewCity, backToUser;
@@ -17,12 +24,12 @@ public class AllCitiesView {
     @FXML
     public void initialize() {
         backToUser.setOnAction((event -> {
-            CurrentState.push(this.instance);
-            RootView.instance.setCenter(CurrentState.pop());
+            RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
         }));
 
         addNewCity.setOnAction((event -> {
-            RootView.instance.setCenter(NewCityView.instance);
+            CurrentState.push(fxml);
+            RootView.instance.setCenter(NewCityView.getInstance());
         }));
     }
 }

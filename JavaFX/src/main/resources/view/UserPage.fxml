@@ -11,12 +11,7 @@
    <top>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="welcomeMessage" text="Welcome ">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <Label text="[INSERT EMAIL HERE]">
+            <Label fx:id="welcomeMessage" text="">
                <font>
                   <Font size="24.0" />
                </font>

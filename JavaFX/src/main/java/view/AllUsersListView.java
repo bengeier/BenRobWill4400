@@ -10,7 +10,14 @@ import main.java.model.CurrentState;
  * Created by wepperson on 7/18/17.
  */
 public class AllUsersListView {
-    public static BorderPane instance = (BorderPane) FXBuilder.getFXMLView("AllUsersList.fxml");
+
+    private static String fxml = "AllUsersList.fxml";
+    private static BorderPane instance;
+
+    public static BorderPane getInstance() {
+        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+        return instance;
+    }
 
     @FXML
     Button addUser, back;
@@ -18,12 +25,12 @@ public class AllUsersListView {
     @FXML
     public void initialize() {
         back.setOnAction((event -> {
-            RootView.instance.setCenter(CurrentState.pop());
-            CurrentState.push(this.instance);
+            RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
         }));
 
         addUser.setOnAction((event -> {
-            RootView.instance.setCenter(SignUpView.instance);
+            CurrentState.push(fxml);
+            RootView.instance.setCenter(SignUpView.getInstance());
         }));
     }
 

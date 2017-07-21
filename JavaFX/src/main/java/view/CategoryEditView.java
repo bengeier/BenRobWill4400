@@ -2,14 +2,22 @@ package main.java.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import main.java.model.CurrentState;
 
 /**
  * Created by wepperson on 7/18/17.
  */
 public class CategoryEditView {
 
-    public static VBox instance = (VBox) FXBuilder.getFXMLView("CategoryEditPage.fxml");
+    private static String fxml = "CategoryEditPage.fxml";
+    private static BorderPane instance;
+
+    public static BorderPane getInstance() {
+        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
+        return instance;
+    }
 
     @FXML
     Button back, submit;
@@ -17,7 +25,7 @@ public class CategoryEditView {
     @FXML
     public void initialize() {
         back.setOnAction((event -> {
-            RootView.instance.setCenter(AllAttractionListView.instance);
+            RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
         }));
 
         submit.setOnAction((event -> {
