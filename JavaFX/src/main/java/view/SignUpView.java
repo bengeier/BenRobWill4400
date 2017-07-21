@@ -11,6 +11,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import main.java.controller.LoginController;
 import main.java.controller.SignUpController;
+import main.java.model.CurrentState;
 
 import java.io.IOException;
 
@@ -34,9 +35,8 @@ public class SignUpView {
 
     @FXML
     public void initialize() {
-        backToLogin.setOnAction((event -> {
-            RootView.instance.setCenter(LoginView.instance);
-        }));
+        CurrentState.push(this.instance);
+
 
         signUp.setOnAction((event -> {
             signUp();
@@ -72,6 +72,7 @@ public class SignUpView {
             errorLabel.setText("Sign up failed!");
         } else {
             errorLabel.setText("Success!");
+
             RootView.instance.setCenter(LoginView.instance);
 
         }

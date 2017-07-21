@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import main.java.model.CurrentState;
 
 /**
  * Created by wepperson on 7/18/17.
@@ -17,7 +18,8 @@ public class AllUsersListView {
     @FXML
     public void initialize() {
         back.setOnAction((event -> {
-            RootView.instance.setCenter(ManagerView.instance);
+            RootView.instance.setCenter(CurrentState.pop());
+            CurrentState.push(this.instance);
         }));
 
         addUser.setOnAction((event -> {
