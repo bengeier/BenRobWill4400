@@ -25,15 +25,17 @@ INSERT INTO RATEACITY.CITY (CityEID, CityName, Country, State)
 /**Pulls data for specific city for City Page */
 #SELECT AttractionName, StreetAddress,/* Category,*/ AvgRating, NumRatings FROM
 (SELECT * FROM
-(Select AttractionName, StreetAddress, Country, State#, Category, Avg(Rating) AS AvgRating, Count(Rating) AS NumRatings
+(Select AttractionName, StreetAddress, Country, State, F.CName, Avg(Rating) AS AvgRating, Count(Rating) AS NumRatings
 FROM RateACity.Attraction AS A JOIN RateACity.City AS C ON A.CityEID = C.CityEID
-#JOIN RateACity.FALLS_UNDER AS F ON F.AttractionEID = A.AttractionEID
-#JOIN RateACity.Category AS Cat ON Cat.CName = F.CName
+JOIN RateACity.FALLS_UNDER AS F ON F.AttractionEID = A.AttractionEID
+JOIN RateACity.Category AS Cat ON Cat.CName = F.CName
 JOIN RateACity.REVIEWABLE_ENTITY AS R
-WHERE IsPending = 0 AND R.EntityID = C.CityEID
-#JOIN RateACity.Review AS R #ON R.ReviewableEID = 0
+JOIN RateACity.Review AS Rev ON Rev.ReviewableEID = R.EntityID
+	WHERE IsPending = 0 AND R.EntityID = C.CityEID #AND Rev.ReviewableEID = R.EntityID
+    GROUP BY AttractionName
+
 #GROUP BY A.CityEID
-#WHERE
+
 #Falls_Under -> category
 ) AS T
 
