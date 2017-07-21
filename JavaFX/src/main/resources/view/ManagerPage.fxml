@@ -46,22 +46,33 @@
                                 <Insets left="15.0" />
                             </GridPane.margin>
                         </TextField>
-                        <ComboBox prefWidth="150.0" promptText="Cities" GridPane.columnIndex="1" />
-                        <ComboBox prefWidth="150.0" promptText="Categories" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <ComboBox prefWidth="150.0" promptText="Sort" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Button mnemonicParsing="false" prefWidth="150.0" text="Search Attractions" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Button mnemonicParsing="false" prefWidth="150.0" text="Search Users" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <ComboBox fx:id="cities" prefWidth="150.0" promptText="Cities" GridPane.columnIndex="1" />
+                        <ComboBox fx:id="categories" prefWidth="150.0" promptText="Categories" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="sort" prefWidth="150.0" promptText="Sort" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Button fx:id="searchAttractions" mnemonicParsing="false" prefWidth="150.0" text="Search Attractions" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="searchUsers" mnemonicParsing="false" prefWidth="150.0" text="Search Users" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Button fx:id="search" mnemonicParsing="false" text="Search" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Label fx:id="searchFail" textFill="#e10c0c" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
                     </children>
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="424.0" minWidth="10.0" prefWidth="415.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="185.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="424.0" minWidth="10.0" prefWidth="363.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="152.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="92.0" />
                     </columnConstraints>
                     <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <padding>
                         <Insets bottom="15.0" />

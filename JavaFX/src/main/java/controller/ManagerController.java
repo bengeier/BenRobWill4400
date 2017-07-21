@@ -4,14 +4,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import main.java.sql.DBConnection;
 
-import java.sql.ParameterMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
  * Created by Rob on 7/21/2017.
  */
-public class UserController {
+public class ManagerController {
     public static ObservableList<String> cityNamesList() {
         return cityNamesList("");
     }

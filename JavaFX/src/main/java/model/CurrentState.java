@@ -11,6 +11,8 @@ import java.util.Stack;
 public class CurrentState {
 
     private static String email = "";
+    private static String currentCity = "";
+    private static String currentCategory = "";
 
     public static String getEmail() {
         return email;
@@ -28,5 +30,21 @@ public class CurrentState {
 
     public static void push(String x) {
         lastVisited.push(x);
+    }
+
+    public static String getCurrentCity() {
+        return currentCity;
+    }
+
+    public static void setCurrentCity(String currentCity) {
+        CurrentState.currentCity = currentCity;
+    }
+
+    public static String getCurrentCategory() {
+        return currentCategory;
+    }
+
+    public static void setCurrentCategory(String currentCategory) {
+        CurrentState.currentCategory = currentCategory;
     }
 }

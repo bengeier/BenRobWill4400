@@ -14,7 +14,7 @@
           <TableColumn fx:id="avgRatingCol" prefWidth="120.0" text="Avg. Rating" />
             <TableColumn fx:id="numRatingCol" prefWidth="120.0" text="Num. Ratings" />
             <TableColumn fx:id="numAttractionCol" prefWidth="120.0" text="# of Attractions" />
-            <TableColumn fx:id="pageCol" prefWidth="120.0" text="City Page" />
+            <TableColumn fx:id="link" prefWidth="120.0" text="City Page" />
         </columns>
       </TableView>
    </center>

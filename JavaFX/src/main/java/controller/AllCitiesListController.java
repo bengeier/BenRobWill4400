@@ -2,8 +2,15 @@ package main.java.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.Hyperlink;
 import main.java.model.City;
+import main.java.model.CurrentState;
 import main.java.sql.DBConnection;
+import main.java.view.CityView;
+import main.java.view.FXBuilder;
+import main.java.view.RootView;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -30,12 +37,33 @@ public class AllCitiesListController {
 
         try {
             ResultSet rs = DBConnection.connection.createStatement().executeQuery(cityQuery);
+
             while (rs.next()) {
-                City city = new City();
-                city.setCity(rs.getString("City"));
-                city.setAvgRating(rs.getString("AvgRating"));
-                city.setNumRatings(rs.getString("NumRatings"));
-                city.setNumAttractions(rs.getString("NumAttractions"));
+
+                Hyperlink link = new Hyperlink();
+                link.setText("City Page");
+
+                link.setOnAction((event -> {
+
+                    try {
+                        CurrentState.setCurrentCity(rs.getString("City"));
+                    } catch (SQLException e) {
+                        System.out.println(e.getMessage());
+                    }
+
+                    CurrentState.push("AllCitiesList.fxml");
+
+                    RootView.instance.setCenter(CityView.getInstance());
+
+                }));
+
+                City city = new City(
+                        rs.getString("City"),
+                        rs.getString("AvgRating"),
+                        rs.getString("NumRatings"),
+                        rs.getString("NumAttractions"),
+                        link
+                );
 
                 data.add(city);
             }

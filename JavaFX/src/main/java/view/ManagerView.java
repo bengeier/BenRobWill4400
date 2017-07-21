@@ -1,10 +1,14 @@
 package main.java.view;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.BorderPane;
+import main.java.controller.ManagerController;
+import main.java.controller.UserController;
 import main.java.model.CurrentState;
 
 import java.util.Optional;
@@ -25,14 +29,30 @@ public class ManagerView {
 
     @FXML
     private Button logOut, viewAllCities, viewAllAttractions, viewAllCategories, viewAllUsers, viewPendingCities,
-        viewPendingAttractions, addNewCity, addNewUser, addNewAttraction, addNewCategory;
+        viewPendingAttractions, addNewCity, addNewUser, addNewAttraction, addNewCategory, search, searchAllAttractions;
 
     @FXML
-    private Label welcomeMessage;
+    private Label welcomeMessage, searchFail;
+
+    @FXML
+    private ComboBox<String> cities, categories, sort;
 
     @FXML
     public void initialize() {
+        cities.setItems(ManagerController.cityNamesList(""));
+        categories.setItems(ManagerController.categoriesList(""));
+
         welcomeMessage.setText("Welcome " + CurrentState.getEmail() + "!");
+
+        search.setOnAction(event -> {
+            search();
+        });
+
+        sort.setItems(FXCollections.observableArrayList("A -> Z", "Z -> A"));
+        sort.valueProperty().addListener((observable, oldValue, newValue) -> {
+            cities.setItems(ManagerController.cityNamesList(newValue));
+            categories.setItems(ManagerController.categoriesList(newValue));
+        });
 
         logOut.setOnAction((event -> {
             CurrentState.push(fxml);
@@ -104,5 +124,19 @@ public class ManagerView {
             Optional<String> newCategory = newCategoryDialog.showAndWait();
             //TODO: add newCategory to database
         }));
+    }
+
+    @FXML
+    private void search() {
+        searchFail.setText("");
+        if (cities.getSelectionModel().isEmpty()) {
+            searchFail.setText("Please select a city");
+        }
+        CurrentState.setCurrentCity(cities.getValue());
+        if (!categories.getSelectionModel().isEmpty()) {
+            CurrentState.setCurrentCategory(categories.getValue());
+        }
+        CurrentState.push(fxml);
+        RootView.instance.setCenter(CityView.getInstance());
     }
 }

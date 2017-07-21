@@ -9,7 +9,7 @@
    <top>
       <VBox alignment="TOP_CENTER" prefHeight="79.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="[CITY NAME]">
+            <Label fx:id="cityName" text="[CITY NAME]">
                <font>
                   <Font size="36.0" />
                </font>
@@ -30,7 +30,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Attractions in [CITY NAME]" />
+                  <Label fx:id="cityAndCategory" text="Attractions in [CITY NAME]" />
                   <ComboBox prefWidth="150.0" promptText="Sort" GridPane.columnIndex="1" />
                </children>
             </GridPane>
