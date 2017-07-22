@@ -2,7 +2,10 @@ package main.java.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
+import main.java.model.City;
 import main.java.model.CurrentState;
 
 /**
@@ -19,10 +22,17 @@ public class PendingCitiesListView {
     }
 
     @FXML
+    private TableView<City> pendingCitiesTable;
+
+    @FXML
+    private TableColumn<City, String> cityCol, avgRatingCol, numRatingCol, numAttractionCol, link;
+
+    @FXML
     Button back;
 
     @FXML
     public void initialize() {
+        //updateTable();
         back.setOnAction((event -> {
             RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
         }));

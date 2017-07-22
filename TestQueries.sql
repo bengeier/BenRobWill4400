@@ -109,13 +109,14 @@ select AttractionName, CName, CityName, AveRating, CountRating
 /*
 ----- NEW ATTRACTION FORM -----
 */
-INSERT INTO RateACity.ATTRACTION(AttractionEID, CityEID, StreetAddress, AttractionName, Description)
-    VALUES
-        (11
-        ,1	/*Get selected city from dropdown input, second row*/
-        ,'Ponce de Leon Avenue' /*Get address input, third row*/
-        ,'Ponce City Market'	/*Get attraction name input, first row*/
-        ,'Pay too much for not enough');	/*Get attraction description input, 4th row*/
+
+#INSERT INTO RateACity.ATTRACTION(AttractionEID, CityEID, StreetAddress, AttractionName, Description)
+#    VALUES
+#        (11
+#        ,1	/*Get selected city from dropdown input, second row*/
+#        ,'Ponce de Leon Avenue' /*Get address input, third row*/
+#        ,'Ponce City Market'	/*Get attraction name input, first row*/
+#        ,'Pay too much for not enough');	/*Get attraction description input, 4th row*/
         
 #INSERT INTO RateACity.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) 
 #	VALUES 
@@ -133,7 +134,37 @@ INSERT INTO RateACity.ATTRACTION(AttractionEID, CityEID, StreetAddress, Attracti
 ----- MANAGER WELCOME PAGE -----
 */
 #Add new category
-INSERT INTO RateACity.CATEGORY (CNAME)
-	VALUES
-		('myCategory');
+#INSERT INTO RateACity.CATEGORY (CNAME) VALUES('myCategory');
 
+/*
+----- CATEGORIES -----
+*/
+
+/*
+----- USERS LIST -----
+*/
+
+/*
+----- PENDING CITIES -----
+*/
+(SELECT City, Country, UserEmail, Rating, Comment FROM
+(SELECT CityEID, CityName AS City, Country, Rating, Comment
+FROM RateACity.Review AS E JOIN RateACity.City AS S ON E.ReviewableEID=S.CityEID 
+/*GROUP BY S.CITYEID*/) AS T 
+JOIN RateACity.Reviewable_Entity AS R
+WHERE IsPending = 1 AND R.EntityID = CityEID
+ORDER BY City ASC);
+/*
+----- PENDING ATTRACTIONS -----
+*//*
+(SELECT AttractionName, City, StreetAddress, Country, Category, Description, UserEmail, Rating, Comment FROM
+(SELECT CityEID, CityName AS City, Country, Rating, Comment
+FROM RateACity.Attraction AS Attr 
+	NATURAL JOIN RateACity.City 
+    NATURAL JOIN RateACity.FALLS_UNDER
+    NATURAL JOIN RateACity.Category
+	JOIN RateACity.Reviewable_Entity AS RE ON RE.EntityID = CityEID
+    
+WHERE IsPending = 1 AND R.EntityID = CityEID
+ORDER BY City ASC) ;
+/*
