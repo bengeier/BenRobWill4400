@@ -2,13 +2,13 @@ package main.java.controller;
 
 import main.java.sql.DBConnection;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
- * Created by Will on 7/20/2017.
- */
+
 public class SignUpController {
 
     /**
@@ -20,7 +20,28 @@ public class SignUpController {
             throw new IllegalArgumentException("Email cannot be null.");
         }
 
-        String query = "INSERT INTO RATEACITY.USER (Email, Password) VALUES (\"" + email + "\"," + password + ");";
+        try {
+            // Create MessageDigest instance for MD5
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            //Add password bytes to digest
+            md.update(password.getBytes());
+            //Get the hash's bytes
+            byte[] bytes = md.digest();
+            //This bytes[] has bytes in decimal format;
+            //Convert it to hexadecimal format
+            StringBuilder sb = new StringBuilder();
+            for (byte aByte : bytes) {
+                sb.append(Integer.toString((aByte & 0xff) + 0x100, 16).substring(1));
+            }
+            //Get complete hashed password in hex format
+            password = sb.toString();
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
+
+        String query = "INSERT INTO RATEACITY.USER (Email, Password) VALUES (\"" + email + "\", \"" + password + "\"" + ");";
         System.out.println(query);
 
         try {

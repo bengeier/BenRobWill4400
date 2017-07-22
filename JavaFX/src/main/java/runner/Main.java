@@ -9,9 +9,7 @@ import main.java.sql.DBConnection;
 import main.java.view.LoginView;
 import main.java.view.RootView;
 
-/**
- * Created by Rob on 7/3/2017.
- */
+
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -24,7 +22,6 @@ public class Main extends Application {
 
         DBConnection.createConnection();
     }
-
 
     public static void main(String[] args) {
         launch(args);
