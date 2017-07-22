@@ -38,11 +38,14 @@ public class SignUpView {
     private PasswordField password1, password2;
 
     @FXML
-    private Label errorLabel;
+    private Label signUpLabel, errorLabel;
 
     @FXML
     public void initialize() {
-
+        if (CurrentState.isManagerView()) {
+            signUpLabel.setText("Add New User");
+            signUp.setText("Create");
+        }
         backToLogin.setOnAction((event -> {
             RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
         }));

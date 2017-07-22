@@ -47,7 +47,7 @@ public class CategoryView {
             Optional<String> newCategory = newCategoryDialog.showAndWait();
             addCategory(newCategory.get());
         }));
-        
+
     }
     private void addCategory(String categoryName) {
         NewCategoryController.addCategory(categoryName);
