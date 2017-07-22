@@ -75,7 +75,7 @@ public class AllCitiesView {
                         } else {
                             pageLink.setOnAction(event -> {
                                 City city = getTableView().getItems().get(getIndex());
-                                CurrentState.setCurrentCity(city.getCity());
+                                CurrentState.setCurrentCity(city);
                                 RootView.instance.setCenter(CityView.getInstance());
                             });
                             setGraphic(pageLink);

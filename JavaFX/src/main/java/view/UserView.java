@@ -10,6 +10,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import main.java.controller.UserController;
+import main.java.model.City;
 import main.java.model.CurrentState;
 
 /**
@@ -32,7 +33,10 @@ public class UserView {
     private Label welcomeMessage, searchFail;
 
     @FXML
-    private ComboBox<String> cities, categories, sort;
+    private ComboBox<City> cities;
+
+    @FXML
+    private ComboBox<String> categories, sort;
 
     @FXML
     public void initialize() {

@@ -1,30 +1,38 @@
 package main.java.model;
 
-import javafx.scene.control.Hyperlink;
-
 /**
  * Created by Rob on 7/21/2017.
  */
 public class City {
-    private String city;
+    private String cityEID;
+    private String cityName;
     private String avgRating;
     private String numRatings;
     private String numAttractions;
 
+    public City(String cityEID, String cityName) {
+        this(cityEID, cityName, null, null, null);
+    }
 
-    public City (String city, String avgRating, String numRatings, String numAttractions) {
-        this.city = city;
+    public City(String cityEID, String cityName, String avgRating, String numRatings, String numAttractions) {
+        this.cityEID = cityEID;
+        this.cityName = cityName;
         this.avgRating = avgRating;
         this.numRatings = numRatings;
         this.numAttractions = numAttractions;
     }
 
-    public String getCity() {
-        return city;
+    @Override
+    public String toString() {
+        return cityEID + " " + cityName;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public String getCityEID() {
+        return cityEID;
+    }
+
+    public void setCityEID(String city) {
+        this.cityEID = city;
     }
 
     public String getAvgRating() {
@@ -49,5 +57,13 @@ public class City {
 
     public void setNumAttractions(String numAttractions) {
         this.numAttractions = numAttractions;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 }

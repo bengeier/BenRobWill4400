@@ -23,7 +23,7 @@ public class AllCitiesListController {
     public static ObservableList<City> buildData() {
         ObservableList<City> data = FXCollections.observableArrayList();
         String cityQuery =
-                "SELECT City, AvgRating, NumRatings, NumAttractions FROM\n" +
+                "SELECT CityEID, City, AvgRating, NumRatings, NumAttractions FROM\n" +
                         "(SELECT * FROM\n" +
                         "(SELECT CityEID, CityName AS City, AVG(Rating) AS AvgRating, COUNT(Rating) AS NumRatings\n" +
                         "FROM RateACity.Review AS E JOIN RateACity.City AS S ON E.ReviewableEID=S.CityEID \n" +
@@ -40,12 +40,12 @@ public class AllCitiesListController {
 
             while (rs.next()) {
                 City city = new City(
+                        rs.getString("CityEID"),
                         rs.getString("City"),
                         rs.getString("AvgRating"),
                         rs.getString("NumRatings"),
                         rs.getString("NumAttractions")
                 );
-
                 data.add(city);
             }
             return data;

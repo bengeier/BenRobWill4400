@@ -12,22 +12,20 @@ import main.java.model.CurrentState;
 public class CityView {
 
     private static String fxml = "CityPage.fxml";
-    private static BorderPane instance;
 
     public static BorderPane getInstance() {
-        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
-        return instance;
+        return (BorderPane) FXBuilder.getFXMLView(fxml);
     }
 
     @FXML
-    Button reviewThisCity, viewAllReviews, back;
+    private Button reviewThisCity, viewAllReviews, back;
 
     @FXML
-    Label cityName, cityAndCategory;
+    private Label cityName, cityAndCategory;
 
     @FXML
     public void initialize() {
-        cityName.setText(CurrentState.getCurrentCity());
+        cityName.setText(CurrentState.getCurrentCity().getCityName());
         cityAndCategory.setText(CurrentState.getCurrentCategory()
                 + " Attractions in " + CurrentState.getCurrentCity());
 

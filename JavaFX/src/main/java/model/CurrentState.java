@@ -11,7 +11,7 @@ import java.util.Stack;
 public class CurrentState {
 
     private static String email = "";
-    private static String currentCity = "";
+    private static City currentCity;
     private static String currentCategory = "";
     private static String currentAttraction = "";
 
@@ -33,11 +33,11 @@ public class CurrentState {
         lastVisited.push(x);
     }
 
-    public static String getCurrentCity() {
+    public static City getCurrentCity() {
         return currentCity;
     }
 
-    public static void setCurrentCity(String currentCity) {
+    public static void setCurrentCity(City currentCity) {
         CurrentState.currentCity = currentCity;
     }
 
