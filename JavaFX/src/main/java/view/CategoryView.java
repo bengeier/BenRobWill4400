@@ -30,6 +30,7 @@ public class CategoryView {
         addCategory.setOnAction((event -> {
             CurrentState.push(fxml);
             RootView.instance.setCenter(CategoryEditView.getInstance());
+
         }));
     }
 }
