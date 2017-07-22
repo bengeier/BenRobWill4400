@@ -39,30 +39,11 @@ public class AllCitiesListController {
             ResultSet rs = DBConnection.connection.createStatement().executeQuery(cityQuery);
 
             while (rs.next()) {
-
-                Hyperlink link = new Hyperlink();
-                link.setText("City Page");
-
-                link.setOnAction((event -> {
-
-                    try {
-                        CurrentState.setCurrentCity(rs.getString("City"));
-                    } catch (SQLException e) {
-                        System.out.println(e.getMessage());
-                    }
-
-                    CurrentState.push("AllCitiesList.fxml");
-
-                    RootView.instance.setCenter(CityView.getInstance());
-
-                }));
-
                 City city = new City(
                         rs.getString("City"),
                         rs.getString("AvgRating"),
                         rs.getString("NumRatings"),
-                        rs.getString("NumAttractions"),
-                        link
+                        rs.getString("NumAttractions")
                 );
 
                 data.add(city);

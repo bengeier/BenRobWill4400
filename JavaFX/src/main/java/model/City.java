@@ -10,16 +10,13 @@ public class City {
     private String avgRating;
     private String numRatings;
     private String numAttractions;
-    private Hyperlink link;
 
 
-    public City (String city, String avgRating, String numRatings, String numAttractions, Hyperlink link) {
+    public City (String city, String avgRating, String numRatings, String numAttractions) {
         this.city = city;
         this.avgRating = avgRating;
         this.numRatings = numRatings;
         this.numAttractions = numAttractions;
-        this.link = link;
-
     }
 
     public String getCity() {
@@ -52,13 +49,5 @@ public class City {
 
     public void setNumAttractions(String numAttractions) {
         this.numAttractions = numAttractions;
-    }
-
-    public Hyperlink getLink() {
-        return link;
-    }
-
-    public void setLink(Hyperlink link) {
-        this.link = link;
     }
 }
