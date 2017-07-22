@@ -41,14 +41,14 @@ public class NewCityView{
         }));
 
         submit.setOnAction((event -> {
-            // TODO
             NewCityController.addNewCity(
-                    CurrentState.getEmail(),
                     nameField.getText(),
                     countryField.getText(),
                     stateField.getText(),
+                    ((Double) ratingSlider.getValue()).toString(),
                     commentField.getText()
                     );
+            RootView.instance.setCenter(CityView.getInstance());
         }));
     }
 }
