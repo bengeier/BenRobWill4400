@@ -11,15 +11,13 @@ public class Attraction {
     private String city;
     private String aveRating;
     private String numRatings;
-    private Hyperlink link;
 
-    public Attraction(String attraction, String category, String city, String aveRating, String numRatings, Hyperlink link) {
+    public Attraction(String attraction, String category, String city, String aveRating, String numRatings) {
         this.attraction = attraction;
         this.category = category;
         this.city = city;
         this.aveRating = aveRating;
         this.numRatings = numRatings;
-        this.link = link;
     }
 
     public String getAttraction() {
@@ -58,7 +56,4 @@ public class Attraction {
 
     public void setNumRatings(String numRatings) { this.numRatings = numRatings; }
 
-    public Hyperlink getLink() { return link; }
-
-    public void setLink(Hyperlink link) { this.link = link; }
 }

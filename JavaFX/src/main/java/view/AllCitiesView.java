@@ -64,7 +64,7 @@ public class AllCitiesView {
             @Override
             public TableCell<City, String> call(TableColumn<City, String> param) {
                 return new TableCell<City, String>() {
-                    final Hyperlink link1 = new Hyperlink("City Page");
+                    final Hyperlink pageLink = new Hyperlink("City Page");
 
                     @Override
                     public void updateItem(String item, boolean empty) {
@@ -73,12 +73,12 @@ public class AllCitiesView {
                             setGraphic(null);
                             setText(null);
                         } else {
-                            link1.setOnAction(event -> {
+                            pageLink.setOnAction(event -> {
                                 City city = getTableView().getItems().get(getIndex());
                                 CurrentState.setCurrentCity(city.getCity());
                                 RootView.instance.setCenter(CityView.getInstance());
                             });
-                            setGraphic(link1);
+                            setGraphic(pageLink);
                             setText(null);
                         }
                     }

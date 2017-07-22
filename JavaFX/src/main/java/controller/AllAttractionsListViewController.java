@@ -33,32 +33,12 @@ public class AllAttractionsListViewController {
 
 
             while (rs.next()) {
-
-                Hyperlink link = new Hyperlink();
-                link.setText("More Info");
-
-                link.setOnAction((event -> {
-
-                    try {
-                        CurrentState.setCurrentAttraction(rs.getString("AttractionName"));
-                        System.out.println(CurrentState.getCurrentAttraction());
-                    } catch (SQLException e) {
-                        System.out.println(e.getMessage());
-                    }
-
-                    CurrentState.push("AllAttractionList.fxml");
-
-                    RootView.instance.setCenter(AttractionView.getInstance());
-
-                }));
-
                 Attraction attraction = new Attraction(
                         rs.getString("AttractionName"),
                         rs.getString("CName"),
                         rs.getString("CityName"),
                         rs.getString("AveRating"),
-                        rs.getString("CountRating"),
-                        link
+                        rs.getString("CountRating")
                 );
 
                 data.add(attraction);

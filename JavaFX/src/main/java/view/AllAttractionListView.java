@@ -1,15 +1,14 @@
 package main.java.view;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+import javafx.util.Callback;
 import main.java.controller.AllAttractionsListViewController;
 import main.java.controller.AllCitiesListController;
 import main.java.model.Attraction;
-import main.java.model.City;
+import main.java.model.Attraction;
 import main.java.model.CurrentState;
 
 /**
@@ -26,7 +25,7 @@ public class AllAttractionListView {
     }
 
     @FXML
-    Button add, back;
+    private Button add, back;
 
     @FXML
     private TableView<Attraction> attractionsTable;
@@ -59,8 +58,37 @@ public class AllAttractionListView {
                 new PropertyValueFactory<>("aveRating"));
         numCol.setCellValueFactory(
                 new PropertyValueFactory<>("numRatings"));
-        link.setCellValueFactory(
-                new PropertyValueFactory<>("link"));
+        /*
+            Unfortunately this code works. You could probably refactor it idk
+         */
+        link.setCellValueFactory(new PropertyValueFactory<>("dummy"));
+        Callback<TableColumn<Attraction, String>, TableCell<Attraction, String>> cellFactory
+                = new Callback<TableColumn<Attraction, String>, TableCell<Attraction, String>>() {
+            @Override
+            public TableCell<Attraction, String> call(TableColumn<Attraction, String> param) {
+                return new TableCell<Attraction, String>() {
+                    final Hyperlink pageLink = new Hyperlink("Page");
+
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                            setText(null);
+                        } else {
+                            pageLink.setOnAction(event -> {
+                                Attraction attraction = getTableView().getItems().get(getIndex());
+                                CurrentState.setCurrentAttraction(attraction.getAttraction());
+                                RootView.instance.setCenter(AttractionView.getInstance());
+                            });
+                            setGraphic(pageLink);
+                            setText(null);
+                        }
+                    }
+                };
+            }
+        };
+        link.setCellFactory(cellFactory);
 
         attractionsTable.setItems(AllAttractionsListViewController.buildData());
     }

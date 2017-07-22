@@ -2,6 +2,7 @@ package main.java.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import main.java.model.CurrentState;
 
@@ -19,10 +20,15 @@ public class AttractionView {
     }
 
     @FXML
-    Button reviewThisAttraction, viewAllReviews, back;
+    private Button reviewThisAttraction, viewAllReviews, back;
+
+    @FXML
+    private Label attractionNameID;
 
     @FXML
     public void initialize() {
+        attractionNameID.setText(CurrentState.getCurrentAttraction());
+
         reviewThisAttraction.setOnAction((event -> {
             CurrentState.push(fxml);
             RootView.instance.setCenter(ReviewView.getInstance());
