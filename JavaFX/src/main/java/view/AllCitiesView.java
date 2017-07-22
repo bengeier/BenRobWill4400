@@ -48,15 +48,15 @@ public class AllCitiesView {
 
     private void updateTable() {
         cityCol.setCellValueFactory(
-                new PropertyValueFactory<City, String>("city"));
+                new PropertyValueFactory<>("city"));
         avgRatingCol.setCellValueFactory(
-                new PropertyValueFactory<City, String>("avgRating"));
+                new PropertyValueFactory<>("avgRating"));
         numRatingCol.setCellValueFactory(
-                new PropertyValueFactory<City, String>("numRatings"));
+                new PropertyValueFactory<>("numRatings"));
         numAttractionCol.setCellValueFactory(
-                new PropertyValueFactory<City, String>("numAttractions"));
+                new PropertyValueFactory<>("numAttractions"));
         link.setCellValueFactory(
-                new PropertyValueFactory<City, String>("link"));
+                new PropertyValueFactory<>("link"));
 
         citiesTable.setItems(AllCitiesListController.buildData());
     }

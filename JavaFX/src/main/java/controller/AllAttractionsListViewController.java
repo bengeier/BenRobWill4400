@@ -16,17 +16,12 @@ public class AllAttractionsListViewController {
     public static ObservableList<Attraction> buildData() {
         ObservableList<Attraction> data = FXCollections.observableArrayList();
         String attractionQuery =
-                "SELECT City, AvgRating, NumRatings, NumAttractions FROM\n" +
-                        "(SELECT * FROM\n" +
-                        "(SELECT CityEID, CityName AS City, AVG(Rating) AS AvgRating, COUNT(Rating) AS NumRatings\n" +
-                        "FROM RateACity.Review AS E JOIN RateACity.City AS S ON E.ReviewableEID=S.CityEID \n" +
-                        "GROUP BY S.CITYEID) AS T \n" +
-                        "NATURAL JOIN (SELECT S.CityEID, Count(AttractionEID) as NumAttractions \n" +
-                        "FROM RateACity.Attraction AS A RIGHT OUTER JOIN RateACity.City AS S ON A.CityEID = S.CityEID\n" +
-                        "GROUP BY S.CityEID) AS U\n" +
-                        "JOIN RateACity.Reviewable_Entity AS R\n" +
-                        "WHERE IsPending = 0 AND R.EntityID = CityEID\n" +
-                        "ORDER BY City ASC) AS Result;";
+                "select AttractionName, CName, CityName, AveRating, CountRating " +
+                        "from ((select * from rateacity.attraction natural left join rateacity.falls_under " +
+                        "natural left join rateacity.city inner join rateacity.reviewable_entity " +
+                        "where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0) " +
+                        "as A inner join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating " +
+                        "from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID)";
 
         try {
             ResultSet rs = DBConnection.connection.createStatement().executeQuery(attractionQuery);
@@ -38,7 +33,6 @@ public class AllAttractionsListViewController {
                         rs.getString("AveRating"),
                         rs.getString("CountRating")
                 );
-
 
                 data.add(attraction);
             }

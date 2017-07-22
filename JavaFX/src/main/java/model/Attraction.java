@@ -34,11 +34,11 @@ public class Attraction {
         this.category = category;
     }
 
-    public String getcity() {
+    public String getCity() {
         return city;
     }
 
-    public void setcity(String city) {
+    public void setCity(String city) {
         this.city = city;
     }
 
