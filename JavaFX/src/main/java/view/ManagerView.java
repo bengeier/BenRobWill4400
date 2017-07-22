@@ -15,9 +15,6 @@ import main.java.model.CurrentState;
 
 import java.util.Optional;
 
-/**
- * Created by Rob on 7/18/2017.
- */
 public class ManagerView {
     // TODO: update other views to have private instance
 

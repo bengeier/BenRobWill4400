@@ -8,9 +8,6 @@ import main.java.sql.DBConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Created by Rob on 7/21/2017.
- */
 public class ManagerController {
     public static ObservableList<City> cityNamesList() {
         return cityNamesList("");
