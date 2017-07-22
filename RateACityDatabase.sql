@@ -3,165 +3,140 @@
 */
 
 /* The 5 Managers */
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined, IsManager)
+INSERT INTO RATEACITY.USER (Email, Password, IsManager)
 	VALUES
 		('rob@gmail.com'
-        ,1337
-        ,'2017-06-14 00:00:00'
+        ,'81dc9bdb52d04dc20036dbd8313ed055'
         ,1);
         
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined, IsManager)
+INSERT INTO RATEACITY.USER (Email, Password, IsManager)
 	VALUES
 		('ben@yahoo.com'
-        ,8008
-        ,'2017-06-14 00:00:00'
+        ,'81dc9bdb52d04dc20036dbd8313ed055'
         ,1);
         
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined, IsManager)
+INSERT INTO RATEACITY.USER (Email, Password, IsManager)
 	VALUES
 		('will@hotmail.net'
-        ,6969
-        ,'2017-06-14 00:00:00'
+        ,'81dc9bdb52d04dc20036dbd8313ed055'
         ,1);
         
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined, IsManager)
+INSERT INTO RATEACITY.USER (Email, Password, IsManager)
 	VALUES
 		('michael@msn.com'
-        ,4000
-        ,'2017-06-14 00:00:00'
+        ,'81dc9bdb52d04dc20036dbd8313ed055'
         ,1);
         
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined, IsManager)
+INSERT INTO RATEACITY.USER (Email, Password, IsManager)
 	VALUES
 		('charlie@gmail.com'
-        ,1234
-        ,'2017-06-16 00:00:00'
+        ,'81dc9bdb52d04dc20036dbd8313ed055'
         ,1);
 
 /* The 3 Suspended Users*/
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined, IsSuspended)
+INSERT INTO RATEACITY.USER (Email, Password, IsSuspended)
 	VALUES
 		('annarise@me.com'
-        ,2345
-        ,'2017-07-15 00:00:00'
+        ,'81dc9bdb52d04dc20036dbd8313ed055'
         ,1);
 
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined, IsSuspended)
+INSERT INTO RATEACITY.USER (Email, Password, IsSuspended)
 	VALUES
 		('pravan@gmail.com'
-        ,7689
-        ,'2017-07-20 00:00:00'
+        ,'81dc9bdb52d04dc20036dbd8313ed055'
         ,1);
 
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined, IsSuspended)
+INSERT INTO RATEACITY.USER (Email, Password, IsSuspended)
 	VALUES
 		('randy@gmail.com'
-        ,9876
-        ,'2017-07-14 00:00:00'
+        ,'81dc9bdb52d04dc20036dbd8313ed055'
         ,1);
 
 /* The Other 17 Users*/
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined)
+INSERT INTO RATEACITY.USER (Email, Password)
 	VALUES
 		('aman@gmail.com'
-        ,3234
-        ,'2017-07-19 00:00:00');
+        ,'81dc9bdb52d04dc20036dbd8313ed055');
 
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined)
+INSERT INTO RATEACITY.USER (Email, Password)
 	VALUES
 		('chrisj@gmail.com'
-        ,2323
-        ,'2017-06-22 00:00:00');
+        ,'81dc9bdb52d04dc20036dbd8313ed055');
 
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined)
+INSERT INTO RATEACITY.USER (Email, Password)
 	VALUES
 		('john@me.com'
-        ,8987
-        ,'2017-06-29 00:00:00');
+        ,'81dc9bdb52d04dc20036dbd8313ed055');
 
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined)
+INSERT INTO RATEACITY.USER (Email, Password)
 	VALUES
 		('frank@furt.com'
-        ,6758
-        ,'2017-07-01 00:00:00');
+        ,'81dc9bdb52d04dc20036dbd8313ed055');
         
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined)
+INSERT INTO RATEACITY.USER (Email, Password)
 	VALUES
 		('hot@dog.com'
-        ,7575
-        ,'2017-07-02 00:00:00');
+        ,'81dc9bdb52d04dc20036dbd8313ed055');
 
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined)
+INSERT INTO RATEACITY.USER (Email, Password)
 	VALUES
 		('monica@gatech.edu'
-        ,4894
-        ,'2017-06-16 00:00:00');
+        ,'81dc9bdb52d04dc20036dbd8313ed055');
 
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined)
+INSERT INTO RATEACITY.USER (Email, Password)
 	VALUES
 		('harry@hotmail.net'
-        ,9398
-        ,'2017-07-04 00:00:00');
+        ,'81dc9bdb52d04dc20036dbd8313ed055');
 
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined)
+INSERT INTO RATEACITY.USER (Email, Password)
 	VALUES
 		('epp@erson.com'
-        ,4893
-        ,'2017-06-18 00:00:00');
+        ,'81dc9bdb52d04dc20036dbd8313ed055');
 
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined)
+INSERT INTO RATEACITY.USER (Email, Password)
 	VALUES
 		('sterling@archer.com'
-        ,1111
-        ,'2017-06-21 00:00:00');
+        ,'81dc9bdb52d04dc20036dbd8313ed055');
 
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined)
+INSERT INTO RATEACITY.USER (Email, Password)
 	VALUES
 		('bendover@aol.com'
-        ,2756
-        ,'2017-07-10 00:00:00');
+        ,'81dc9bdb52d04dc20036dbd8313ed055');
 
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined)
+INSERT INTO RATEACITY.USER (Email, Password)
 	VALUES
 		('mike@mike.com'
-        ,8888
-        ,'2017-07-01 00:00:00');
+        ,'81dc9bdb52d04dc20036dbd8313ed055');
 
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined)
+INSERT INTO RATEACITY.USER (Email, Password)
 	VALUES
 		('lopez@icloud.com'
-        ,7654
-        ,'2017-07-06 00:00:00');
+        ,'81dc9bdb52d04dc20036dbd8313ed055');
 
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined)
+INSERT INTO RATEACITY.USER (Email, Password)
 	VALUES
 		('cliff@me.com'
-        ,6969
-        ,'2017-06-12 00:00:00');
+        ,'81dc9bdb52d04dc20036dbd8313ed055');
 
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined)
+INSERT INTO RATEACITY.USER (Email, Password)
 	VALUES
 		('anthony@vr.com'
-        ,6785
-        ,'2017-06-25 00:00:00');
+        ,'81dc9bdb52d04dc20036dbd8313ed055');
 
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined)
+INSERT INTO RATEACITY.USER (Email, Password)
 	VALUES
 		('david@le.com'
-        ,9758
-        ,'2017-06-29 00:00:00');
+        ,'81dc9bdb52d04dc20036dbd8313ed055');
 
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined)
+INSERT INTO RATEACITY.USER (Email, Password)
 	VALUES
 		('ben@temple.com'
-        ,4858
-        ,'2017-06-30 00:00:00');
+        ,'81dc9bdb52d04dc20036dbd8313ed055');
 
-INSERT INTO RATEACITY.USER (Email, Password, DateJoined)
+INSERT INTO RATEACITY.USER (Email, Password)
 	VALUES
 		('yeezus@west.com'
-        ,9999
-        ,'2017-07-10 00:00:00');
+        ,'81dc9bdb52d04dc20036dbd8313ed055');
 
 /*
 ----- CITIES AND THEIR ATTRACTIONS-----
@@ -170,158 +145,142 @@ INSERT INTO RATEACITY.USER (Email, Password, DateJoined)
         /* 
             Barcelona 
         */ 
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
 	VALUES
 		(0
-        ,0
-        ,'rob@gmail.com'
-        ,'2017-06-14 00:30:00');
+        ,'rob@gmail.com');
 
 INSERT INTO RATEACITY.CITY (CityEID, CityName, Country)
 	VALUES
-		(0
+		(1
 		,'Barcelona'
 		,'Spain');
 
         /* Arc de Triomf */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
     VALUES
-        (7
-        ,0
-        ,'rob@gmail.com'
-        ,'2017-06-14 00:30:00');
+        (0
+        ,'rob@gmail.com');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
     VALUES
-        (7
-        ,0
+        (2
+        ,1
         ,'somewhere, spain'
         ,'Arc de Triomf'
         ,'Big Arc');
 
         /* Parc Guell */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
     VALUES
-        (8
-        ,0
-        ,'rob@gmail.com'
-        ,'2017-06-14 00:30:00');
+        (0
+        ,'rob@gmail.com');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
     VALUES
-        (8
-        ,0
+        (3
+        ,1
         ,'Mountains, spain'
         ,'Parc Guell'
         ,'Parc isnt spelled with a c.');
 
 INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
     VALUES
-        (8
+        (3
         ,'09:00 - sunset');
 
 INSERT INTO RATEACITY.contact_info (ContactInfo, AttractionEID)
 	VALUES
 		('678-624-5789'
-        ,8);
+        ,3);
 
         /* Segrada Familia */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
     VALUES
-        (9
-        ,1
-        ,'rob@gmail.com'
-        ,'2017-06-14 00:30:00');
+        (1
+        ,'rob@gmail.com');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
     VALUES
-        (9
-        ,0
+        (4
+        ,1
         ,'Near Us,spain'
         ,'Segrada Familia'
         ,'Almost done?');
 
 INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
     VALUES
-        (9
+        (4
         ,'09:00 - 07:00');
         
 INSERT INTO RATEACITY.contact_info (ContactInfo, AttractionEID)
 	VALUES
 		('678-624-5789'
-        ,9);
+        ,4);
 
         /* 
             Atlanta
         */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
 	VALUES
-		(1
-        ,0
-        ,'ben@yahoo.com'
-        ,'2017-06-14 06:15:00');
+		(0
+        ,'ben@yahoo.com');
 
 INSERT INTO RATEACITY.CITY (CityEID, CityName, Country, State)
 	VALUES
-		(1
+		(5
 		,'Atlanta'
 		,'United States of America'
 		,'Georgia');
 
         /* Beltline */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
     VALUES
-        (10
-        ,1
-        ,'rob@gmail.com'
-        ,'2017-06-14 00:30:00');
+        (1
+        ,'rob@gmail.com');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
     VALUES
-        (10
-        ,1
+        (6
+        ,5
         ,'Around Atlanta'
         ,'The Beltline'
         ,'Do you enjoy walking in circles?');
 
         /* Ponce City Market */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
     VALUES
-        (11
-        ,0
-        ,'rob@gmail.com'
-        ,'2017-06-14 00:30:00');
+        (0
+        ,'rob@gmail.com');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
     VALUES
-        (11
-        ,1
+        (7
+        ,5
         ,'Ponce de Leon Avenue'
         ,'Ponce City Market'
         ,'Pay too much for not enough');
 
 INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
     VALUES
-        (11
+        (7
         ,'09:00 - 05:00');
         
 INSERT INTO RATEACITY.contact_info (ContactInfo, AttractionEID)
 	VALUES
 		('678-624-5789'
-        ,11);
+        ,7);
 
         /* Georgia Tech */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
     VALUES
-        (12
-        ,0
-        ,'rob@gmail.com'
-        ,'2017-06-14 00:30:00');
+        (0
+        ,'rob@gmail.com');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
     VALUES
-        (12
-        ,1
+        (8
+        ,5
         ,'North Avenue'
         ,'Georgia Tech'
         ,'We can do that.');
@@ -329,158 +288,142 @@ INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, Attract
 INSERT INTO RATEACITY.contact_info (ContactInfo, AttractionEID)
 	VALUES
 		('678-624-5789'
-        ,12);
+        ,8);
 
         /* 
             Paris
         */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
 	VALUES
-		(2
-        ,0
-        ,'will@hotmail.net'
-        ,'2017-06-15 12:30:00');
+		(0
+        ,'will@hotmail.net');
 
 INSERT INTO RATEACITY.CITY (CityEID, CityName, Country)
 	VALUES
-		(2
+		(9
 		,'Paris'
 		,'France');
 
         /* Eiffel Tower */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
     VALUES
-        (13
-        ,0
-        ,'will@hotmail.net'
-        ,'2017-06-14 00:30:00');
+        (0
+        ,'will@hotmail.net');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
     VALUES
-        (13
-        ,2
+        (10
+        ,9
         ,'By the riva'
         ,'Eiffel Tower'
         ,'Its pointy.');
 
 INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
     VALUES
-        (13
+        (10
         ,'09:00 - sunset');
         
 INSERT INTO RATEACITY.contact_info (ContactInfo, AttractionEID)
 	VALUES
 		('678-624-5789'
-        ,13);
+        ,10);
 
         /* Arc de Triomf */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
     VALUES
-        (14
-        ,1
-        ,'will@hotmail.net'
-        ,'2017-06-14 00:30:00');
+        (1
+        ,'will@hotmail.net');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
     VALUES
-        (14
-        ,2
+        (11
+        ,9
         ,'Middle of the Street'
         ,'Arc de Triomf'
         ,'Spain times four!');
 
 INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
     VALUES
-        (14
+        (11
         ,'09:00 - sunset');
 
         /* The Louvre */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
     VALUES
-        (15
-        ,0
-        ,'will@hotmail.net'
-        ,'2017-06-14 00:30:00');
+        (0
+        ,'will@hotmail.net');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
     VALUES
-        (15
-        ,2
+        (12
+        ,9
         ,'In the Big Building'
         ,'The Louvre'
         ,'Also Pointy.');
 
 INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
     VALUES
-        (15
+        (12
         ,'09:00 - 05:00');
         
 INSERT INTO RATEACITY.contact_info (ContactInfo, AttractionEID)
 	VALUES
 		('678-624-5789'
-        ,15);
+        ,12);
 
         /*
             Boston 
         */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
 	VALUES
-		(3
-        ,0
-        ,'michael@msn.com'
-        ,'2017-06-25 14:00:00');
+		(0
+        ,'michael@msn.com');
 
 INSERT INTO RATEACITY.CITY (CityEID, CityName, Country, State)
 	VALUES
-		(3
+		(13
 		,'Boston'
 		,'United States of America'
 		,'Massachusetts');
 
         /* Fanevil */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
     VALUES
-        (16
-        ,0
-        ,'will@hotmail.net'
-        ,'2017-06-14 00:30:00');
+        (0
+        ,'will@hotmail.net');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
     VALUES
-        (16
-        ,3
+        (14
+        ,13
         ,'Old town'
         ,'Fanevil'
         ,'Old Shops');
 
         /* Boston Harbor */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
     VALUES
-        (17
-        ,0
-        ,'will@hotmail.net'
-        ,'2017-06-14 00:30:00');
+        (0
+        ,'will@hotmail.net');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
     VALUES
-        (17
-        ,3
+        (15
+        ,13
         ,'On the wata'
         ,'Boston Harbor'
         ,'Its wet.');
 
         /* Boston Common */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
     VALUES
-        (18
-        ,0
-        ,'will@hotmail.net'
-        ,'2017-06-14 00:30:00');
+        (0
+        ,'will@hotmail.net');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
     VALUES
-        (18
-        ,3
+        (16
+        ,13
         ,'In the Center'
         ,'Boston Common'
         ,'Very Central.');
@@ -488,34 +431,54 @@ INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, Attract
         /*
             Rome
         */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
 	VALUES
-		(4
-        ,0
-        ,'monica@gatech.edu'
-        ,'2017-07-01 18:30:00');
+		(0
+        ,'monica@gatech.edu');
 
 INSERT INTO RATEACITY.CITY (CityEID, CityName, Country)
 	VALUES
-		(4
+		(17
 		,'Rome'
 		,'Italy');
 
         /* The Colloseum */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
     VALUES
-        (19
-        ,0
-        ,'will@hotmail.net'
-        ,'2017-06-14 00:30:00');
+        (0
+        ,'will@hotmail.net');
+
+INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
+    VALUES
+        (18
+        ,17
+        ,'Caesar Avenue'
+        ,'The Colloseum'
+        ,'They had boat battles!');
+
+INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
+    VALUES
+        (18
+        ,'09:00 - sunset');
+
+INSERT INTO RATEACITY.contact_info (ContactInfo, AttractionEID)
+	VALUES
+		('678-624-5789'
+        ,18);
+
+        /* The Forum */
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
+    VALUES
+        (0
+        ,'will@hotmail.net');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
     VALUES
         (19
-        ,4
-        ,'Caesar Avenue'
-        ,'The Colloseum'
-        ,'They had boat battles!');
+        ,17
+        ,'Zeus Street'
+        ,'The Forum'
+        ,'Bigger than youd think!');
 
 INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
     VALUES
@@ -527,44 +490,16 @@ INSERT INTO RATEACITY.contact_info (ContactInfo, AttractionEID)
 		('678-624-5789'
         ,19);
 
-        /* The Forum */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
-    VALUES
-        (20
-        ,0
-        ,'will@hotmail.net'
-        ,'2017-06-14 00:30:00');
-
-INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
-    VALUES
-        (20
-        ,4
-        ,'Zeus Street'
-        ,'The Forum'
-        ,'Bigger than youd think!');
-
-INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
-    VALUES
-        (20
-        ,'09:00 - sunset');
-
-INSERT INTO RATEACITY.contact_info (ContactInfo, AttractionEID)
-	VALUES
-		('678-624-5789'
-        ,20);
-
         /* The Spanish Steps */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
     VALUES
-        (21
-        ,0
-        ,'will@hotmail.net'
-        ,'2017-06-14 00:30:00');
+        (0
+        ,'will@hotmail.net');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
     VALUES
-        (21
-        ,4
+        (20
+        ,17
         ,'Up the hill'
         ,'The Spanish Steps'
         ,'Steep');
@@ -572,32 +507,28 @@ INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, Attract
         /*
             Geneva
         */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
 	VALUES
-		(5
-        ,1
-        ,'anthony@vr.com'
-        ,'2017-06-30 20:30:00');
+		(1
+        ,'anthony@vr.com');
 
 INSERT INTO RATEACITY.CITY (CityEID, CityName, Country)
 	VALUES
-		(5
+		(21
 		,'Geneva'
 		,'Switzerland');
 
         /*
             Yeezy Land
         */
-INSERT INTO RATEACITY.REVIEWABLE_ENTITY (EntityID, IsPending, UserEmail, SubmitDate)
+INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
 	VALUES
-		(6
-        ,1
-        ,'yeezus@west.com'
-        ,'2017-07-10 12:34:00');
+		(1
+        ,'yeezus@west.com');
 
 INSERT INTO RATEACITY.CITY (CityEID, CityName, Country, State)
 	VALUES
-		(6
+		(22
 		,'West World'
 		,'Yeezy Land'
         ,'Narnia');
@@ -652,340 +583,287 @@ INSERT INTO RATEACITY.CATEGORY (CNAME)
 /*
 ----- REVIEWS -----
 */
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('rob@gmail.com', 
-    0, 
+    22, 
     1, 
-    'I', 
-    '2017-04-14 02:00:00');
-INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'I');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('ben@yahoo.com', 
-    0, 
+    22, 
     3, 
-    'hdkaslf sadjfkalj sdafjkldsj', 
-    '2017-04-16 00:00:00');
+    'hdkaslf sadjfkalj sdafjkldsj');
 
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('michael@msn.com', 
-    0, 
+    22, 
     5, 
-    'sdfjklsadj sjdfklsj sdjfkl', 
-    '2017-06-14 00:02:00');
+    'sdfjklsadj sjdfklsj sdjfkl');
 
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('charlie@gmail.com', 
     1, 
     4, 
-    'This', 
-    '2017-06-14 00:00:00');
+    'This');
 
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('michael@msn.com', 
     2, 
     5, 
-    'City', 
-    '2017-06-14 20:00:00');
+    'City');
     
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('rob@gmail.com', 
     3, 
     1, 
-    'I', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'I');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('ben@yahoo.com', 
     3, 
     3, 
-    'Love', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'Love');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('will@hotmail.net', 
     3, 
     4, 
-    'This', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'This');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('michael@msn.com', 
     3, 
     5, 
-    'City', 
-    '2017-06-14 00:00:00');
+    'City');
     
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('rob@gmail.com', 
     4, 
     1, 
-    'I', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'I');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('ben@yahoo.com', 
     4, 
     3, 
-    'Love', 
-    '2017-06-14 00:00:00');
+    'Love');
 
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('michael@msn.com', 
     4, 
     5, 
-    'City', 
-    '2017-06-14 00:00:00');
+    'City');
     
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('rob@gmail.com', 
     5, 
     1, 
-    'I', 
-    '2017-06-14 00:00:00');
+    'I');
 
-
-
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('michael@msn.com', 
     6, 
     5, 
-    'City', 
-    '2017-06-14 00:00:00');
+    'City');
     
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('rob@gmail.com', 
     7, 
     1, 
-    'I', 
-    '2017-06-14 00:00:00');
+    'I');
 
 
     
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('rob@gmail.com', 
     8, 
     1, 
-    'I', 
-    '2017-06-14 00:00:00');
+    'I');
 
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('michael@msn.com', 
     8, 
     0, 
-    'City', 
-    '2017-06-14 00:00:00');
+    'City');
     
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('michael@msn.com', 
     9, 
     5, 
-    'City', 
-    '2017-06-14 00:00:00');
+    'City');
     
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('rob@gmail.com', 
     10, 
     1, 
-    'I', 
-    '2017-06-14 00:00:00');
+    'I');
 
     
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('rob@gmail.com', 
     11, 
     1, 
-    'I', 
-    '2017-06-14 00:00:00');
+    'I');
 
     
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('rob@gmail.com', 
     12, 
     1, 
-    'I', 
-    '2017-06-14 00:00:00');
+    'I');
 
     
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('rob@gmail.com', 
     13, 
     1, 
-    'I', 
-    '2017-06-14 00:00:00');
+    'I');
 
-
-INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('ben@yahoo.com', 
     14, 
     3, 
-    'Love', 
-    '2017-06-14 00:00:00');
+    'Love');
 
     
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('rob@gmail.com', 
     15, 
     1, 
-    'I', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'I');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('ben@yahoo.com', 
     15, 
     3, 
-    'Love', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'Love');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('will@hotmail.net', 
     15, 
     4, 
-    'This', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'This');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('michael@msn.com', 
     15, 
     5, 
-    'City', 
-    '2017-06-14 00:00:00');
+    'City');
     
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('rob@gmail.com', 
     16, 
     5, 
-    'I', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'I');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('ben@yahoo.com', 
     16, 
     5, 
-    'Love', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'Love');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('yeezus@west.com', 
     16, 
     1, 
-    'This', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'This');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('hot@dog.com', 
     16, 
     1, 
-    'sfdjkl sdjfkl sdjfkl', 
-    '2017-06-14 00:00:00');
+    'sfdjkl sdjfkl sdjfkl');
     
 
-INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('ben@yahoo.com', 
     17, 
     3, 
-    'ajsfkdl sdajklf; sadfjkl;', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'ajsfkdl sdajklf; sadfjkl;');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('harry@hotmail.net', 
     17, 
     4, 
-    'This', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'This');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('michael@msn.com', 
     17, 
     5, 
-    'City', 
-    '2017-06-14 00:00:00');
+    'City');
     
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('frank@furt.com', 
     18, 
     1, 
-    'I', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'I');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('ben@yahoo.com', 
     18, 
     3, 
-    'Love', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'Love');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('will@hotmail.net', 
     18, 
     4, 
-    'ajdfskl ajskl; sdfj;', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'ajdfskl ajskl; sdfj;');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('michael@msn.com', 
     18, 
     5, 
-    'City', 
-    '2017-06-14 00:00:00');
+    'City');
     
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('rob@gmail.com', 
     19, 
     1, 
-    'I', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'I');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('ben@yahoo.com', 
     19, 
     3, 
-    'Love', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'Love');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('david@le.com', 
     19, 
     4, 
-    'This', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'This');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('michael@msn.com', 
     19, 
     5, 
-    'City', 
-    '2017-06-14 00:00:00');
+    'City');
     
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('rob@gmail.com', 
     20, 
     1, 
-    'I', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'I');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('ben@yahoo.com', 
     20, 
     3, 
-    'Love', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'Love');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('cliff@me.com', 
     20, 
     4, 
-    'This', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'This');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('michael@msn.com', 
     20, 
     5, 
-    'City', 
-    '2017-06-14 00:00:00');
+    'City');
     
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('rob@gmail.com', 
     21, 
     1, 
-    'I', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW(UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'I');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('ben@yahoo.com', 
     21, 
     3, 
-    'Love', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'Love');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('chrisj@gmail.com', 
     21, 
     4, 
-    'This', 
-    '2017-06-14 00:00:00');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) VALUES 
+    'This');
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
     ('ben@temple.com', 
     21, 
     5, 
-    'City', 
-    '2017-06-14 00:00:00');
+    'City');
 
 /*
 ----- FALLS_UNDER -----
@@ -1004,11 +882,11 @@ INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES
     
     /*La Sagrada Familia*/
 INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
-	(9, 'Building');
+	(2, 'Building');
 INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
-	(9, 'Church');
+	(2, 'Church');
 INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
-	(9, 'Monument');
+	(2, 'Monument');
 
 	/*Beltline*/
 INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
@@ -1024,13 +902,13 @@ INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES
     
 	/*Eiffel Tower*/
 INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
-	(13, 'Monument');
+	(3, 'Monument');
 INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
-	(13, 'Good View');
+	(3, 'Good View');
 INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
-	(13, 'Long Lines');
+	(3, 'Long Lines');
 INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
-	(13, 'Expensive');
+	(3, 'Expensive');
 
 	/*Arc de Triomphe, France*/
 INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
@@ -1056,11 +934,11 @@ INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES
     
     /*Boston Harbor*/
 INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
-	(17, 'Good View');
+	(4, 'Good View');
 INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
-	(17, 'Expensive');
+	(4, 'Expensive');
 INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
-	(17, 'Plaza');
+	(4, 'Plaza');
     
     /*Boston Common*/
 INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
@@ -1081,5 +959,5 @@ INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES
     
     /*Spanish Steps*/
 INSERT INTO RATEACITY.FALLS_UNDER (AttractionEID, CName) VALUES 
-	(21, 'Outdoors');
+	(6, 'Outdoors');
     
