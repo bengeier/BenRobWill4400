@@ -5,6 +5,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import main.java.model.CurrentState;
+import main.java.sql.DBConnection;
+
+import java.sql.ResultSet;
 
 /**
  * Created by wepperson on 7/12/17.
@@ -12,22 +15,20 @@ import main.java.model.CurrentState;
 public class AttractionView {
 
     private static String fxml = "AttractionPage.fxml";
-    private static BorderPane instance;
 
     public static BorderPane getInstance() {
-        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
-        return instance;
+        return (BorderPane) FXBuilder.getFXMLView(fxml);
     }
 
     @FXML
     private Button reviewThisAttraction, viewAllReviews, back;
 
     @FXML
-    private Label attractionNameID;
+    private Label attractionNameID, descriptionID, averageRatingID, hoursOfOperationID, contactInfoID, categoryID;
 
     @FXML
     public void initialize() {
-        attractionNameID.setText(CurrentState.getCurrentAttraction());
+        attractionNameID.setText(CurrentState.getCurrentAttraction().getAttractionName());
 
         reviewThisAttraction.setOnAction((event -> {
             CurrentState.push(fxml);

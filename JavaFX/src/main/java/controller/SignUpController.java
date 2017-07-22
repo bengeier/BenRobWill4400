@@ -42,7 +42,6 @@ public class SignUpController {
         }
 
         String query = "INSERT INTO RATEACITY.USER (Email, Password) VALUES (\"" + email + "\", \"" + password + "\"" + ");";
-        System.out.println(query);
 
         try {
             Statement stmt = DBConnection.connection.createStatement();

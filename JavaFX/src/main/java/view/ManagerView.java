@@ -60,8 +60,8 @@ public class ManagerView {
 
         logOut.setOnAction((event -> {
             CurrentState.push(fxml);
+            CurrentState.setManagerView(false);
             RootView.instance.setCenter(LoginView.getInstance());
-
          }));
 
         viewAllCities.setOnAction((event -> {

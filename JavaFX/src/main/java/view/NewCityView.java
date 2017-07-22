@@ -2,8 +2,13 @@ package main.java.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import main.java.controller.NewCityController;
 import main.java.model.CurrentState;
+
+import javax.xml.soap.Text;
 
 /**
  * Created by Michael Xiao Local on 7/12/2017.
@@ -12,24 +17,38 @@ import main.java.model.CurrentState;
 public class NewCityView{
 
     private static String fxml = "NewCityForm.fxml";
-    private static BorderPane instance;
 
     public static BorderPane getInstance() {
-        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
-        return instance;
+        return (BorderPane) FXBuilder.getFXMLView(fxml);
     }
 
     @FXML
-    Button back, submit;
+    private Button back, submit;
+
+    @FXML
+    private TextField nameField, countryField, stateField, commentField;
+
+    @FXML
+    private Slider ratingSlider;
 
     @FXML
     public void initialize() {
+        if (CurrentState.isManagerView()) {
+            submit.setText("Submit");
+        }
         back.setOnAction((event -> {
             RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
         }));
 
         submit.setOnAction((event -> {
             // TODO
+            NewCityController.addNewCity(
+                    CurrentState.getEmail(),
+                    nameField.getText(),
+                    countryField.getText(),
+                    stateField.getText(),
+                    commentField.getText()
+                    );
         }));
     }
 }

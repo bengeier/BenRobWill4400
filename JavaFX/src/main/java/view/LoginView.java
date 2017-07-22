@@ -37,6 +37,8 @@ public class LoginView {
 
     @FXML
     public void initialize() {
+        logIn.setOnAction(event -> logIn());
+
         toSignUp.setOnAction((event -> {
             CurrentState.push(fxml);
 
@@ -60,8 +62,8 @@ public class LoginView {
         loginResult.setText("");
         if (LoginController.login(email.getText(), password.getText()) == 2) {
             CurrentState.setEmail(email.getText());
+            CurrentState.setManagerView(true);
             RootView.instance.setCenter(ManagerView.getInstance());
-
         } else if (LoginController.login(email.getText(), password.getText()) == 1) {
             CurrentState.setEmail(email.getText());
             RootView.instance.setCenter(UserView.getInstance());

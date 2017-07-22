@@ -76,7 +76,7 @@ public class AllAttractionListView {
                         } else {
                             pageLink.setOnAction(event -> {
                                 Attraction attraction = getTableView().getItems().get(getIndex());
-                                CurrentState.setCurrentAttraction(attraction.getAttractionName());
+                                CurrentState.setCurrentAttraction(attraction);
                                 CurrentState.push(fxml);
                                 RootView.instance.setCenter(AttractionView.getInstance());
                             });

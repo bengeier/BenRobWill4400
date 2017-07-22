@@ -13,7 +13,8 @@ public class CurrentState {
     private static String email = "";
     private static City currentCity;
     private static String currentCategory = "";
-    private static String currentAttraction = "";
+    private static Attraction currentAttraction;
+    private static boolean managerView = false;
 
     public static String getEmail() {
         return email;
@@ -49,7 +50,15 @@ public class CurrentState {
         CurrentState.currentCategory = currentCategory;
     }
 
-    public static String getCurrentAttraction() { return currentAttraction; }
+    public static Attraction getCurrentAttraction() { return currentAttraction; }
 
-    public static void setCurrentAttraction(String currentAttraction) {CurrentState.currentAttraction = currentAttraction; }
+    public static void setCurrentAttraction(Attraction currentAttraction) {CurrentState.currentAttraction = currentAttraction; }
+
+    public static boolean isManagerView() {
+        return managerView;
+    }
+
+    public static void setManagerView(boolean managerView) {
+        CurrentState.managerView = managerView;
+    }
 }
