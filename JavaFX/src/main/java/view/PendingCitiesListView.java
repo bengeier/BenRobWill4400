@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
-import main.java.model.City;
+import main.java.model.PendingCity;
 import main.java.model.CurrentState;
 
 /**
@@ -22,10 +22,11 @@ public class PendingCitiesListView {
     }
 
     @FXML
-    private TableView<City> pendingCitiesTable;
+    private TableView<PendingCity> pendingCitiesTable;
 
     @FXML
-    private TableColumn<City, String> cityCol, avgRatingCol, numRatingCol, numAttractionCol, link;
+    private TableColumn<PendingCity, String> cityNameCol, countryCol, submittedByCol,
+            ratingCol, commentCol, approveCol, deleteCol;
 
     @FXML
     Button back;
