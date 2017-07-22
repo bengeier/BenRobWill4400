@@ -83,11 +83,12 @@ public class SignUpView {
             // sign up failed
             errorLabel.setText("Sign up failed! Try another email.");
         } else {
+
             errorLabel.setText("Success!");
             email.clear();
             password1.clear();
             password2.clear();
-            RootView.instance.setCenter(LoginView.getInstance());
+            RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
 
         }
 
