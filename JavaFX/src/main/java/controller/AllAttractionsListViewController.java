@@ -2,9 +2,14 @@ package main.java.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Hyperlink;
 import main.java.model.Attraction;
 import main.java.model.City;
+import main.java.model.CurrentState;
 import main.java.sql.DBConnection;
+import main.java.view.AttractionView;
+import main.java.view.CityView;
+import main.java.view.RootView;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,13 +30,35 @@ public class AllAttractionsListViewController {
 
         try {
             ResultSet rs = DBConnection.connection.createStatement().executeQuery(attractionQuery);
+
+
             while (rs.next()) {
+
+                Hyperlink link = new Hyperlink();
+                link.setText("More Info");
+
+                link.setOnAction((event -> {
+
+                    try {
+                        CurrentState.setCurrentAttraction(rs.getString("AttractionName"));
+                        System.out.println(CurrentState.getCurrentAttraction());
+                    } catch (SQLException e) {
+                        System.out.println(e.getMessage());
+                    }
+
+                    CurrentState.push("AllAttractionList.fxml");
+
+                    RootView.instance.setCenter(AttractionView.getInstance());
+
+                }));
+
                 Attraction attraction = new Attraction(
                         rs.getString("AttractionName"),
                         rs.getString("CName"),
                         rs.getString("CityName"),
                         rs.getString("AveRating"),
-                        rs.getString("CountRating")
+                        rs.getString("CountRating"),
+                        link
                 );
 
                 data.add(attraction);

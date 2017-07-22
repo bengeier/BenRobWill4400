@@ -32,7 +32,7 @@ public class AllAttractionListView {
     private TableView<Attraction> attractionsTable;
 
     @FXML
-    private TableColumn<Attraction, String> nameCol, categoryCol, locationCol, avgCol, numCol;
+    private TableColumn<Attraction, String> nameCol, categoryCol, locationCol, avgCol, numCol, link;
 
     @FXML
     public void initialize() {
@@ -59,7 +59,8 @@ public class AllAttractionListView {
                 new PropertyValueFactory<>("aveRating"));
         numCol.setCellValueFactory(
                 new PropertyValueFactory<>("numRatings"));
-
+        link.setCellValueFactory(
+                new PropertyValueFactory<>("link"));
 
         attractionsTable.setItems(AllAttractionsListViewController.buildData());
     }

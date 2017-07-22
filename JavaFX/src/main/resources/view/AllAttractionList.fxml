@@ -19,7 +19,7 @@
                 <TableColumn fx:id="locationCol" prefWidth="120.0" text="Location (city)" />
                 <TableColumn fx:id="avgCol" prefWidth="120.0" text="Avg. Rating" />
                 <TableColumn fx:id="numCol" prefWidth="120.0" text="# Ratings" />
-            <TableColumn fx:id="infoCol" prefWidth="120.0" text="More Info" />
+            <TableColumn fx:id="link" prefWidth="120.0" text="More Info" />
             </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

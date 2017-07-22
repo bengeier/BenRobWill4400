@@ -13,6 +13,7 @@ public class CurrentState {
     private static String email = "";
     private static String currentCity = "";
     private static String currentCategory = "";
+    private static String currentAttraction = "";
 
     public static String getEmail() {
         return email;
@@ -47,4 +48,8 @@ public class CurrentState {
     public static void setCurrentCategory(String currentCategory) {
         CurrentState.currentCategory = currentCategory;
     }
+
+    public static String getCurrentAttraction() { return currentAttraction; }
+
+    public static void setCurrentAttraction(String currentAttraction) {CurrentState.currentAttraction = currentAttraction; }
 }
