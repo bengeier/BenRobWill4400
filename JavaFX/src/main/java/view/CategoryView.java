@@ -2,8 +2,11 @@ package main.java.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.BorderPane;
 import main.java.model.CurrentState;
+
+import java.util.Optional;
 
 /**
  * Created by wepperson on 7/18/17.
@@ -28,9 +31,13 @@ public class CategoryView {
         }));
 
         addCategory.setOnAction((event -> {
-            CurrentState.push(fxml);
-            RootView.instance.setCenter(CategoryEditView.getInstance());
+            TextInputDialog newCategoryDialog = new TextInputDialog();
+            newCategoryDialog.setTitle("New Category");
+            newCategoryDialog.setHeaderText("What is the Name of the New Category?");
+            newCategoryDialog.setContentText("Please Enter a Name:");
 
+            Optional<String> newCategory = newCategoryDialog.showAndWait();
+            //TODO: add newCategory to database
         }));
     }
 }
