@@ -34,6 +34,26 @@ FROM RateACity.REVIEWABLE_ENTITY AS R
 ) AS V 
 ON U.AttractionEID = V.EntityID)
 ;
+/*
+----- City Review / Update Review Form -----
+*/
+#insert new review
+INSERT INTO RateACity.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) 
+	VALUES 
+    (/*get current user email,*/
+    /*get current city EID,*/ 
+    /*get rating input,*/ 
+    /*get comment input,*/ 
+    /*get current date*/);
+    
+#update old review
+UPDATE RateACity.REVIEW
+	SET Rating = 0/*get rating input*/, Comment = ''/*get comment input*/
+    WHERE (UserEmail = ''/*get current user email*/ 
+    AND ReviewableEID = 0/*get current cities' EID*/);
+#delete old review
+DELETE FROM RateACity.REVIEW   
+	WHERE UserEmail = ''/*get current user email*/ AND ReviewableEID = 0/*get current cities' EID*/);
 
 /*
 ----- ATTRACTION LIST -----
