@@ -38,6 +38,7 @@ public class CategoryView {
         }));
 
         addCategory.setOnAction((event -> {
+
             TextInputDialog newCategoryDialog = new TextInputDialog();
             newCategoryDialog.setTitle("New Category");
             newCategoryDialog.setHeaderText("What is the Name of the New Category?");
@@ -45,11 +46,9 @@ public class CategoryView {
 
             Optional<String> newCategory = newCategoryDialog.showAndWait();
             addCategory(newCategory.get());
-
-
         }));
+        
     }
-    @FXML
     private void addCategory(String categoryName) {
         NewCategoryController.addCategory(categoryName);
         RootView.instance.setCenter(CategoryView.getInstance());

@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.BorderPane;
 import main.java.controller.ManagerController;
+import main.java.controller.NewCategoryController;
 import main.java.controller.UserController;
 import main.java.model.City;
 import main.java.model.CurrentState;
@@ -126,7 +127,7 @@ public class ManagerView {
             newCategoryDialog.setContentText("Please Enter a Name:");
 
             Optional<String> newCategory = newCategoryDialog.showAndWait();
-            //TODO: add newCategory to database
+            addCategory(newCategory.get());
         }));
     }
 
@@ -142,6 +143,13 @@ public class ManagerView {
         }
         CurrentState.push(fxml);
         RootView.instance.setCenter(CityView.getInstance());
+    }
+    @FXML
+    private void addCategory(String categoryName) {
+        NewCategoryController.addCategory(categoryName);
+        CurrentState.push(fxml);
+        RootView.instance.setCenter(CategoryView.getInstance());
+
     }
 
 }
