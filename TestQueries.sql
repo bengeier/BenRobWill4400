@@ -128,3 +128,12 @@ INSERT INTO RateACity.ATTRACTION(AttractionEID, CityEID, StreetAddress, Attracti
  SELECT CityEID 
 	FROM RateACity.CITY
     WHERE CityName = ''/*city name from dropdown menu, second row*/; 
+    
+/*
+----- MANAGER WELCOME PAGE -----
+*/
+#Add new category
+INSERT INTO RateACity.CATEGORY (CNAME)
+	VALUES
+		('myCategory');
+

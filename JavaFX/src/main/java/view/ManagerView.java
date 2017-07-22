@@ -143,4 +143,5 @@ public class ManagerView {
         CurrentState.push(fxml);
         RootView.instance.setCenter(CityView.getInstance());
     }
+
 }

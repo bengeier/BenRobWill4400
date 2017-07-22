@@ -2,8 +2,12 @@ package main.java.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
+import main.java.controller.NewCategoryController;
 import main.java.model.CurrentState;
 
 import java.util.Optional;
@@ -25,6 +29,9 @@ public class CategoryView {
     Button addCategory, back;
 
     @FXML
+    private Label errorLabel;
+
+    @FXML
     public void initialize() {
         back.setOnAction((event -> {
             RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
@@ -37,7 +44,15 @@ public class CategoryView {
             newCategoryDialog.setContentText("Please Enter a Name:");
 
             Optional<String> newCategory = newCategoryDialog.showAndWait();
-            //TODO: add newCategory to database
+            addCategory(newCategory.get());
+
+
         }));
+    }
+    @FXML
+    private void addCategory(String categoryName) {
+        NewCategoryController.addCategory(categoryName);
+        RootView.instance.setCenter(CategoryView.getInstance());
+
     }
 }
