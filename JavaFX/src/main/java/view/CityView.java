@@ -27,7 +27,7 @@ public class CityView {
     public void initialize() {
         cityName.setText(CurrentState.getCurrentCity().getCityName());
         cityAndCategory.setText(CurrentState.getCurrentCategory()
-                + " Attractions in " + CurrentState.getCurrentCity());
+                + " Attractions in " + CurrentState.getCurrentCity().getCityName());
 
         reviewThisCity.setOnAction((event -> {
             CurrentState.push(fxml);
@@ -39,8 +39,6 @@ public class CityView {
             RootView.instance.setCenter(CityAllReviewView.getInstance());
         }));
 
-        back.setOnAction((event -> {
-            RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
-        }));
+        back.setOnAction((event -> RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()))));
     }
 }

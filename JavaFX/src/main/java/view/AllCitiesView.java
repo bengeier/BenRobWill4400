@@ -15,11 +15,9 @@ import main.java.model.CurrentState;
 public class AllCitiesView {
 
     private static String fxml = "AllCitiesList.fxml";
-    private static BorderPane instance;
 
     public static BorderPane getInstance() {
-        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
-        return instance;
+        return (BorderPane) FXBuilder.getFXMLView(fxml);
     }
 
     @FXML
@@ -35,9 +33,7 @@ public class AllCitiesView {
     public void initialize() {
         updateTable();
 
-        backToUser.setOnAction((event -> {
-            RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
-        }));
+        backToUser.setOnAction((event -> RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()))));
 
         addNewCity.setOnAction((event -> {
             CurrentState.push(fxml);
@@ -47,7 +43,7 @@ public class AllCitiesView {
 
     private void updateTable() {
         cityCol.setCellValueFactory(
-                new PropertyValueFactory<>("city"));
+                new PropertyValueFactory<>("cityName"));
         avgRatingCol.setCellValueFactory(
                 new PropertyValueFactory<>("avgRating"));
         numRatingCol.setCellValueFactory(
@@ -75,6 +71,7 @@ public class AllCitiesView {
                         } else {
                             pageLink.setOnAction(event -> {
                                 City city = getTableView().getItems().get(getIndex());
+                                System.out.println(city.getCityName());
                                 CurrentState.setCurrentCity(city);
                                 RootView.instance.setCenter(CityView.getInstance());
                             });
