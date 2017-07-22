@@ -1,5 +1,8 @@
 package main.java.controller;
 
+import java.sql.Statement;
+
+import main.java.model.City;
 import main.java.model.CurrentState;
 import main.java.sql.DBConnection;
 
@@ -12,21 +15,43 @@ import java.sql.SQLException;
 public class NewCityController {
 
     public static boolean addNewCity(String name, String country, String state, String rating, String comment) {
+
+        // Creates Reviewable_Entity
         String insertReviewableQuery =
                 "INSERT INTO RateACity.Reviewable_Entity(isPending, userEmail)" +
-                        " OUTPUT Inserted.EntityID" +
-                        " VALUES(" + (CurrentState.isManagerView() ? 0 : 1) + ", " + CurrentState.getEmail() + ")";
+                        " VALUES (" + (CurrentState.isManagerView() ? 0 : 1) + ", \'" + CurrentState.getEmail() + "\');";
         String insertCityQuery;
+        int lastIndex = -1;
         try {
-            DBConnection.connection.createStatement().executeQuery(insertReviewableQuery);
+            Statement stmt = DBConnection.connection.createStatement();
+            stmt.executeUpdate(insertReviewableQuery, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet rs = stmt.getGeneratedKeys();
+            if (rs.next()){
+                lastIndex = rs.getInt(1);
+            }
+            rs.close();
+            stmt.close();
+
+            CurrentState.setCurrentCity(new City(((Integer) lastIndex).toString(), name, rating, "1", "0"));
+
+            // Creates City
             if (state.length() == 0) {
                 insertCityQuery = "INSERT INTO RateACity.City(CityEID, CityName, Country)"
-                        + " VALUES(LAST_INSERT_ID(), " + name + ", " + country + ")";
+                        + " VALUES (" + lastIndex + ", \'" + name + "\', \'" + country + "\');";
+                System.out.println(insertCityQuery);
             } else {
                 insertCityQuery = "INSERT INTO RateACity.City(CityEID, CityName, Country, State)"
-                        + " VALUES(LAST_INSERT_ID(), " + name + ", " + country + ", " + state + ")";
+                        + " VALUES (" + lastIndex + ", \'" + name + "\', \'" + country + "\', \'" + state + "\');";
             }
-            DBConnection.connection.createStatement().executeQuery(insertCityQuery);
+
+            DBConnection.connection.createStatement().executeUpdate(insertCityQuery);
+
+            // Creates first review
+            String insertReviewQuery = "INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES " +
+                    "( \'" + CurrentState.getEmail() +"\', \'" + lastIndex + "\', \'" + rating + "\', \'" + comment + "\');";
+
+            DBConnection.connection.createStatement().executeUpdate(insertReviewQuery);
             return true;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
