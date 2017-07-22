@@ -198,7 +198,7 @@ INSERT INTO RATEACITY.contact_info (ContactInfo, AttractionEID)
 INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
     VALUES
         (1
-        ,'rob@gmail.com');
+        ,'epp@erson.com');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
     VALUES
@@ -237,7 +237,7 @@ INSERT INTO RATEACITY.CITY (CityEID, CityName, Country, State)
 INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
     VALUES
         (1
-        ,'rob@gmail.com');
+        ,'epp@erson.com');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
     VALUES
@@ -332,7 +332,7 @@ INSERT INTO RATEACITY.contact_info (ContactInfo, AttractionEID)
 INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
     VALUES
         (1
-        ,'will@hotmail.net');
+        ,'epp@erson.com');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
     VALUES
@@ -351,7 +351,7 @@ INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
 INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
     VALUES
         (0
-        ,'will@hotmail.net');
+        ,'epp@erson.com');
 
 INSERT INTO RATEACITY.ATTRACTION (AttractionEID, CityEID, StreetAddress, AttractionName, Description)
     VALUES
@@ -583,25 +583,15 @@ INSERT INTO RATEACITY.CATEGORY (CNAME)
 /*
 ----- REVIEWS -----
 */
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
-    ('rob@gmail.com', 
-    22, 
-    1, 
-    'I');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
-    ('ben@yahoo.com', 
-    22, 
-    3, 
-    'hdkaslf sadjfkalj sdafjkldsj');
 
 INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
-    ('michael@msn.com', 
+    ('yeezus@west.com', 
     22, 
     5, 
     'sdfjklsadj sjdfklsj sdjfkl');
 
 INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
-    ('charlie@gmail.com', 
+    ('ben@temple.com', 
     1, 
     4, 
     'This');
@@ -613,7 +603,7 @@ INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES
     'City');
     
 INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
-    ('rob@gmail.com', 
+    ('aman@gmail.com', 
     3, 
     1, 
     'I');
@@ -634,30 +624,19 @@ INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES
     'City');
     
 INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
-    ('rob@gmail.com', 
+    ('epp@erson.com', 
     4, 
     1, 
     'I');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
-    ('ben@yahoo.com', 
-    4, 
-    3, 
-    'Love');
-
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
-    ('michael@msn.com', 
-    4, 
-    5, 
-    'City');
     
 INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
-    ('rob@gmail.com', 
+    ('bendover@aol.com', 
     5, 
     1, 
     'I');
 
 INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
-    ('michael@msn.com', 
+    ('epp@erson.com', 
     6, 
     5, 
     'City');
@@ -696,21 +675,21 @@ INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES
 
     
 INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
-    ('rob@gmail.com', 
+    ('will@hotmail.net', 
     11, 
     1, 
     'I');
 
     
 INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
-    ('rob@gmail.com', 
+    ('monica@gatech.edu', 
     12, 
     1, 
     'I');
 
     
 INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
-    ('rob@gmail.com', 
+    ('hot@dog.com', 
     13, 
     1, 
     'I');
@@ -845,25 +824,10 @@ INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES
     'City');
     
 INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
-    ('rob@gmail.com', 
+    ('anthony@vr.com', 
     21, 
     1, 
     'I');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
-    ('ben@yahoo.com', 
-    21, 
-    3, 
-    'Love');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
-    ('chrisj@gmail.com', 
-    21, 
-    4, 
-    'This');
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
-    ('ben@temple.com', 
-    21, 
-    5, 
-    'City');
 
 /*
 ----- FALLS_UNDER -----
