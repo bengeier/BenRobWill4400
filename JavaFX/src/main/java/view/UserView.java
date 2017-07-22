@@ -12,6 +12,10 @@ import javafx.scene.layout.BorderPane;
 import main.java.controller.UserController;
 import main.java.model.City;
 import main.java.model.CurrentState;
+import main.java.sql.DBConnection;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /**
  * Created by Rob on 7/6/2017.
@@ -27,7 +31,7 @@ public class UserView {
     }
 
     @FXML
-    private Button logOut, deleteAccount, myReviews, viewAllCities, viewAllAttractions, search;
+    private Button logOut, delete, myReviews, viewAllCities, viewAllAttractions, search;
 
     @FXML
     private Label welcomeMessage, searchFail;
@@ -59,7 +63,7 @@ public class UserView {
             RootView.instance.setCenter(LoginView.getInstance());
         }));
 
-        deleteAccount.setOnAction((event -> {
+        delete.setOnAction((event -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirm Delete Account");
             alert.setHeaderText("Are You Sure?");
@@ -67,6 +71,16 @@ public class UserView {
                 + "reviews, pending attractions, and pending cities. This action "
                 + "cannot be undone. Do you wish to proceed?");
             alert.showAndWait();
+
+            try {
+                PreparedStatement deleteUser = DBConnection.connection.prepareStatement(
+                        "delete from rateacity.user where Email=" + "\'" + CurrentState.getEmail() + "\'");
+                deleteUser.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+
+            RootView.instance.setCenter(LoginView.getInstance());
         }));
 
         viewAllCities.setOnAction((event -> {

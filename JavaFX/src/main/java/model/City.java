@@ -24,7 +24,7 @@ public class City {
 
     @Override
     public String toString() {
-        return cityEID + " " + cityName;
+        return cityName;
     }
 
     public String getCityEID() {
