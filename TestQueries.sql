@@ -13,6 +13,10 @@ JOIN RateACity.Reviewable_Entity AS R
 WHERE IsPending = 0 AND R.EntityID = CityEID
 ORDER BY City ASC) AS Result;
 
+/* 
+----- NEW CITY FORM -----
+*/
+
 /*
 ----- SAMPLE CITY PAGE -----
 */
@@ -35,25 +39,59 @@ FROM RateACity.REVIEWABLE_ENTITY AS R
 ON U.AttractionEID = V.EntityID)
 ;
 /*
------ City Review / Update Review Form -----
+----- CITY REVIEW / UPDATE REVIEW FORM-----
 */
 #insert new review
-INSERT INTO RateACity.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) 
-	VALUES 
-    (/*get current user email,*/
+#INSERT INTO RateACity.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) 
+#	VALUES 
+ #   (/*get current user email,*/
     /*get current city EID,*/ 
     /*get rating input,*/ 
     /*get comment input,*/ 
-    /*get current date*/);
+ #   /*get current date*/);
     
 #update old review
-UPDATE RateACity.REVIEW
-	SET Rating = 0/*get rating input*/, Comment = ''/*get comment input*/
-    WHERE (UserEmail = ''/*get current user email*/ 
-    AND ReviewableEID = 0/*get current cities' EID*/);
+#UPDATE RateACity.REVIEW
+#	SET Rating = 0/*get rating input*/, Comment = ''/*get comment input*/
+#    WHERE (UserEmail = ''/*get current user email*/ 
+#    AND ReviewableEID = 0/*get current cities' EID*/);
+
 #delete old review
-DELETE FROM RateACity.REVIEW   
-	WHERE UserEmail = ''/*get current user email*/ AND ReviewableEID = 0/*get current cities' EID*/);
+#DELETE FROM RateACity.REVIEW   
+#	WHERE UserEmail = ''/*get current user email*/ AND ReviewableEID = 0/*get current cities' EID*/);
+
+
+/*
+----- CITY REVIEWS PAGE -----
+*/
+#populate tables
+SELECT Email, Rating, Comment FROM
+	(SELECT * FROM RateACity.USER
+	NATURAL LEFT JOIN RateACity.REVIEW) AS RESULT
+    
+    /*+ order by through java controller, make different sort.setItems
+    and listeners for value property (see UserView's sort) */
+;
+#manager option to delete review
+#DELETE FROM RateACity.REVIEW   
+#	WHERE UserEmail = ''/*get selected user email in table*/ 
+#	AND ReviewableEID = 0/*get current cities' EID*/);
+
+/*
+----- USER'S REVIEW PAGE -----
+*/
+#populates table with both user's city and attraction reviews
+SELECT CityName, Rating, Comment
+	FROM (SELECT * FROM RateACity.CITY NATURAL JOIN RateACity.REVIEW) AS UserCityReviews
+    #WHERE UserEmail = ''/*get current user email*/
+UNION
+SELECT AttractionName, Rating, Comment 
+	FROM (SELECT * FROM RateACity.ATTRACTION NATURAL JOIN RateACity.REVIEW) AS UserAttractionReviews
+    #WHERE UserEmail = '' /*get current user email*/
+    ;
+    /*+ order by through java controller, make different sort.setItems
+    and listeners for value property (see UserView's sort) */
+
 
 /*
 ----- ATTRACTION LIST -----
@@ -68,4 +106,25 @@ select AttractionName, CName, CityName, AveRating, CountRating
 		from rateacity.review group by ReviewableEID) as R 
 			on A.AttractionEID=R.ReviewableEID); 
 
-
+/*
+----- NEW ATTRACTION FORM -----
+*/
+INSERT INTO RateACity.ATTRACTION(AttractionEID, CityEID, StreetAddress, AttractionName, Description)
+    VALUES
+        (11
+        ,1	/*Get selected city from dropdown input, second row*/
+        ,'Ponce de Leon Avenue' /*Get address input, third row*/
+        ,'Ponce City Market'	/*Get attraction name input, first row*/
+        ,'Pay too much for not enough');	/*Get attraction description input, 4th row*/
+        
+#INSERT INTO RateACity.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) 
+#	VALUES 
+ #   (/*get current user email,*/
+    /*get selected city EID,*/ 
+    /*get rating input,*/ 
+    /*get comment input,*/ 
+ #   /*get current date*/);
+ 
+ SELECT CityEID 
+	FROM RateACity.CITY
+    WHERE CityName = ''/*city name from dropdown menu, second row*/; 
