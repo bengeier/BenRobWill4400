@@ -6,8 +6,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Callback;
 import main.java.controller.AllAttractionsListViewController;
-import main.java.controller.AllCitiesListController;
-import main.java.model.Attraction;
 import main.java.model.Attraction;
 import main.java.model.CurrentState;
 
@@ -49,7 +47,7 @@ public class AllAttractionListView {
 
     private void updateTable() {
         nameCol.setCellValueFactory(
-                new PropertyValueFactory<>("attraction"));
+                new PropertyValueFactory<>("attractionName"));
         categoryCol.setCellValueFactory(
                 new PropertyValueFactory<>("category"));
         locationCol.setCellValueFactory(
@@ -78,7 +76,8 @@ public class AllAttractionListView {
                         } else {
                             pageLink.setOnAction(event -> {
                                 Attraction attraction = getTableView().getItems().get(getIndex());
-                                CurrentState.setCurrentAttraction(attraction.getAttraction());
+                                CurrentState.setCurrentAttraction(attraction.getAttractionName());
+                                CurrentState.push(fxml);
                                 RootView.instance.setCenter(AttractionView.getInstance());
                             });
                             setGraphic(pageLink);

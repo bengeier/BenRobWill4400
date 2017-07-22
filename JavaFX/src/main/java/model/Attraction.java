@@ -1,31 +1,31 @@
 package main.java.model;
 
-import javafx.scene.control.Hyperlink;
-
 /**
  * Created by benge on 7/21/2017.
  */
 public class Attraction {
-    private String attraction;
+    private String attractionEID;
+    private String attractionName;
     private String category;
     private String city;
     private String aveRating;
     private String numRatings;
 
-    public Attraction(String attraction, String category, String city, String aveRating, String numRatings) {
-        this.attraction = attraction;
+    public Attraction(String attractionEID, String attractionName, String category, String city, String aveRating, String numRatings) {
+        this.attractionEID = attractionEID;
+        this.attractionName = attractionName;
         this.category = category;
         this.city = city;
         this.aveRating = aveRating;
         this.numRatings = numRatings;
     }
 
-    public String getAttraction() {
-        return attraction;
+    public String getAttractionName() {
+        return attractionName;
     }
 
-    public void setAttraction(String attraction) {
-        this.attraction = attraction;
+    public void setAttractionName(String attractionName) {
+        this.attractionName = attractionName;
     }
 
     public String getCategory() {
@@ -56,4 +56,11 @@ public class Attraction {
 
     public void setNumRatings(String numRatings) { this.numRatings = numRatings; }
 
+    public String getAttractionEID() {
+        return attractionEID;
+    }
+
+    public void setAttractionEID(String attractionEID) {
+        this.attractionEID = attractionEID;
+    }
 }
