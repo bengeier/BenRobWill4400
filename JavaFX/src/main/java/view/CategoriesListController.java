@@ -4,6 +4,7 @@ package main.java.view;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import main.java.model.Category;
 import main.java.model.City;
 import main.java.sql.DBConnection;
 
@@ -30,8 +31,8 @@ import java.sql.SQLException;
  */
 public class CategoriesListController {
 
-    public static ObservableList<City> buildData() {
-        ObservableList<City> data = FXCollections.observableArrayList();
+    public static ObservableList<Category> buildData() {
+        ObservableList<Category> data = FXCollections.observableArrayList();
         String categoryQuery =
                 "SELECT CName as Category, COUNT(*) AS NumAttractions\n" +
                         "\tFROM RateACity.CATEGORY \n" +
@@ -44,14 +45,11 @@ public class CategoriesListController {
             ResultSet rs = DBConnection.connection.createStatement().executeQuery(categoryQuery);
 
             while (rs.next()) {
-                City city = new City(
-                        rs.getString("CityEID"),
-                        rs.getString("City"),
-                        rs.getString("AvgRating"),
-                        rs.getString("NumRatings"),
+                Category category = new Category(
+                        rs.getString("Category"),
                         rs.getString("NumAttractions")
                 );
-                data.add(city);
+                data.add(category);
             }
             return data;
 
