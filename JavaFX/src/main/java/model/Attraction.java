@@ -10,14 +10,23 @@ public class Attraction {
     private String city;
     private String aveRating;
     private String numRatings;
+    private String address;
+    private String description;
+    private String hours;
+    private String contact;
 
-    public Attraction(String attractionEID, String attractionName, String category, String city, String aveRating, String numRatings) {
+    public Attraction(String attractionEID, String attractionName, String category, String description,
+                      String hours, String address, String city, String aveRating, String numRatings, String contact) {
         this.attractionEID = attractionEID;
         this.attractionName = attractionName;
+        this.description = description;
+        this.hours = hours;
         this.category = category;
+        this.address = address;
         this.city = city;
         this.aveRating = aveRating;
         this.numRatings = numRatings;
+        this.contact = contact;
     }
 
     public String getAttractionName() {
@@ -63,4 +72,20 @@ public class Attraction {
     public void setAttractionEID(String attractionEID) {
         this.attractionEID = attractionEID;
     }
+
+    public String getAddress() { return address; }
+
+    public void setAddress(String address) { this.address = address; }
+
+    public String getDescription() { return description; }
+
+    public void setDescription(String description) { this.description = description; }
+
+    public String getHours() { return hours; }
+
+    public void setHours(String hours) { this.hours = hours; }
+
+    public String getContact() { return contact; }
+
+    public void setContact(String contact) { this.contact = contact; }
 }
