@@ -4,10 +4,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import main.java.controller.UserController;
 import main.java.model.City;
@@ -16,6 +13,7 @@ import main.java.sql.DBConnection;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Optional;
 
 /**
  * Created by Rob on 7/6/2017.
@@ -70,17 +68,21 @@ public class UserView {
             alert.setContentText("Deleting your account will get rid of your "
                 + "reviews, pending attractions, and pending cities. This action "
                 + "cannot be undone. Do you wish to proceed?");
-            alert.showAndWait();
+            Optional<ButtonType> result = alert.showAndWait();
 
-            try {
-                PreparedStatement deleteUser = DBConnection.connection.prepareStatement(
-                        "delete from rateacity.user where Email=" + "\'" + CurrentState.getEmail() + "\'");
-                deleteUser.executeUpdate();
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
+            if (result.get() == ButtonType.OK) {
+                try {
+                    PreparedStatement deleteUser = DBConnection.connection.prepareStatement(
+                            "delete from rateacity.user where Email=" + "\'" + CurrentState.getEmail() + "\'");
+                    deleteUser.executeUpdate();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+
+                RootView.instance.setCenter(LoginView.getInstance());
+            } else {
+
             }
-
-            RootView.instance.setCenter(LoginView.getInstance());
         }));
 
         viewAllCities.setOnAction((event -> {

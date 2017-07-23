@@ -42,12 +42,12 @@
                 <children>
                     <Label prefHeight="25.0" prefWidth="125.0" text="Rating*" />
                     <Label prefHeight="25.0" prefWidth="125.0" text="Comment:" GridPane.rowIndex="1" />
-                  <TextArea prefHeight="187.0" prefWidth="396.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextArea fx:id="comment" prefHeight="187.0" prefWidth="396.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets right="15.0" />
                      </GridPane.margin>
                   </TextArea>
-                  <ComboBox prefWidth="150.0" promptText="Pick Rating" GridPane.columnIndex="1">
+                  <ComboBox fx:id="rating" prefWidth="150.0" promptText="Pick Rating" GridPane.columnIndex="1">
                       <items>
                           <FXCollections fx:factory="observableArrayList">
                               <Integer fx:value="1" />

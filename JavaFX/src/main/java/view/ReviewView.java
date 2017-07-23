@@ -2,8 +2,11 @@ package main.java.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
+import main.java.controller.ReviewViewController;
 import main.java.model.CurrentState;
 
 /**
@@ -26,6 +29,12 @@ public class ReviewView {
     Label title;
 
     @FXML
+    ComboBox<Integer> rating;
+
+    @FXML
+    TextArea comment;
+
+    @FXML
     public void initialize() {
         title.setText(CurrentState.peek().equals("AttractionPage.fxml") ? "New Attraction Review For " +
                 CurrentState.getCurrentAttraction().getAttractionName() : "New City Review For " +
@@ -36,7 +45,16 @@ public class ReviewView {
         }));
 
         submitReview.setOnAction((event -> {
-            // TODO
+            ReviewViewController.addNewReview(
+                    CurrentState.getEmail(),
+                    CurrentState.peek().equals("AttractionPage.fxml") ?
+                            CurrentState.getCurrentAttraction().getAttractionEID() :
+                            CurrentState.getCurrentCity().getCityEID(),
+                    rating.getValue().toString(),
+                    comment.getText()
+
+            );
+            RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
         }));
     }
 
