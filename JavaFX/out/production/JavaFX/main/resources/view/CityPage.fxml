@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.CityView">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.CityView">
    <top>
       <VBox alignment="TOP_CENTER" prefHeight="79.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -41,14 +41,14 @@
                   <ComboBox prefWidth="150.0" promptText="Sort" GridPane.columnIndex="1" />
                </children>
             </GridPane>
-            <TableView prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn prefWidth="120.0" text="Name" />
-                <TableColumn prefWidth="135.0" text="Address" />
-                  <TableColumn prefWidth="120.0" text="Category" />
-                  <TableColumn prefWidth="75.0" text="Avg. Rating" />
-                  <TableColumn prefWidth="75.0" text="# of Ratings" />
-                  <TableColumn prefWidth="75.0" text="More Info" />
+                <TableColumn fx:id="nameCol" prefWidth="120.0" text="Name" />
+                <TableColumn fx:id="addressCol" prefWidth="135.0" text="Address" />
+                  <TableColumn fx:id="categoryCol" prefWidth="120.0" text="Category" />
+                  <TableColumn fx:id="avgCol" prefWidth="75.0" text="Avg. Rating" />
+                  <TableColumn fx:id="numRatCol" prefWidth="75.0" text="# of Ratings" />
+                  <TableColumn fx:id="infoCol" prefWidth="75.0" text="More Info" />
               </columns>
             </TableView>
          </children>
