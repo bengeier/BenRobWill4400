@@ -41,7 +41,7 @@
                   <Label text="Name*: " />
                   <Label text="Address*: " GridPane.rowIndex="1" />
                   <Label text="Description*: " GridPane.rowIndex="2" />
-                  <Label prefHeight="44.0" prefWidth="133.0" text="Hours of Operation: " wrapText="true" GridPane.rowIndex="3">
+                  <Label prefHeight="35.0" prefWidth="157.0" text="Hours of Operation: " wrapText="true" GridPane.rowIndex="3">
                      <font>
                         <Font size="14.0" />
                      </font>

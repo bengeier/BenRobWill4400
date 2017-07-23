@@ -50,9 +50,13 @@ public class CurrentState {
         CurrentState.currentCategory = currentCategory;
     }
 
-    public static Attraction getCurrentAttraction() { return currentAttraction; }
+    public static Attraction getCurrentAttraction() {
+        return currentAttraction;
+    }
 
-    public static void setCurrentAttraction(Attraction currentAttraction) {CurrentState.currentAttraction = currentAttraction; }
+    public static void setCurrentAttraction(Attraction currentAttraction) {
+        CurrentState.currentAttraction = currentAttraction;
+    }
 
     public static boolean isManagerView() {
         return managerView;

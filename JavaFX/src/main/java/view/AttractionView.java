@@ -46,7 +46,7 @@ public class AttractionView {
 
         viewAllReviews.setOnAction((event -> {
             CurrentState.push(fxml);
-            RootView.instance.setCenter(UserView.getInstance());
+            RootView.instance.setCenter(AttractionAllReviewView.getInstance());
         }));
 
         back.setOnAction((event -> {

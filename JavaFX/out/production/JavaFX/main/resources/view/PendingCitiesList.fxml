@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.PendingCitiesListView">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.PendingCitiesView">
    <top>
       <Label text="Pending Cities" BorderPane.alignment="CENTER">
          <font>
@@ -18,15 +18,15 @@
       </Label>
    </top>
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="pendingCitiesTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="95.0" text="City Name" />
-          <TableColumn prefWidth="70.0" text="Country" />
-            <TableColumn prefWidth="120.0" text="Submitted By" />
-            <TableColumn prefWidth="60.0" text="Rating" />
-            <TableColumn prefWidth="120.0" text="Comment" />
-            <TableColumn prefWidth="70.0" text="Approve" />
-            <TableColumn prefWidth="65.0" text="Delete" />
+          <TableColumn fx:id="cityNameCol" prefWidth="95.0" text="City Name" />
+          <TableColumn fx:id="countryCol" prefWidth="70.0" text="Country" />
+            <TableColumn fx:id="submittedByCol" prefWidth="120.0" text="Submitted By" />
+            <TableColumn fx:id="ratingCol" prefWidth="60.0" text="Rating" />
+            <TableColumn fx:id="commentCol" prefWidth="120.0" text="Comment" />
+            <TableColumn fx:id="approveCol" prefWidth="70.0" text="Approve" />
+            <TableColumn fx:id="deleteCol" prefWidth="65.0" text="Delete" />
         </columns>
       </TableView>
    </center>
