@@ -1,7 +1,6 @@
 package main.java.controller;
 
 import javafx.scene.control.Alert;
-import main.java.model.CurrentState;
 import main.java.sql.DBConnection;
 
 import java.sql.SQLException;
