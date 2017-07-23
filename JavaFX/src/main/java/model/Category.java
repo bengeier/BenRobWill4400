@@ -26,8 +26,8 @@ public class Category {
         return categoryName;
     }
 
-    public void setCityName(String cityName) {
-        this.categoryName = cityName;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
     public String getNumAttractions() {
