@@ -65,16 +65,12 @@ public class AttractionAllReviewView {
 
     private void updateTable() {
 
-        System.out.println("updating table for attraction all review view for" + CurrentState.getCurrentAttraction().getAttractionName());
-
-
         usernameCol.setCellValueFactory(
                 new PropertyValueFactory<>("userEmail"));
         ratingCol.setCellValueFactory(
                 new PropertyValueFactory<>("rating"));
         commentCol.setCellValueFactory(
                 new PropertyValueFactory<>("comment"));
-
 
         table.setItems(AttractionAllReviewController.buildData());
     }
