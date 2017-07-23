@@ -65,9 +65,9 @@ ON U.AttractionEID = V.EntityID)
 ----- CITY REVIEWS PAGE -----
 */
 #populate tables
-SELECT Email, Rating, Comment FROM
-	(SELECT * FROM RateACity.USER
-	NATURAL LEFT JOIN RateACity.REVIEW) AS RESULT
+#SELECT Email, Rating, Comment FROM
+#	(SELECT * FROM RateACity.USER
+#	NATURAL LEFT JOIN RateACity.REVIEW) AS RESULT
     
     /*+ order by through java controller, make different sort.setItems
     and listeners for value property (see UserView's sort) */
@@ -81,12 +81,12 @@ SELECT Email, Rating, Comment FROM
 ----- USER'S REVIEW PAGE -----
 */
 #populates table with both user's city and attraction reviews
-SELECT CityName, Rating, Comment
-	FROM (SELECT * FROM RateACity.CITY NATURAL JOIN RateACity.REVIEW) AS UserCityReviews
+#SELECT CityName, Rating, Comment
+#	FROM (SELECT * FROM RateACity.CITY NATURAL JOIN RateACity.REVIEW) AS UserCityReviews
     #WHERE UserEmail = ''/*get current user email*/
-UNION
-SELECT AttractionName, Rating, Comment 
-	FROM (SELECT * FROM RateACity.ATTRACTION NATURAL JOIN RateACity.REVIEW) AS UserAttractionReviews
+#UNION
+#SELECT AttractionName, Rating, Comment 
+#	FROM (SELECT * FROM RateACity.ATTRACTION NATURAL JOIN RateACity.REVIEW) AS UserAttractionReviews
     #WHERE UserEmail = '' /*get current user email*/
     ;
     /*+ order by through java controller, make different sort.setItems
@@ -96,15 +96,15 @@ SELECT AttractionName, Rating, Comment
 /*
 ----- ATTRACTION LIST -----
 */
-select AttractionName, CName, CityName, AveRating, CountRating
-	from ((select * from rateacity.attraction 
-	natural left join rateacity.falls_under 
-	natural left join rateacity.city
-	inner join rateacity.reviewable_entity 
-		where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0) as A inner join
-	(select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating 
-		from rateacity.review group by ReviewableEID) as R 
-			on A.AttractionEID=R.ReviewableEID); 
+#select AttractionName, CName, CityName, AveRating, CountRating
+#	from ((select * from rateacity.attraction 
+#	natural left join rateacity.falls_under 
+#	natural left join rateacity.city
+#	inner join rateacity.reviewable_entity 
+#		where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0) as A inner join
+#	(select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating 
+#		from rateacity.review group by ReviewableEID) as R 
+#			on A.AttractionEID=R.ReviewableEID); 
 
 /*
 ----- NEW ATTRACTION FORM -----
@@ -126,9 +126,9 @@ select AttractionName, CName, CityName, AveRating, CountRating
     /*get comment input,*/ 
  #   /*get current date*/);
  
- SELECT CityEID 
-	FROM RateACity.CITY
-    WHERE CityName = ''/*city name from dropdown menu, second row*/; 
+#SELECT CityEID 
+#	FROM RateACity.CITY
+#    WHERE CityName = ''/*city name from dropdown menu, second row*/; 
     
 /*
 ----- MANAGER WELCOME PAGE -----
@@ -140,6 +140,13 @@ select AttractionName, CName, CityName, AveRating, CountRating
 ----- CATEGORIES -----
 */
 
+SELECT CName as Category, COUNT(*) AS NumAttractions
+	FROM RateACity.CATEGORY 
+    NATURAL JOIN RateACity.FALLS_UNDER
+    NATURAL JOIN RateACity.ATTRACTION
+	GROUP BY Category
+    ;
+
 /*
 ----- USERS LIST -----
 */
@@ -147,13 +154,12 @@ select AttractionName, CName, CityName, AveRating, CountRating
 /*
 ----- PENDING CITIES -----
 */
-(SELECT City, Country, UserEmail, Rating, Comment FROM
-(SELECT CityEID, CityName AS City, Country, Rating, Comment
-FROM RateACity.Review AS E JOIN RateACity.City AS S ON E.ReviewableEID=S.CityEID 
-/*GROUP BY S.CITYEID*/) AS T 
-JOIN RateACity.Reviewable_Entity AS R
-WHERE IsPending = 1 AND R.EntityID = CityEID
-ORDER BY City ASC);
+#(SELECT City, Country, UserEmail, Rating, Comment FROM
+#(SELECT CityEID, CityName AS City, Country, Rating, Comment
+#FROM RateACity.Review AS E JOIN RateACity.City AS S ON E.ReviewableEID=S.CityEID ) AS T 
+#JOIN RateACity.Reviewable_Entity AS R
+#WHERE IsPending = 1 AND R.EntityID = CityEID
+#ORDER BY City ASC);
 /*
 ----- PENDING ATTRACTIONS -----
 *//*
