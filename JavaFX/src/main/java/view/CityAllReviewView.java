@@ -10,7 +10,7 @@ import main.java.model.CurrentState;
  */
 public class CityAllReviewView {
 
-    private static String fxml = "CityReviewPage.fxml";
+    private static String fxml = "CityAllReviewPage.fxml";
     private static BorderPane instance;
 
     public static BorderPane getInstance() {
@@ -25,6 +25,11 @@ public class CityAllReviewView {
     public void initialize() {
         back.setOnAction((event -> {
             RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
+        }));
+
+        reviewCity.setOnAction((event -> {
+            CurrentState.push(fxml);
+            RootView.instance.setCenter(ReviewView.getInstance());
         }));
     }
 }
