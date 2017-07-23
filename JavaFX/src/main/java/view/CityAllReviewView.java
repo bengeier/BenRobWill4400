@@ -37,7 +37,7 @@ public class CityAllReviewView {
     private TableView<Review> table;
 
     @FXML
-    private TableColumn<Attraction, String> usernameCol, ratingCol, commentCol;
+    private TableColumn<Review, String> usernameCol, ratingCol, commentCol;
 
     @FXML
     public void initialize() {

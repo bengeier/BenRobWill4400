@@ -9,20 +9,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.UserReviewsView">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.UserReviewsView">
    <top>
-      <Label text="[USER]'s Reviews" BorderPane.alignment="CENTER">
+      <Label fx:id="userID" text="[USER]'s Reviews" BorderPane.alignment="CENTER">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
    </top>
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="118.0" text="City/Attraction" />
-          <TableColumn prefWidth="70.0" text="Rating" />
-            <TableColumn prefWidth="411.0" text="Comment" />
+          <TableColumn fx:id="nameCol" prefWidth="118.0" text="City/Attraction" />
+          <TableColumn fx:id="ratingCol" prefWidth="70.0" text="Rating" />
+            <TableColumn fx:id="commentCol" prefWidth="411.0" text="Comment" />
         </columns>
       </TableView>
    </center>
