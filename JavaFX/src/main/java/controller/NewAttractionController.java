@@ -8,7 +8,6 @@ import main.java.model.City;
 import main.java.model.CurrentState;
 import main.java.sql.DBConnection;
 
-import javax.xml.transform.Result;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -65,7 +64,8 @@ public class NewAttractionController {
             }
             rs.close();
 
-            CurrentState.setCurrentAttraction(new Attraction(((Integer) lastIndex).toString(), name, category, city.getCityName(), rating, "1"));
+            CurrentState.setCurrentAttraction(new Attraction(((Integer) lastIndex).toString(), name, category,
+                    description, hours, address, city.getCityName(), rating, "1", contact));
 
             // Creates Attraction
             String insertAttractionQuery = "INSERT INTO RateACity.Attraction (AttractionEID, CityEID, StreetAddress, AttractionName, Description)" +
