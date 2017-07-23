@@ -1,5 +1,7 @@
 package main.java.view;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -8,6 +10,8 @@ import javafx.util.Callback;
 import main.java.controller.AllAttractionsListViewController;
 import main.java.model.Attraction;
 import main.java.model.CurrentState;
+
+import java.util.ArrayList;
 
 /**
  * Created by wepperson on 7/18/17.
@@ -89,6 +93,24 @@ public class AllAttractionListView {
         };
         link.setCellFactory(cellFactory);
 
-        attractionsTable.setItems(AllAttractionsListViewController.buildData());
+        ObservableList<Attraction> forTable = combineCategories(AllAttractionsListViewController.buildData());
+        attractionsTable.setItems(forTable);
+    }
+
+    private ObservableList<Attraction> combineCategories(ObservableList<Attraction> toCombine) {
+        ObservableList<Attraction> toReturn = FXCollections.observableArrayList();
+        for (Attraction a : toCombine) {
+            toReturn.add(a);
+        }
+        for (int i = 0; i < toReturn.size() - 1; i++) {
+            Attraction first = toReturn.get(i);
+            Attraction second = toReturn.get(i+1);
+            if (first.getAttractionEID().equals(second.getAttractionEID())) {
+                first.setCategory(first.getCategory() + ", " + second.getCategory());
+                toReturn.remove(i+1);
+                i--;
+            }
+        }
+        return toReturn;
     }
 }
