@@ -77,18 +77,23 @@ ON U.AttractionEID = V.EntityID)
 #	WHERE UserEmail = ''/*get selected user email in table*/ 
 #	AND ReviewableEID = 0/*get current cities' EID*/);
 
-/*
+
 ----- USER'S REVIEW PAGE -----
-*/
+
 #populates table with both user's city and attraction reviews
-#SELECT CityName, Rating, Comment
-#	FROM (SELECT * FROM RateACity.CITY NATURAL JOIN RateACity.REVIEW) AS UserCityReviews
-    #WHERE UserEmail = ''/*get current user email*/
-#UNION
-#SELECT AttractionName, Rating, Comment 
-#	FROM (SELECT * FROM RateACity.ATTRACTION NATURAL JOIN RateACity.REVIEW) AS UserAttractionReviews
-    #WHERE UserEmail = '' /*get current user email*/
-    ;
+
+
+SELECT CityName, Rating, Comment
+FROM 
+(SELECT * FROM RateACity.CITY AS C JOIN RateACity.REVIEW AS R ON C.CityEID=R.ReviewableEID ) 
+AS UserCityReviews
+WHERE UserEmail = 'will@hotmail.net'
+UNION
+SELECT AttractionName, Rating, Comment 
+FROM (SELECT * FROM RateACity.ATTRACTION AS A JOIN RateACity.REVIEW AS R ON A.AttractionEID=R.ReviewableEID) AS UserAttractionReviews
+WHERE UserEmail = 'will@hotmail.net';
+
+
     /*+ order by through java controller, make different sort.setItems
     and listeners for value property (see UserView's sort) */
 

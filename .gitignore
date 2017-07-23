@@ -3,3 +3,4 @@ JavaFX/.idea/
 JavaFX/out/*.class
 out/
 JavaFX/src/main/java/sql/DBConnection.java
+*.DS_Store
