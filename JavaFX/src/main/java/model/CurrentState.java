@@ -5,9 +5,6 @@ import javafx.scene.layout.BorderPane;
 import java.util.Queue;
 import java.util.Stack;
 
-/**
- * Created by wepperson on 7/21/17.
- */
 public class CurrentState {
 
     private static String email = "";
@@ -29,6 +26,8 @@ public class CurrentState {
     public static String pop() {
         return lastVisited.pop();
     }
+
+    public static String peek() { return lastVisited.peek(); }
 
     public static void push(String x) {
         lastVisited.push(x);
