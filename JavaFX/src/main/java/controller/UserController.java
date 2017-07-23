@@ -3,6 +3,7 @@ package main.java.controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import main.java.model.City;
+import main.java.model.User;
 import main.java.sql.DBConnection;
 
 import java.sql.ParameterMetaData;
@@ -64,5 +65,39 @@ public class UserController {
             System.out.println(e.getMessage());
         }
         return categoriesList;
+    }
+
+    public static ObservableList<User> buildData() {
+        ObservableList<User> data = FXCollections.observableArrayList();
+        String userQuery =
+                "SELECT Email, DateJoined, isManager, isSuspended\n" +
+                        "\tFROM RateACity.User;";
+
+        try {
+            ResultSet rs = DBConnection.connection.createStatement().executeQuery(userQuery);
+
+            while (rs.next()) {
+                String UserClass = "Regular User";
+                String isSuspended = "No";
+                if (rs.getString("isManager").equals("1")) {
+                    UserClass = "Manager";
+                }
+                if (rs.getString("isSuspended").equals("1")) {
+                    isSuspended = "Yes";
+                }
+                User user = new User(
+                        rs.getString("Email"),
+                        rs.getString("DateJoined"),
+                        UserClass,
+                        isSuspended
+                );
+                data.add(user);
+            }
+            return data;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 }

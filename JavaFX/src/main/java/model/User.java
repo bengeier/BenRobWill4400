@@ -8,18 +8,16 @@ public class User {
     private String dateJoined;
     private String userClass;
     private String suspended;
-    private String delete;
 
     public User(String email) {
-        this(email, null, null, null, null);
+        this(email, null, null, null);
     }
 
-    public User(String email, String dateJoined, String userClass, String suspended, String delete) {
+    public User(String email, String dateJoined, String userClass, String suspended) {
         this.email = email;
         this.dateJoined = dateJoined;
         this.userClass = userClass;
         this.suspended = suspended;
-        this.delete = delete;
     }
 
     @Override
@@ -31,7 +29,7 @@ public class User {
         return email;
     }
 
-    public void setEmail(String city) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
@@ -39,7 +37,7 @@ public class User {
         return dateJoined;
     }
 
-    public void setDateJoined(String avgRating) {
+    public void setDateJoined(String dateJoined) {
         this.dateJoined = dateJoined;
     }
 
@@ -47,7 +45,7 @@ public class User {
         return userClass;
     }
 
-    public void setUserClass(String numRatings) {
+    public void setUserClass(String userClass) {
         this.userClass = userClass;
     }
 
@@ -55,15 +53,8 @@ public class User {
         return suspended;
     }
 
-    public void setSuspended(String numAttractions) {
+    public void setSuspended(String suspended) {
         this.suspended = suspended;
     }
 
-    public String getDelete() {
-        return delete;
-    }
-
-    public void setDelete(String cityName) {
-        this.delete = delete;
-    }
 }
