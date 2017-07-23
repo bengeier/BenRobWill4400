@@ -38,7 +38,6 @@ public class AllCitiesListController {
 
         try {
             ResultSet rs = DBConnection.connection.createStatement().executeQuery(cityQuery);
-            System.out.println(cityQuery);
 
             while (rs.next()) {
                 City city = new City(

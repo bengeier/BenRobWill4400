@@ -7,7 +7,7 @@ SELECT City, AvgRating, NumRatings, NumAttractions FROM
 FROM RateACity.Review AS E JOIN RateACity.City AS S ON E.ReviewableEID=S.CityEID 
 GROUP BY S.CITYEID) AS T 
 NATURAL JOIN (SELECT S.CityEID, Count(AttractionEID) as NumAttractions 
-FROM RateACity.Attraction AS A JOIN RateACity.City AS S ON A.CityEID = S.CityEID
+FROM RateACity.Attraction AS A JOIN RateACity.City AS S ON A.CityEID = S.CityEID JOIN RATEACITY.REVIEWABLE_ENTITY AS E ON E.EntityID = A.AttractionEID WHERE E.IsPending = 0
 GROUP BY S.CityEID) AS U
 JOIN RateACity.Reviewable_Entity AS R
 WHERE IsPending = 0 AND R.EntityID = CityEID
