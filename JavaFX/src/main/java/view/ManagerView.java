@@ -88,7 +88,7 @@ public class ManagerView {
 
         viewPendingCities.setOnAction((event -> {
             CurrentState.push(fxml);
-            RootView.instance.setCenter(PendingCitiesListView.getInstance());
+            RootView.instance.setCenter(PendingCitiesView.getInstance());
 
         }));
 

@@ -16,8 +16,8 @@ public class PendingCitiesListController {
     public static ObservableList<PendingCity> buildData() {
         ObservableList<PendingCity> data = FXCollections.observableArrayList();
 
-
-        String cityQuery = "(SELECT City, Country, UserEmail, Rating, Comment FROM " +
+        System.out.println("assigning query");
+        String cityQuery = "(SELECT CityEID, City, Country, UserEmail, Rating, Comment FROM " +
                 "(SELECT CityEID, CityName AS City, Country, Rating, Comment " +
                     "FROM RateACity.Review AS E JOIN RateACity.City AS S ON E.ReviewableEID=S.CityEID) AS T " +
                     "JOIN RateACity.Reviewable_Entity AS R " +
@@ -25,17 +25,20 @@ public class PendingCitiesListController {
                 "ORDER BY City ASC);";
 
         try {
+            System.out.println("trying to execute query");
             ResultSet rs = DBConnection.connection.createStatement().executeQuery(cityQuery);
-
+            System.out.println("executed query");
             while (rs.next()) {
                 PendingCity pendingCity = new PendingCity(
+                        rs.getString("CityEID"),
                         rs.getString("City"),
                         rs.getString("Country"),
                         rs.getString("UserEmail"),
                         rs.getString("Rating"),
-                        rs.getString("rating"),
-                        rs.getString("comment")
+                        rs.getString("Comment")
+
                 );
+                System.out.println(pendingCity);
                 data.add(pendingCity);
             }
             return data;
