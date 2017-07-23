@@ -90,14 +90,15 @@ public class AllUsersListView {
 
         /*
             Unfortunately this code works. You could probably refactor it idk
-
-        link.setCellValueFactory(new PropertyValueFactory<>("dummy"));
-        Callback<TableColumn<City, String>, TableCell<City, String>> cellFactory
+        */
+        //link.setCellValueFactory(new PropertyValueFactory<>("dummy"));
+        /*Callback<TableColumn<City, String>, TableCell<City, String>> cellFactory
                 = new Callback<TableColumn<City, String>, TableCell<City, String>>() {
             @Override
             public TableCell<City, String> call(TableColumn<City, String> param) {
                 return new TableCell<City, String>() {
-                    final Hyperlink pageLink = new Hyperlink("City Page");
+                    final Hyperlink pageLink =
+                            new Hyperlink(suspendedCol.getCellObservableValue("suspended").getValue());
 
                     @Override
                     public void updateItem(String item, boolean empty) {
