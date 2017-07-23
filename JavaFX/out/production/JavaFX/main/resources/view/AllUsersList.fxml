@@ -12,7 +12,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.AllUsersListView">
     <center>
-        <TableView fx:id="UsersTable" prefHeight="224.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <TableView fx:id="usersTable" prefHeight="224.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <columns>
                 <TableColumn fx:id="emailCol" prefWidth="120.0" text="Email" />
                 <TableColumn fx:id="dateJoinedCol" prefWidth="159.0" text="Date Joined" />

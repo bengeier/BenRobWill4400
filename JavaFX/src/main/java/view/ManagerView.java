@@ -124,7 +124,9 @@ public class ManagerView {
             newCategoryDialog.setContentText("Please Enter a Name:");
 
             Optional<String> newCategory = newCategoryDialog.showAndWait();
-            addCategory(newCategory.get());
+            if (newCategory.isPresent()) {
+                addCategory(newCategory.get());
+            }
         }));
     }
 
