@@ -2,9 +2,16 @@ package main.java.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.util.Callback;
 import main.java.model.Attraction;
+import main.java.model.City;
 import main.java.model.CurrentState;
 import main.java.sql.DBConnection;
+import main.java.view.AttractionView;
+import main.java.view.RootView;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -49,5 +56,38 @@ public class CityViewController {
             System.out.println(e.getMessage());
         }
         return null;
+    }
+
+    /**
+     * Generates Callback to create a cell factory for city attraction link column
+     * @return Callback to set as CellFactory for attraction link column
+     */
+    public static Callback<TableColumn<Attraction, String>, TableCell<Attraction, String>> generateCellFactory() {
+        return new Callback<TableColumn<Attraction, String>, TableCell<Attraction, String>>() {
+            @Override
+            public TableCell<Attraction, String> call(TableColumn<Attraction, String> param) {
+                return new TableCell<Attraction, String>() {
+                    final Hyperlink pageLink = new Hyperlink("Page");
+
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                            setText(null);
+                        } else {
+                            pageLink.setOnAction(event -> {
+                                Attraction attraction = getTableView().getItems().get(getIndex());
+                                CurrentState.setCurrentAttraction(attraction);
+                                CurrentState.push("CityPage.fxml");
+                                RootView.instance.setCenter(AttractionView.getInstance());
+                            });
+                            setGraphic(pageLink);
+                            setText(null);
+                        }
+                    }
+                };
+            }
+        };
     }
 }

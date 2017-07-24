@@ -75,39 +75,11 @@ public class CityView {
                 new PropertyValueFactory<>("aveRating"));
         numRatCol.setCellValueFactory(
                 new PropertyValueFactory<>("numRatings"));
-
         infoCol.setCellValueFactory(new PropertyValueFactory<>("dummy"));
-        Callback<TableColumn<Attraction, String>, TableCell<Attraction, String>> cellFactory
-                = new Callback<TableColumn<Attraction, String>, TableCell<Attraction, String>>() {
-            @Override
-            public TableCell<Attraction, String> call(TableColumn<Attraction, String> param) {
-                return new TableCell<Attraction, String>() {
-                    final Hyperlink pageLink = new Hyperlink("Page");
-
-                    @Override
-                    public void updateItem(String item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (empty) {
-                            setGraphic(null);
-                            setText(null);
-                        } else {
-                            pageLink.setOnAction(event -> {
-                                Attraction attraction = getTableView().getItems().get(getIndex());
-                                CurrentState.setCurrentAttraction(attraction);
-                                CurrentState.push(fxml);
-                                RootView.instance.setCenter(AttractionView.getInstance());
-                            });
-                            setGraphic(pageLink);
-                            setText(null);
-                        }
-                    }
-                };
-            }
-        };
-        infoCol.setCellFactory(cellFactory);
-
+        
         ObservableList<Attraction> forTable = combineCategories(CityViewController.buildData());
         table.setItems(forTable);
+        infoCol.setCellFactory(CityViewController.generateCellFactory());
     }
 
     private ObservableList<Attraction> combineCategories(ObservableList<Attraction> toCombine) {
