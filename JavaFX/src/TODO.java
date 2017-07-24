@@ -21,6 +21,5 @@ public class TODO {
 
     // TODO Log in error not working
 
-    // TODO when a category is deleted the attractions that rely on it arent
 
 }
