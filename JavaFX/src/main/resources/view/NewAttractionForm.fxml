@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -14,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.NewAttractionView">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.NewAttractionView">
    <top>
       <Label text="New Attraction" BorderPane.alignment="CENTER">
          <font>
@@ -35,9 +40,9 @@
          <children>
             <GridPane prefHeight="214.0" prefWidth="570.0">
                <children>
-                  <TextField fx:id="nameField" GridPane.columnIndex="1" />
-                  <TextField fx:id="addressField" prefHeight="31.0" prefWidth="348.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="descriptionField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="nameField" alignment="TOP_LEFT" GridPane.columnIndex="1" />
+                  <TextField fx:id="addressField" alignment="TOP_LEFT" prefHeight="31.0" prefWidth="348.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="descriptionField" alignment="TOP_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Label text="Name*: " />
                   <Label text="Address*: " GridPane.rowIndex="1" />
                   <Label text="Description*: " GridPane.rowIndex="2" />
@@ -48,9 +53,9 @@
                   </Label>
                   <Label text="Contact Info: " GridPane.rowIndex="4" />
                   <Label text="Comment*: " GridPane.rowIndex="5" />
-                  <TextField fx:id="hoursField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField fx:id="contactField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <TextField fx:id="commentField" prefHeight="48.0" prefWidth="271.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="hoursField" alignment="TOP_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="contactField" alignment="TOP_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="commentField" alignment="TOP_LEFT" prefHeight="48.0" prefWidth="271.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                </children>
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="352.0" minWidth="10.0" prefWidth="97.0" />
