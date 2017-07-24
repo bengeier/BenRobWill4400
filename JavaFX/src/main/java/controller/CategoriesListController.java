@@ -1,7 +1,6 @@
 package main.java.controller;
 
 
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
@@ -140,4 +139,3 @@ public class CategoriesListController {
         return alert.showAndWait();
     }
 }
-

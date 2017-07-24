@@ -3,13 +3,16 @@ package main.java.view;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import main.java.controller.SearchController;
 import main.java.model.Attraction;
 import main.java.model.CurrentState;
 import main.java.sql.DBConnection;
 
 import java.sql.ResultSet;
+import java.util.Optional;
 
 /**
  * Created by wepperson on 7/12/17.
@@ -30,28 +33,73 @@ public class AttractionView {
 
     @FXML
     public void initialize() {
-        Attraction curAttraction = CurrentState.getCurrentAttraction();
-        attractionNameID.setText(curAttraction.getAttractionName());
-        addressLabel.setText(curAttraction.getAddress());
-        descriptionLabel.setText(curAttraction.getDescription());
-        averageLabel.setText(curAttraction.getAveRating() + " (based on " +
-            curAttraction.getNumRatings() + " ratings.)");
-        hoursLabel.setText(curAttraction.getHours() == null ? "N/A" : curAttraction.getHours());
-        contactLabel.setText(curAttraction.getContact() == null ? "N/A" : curAttraction.getContact());
-        categoryLabel.setText(curAttraction.getCategory());
 
-        reviewThisAttraction.setOnAction((event -> {
-            if (!CurrentState.isSuspended()) {
-                CurrentState.push(fxml);
-                RootView.instance.setCenter(ReviewView.getInstance());
+        Attraction curAttraction;
+        boolean safe = true;
+
+        if (CurrentState.isAttractionSearch()) {
+
+            System.out.println("It's a search!");
+
+            curAttraction = SearchController.search();
+
+            if (curAttraction == null) {
+
+                safe = false;
+
             } else {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Cannot Submit Review");
-                alert.setHeaderText("Suspended Users Cannot Submit Reviews.");
-                alert.setContentText("Please contact a manager if you wish to remove suspension.");
-                alert.showAndWait();
+
+                CurrentState.setCurrentAttraction(curAttraction);
+
             }
-        }));
+
+            CurrentState.setIsAttractionSearch(false);
+
+        }
+
+        if (safe) {
+
+            curAttraction = CurrentState.getCurrentAttraction();
+            attractionNameID.setText(curAttraction.getAttractionName());
+            addressLabel.setText(curAttraction.getAddress());
+            descriptionLabel.setText(curAttraction.getDescription());
+            averageLabel.setText(curAttraction.getAveRating() + " (based on " +
+                    curAttraction.getNumRatings() + " ratings.)");
+            hoursLabel.setText(curAttraction.getHours() == null ? "N/A" : curAttraction.getHours());
+            contactLabel.setText(curAttraction.getContact() == null ? "N/A" : curAttraction.getContact());
+            categoryLabel.setText(curAttraction.getCategory());
+
+            reviewThisAttraction.setOnAction((event -> {
+                if (!CurrentState.isSuspended()) {
+                    CurrentState.push(fxml);
+                    RootView.instance.setCenter(ReviewView.getInstance());
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Cannot Submit Review");
+                    alert.setHeaderText("Suspended Users Cannot Submit Reviews.");
+                    alert.setContentText("Please contact a manager if you wish to remove suspension.");
+                    alert.showAndWait();
+                }
+            }));
+
+        } else {
+
+            System.out.println("FAILED SEARCH AAAAAAHHHHHH");
+            reviewThisAttraction.setDisable(true);
+            viewAllReviews.setDisable(true);
+
+            attractionNameID.setText("No Match!");
+
+//            Alert alert = new Alert(Alert.AlertType.ERROR);
+//            alert.setTitle("Error");
+//            alert.setHeaderText("Error!");
+//            alert.setContentText("The attraction that you searched for does not exist. " +
+//                    "Please hit OK to go back to home page");
+//            alert.showAndWait();
+
+
+        }
+
 
         viewAllReviews.setOnAction((event -> {
             CurrentState.push(fxml);
