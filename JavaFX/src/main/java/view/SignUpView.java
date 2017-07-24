@@ -14,6 +14,8 @@ import main.java.controller.SignUpController;
 import main.java.model.CurrentState;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Rob on 7/6/2017.
@@ -21,15 +23,17 @@ import java.io.IOException;
 public class SignUpView {
 
     private static String fxml = "SignUpPage.fxml";
-    private static BorderPane instance;
+
+    // Regular expression pattern for validating email address
+    private final Pattern VALID_EMAIL_REG_EX =
+            Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
     public static BorderPane getInstance() {
-        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
-        return instance;
+        return (BorderPane) FXBuilder.getFXMLView(fxml);
     }
 
     @FXML
-    Button backToLogin, signUp;
+    private Button backToLogin, signUp;
 
     @FXML
     private TextField email;
@@ -73,24 +77,34 @@ public class SignUpView {
 
     @FXML
     private void signUp() {
+        if (emailIsValid(email.getText())) {
+            if (password1.getText() == null || password1.getText().length() == 0) {
+                errorLabel.setText("Password cannot be blank.");
+            } else if (!password1.getText().equals(password2.getText())) {
+                // passwords dont match
+                errorLabel.setText("Passwords must match!");
+                password1.clear();
+                password2.clear();
+            } else if (SignUpController.signUp(email.getText(), password2.getText()) == 0) {
+                // sign up failed
+                errorLabel.setText("Sign up failed! Try another email.");
+            } else {
 
-        if (!password1.getText().equals(password2.getText())) {
-            // passwords dont match
-            errorLabel.setText("Passwords must match!");
-            password1.clear();
-            password2.clear();
-        } else if (SignUpController.signUp(email.getText(), password2.getText()) == 0) {
-            // sign up failed
-            errorLabel.setText("Sign up failed! Try another email.");
+                errorLabel.setText("Success!");
+                email.clear();
+                password1.clear();
+                password2.clear();
+                RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
+
+            }
         } else {
-
-            errorLabel.setText("Success!");
-            email.clear();
-            password1.clear();
-            password2.clear();
-            RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
-
+            errorLabel.setText("Not a valid email address.");
         }
+    }
 
+    // Uses regular expression to check if email contains '@' and a proper domain (e.g. '.com', '.net', etc.)
+    private boolean emailIsValid(String email) {
+        Matcher emailMatcher = VALID_EMAIL_REG_EX.matcher(email);
+        return emailMatcher.find();
     }
 }
