@@ -66,9 +66,7 @@ public class PendingAttractionsView {
                 new PropertyValueFactory<>("comment"));
 
         pendingAttractionsTable.setItems(PendingAttractionsListController.buildData());
-        /*approveCol.setCellValueFactory(
-                new PropertyValueFactory<>("some magical approve stuff"));
-        deleteCol.setCellValueFactory(
-                new PropertyValueFactory<>("some magical delete stuff"));*/
+        approveCol.setCellFactory(PendingAttractionsListController.generateCellFactory("approve"));
+        deleteCol.setCellFactory(PendingAttractionsListController.generateCellFactory("delete"));
     }
 }

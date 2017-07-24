@@ -4,7 +4,7 @@ package main.java.model;
  * Created by Michael Xiao Local on 7/24/2017.
  */
 public class PendingAttraction {
-
+    private String attractionEID;
     private String attractionName;
     private String city;
     private String address;
@@ -18,12 +18,13 @@ public class PendingAttraction {
     private String comment;
 
 
-    public PendingAttraction(String city, String address, String country) {
-        this(city, address, country,
-                null, null, null, null, null, null, null, null);
+    public PendingAttraction(String attractionEID) {
+        this(attractionEID,
+                null, null, null, null, null, null, null, null, null, null, null);
     }
 
     public PendingAttraction(
+            String attractionEID,
             String attractionName,
             String city,
             String address,
@@ -35,6 +36,7 @@ public class PendingAttraction {
             String submittedBy,
             String rating,
             String comment) {
+        this.attractionEID = attractionEID;
         this.attractionName = attractionName;
         this.city = city;
         this.address = address;
@@ -51,6 +53,14 @@ public class PendingAttraction {
     @Override
     public String toString() {
         return attractionName + ", " + city + ", " + country;
+    }
+
+    public String getAttractionEID() {
+        return attractionEID;
+    }
+
+    public void setAttractionEID(String attractionEID) {
+        this.attractionEID = attractionEID;
     }
 
     public String getAttractionName() {

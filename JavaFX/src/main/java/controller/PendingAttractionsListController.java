@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.util.Callback;
 import main.java.model.PendingAttraction;
 import main.java.sql.DBConnection;
+import main.java.view.PendingAttractionsView;
 import main.java.view.RootView;
 
 import java.sql.ResultSet;
@@ -20,8 +21,7 @@ public class PendingAttractionsListController {
         //Create variable for data to return in form of ObservableList
         ObservableList<PendingAttraction> data = FXCollections.observableArrayList();
         //Create string holding mySQL query
-        String attractionQuery = "(SELECT AttractionName, CityName, StreetAddress, Country, CName AS Category, Description, " +
-                "Hours, ContactInfo, UserEmail, Rating, Comment FROM\n" +
+        String attractionQuery = "(SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName AS Category, Description, Hours, ContactInfo, UserEmail, Rating, Comment FROM\n" +
                 "\t(SELECT *\n" +
                 "\tFROM RateACity.Attraction AS Attr \n" +
                 "\t\tNATURAL JOIN RateACity.City \n" +
@@ -44,6 +44,7 @@ public class PendingAttractionsListController {
             //Get each column from mySQL query, getStrings corresponding with each column's entry for a tuple
             while (rs.next()) {
                 PendingAttraction pendingAttraction = new PendingAttraction(
+                        rs.getString("AttractionEID"),
                         rs.getString("AttractionName"),
                         rs.getString("CityName"),
                         rs.getString("StreetAddress"),
@@ -66,12 +67,12 @@ public class PendingAttractionsListController {
         }
         return null;
     }
-    /*
-    public static Callback<TableColumn<PendingCity, String>, TableCell<PendingCity, String>> generateCellFactory(String column) {
-        return new Callback<TableColumn<PendingCity, String>, TableCell<PendingCity, String>>() {
+
+    public static Callback<TableColumn<PendingAttraction, String>, TableCell<PendingAttraction, String>> generateCellFactory(String column) {
+        return new Callback<TableColumn<PendingAttraction, String>, TableCell<PendingAttraction, String>>() {
             @Override
-            public TableCell<PendingCity, String> call(TableColumn<PendingCity, String> param) {
-                return new TableCell<PendingCity, String>() {
+            public TableCell<PendingAttraction, String> call(TableColumn<PendingAttraction, String> param) {
+                return new TableCell<PendingAttraction, String>() {
                     final Hyperlink link = new Hyperlink("");
 
                     @Override
@@ -81,21 +82,21 @@ public class PendingAttractionsListController {
                             setGraphic(null);
                             setText(null);
                         } else {
-                            PendingCity city = getTableView().getItems().get(getIndex());
+                            PendingAttraction attraction = getTableView().getItems().get(getIndex());
                             if (column.equals("approve")) {
                                 link.setText("Approve");
                                 link.setOnAction(event -> {
                                     if (promptApprove().get() == ButtonType.OK) {
-                                        approveCity(city);
-                                        RootView.instance.setCenter(PendingCitiesView.getInstance());
+                                        approveAttraction(attraction);
+                                        RootView.instance.setCenter(PendingAttractionsView.getInstance());
                                     }
                                 });
                             } else if (column.equals("delete")) {
                                 link.setText("Delete");
                                 link.setOnAction(event -> {
                                     if (promptDelete().get() == ButtonType.OK) {
-                                        deletePendingCity(city);
-                                        RootView.instance.setCenter(PendingCitiesView.getInstance());
+                                        deletePendingAttraction(attraction);
+                                        RootView.instance.setCenter(PendingAttractionsView.getInstance());
                                     }
                                 });
                             }
@@ -106,12 +107,12 @@ public class PendingAttractionsListController {
                 };
             }
         };
-    }*/
-/*
-    private static void approveCity(PendingCity city) {
+    }
+
+    private static void approveAttraction(PendingAttraction attraction) {
         String approveUpdate = "UPDATE RateACity.Reviewable_Entity\n" +
                 "SET isPending=0\n" +
-                "WHERE EntityID=\'" + city.getCityEID() + "\';";
+                "WHERE EntityID=\'" + attraction.getAttractionEID() + "\';";
         try {
             DBConnection.connection.createStatement().executeUpdate(approveUpdate);
         } catch (SQLException e) {
@@ -119,14 +120,14 @@ public class PendingAttractionsListController {
         }
     }
 
-    private static void deletePendingCity(PendingCity city) {
+    private static void deletePendingAttraction(PendingAttraction attraction) {
         // Note: deleteReviewStatement would not be necessary if reviews cascade on delete
-        String deleteReviewStatement = "DELETE FROM RateACity.Review WHERE ReviewableEID=\'" + city.getCityEID() + "\';";
-        String deletePendingCityStatement = "DELETE FROM RateACity.Reviewable_Entity WHERE EntityID=\'" + city.getCityEID() + "\';";
+        String deleteReviewStatement = "DELETE FROM RateACity.Review WHERE ReviewableEID=\'" + attraction.getAttractionEID() + "\';";
+        String deletePendingAttractionStatement = "DELETE FROM RateACity.Reviewable_Entity WHERE EntityID=\'" + attraction.getAttractionEID() + "\';";
 
         try {
             DBConnection.connection.createStatement().executeUpdate(deleteReviewStatement);
-            DBConnection.connection.createStatement().executeUpdate(deletePendingCityStatement);
+            DBConnection.connection.createStatement().executeUpdate(deletePendingAttractionStatement);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -147,5 +148,5 @@ public class PendingAttractionsListController {
         alert.setContentText("It will be removed from the list of pending cities.");
         return alert.showAndWait();
     }
-    */
+
 }
