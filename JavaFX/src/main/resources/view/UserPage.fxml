@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.UserView">
    <top>
@@ -31,7 +32,7 @@
             </HBox>
             <HBox alignment="TOP_CENTER" prefHeight="96.0" prefWidth="600.0">
                <children>
-                  <TextField maxWidth="320.0" prefHeight="27.0" prefWidth="320.0" promptText="Enter Attraction Name or Leave Blank To See All..." />
+                  <TextField fx:id="attractionName" maxWidth="320.0" prefHeight="27.0" prefWidth="320.0" promptText="Enter Attraction Name or Leave Blank To See All..." />
                   <Button fx:id="searchBtn" mnemonicParsing="false" prefWidth="160.0" text="Search Attractions" />
                   <Label fx:id="searchFail" textFill="#eb0e0e" />
                </children>

@@ -1,5 +1,8 @@
 package main.java.model;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 /**
  * Created by benge on 7/21/2017.
  */
@@ -14,6 +17,7 @@ public class Attraction {
     private String description;
     private String hours;
     private String contact;
+    private ArrayList<String> categoryList = new ArrayList<>();
 
     public Attraction(String attractionEID, String attractionName, String category, String description,
                       String hours, String address, String city, String aveRating, String numRatings, String contact) {
@@ -21,7 +25,7 @@ public class Attraction {
         this.attractionName = attractionName;
         this.description = description;
         this.hours = hours;
-        this.category = category;
+        categoryList.add(category);
         this.address = address;
         this.city = city;
         this.aveRating = aveRating;
@@ -38,11 +42,34 @@ public class Attraction {
     }
 
     public String getCategory() {
-        return category;
+
+        if (categoryList.isEmpty()) {
+            return null;
+        }
+
+        if (categoryList.size() == 1) {
+            return categoryList.get(0);
+        }
+
+        String x = "";
+        for (int i = 0; i < categoryList.size(); i++) {
+            if (i < categoryList.size() - 1) {
+                x += categoryList.get(i) + ", ";
+            } else {
+                x += categoryList.get(i);
+            }
+        }
+
+        return x;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void addCategory(String category) {
+
+        categoryList.add(category);
+    }
+
+    public ArrayList<String> getCategoryList() {
+        return categoryList;
     }
 
     public String getCity() {

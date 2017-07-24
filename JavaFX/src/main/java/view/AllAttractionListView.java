@@ -12,6 +12,7 @@ import main.java.model.Attraction;
 import main.java.model.CurrentState;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by wepperson on 7/18/17.
@@ -28,6 +29,9 @@ public class AllAttractionListView {
 
     @FXML
     private Button add, back;
+
+    @FXML
+    private Label categoryLabel;
 
     @FXML
     private TableView<Attraction> attractionsTable;
@@ -94,10 +98,26 @@ public class AllAttractionListView {
         link.setCellFactory(cellFactory);
 
         ObservableList<Attraction> forTable = combineCategories(AllAttractionsListViewController.buildData());
+
+
+        //  check here for if matches search category
+        if (!CurrentState.getCurrentCategory().equals("") && !CurrentState.getCurrentCategory().equals(null)) {
+
+            categoryLabel.setText("Showing attractions for Category: " + CurrentState.getCurrentCategory());
+
+            Iterator<Attraction> itr = forTable.iterator();
+            while (itr.hasNext()) {
+                if (!itr.next().getCategoryList().contains(CurrentState.getCurrentCategory())) {
+                    itr.remove();
+                }
+            }
+        }
+
         attractionsTable.setItems(forTable);
     }
 
     private ObservableList<Attraction> combineCategories(ObservableList<Attraction> toCombine) {
+
         ObservableList<Attraction> toReturn = FXCollections.observableArrayList();
         for (Attraction a : toCombine) {
             toReturn.add(a);
@@ -106,7 +126,10 @@ public class AllAttractionListView {
             Attraction first = toReturn.get(i);
             Attraction second = toReturn.get(i+1);
             if (first.getAttractionEID().equals(second.getAttractionEID())) {
-                first.setCategory(first.getCategory() + ", " + second.getCategory());
+
+                for (String s : second.getCategoryList()) {
+                    first.addCategory(s);
+                }
                 toReturn.remove(i+1);
                 i--;
             }

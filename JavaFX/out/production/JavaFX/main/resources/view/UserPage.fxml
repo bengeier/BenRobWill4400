@@ -31,7 +31,7 @@
             </HBox>
             <HBox alignment="TOP_CENTER" prefHeight="96.0" prefWidth="600.0">
                <children>
-                  <TextField maxWidth="320.0" prefHeight="27.0" prefWidth="320.0" promptText="Enter Attraction Name or Leave Blank To See All..." />
+                  <TextField fx:id="attractionName" maxWidth="320.0" prefHeight="27.0" prefWidth="320.0" promptText="Enter Attraction Name or Leave Blank To See All..." />
                   <Button fx:id="searchBtn" mnemonicParsing="false" prefWidth="160.0" text="Search Attractions" />
                   <Label fx:id="searchFail" textFill="#eb0e0e" />
                </children>
