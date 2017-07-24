@@ -66,7 +66,7 @@ public class AllUsersListController {
             @Override
             public TableCell<User, String> call(TableColumn<User, String> param) {
                 return new TableCell<User, String>() {
-                    final Hyperlink pageLink = new Hyperlink("test");
+                    final Hyperlink link = new Hyperlink("");
 
                     @Override
                     public void updateItem(String item, boolean empty) {
@@ -78,8 +78,8 @@ public class AllUsersListController {
                             User user = getTableView().getItems().get(getIndex());
                             switch (column) {
                                 case "userClass":
-                                    pageLink.setText(user.getUserClass());
-                                    pageLink.setOnAction(event -> {
+                                    link.setText(user.getUserClass());
+                                    link.setOnAction(event -> {
                                         if (user.getUserClass().equals("Regular User")) {
                                             if (promptForPromote().get() == ButtonType.OK) {
                                                 promoteUser(user);
@@ -94,8 +94,8 @@ public class AllUsersListController {
                                     });
                                     break;
                                 case "suspended":
-                                    pageLink.setText(user.getSuspended());
-                                    pageLink.setOnAction(event -> {
+                                    link.setText(user.getSuspended());
+                                    link.setOnAction(event -> {
                                         if (user.getSuspended().equals("Yes")) {
                                             if (promptForSuspensionRemoval().get() == ButtonType.OK) {
                                                 removeSuspension(user);
@@ -110,8 +110,8 @@ public class AllUsersListController {
                                     });
                                     break;
                                 case "delete":
-                                    pageLink.setText("Delete");
-                                    pageLink.setOnAction(event -> {
+                                    link.setText("Delete");
+                                    link.setOnAction(event -> {
                                         if (promptForDelete().get() == ButtonType.OK) {
                                             deleteUser(user);
                                             RootView.instance.setCenter(AllUsersListView.getInstance());
@@ -119,7 +119,7 @@ public class AllUsersListController {
                                     });
                                     break;
                             }
-                            setGraphic(pageLink);
+                            setGraphic(link);
 
                         }
                     }

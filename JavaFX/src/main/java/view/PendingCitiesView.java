@@ -17,11 +17,9 @@ import main.java.model.CurrentState;
 public class PendingCitiesView {
 
     private static String fxml = "PendingCitiesList.fxml";
-    private static BorderPane instance;
 
     public static BorderPane getInstance() {
-        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
-        return instance;
+        return (BorderPane) FXBuilder.getFXMLView(fxml);
     }
 
     @FXML
@@ -36,7 +34,6 @@ public class PendingCitiesView {
 
     @FXML
     public void initialize() {
-        System.out.println("intialize pending cities view");
         updateTable();
         back.setOnAction((event -> {
             RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
@@ -57,39 +54,9 @@ public class PendingCitiesView {
                 new PropertyValueFactory<>("approve"));
         deleteCol.setCellValueFactory(
                 new PropertyValueFactory<>("delete"));
-        System.out.println("updating table");
-        /*
-            Unfortunately this code works. You could probably refactor it idk
-         */
-        /*link.setCellValueFactory(new PropertyValueFactory<>("dummy"));
-        Callback<TableColumn<City, String>, TableCell<City, String>> cellFactory
-                = new Callback<TableColumn<City, String>, TableCell<City, String>>() {
-            @Override
-            public TableCell<City, String> call(TableColumn<City, String> param) {
-                return new TableCell<City, String>() {
-                    final Hyperlink pageLink = new Hyperlink("City Page");
 
-                    @Override
-                    public void updateItem(String item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (empty) {
-                            setGraphic(null);
-                            setText(null);
-                        } else {
-                            pageLink.setOnAction(event -> {
-                                City city = getTableView().getItems().get(getIndex());
-                                CurrentState.setCurrentCity(city);
-                                CurrentState.push(fxml);
-                                RootView.instance.setCenter(CityView.getInstance());
-                            });
-                            setGraphic(pageLink);
-                            setText(null);
-                        }
-                    }
-                };
-            }
-        };
-        //link.setCellFactory(cellFactory);*/
         pendingCitiesTable.setItems(PendingCitiesListController.buildData());
+        approveCol.setCellFactory(PendingCitiesListController.generateCellFactory("approve"));
+        deleteCol.setCellFactory(PendingCitiesListController.generateCellFactory("delete"));
     }
 }
