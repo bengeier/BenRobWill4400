@@ -27,7 +27,8 @@ public class UserView {
     }
 
     @FXML
-    private Button logOut, delete, myReviews, viewAllCities, viewAllAttractions, search;
+    private Button logOut, delete, myReviews, viewAllCities,
+            viewAllAttractions, searchBtn;
 
     @FXML
     private Label welcomeMessage, searchFail;
@@ -36,7 +37,7 @@ public class UserView {
     private ComboBox<City> cities;
 
     @FXML
-    private ComboBox<String> categories, sort;
+    private ComboBox<String> categories;
 
     @FXML
     public void initialize() {
@@ -45,7 +46,12 @@ public class UserView {
 
         welcomeMessage.setText("Welcome " + CurrentState.getEmail() + "!");
 
-        search.setOnAction(event -> search());
+        searchBtn.setOnAction(event -> {
+            search();
+        });
+
+
+        searchBtn.setOnAction(event -> search());
 
         logOut.setOnAction((event -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -99,9 +105,27 @@ public class UserView {
     @FXML
     private void search() {
         searchFail.setText("");
-        if (cities.getSelectionModel().isEmpty()) {
-            searchFail.setText("Please select a city");
+        CurrentState.push(fxml);
+
+        if (cities.getSelectionModel().isEmpty()
+                && categories.getSelectionModel().isEmpty()) {
+
+            // TODO sort of all attraction
+            RootView.instance.setCenter(AllAttractionListView.getInstance());
+
+        } else if (cities.getSelectionModel().isEmpty()
+                && !categories.getSelectionModel().isEmpty()) {
+
+            // TODO change to specific category's attractions
+
+        } else if (!cities.getSelectionModel().isEmpty()
+                && categories.getSelectionModel().isEmpty()) {
+
+            // TODO change to specific city's attractions
+
         }
+
+
         CurrentState.setCurrentCity(cities.getValue());
         if (!categories.getSelectionModel().isEmpty()) {
             CurrentState.setCurrentCategory(categories.getValue());

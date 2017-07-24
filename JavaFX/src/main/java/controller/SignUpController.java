@@ -46,7 +46,6 @@ public class SignUpController {
         try {
             Statement stmt = DBConnection.connection.createStatement();
             int res = stmt.executeUpdate(query);
-            System.out.println("Successfully inserted!");
             return res;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
