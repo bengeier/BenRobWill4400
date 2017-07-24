@@ -10,8 +10,8 @@ public class City {
     private String numRatings;
     private String numAttractions;
 
-    public City(String cityEID, String cityName) {
-        this(cityEID, cityName, null, null, null);
+    public City(String cityEID, String cityName, String avgRating) {
+        this(cityEID, cityName, avgRating, null, null);
     }
 
     public City(String cityEID, String cityName, String avgRating, String numRatings, String numAttractions) {

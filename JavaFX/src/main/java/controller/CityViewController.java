@@ -20,7 +20,8 @@ public class CityViewController {
                         "where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0 " +
                         "AND city.CityEID=" + CurrentState.getCurrentCity().getCityEID() + ") " +
                         "as A inner join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating " +
-                        "from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID); ";
+                        "from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID)" +
+                        " ORDER BY AveRating DESC;";
 
         try {
             ResultSet rs = DBConnection.connection.createStatement().executeQuery(attractionQuery);

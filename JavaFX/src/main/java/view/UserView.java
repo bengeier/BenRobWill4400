@@ -47,12 +47,6 @@ public class UserView {
 
         search.setOnAction(event -> search());
 
-        sort.setItems(FXCollections.observableArrayList("A -> Z", "Z -> A"));
-        sort.valueProperty().addListener((observable, oldValue, newValue) -> {
-            cities.setItems(UserController.cityNamesList(newValue));
-            categories.setItems(UserController.categoriesList(newValue));
-        });
-
         logOut.setOnAction((event -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirm Log Out");

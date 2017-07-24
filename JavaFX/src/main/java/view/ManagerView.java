@@ -38,19 +38,13 @@ public class ManagerView {
 
     @FXML
     public void initialize() {
-        cities.setItems(ManagerController.cityNamesList(""));
+        cities.setItems(ManagerController.cityNamesList());
         categories.setItems(ManagerController.categoriesList(""));
 
         welcomeMessage.setText("Welcome " + CurrentState.getEmail() + "!");
 
         search.setOnAction(event -> {
             search();
-        });
-
-        sort.setItems(FXCollections.observableArrayList("A -> Z", "Z -> A"));
-        sort.valueProperty().addListener((observable, oldValue, newValue) -> {
-            cities.setItems(ManagerController.cityNamesList(newValue));
-            categories.setItems(ManagerController.categoriesList(newValue));
         });
 
         logOut.setOnAction((event -> {
