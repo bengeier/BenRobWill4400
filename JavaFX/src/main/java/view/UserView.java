@@ -21,11 +21,9 @@ import java.util.Optional;
 public class UserView {
 
     private static String fxml = "UserPage.fxml";
-    private static BorderPane instance;
 
     public static BorderPane getInstance() {
-        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
-        return instance;
+        return (BorderPane) FXBuilder.getFXMLView(fxml);
     }
 
     @FXML
@@ -47,9 +45,7 @@ public class UserView {
 
         welcomeMessage.setText("Welcome " + CurrentState.getEmail() + "!");
 
-        search.setOnAction(event -> {
-            search();
-        });
+        search.setOnAction(event -> search());
 
         sort.setItems(FXCollections.observableArrayList("A -> Z", "Z -> A"));
         sort.valueProperty().addListener((observable, oldValue, newValue) -> {
@@ -58,7 +54,14 @@ public class UserView {
         });
 
         logOut.setOnAction((event -> {
-            RootView.instance.setCenter(LoginView.getInstance());
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirm Log Out");
+            alert.setHeaderText("Click 'OK' to Log Out");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                CurrentState.setSuspended(false);
+                RootView.instance.setCenter(LoginView.getInstance());
+            }
         }));
 
         delete.setOnAction((event -> {
@@ -80,8 +83,6 @@ public class UserView {
                 }
 
                 RootView.instance.setCenter(LoginView.getInstance());
-            } else {
-
             }
         }));
 

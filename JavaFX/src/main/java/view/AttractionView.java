@@ -1,6 +1,7 @@
 package main.java.view;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
@@ -40,8 +41,16 @@ public class AttractionView {
         categoryLabel.setText(curAttraction.getCategory());
 
         reviewThisAttraction.setOnAction((event -> {
-            CurrentState.push(fxml);
-            RootView.instance.setCenter(ReviewView.getInstance());
+            if (!CurrentState.isSuspended()) {
+                CurrentState.push(fxml);
+                RootView.instance.setCenter(ReviewView.getInstance());
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Cannot Submit Review");
+                alert.setHeaderText("Suspended Users Cannot Submit Reviews.");
+                alert.setContentText("Please contact a manager if you wish to remove suspension.");
+                alert.showAndWait();
+            }
         }));
 
         viewAllReviews.setOnAction((event -> {

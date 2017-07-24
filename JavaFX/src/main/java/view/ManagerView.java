@@ -2,10 +2,7 @@ package main.java.view;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import main.java.controller.ManagerController;
 import main.java.controller.NewCategoryController;
@@ -57,9 +54,14 @@ public class ManagerView {
         });
 
         logOut.setOnAction((event -> {
-            CurrentState.push(fxml);
-            CurrentState.setManagerView(false);
-            RootView.instance.setCenter(LoginView.getInstance());
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirm Log Out");
+            alert.setHeaderText("Click 'OK' to Log Out");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                CurrentState.setManagerView(false);
+                RootView.instance.setCenter(LoginView.getInstance());
+            }
          }));
 
         viewAllCities.setOnAction((event -> {

@@ -11,6 +11,7 @@ import main.java.controller.AllAttractionsListViewController;
 import main.java.controller.CityViewController;
 import main.java.model.Attraction;
 import main.java.model.CurrentState;
+import org.omg.CORBA.Current;
 
 public class CityView {
 
@@ -43,8 +44,16 @@ public class CityView {
         avgRatingText.setText(CurrentState.getCurrentCity().getAvgRating() + "/5");
 
         reviewThisCity.setOnAction((event -> {
-            CurrentState.push(fxml);
-            RootView.instance.setCenter(ReviewView.getInstance());
+            if (!CurrentState.isSuspended()) {
+                CurrentState.push(fxml);
+                RootView.instance.setCenter(ReviewView.getInstance());
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Cannot Submit Review");
+                alert.setHeaderText("Suspended Users Cannot Submit Reviews.");
+                alert.setContentText("Please contact a manager if you wish to remove suspension.");
+                alert.showAndWait();
+            }
         }));
 
         viewAllReviews.setOnAction((event -> {

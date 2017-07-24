@@ -67,7 +67,6 @@ public class LoginView {
         } else if (LoginController.login(email.getText(), password.getText()) == 1) {
             CurrentState.setEmail(email.getText());
             RootView.instance.setCenter(UserView.getInstance());
-
         } else {
             loginResult.setText("Incorrect Username/Password.");
         }

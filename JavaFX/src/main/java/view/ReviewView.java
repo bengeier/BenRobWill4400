@@ -15,24 +15,22 @@ import main.java.model.CurrentState;
 public class ReviewView {
 
     private static String fxml = "ReviewPage.fxml";
-    private static BorderPane instance;
 
     public static BorderPane getInstance() {
-        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
-        return instance;
+        return (BorderPane) FXBuilder.getFXMLView(fxml);
     }
 
     @FXML
-    Button submitReview, back;
+    private Button submitReview, back;
 
     @FXML
-    Label title;
+    private Label title;
 
     @FXML
-    ComboBox<Integer> rating;
+    private ComboBox<Integer> rating;
 
     @FXML
-    TextArea comment;
+    private TextArea comment;
 
     @FXML
     public void initialize() {
@@ -40,9 +38,7 @@ public class ReviewView {
                 CurrentState.getCurrentAttraction().getAttractionName() : "New City Review For " +
                 CurrentState.getCurrentCity().getCityName());
 
-        back.setOnAction((event -> {
-            RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
-        }));
+        back.setOnAction((event -> RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()))));
 
         submitReview.setOnAction((event -> {
             ReviewViewController.addNewReview(

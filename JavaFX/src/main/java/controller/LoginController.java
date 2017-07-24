@@ -2,6 +2,7 @@ package main.java.controller;
 
 
 import javafx.event.ActionEvent;
+import main.java.model.CurrentState;
 import main.java.sql.DBConnection;
 
 import java.security.MessageDigest;
@@ -43,15 +44,20 @@ public class LoginController {
         if (email == null) {
             throw new IllegalArgumentException("Email cannot be null.");
         }
-        String loginQuery = "SELECT COUNT(*), IsManager FROM RATEACITY.USER WHERE Email='"
+        String loginQuery = "SELECT COUNT(*), IsManager, IsSuspended FROM RATEACITY.USER WHERE Email='"
                 + email + "' AND Password=\"" + password + "\"";
 
         try {
             Statement loginStatement = DBConnection.connection.createStatement();
             ResultSet loginResult = loginStatement.executeQuery(loginQuery);
 
-            if (loginResult.next() && loginResult.getString("COUNT(*)").equals("1")) {
-                return loginResult.getString("isManager").equals("1") ? 2 : 1;
+            if (loginResult.next()) {
+                if (loginResult.getString("isSuspended").equals("1")) {
+                    CurrentState.setSuspended(true);
+                }
+                if (loginResult.getString("COUNT(*)").equals("1")) {
+                    return loginResult.getString("isManager").equals("1") ? 2 : 1;
+                }
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

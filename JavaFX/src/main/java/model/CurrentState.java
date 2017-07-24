@@ -12,6 +12,7 @@ public class CurrentState {
     private static String currentCategory = "";
     private static Attraction currentAttraction;
     private static boolean managerView = false;
+    private static boolean suspended = false;
 
     public static String getEmail() {
         return email;
@@ -63,5 +64,13 @@ public class CurrentState {
 
     public static void setManagerView(boolean managerView) {
         CurrentState.managerView = managerView;
+    }
+
+    public static boolean isSuspended() {
+        return suspended;
+    }
+
+    public static void setSuspended(boolean suspended) {
+        CurrentState.suspended = suspended;
     }
 }
