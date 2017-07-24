@@ -111,6 +111,7 @@ public class CityView {
     }
 
     private ObservableList<Attraction> combineCategories(ObservableList<Attraction> toCombine) {
+
         ObservableList<Attraction> toReturn = FXCollections.observableArrayList();
         for (Attraction a : toCombine) {
             toReturn.add(a);
@@ -119,7 +120,10 @@ public class CityView {
             Attraction first = toReturn.get(i);
             Attraction second = toReturn.get(i+1);
             if (first.getAttractionEID().equals(second.getAttractionEID())) {
-                first.setCategory(first.getCategory() + ", " + second.getCategory());
+
+                for (String s : second.getCategoryList()) {
+                    first.addCategory(s);
+                }
                 toReturn.remove(i+1);
                 i--;
             }
