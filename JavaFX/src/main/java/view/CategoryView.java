@@ -3,13 +3,10 @@ package main.java.view;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
-import javafx.util.Callback;
-import main.java.controller.AllCitiesListController;
+import main.java.controller.CategoriesListController;
 import main.java.controller.NewCategoryController;
 import main.java.model.Category;
-import main.java.model.City;
 import main.java.model.CurrentState;
 
 import java.util.Optional;
@@ -20,15 +17,13 @@ import java.util.Optional;
 public class CategoryView {
 
     private static String fxml = "CategoryPage.fxml";
-    private static BorderPane instance;
 
     public static BorderPane getInstance() {
-        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
-        return instance;
+        return (BorderPane) FXBuilder.getFXMLView(fxml);
     }
 
     @FXML
-    Button addCategory, back;
+    private Button addCategory, back;
 
     @FXML
     private TableView<Category> categoriesTable;
@@ -44,9 +39,7 @@ public class CategoryView {
         //Calls method to query database and update table
         updateTable();
 
-        back.setOnAction((event -> {
-            RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
-        }));
+        back.setOnAction((event -> RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()))));
 
         addCategory.setOnAction((event -> {
 
@@ -70,39 +63,13 @@ public class CategoryView {
                 new PropertyValueFactory<>("categoryName"));
         numAttractionsCol.setCellValueFactory(
                 new PropertyValueFactory<>("numAttractions"));
+        editCol.setCellValueFactory(
+                new PropertyValueFactory<>("edit"));
+        deleteCol.setCellValueFactory(
+                new PropertyValueFactory<>("delete"));
 
-        /*
-            Unfortunately this code works. You could probably refactor it idk
-         */
-        /*link.setCellValueFactory(new PropertyValueFactory<>("dummy"));
-        Callback<TableColumn<City, String>, TableCell<City, String>> cellFactory
-                = new Callback<TableColumn<City, String>, TableCell<City, String>>() {
-            @Override
-            public TableCell<City, String> call(TableColumn<City, String> param) {
-                return new TableCell<City, String>() {
-                    final Hyperlink pageLink = new Hyperlink("City Page");
-
-                    @Override
-                    public void updateItem(String item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (empty) {
-                            setGraphic(null);
-                            setText(null);
-                        } else {
-                            pageLink.setOnAction(event -> {
-                                City city = getTableView().getItems().get(getIndex());
-                                CurrentState.setCurrentCity(city);
-                                CurrentState.push(fxml);
-                                RootView.instance.setCenter(CityView.getInstance());
-                            });
-                            setGraphic(pageLink);
-                            setText(null);
-                        }
-                    }
-                };
-            }
-        };
-        link.setCellFactory(cellFactory);*/
         categoriesTable.setItems(CategoriesListController.buildData());
+        editCol.setCellFactory(CategoriesListController.generateCellFactory("edit"));
+        deleteCol.setCellFactory(CategoriesListController.generateCellFactory("delete"));
     }
 }
