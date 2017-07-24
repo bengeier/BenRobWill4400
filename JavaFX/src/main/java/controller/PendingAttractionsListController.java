@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.util.Callback;
+import main.java.model.PendingAttraction;
 import main.java.model.PendingCity;
 import main.java.sql.DBConnection;
 import main.java.view.PendingCitiesView;
@@ -17,32 +18,41 @@ import java.util.Optional;
  * Created by Michael Xiao Local on 7/24/2017.
  */
 public class PendingAttractionsListController {
-    public static ObservableList<PendingCity> buildData() {
-        return null;
+    public static ObservableList<PendingAttraction> buildData() {
+        //Create variable for data to return in form of ObservableList
+        ObservableList<PendingAttraction> data = FXCollections.observableArrayList();
+        //Create string holding mySQL query
+        String attractionQuery = "(SELECT AttractionName, CityName, StreetAddress, Country, CName, Description, UserEmail, Rating, Comment FROM\n" +
+                "\t(SELECT *\n" +
+                "\tFROM RateACity.Attraction AS Attr \n" +
+                "\t\tNATURAL JOIN RateACity.City \n" +
+                "\t\tNATURAL JOIN RateACity.FALLS_UNDER\n" +
+                "\t\tNATURAL JOIN RateACity.Category\n" +
+                "\t\tJOIN RateACity.Reviewable_Entity AS RE ON RE.EntityID = AttractionEID\n" +
+                "\t\tNATURAL JOIN RateACity.Review\n" +
+                "\tWHERE IsPending = 1 \n" +
+                "\tGROUP BY CName) AS TOTAL\n" +
+                "GROUP BY AttractionName\n" +
+                "ORDER BY AttractionName ASC);";
         /*
-
-        ObservableList<PendingCity> data = FXCollections.observableArrayList();
-
-        String cityQuery = "(SELECT CityEID, City, Country, UserEmail, Rating, Comment FROM " +
-                "(SELECT CityEID, CityName AS City, Country, Rating, Comment " +
-                "FROM RateACity.Review AS E JOIN RateACity.City AS S ON E.ReviewableEID=S.CityEID) AS T " +
-                "JOIN RateACity.Reviewable_Entity AS R " +
-                "WHERE IsPending = 1 AND R.EntityID = CityEID " +
-                "ORDER BY City ASC);";
-
         try {
-            ResultSet rs = DBConnection.connection.createStatement().executeQuery(cityQuery);
+            //Execute query
+            ResultSet rs = DBConnection.connection.createStatement().executeQuery(attractionQuery);
+            //Get each column from mySQL query, getStrings corresponding with each column's entry for a tuple
             while (rs.next()) {
-                PendingCity pendingCity = new PendingCity(
-                        rs.getString("CityEID"),
-                        rs.getString("City"),
+                PendingAttraction pendingAttraction = new PendingAttraction(
+                        rs.getString("AttractionName"),
+                        rs.getString("CityName"),
+                        rs.getString("StreetAddress"),
                         rs.getString("Country"),
+                        rs.getString("CName"),
+                        rs.getString("Description"),
                         rs.getString("UserEmail"),
                         rs.getString("Rating"),
                         rs.getString("Comment")
 
                 );
-                data.add(pendingCity);
+                data.add(pendingAttraction);
             }
             return data;
 
@@ -90,7 +100,8 @@ public class PendingAttractionsListController {
                     }
                 };
             }
-        };
+        };*/
+        return null;
     }
 
     private static void approveCity(PendingCity city) {
@@ -130,6 +141,6 @@ public class PendingAttractionsListController {
         alert.setTitle("Confirm Delete");
         alert.setHeaderText("Are You Sure You Want to Delete?");
         alert.setContentText("It will be removed from the list of pending cities.");
-        return alert.showAndWait();*/
+        return alert.showAndWait();
     }
 }

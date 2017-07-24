@@ -65,7 +65,7 @@ public class PendingCity {
         return rating;
     }
 
-    public void setNumAttractions(String rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 

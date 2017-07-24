@@ -1,0 +1,131 @@
+package main.java.model;
+
+/**
+ * Created by Michael Xiao Local on 7/24/2017.
+ */
+public class PendingAttraction {
+
+    private String attractionName;
+    private String city;
+    private String address;
+    private String category;
+    private String description;
+    private String hours;
+    private String contactInfo;
+    private String submittedBy;
+    private String rating;
+    private String comment;
+
+
+    public PendingAttraction(String city, String address) {
+        this(city, address,
+                null, null, null, null, null, null, null, null);
+    }
+
+    public PendingAttraction(
+            String attractionName,
+            String city,
+            String address,
+            String category,
+            String description,
+            String hours,
+            String contactInfo,
+            String submittedBy,
+            String rating,
+            String comment) {
+        this.attractionName = attractionName;
+        this.city = city;
+        this.address = address;
+        this.category = category;
+        this.description = description;
+        this.hours = hours;
+        this.contactInfo = contactInfo;
+        this.submittedBy = submittedBy;
+        this.rating = rating;
+        this.comment = comment;
+    }
+
+    @Override
+    public String toString() {
+        return attractionName + ", " + city;
+    }
+
+    public String getAttractionName() {
+        return attractionName;
+    }
+
+    public void setAttractionName(String attractionName) {
+        this.attractionName = attractionName;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public String getHours() {
+        return hours;
+    }
+
+    public void setHours(String hours) {
+        this.hours = hours;
+    }
+    public String getContactInfo() {
+        return contactInfo;
+    }
+
+    public void setContactInfo(String contactInfo) {
+        this.contactInfo = contactInfo;
+    }
+
+    public String getSubmittedBy() {
+        return submittedBy;
+    }
+
+    public void setSubmittedBy(String submittedBy) {
+        this.submittedBy = submittedBy;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+}
