@@ -6,6 +6,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Callback;
 import main.java.controller.AllCitiesListController;
+import main.java.controller.AllUsersListController;
 import main.java.controller.UserController;
 import main.java.model.City;
 import main.java.model.CurrentState;
@@ -48,79 +49,22 @@ public class AllUsersListView {
         }));
     }
 
-    private void promptForPromote() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirm Promote Account");
-        alert.setHeaderText("Are You Sure You Want to Promote?");
-        alert.setContentText("The user will be promoted to site manager and be "
-                + "able to promote others, delete accounts, and approve pending "
-                + " cities and locations");
-        alert.showAndWait();
-    }
-
-    private void promptForSuspend() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirm Suspend Account");
-        alert.setHeaderText("Are You Sure You Want to Suspend?");
-        alert.setContentText("The user will be unable to post any further comments.");
-        alert.showAndWait();
-    }
-
-    private void promptForDelete() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirm Delete Account");
-        alert.setHeaderText("Are You Sure You Want to Delete?");
-        alert.setContentText("This will remove all comments and ratings associated "
-            + " with this user.");
-        alert.showAndWait();
-    }
-
     private void updateTable() {
         emailCol.setCellValueFactory(
                 new PropertyValueFactory<>("email"));
         dateJoinedCol.setCellValueFactory(
                 new PropertyValueFactory<>("dateJoined"));
-        userClassCol.setCellValueFactory(
-                new PropertyValueFactory<>("userClass"));
         suspendedCol.setCellValueFactory(
                 new PropertyValueFactory<>("suspended"));
+        userClassCol.setCellValueFactory(
+                new PropertyValueFactory<>("dummy"));
         deleteCol.setCellValueFactory(
                 new PropertyValueFactory<>("delete"));
 
+        usersTable.setItems(AllUsersListController.buildData());
 
-        /*
-            Unfortunately this code works. You could probably refactor it idk
-        */
-        //link.setCellValueFactory(new PropertyValueFactory<>("dummy"));
-        /*Callback<TableColumn<City, String>, TableCell<City, String>> cellFactory
-                = new Callback<TableColumn<City, String>, TableCell<City, String>>() {
-            @Override
-            public TableCell<City, String> call(TableColumn<City, String> param) {
-                return new TableCell<City, String>() {
-                    final Hyperlink pageLink =
-                            new Hyperlink(suspendedCol.getCellObservableValue("suspended").getValue());
-
-                    @Override
-                    public void updateItem(String item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (empty) {
-                            setGraphic(null);
-                            setText(null);
-                        } else {
-                            pageLink.setOnAction(event -> {
-                                City city = getTableView().getItems().get(getIndex());
-                                CurrentState.setCurrentCity(city);
-                                CurrentState.push(fxml);
-                                RootView.instance.setCenter(CityView.getInstance());
-                            });
-                            setGraphic(pageLink);
-                            setText(null);
-                        }
-                    }
-                };
-            }
-        };
-        link.setCellFactory(cellFactory);*/
-        usersTable.setItems(UserController.buildData());
+        userClassCol.setCellFactory(AllUsersListController.generateCellFactory("userClass"));
+        suspendedCol.setCellFactory(AllUsersListController.generateCellFactory("suspended"));
+        deleteCol.setCellFactory(AllUsersListController.generateCellFactory("delete"));
     }
 }

@@ -39,7 +39,7 @@ public class ManagerView {
     @FXML
     public void initialize() {
         cities.setItems(ManagerController.cityNamesList());
-        categories.setItems(ManagerController.categoriesList(""));
+        categories.setItems(ManagerController.categoriesList());
 
         welcomeMessage.setText("Welcome " + CurrentState.getEmail() + "!");
 
