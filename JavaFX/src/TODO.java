@@ -1,5 +1,3 @@
-package main.java;
-
 /**
  * Created by wepperson on 7/24/17.
  */
@@ -22,5 +20,7 @@ public class TODO {
     // TODO Shouldn’t be able to delete himself if last
 
     // TODO Log in error not working
+
+    // TODO when a category is deleted the attractions that rely on it arent
 
 }
