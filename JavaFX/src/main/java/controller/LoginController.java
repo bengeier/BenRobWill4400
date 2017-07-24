@@ -51,7 +51,9 @@ public class LoginController {
             Statement loginStatement = DBConnection.connection.createStatement();
             ResultSet loginResult = loginStatement.executeQuery(loginQuery);
 
-            if (loginResult.next()) {
+            if(!loginResult.next()) {
+                return 0;
+            } else {
                 if (loginResult.getString("isSuspended").equals("1")) {
                     CurrentState.setSuspended(true);
                 }
@@ -61,7 +63,9 @@ public class LoginController {
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            return 0;
         }
+
         return 0;
     }
 }

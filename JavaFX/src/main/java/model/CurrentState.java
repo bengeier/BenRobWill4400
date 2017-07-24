@@ -1,8 +1,5 @@
 package main.java.model;
 
-import javafx.scene.layout.BorderPane;
-
-import java.util.Queue;
 import java.util.Stack;
 
 public class CurrentState {
@@ -13,6 +10,8 @@ public class CurrentState {
     private static Attraction currentAttraction;
     private static boolean managerView = false;
     private static boolean suspended = false;
+    private static boolean isAttractionSearch = false;
+    private static String attractionSearchParam = "";
 
     public static String getEmail() {
         return email;
@@ -72,5 +71,21 @@ public class CurrentState {
 
     public static void setSuspended(boolean suspended) {
         CurrentState.suspended = suspended;
+    }
+
+    public static boolean isAttractionSearch() {
+        return isAttractionSearch;
+    }
+
+    public static void setIsAttractionSearch(boolean isAttractionSearch) {
+        CurrentState.isAttractionSearch = isAttractionSearch;
+    }
+
+    public static String getAttractionSearchParam() {
+        return attractionSearchParam;
+    }
+
+    public static void setAttractionSearchParam(String attractionSearchParam) {
+        CurrentState.attractionSearchParam = attractionSearchParam;
     }
 }

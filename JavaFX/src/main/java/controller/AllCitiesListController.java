@@ -5,6 +5,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.util.Callback;
 import main.java.model.City;
 import main.java.model.CurrentState;
 import main.java.sql.DBConnection;
@@ -55,5 +58,38 @@ public class AllCitiesListController {
             System.out.println(e.getMessage());
         }
         return null;
+    }
+
+    /**
+     * Generates Callback to create a cell factory for city page link column
+     * @return Callback to set as CellFactory for city page link column
+     */
+    public static Callback<TableColumn<City, String>, TableCell<City, String>> generateCellFactory() {
+        return new Callback<TableColumn<City, String>, TableCell<City, String>>() {
+            @Override
+            public TableCell<City, String> call(TableColumn<City, String> param) {
+                return new TableCell<City, String>() {
+                    final Hyperlink pageLink = new Hyperlink("City Page");
+
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                            setText(null);
+                        } else {
+                            pageLink.setOnAction(event -> {
+                                City city = getTableView().getItems().get(getIndex());
+                                CurrentState.setCurrentCity(city);
+                                CurrentState.push("AllCitiesList.fxml");
+                                RootView.instance.setCenter(CityView.getInstance());
+                            });
+                            setGraphic(pageLink);
+                            setText(null);
+                        }
+                    }
+                };
+            }
+        };
     }
 }

@@ -149,9 +149,18 @@ public class UserView {
         } else {
             // search for attraction with specific name
 
+            if(!cities.getSelectionModel().isEmpty()) {
+                CurrentState.setCurrentCity(cities.getValue());
+            }
+            if(!categories.getSelectionModel().isEmpty()) {
+                CurrentState.setCurrentCategory(categories.getValue());
+            }
+
+            CurrentState.setIsAttractionSearch(true);
+            CurrentState.setAttractionSearchParam(attractionName.getText());
+
+            RootView.instance.setCenter(AttractionView.getInstance());
 
         }
-
-
     }
 }

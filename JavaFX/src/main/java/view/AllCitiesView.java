@@ -36,8 +36,16 @@ public class AllCitiesView {
         backToUser.setOnAction((event -> RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()))));
 
         addNewCity.setOnAction((event -> {
-            CurrentState.push(fxml);
-            RootView.instance.setCenter(NewCityView.getInstance());
+            if (!CurrentState.isSuspended()) {
+                CurrentState.push(fxml);
+                RootView.instance.setCenter(NewCityView.getInstance());
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Cannot Add New City");
+                alert.setHeaderText("Suspended Users Cannot Add New Cities.");
+                alert.setContentText("Please contact a manager if you wish to remove suspension.");
+                alert.showAndWait();
+            }
         }));
     }
 
@@ -50,39 +58,10 @@ public class AllCitiesView {
                 new PropertyValueFactory<>("numRatings"));
         numAttractionCol.setCellValueFactory(
                 new PropertyValueFactory<>("numAttractions"));
-
-        /*
-            Unfortunately this code works. You could probably refactor it idk
-         */
         link.setCellValueFactory(new PropertyValueFactory<>("dummy"));
-        Callback<TableColumn<City, String>, TableCell<City, String>> cellFactory
-                = new Callback<TableColumn<City, String>, TableCell<City, String>>() {
-            @Override
-            public TableCell<City, String> call(TableColumn<City, String> param) {
-                return new TableCell<City, String>() {
-                    final Hyperlink pageLink = new Hyperlink("City Page");
 
-                    @Override
-                    public void updateItem(String item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (empty) {
-                            setGraphic(null);
-                            setText(null);
-                        } else {
-                            pageLink.setOnAction(event -> {
-                                City city = getTableView().getItems().get(getIndex());
-                                CurrentState.setCurrentCity(city);
-                                CurrentState.push(fxml);
-                                RootView.instance.setCenter(CityView.getInstance());
-                            });
-                            setGraphic(pageLink);
-                            setText(null);
-                        }
-                    }
-                };
-            }
-        };
-        link.setCellFactory(cellFactory);
         citiesTable.setItems(AllCitiesListController.buildData());
+
+        link.setCellFactory(AllCitiesListController.generateCellFactory());
     }
 }

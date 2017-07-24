@@ -25,7 +25,7 @@ public class ManagerView {
 
     @FXML
     private Button logOut, viewAllCities, viewAllAttractions, viewAllCategories, viewAllUsers, viewPendingCities,
-        viewPendingAttractions, addNewCity, addNewUser, addNewAttraction, addNewCategory, search, searchAllAttractions;
+        viewPendingAttractions, addNewCity, addNewUser, addNewAttraction, addNewCategory, search;
 
     @FXML
     private Label welcomeMessage, searchFail;
@@ -34,7 +34,10 @@ public class ManagerView {
     private ComboBox<City> cities;
 
     @FXML
-    private ComboBox<String> categories, sort;
+    private ComboBox<String> categories;
+
+    @FXML
+    private TextField attractionName;
 
     @FXML
     public void initialize() {
@@ -126,25 +129,72 @@ public class ManagerView {
         }));
     }
 
-    @FXML
-    private void search() {
-        searchFail.setText("");
-        if (cities.getSelectionModel().isEmpty()) {
-            searchFail.setText("Please select a city");
-        }
-        CurrentState.setCurrentCity(cities.getValue());
-        if (!categories.getSelectionModel().isEmpty()) {
-            CurrentState.setCurrentCategory(categories.getValue());
-        }
-        CurrentState.push(fxml);
-        RootView.instance.setCenter(CityView.getInstance());
-    }
+
     @FXML
     private void addCategory(String categoryName) {
         NewCategoryController.addCategory(categoryName);
         CurrentState.push(fxml);
         RootView.instance.setCenter(CategoryView.getInstance());
 
+    }
+
+    @FXML
+    private void search() {
+        searchFail.setText("");
+        CurrentState.push(fxml);
+
+        if(attractionName.getText().isEmpty()) {
+            // neither specified
+            if (cities.getSelectionModel().isEmpty()
+                    && categories.getSelectionModel().isEmpty()) {
+
+                CurrentState.setCurrentCategory("");
+                CurrentState.setCurrentCity(null);
+
+                RootView.instance.setCenter(AllAttractionListView.getInstance());
+
+                // ONLY category specified
+            } else if (cities.getSelectionModel().isEmpty()
+                    && !categories.getSelectionModel().isEmpty()) {
+
+                CurrentState.setCurrentCategory(categories.getValue());
+                CurrentState.setCurrentCity(null);
+
+                RootView.instance.setCenter(AllAttractionListView.getInstance());
+
+                // ONLY city specified
+            } else if (!cities.getSelectionModel().isEmpty()
+                    && categories.getSelectionModel().isEmpty()) {
+
+                CurrentState.setCurrentCity(cities.getValue());
+                CurrentState.setCurrentCategory("");
+
+                RootView.instance.setCenter(CityView.getInstance());
+
+                // BOTH specified
+            } else {
+                CurrentState.setCurrentCity(cities.getValue());
+                CurrentState.setCurrentCategory(categories.getValue());
+
+                RootView.instance.setCenter(CityView.getInstance());
+
+            }
+        } else {
+            // search for attraction with specific name
+
+            if(!cities.getSelectionModel().isEmpty()) {
+                CurrentState.setCurrentCity(cities.getValue());
+            }
+            if(!categories.getSelectionModel().isEmpty()) {
+                CurrentState.setCurrentCategory(categories.getValue());
+            }
+
+            CurrentState.setIsAttractionSearch(true);
+            CurrentState.setAttractionSearchParam(attractionName.getText());
+
+            RootView.instance.setCenter(AttractionView.getInstance());
+
+        }
     }
 
 }
