@@ -85,7 +85,12 @@ public class CategoriesListController {
                                 });
                             } else if (column.equals("delete")) {
                                 link.setText("Delete");
-                                // TODO: implement delete
+                                link.setOnAction(event -> {
+                                    if (promptForDelete().get() == ButtonType.OK) {
+                                        deleteCategory(category);
+                                        RootView.instance.setCenter(CategoryView.getInstance());
+                                    }
+                                });
                             }
                             setGraphic(link);
                             setText(null);
@@ -107,13 +112,32 @@ public class CategoriesListController {
 
     private static void updateCategory(Category category, String newName) {
         String categoryUpdate = "UPDATE RateACity.Category\n" +
-                "SET CName='" + newName + "'\n" +
-                "WHERE CName='" + category.getCategoryName() + "';";
+                "SET CName=\'" + newName + "\'\n" +
+                "WHERE CName=\'" + category.getCategoryName() + "\';";
         try {
             DBConnection.connection.createStatement().executeUpdate(categoryUpdate);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    private static void deleteCategory(Category category) {
+        String categoryDelete = "DELETE FROM RateACity.Category\n" +
+                "WHERE CName=\'" + category.getCategoryName() + "\';";
+
+        try {
+            DBConnection.connection.createStatement().executeUpdate(categoryDelete);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private static Optional<ButtonType> promptForDelete() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirm Delete");
+        alert.setHeaderText("Are You Sure You Want to Delete This Category?");
+        alert.setContentText("All entities relying on this category will also be deleted.");
+        return alert.showAndWait();
     }
 }
 
