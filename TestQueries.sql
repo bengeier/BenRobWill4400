@@ -139,12 +139,10 @@ INSERT INTO RateACity.CATEGORY (CNAME) VALUES('myCategory');
 ----- CATEGORIES -----
 */
 
-SELECT CName as Category, COUNT(*) AS NumAttractions
+SELECT CName as Category, COUNT(FALLS_UNDER.AttractionEID) AS NumAttractions
 	FROM RateACity.CATEGORY 
-    NATURAL JOIN RateACity.FALLS_UNDER
-    NATURAL JOIN RateACity.ATTRACTION
-	GROUP BY Category
-    ;
+	NATURAL LEFT JOIN RateACity.FALLS_UNDER
+	GROUP BY Category;
 
 /*
 ----- USERS LIST -----
