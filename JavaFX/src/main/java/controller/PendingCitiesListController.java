@@ -103,12 +103,9 @@ public class PendingCitiesListController {
     }
 
     private static void deletePendingCity(PendingCity city) {
-        // Note: deleteReviewStatement would not be necessary if reviews cascade on delete
-        String deleteReviewStatement = "DELETE FROM RateACity.Review WHERE ReviewableEID=\'" + city.getCityEID() + "\';";
         String deletePendingCityStatement = "DELETE FROM RateACity.Reviewable_Entity WHERE EntityID=\'" + city.getCityEID() + "\';";
 
         try {
-            DBConnection.connection.createStatement().executeUpdate(deleteReviewStatement);
             DBConnection.connection.createStatement().executeUpdate(deletePendingCityStatement);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
