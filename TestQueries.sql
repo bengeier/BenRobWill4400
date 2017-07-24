@@ -164,7 +164,7 @@ ORDER BY City ASC);
 /*
 ----- PENDING ATTRACTIONS -----
 */
-(SELECT AttractionName, CityName, StreetAddress, Country, CName, Description, UserEmail, Rating, Comment FROM
+(SELECT AttractionName, CityName, StreetAddress, Country, CName As Category, Description, Hours, ContactInfo, UserEmail, Rating, Comment FROM
 	(SELECT *
 	FROM RateACity.Attraction AS Attr 
 		NATURAL JOIN RateACity.City 
@@ -172,7 +172,11 @@ ORDER BY City ASC);
 		NATURAL JOIN RateACity.Category
 		JOIN RateACity.Reviewable_Entity AS RE ON RE.EntityID = AttractionEID
 		NATURAL JOIN RateACity.Review
+        NATURAL JOIN RateACity.Contact_Info
+        NATURAL JOIN RateACity.Hours_Of_Operation
+        
 	WHERE IsPending = 1 
 	GROUP BY CName) AS TOTAL
+    
 GROUP BY AttractionName
 ORDER BY AttractionName ASC);

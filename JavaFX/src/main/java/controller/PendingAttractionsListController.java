@@ -5,9 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.util.Callback;
 import main.java.model.PendingAttraction;
-import main.java.model.PendingCity;
 import main.java.sql.DBConnection;
-import main.java.view.PendingCitiesView;
 import main.java.view.RootView;
 
 import java.sql.ResultSet;
@@ -22,7 +20,8 @@ public class PendingAttractionsListController {
         //Create variable for data to return in form of ObservableList
         ObservableList<PendingAttraction> data = FXCollections.observableArrayList();
         //Create string holding mySQL query
-        String attractionQuery = "(SELECT AttractionName, CityName, StreetAddress, Country, CName, Description, UserEmail, Rating, Comment FROM\n" +
+        String attractionQuery = "(SELECT AttractionName, CityName, StreetAddress, Country, CName AS Category, Description, " +
+                "Hours, ContactInfo, UserEmail, Rating, Comment FROM\n" +
                 "\t(SELECT *\n" +
                 "\tFROM RateACity.Attraction AS Attr \n" +
                 "\t\tNATURAL JOIN RateACity.City \n" +
@@ -30,11 +29,15 @@ public class PendingAttractionsListController {
                 "\t\tNATURAL JOIN RateACity.Category\n" +
                 "\t\tJOIN RateACity.Reviewable_Entity AS RE ON RE.EntityID = AttractionEID\n" +
                 "\t\tNATURAL JOIN RateACity.Review\n" +
+                "        NATURAL JOIN RateACity.Contact_Info\n" +
+                "        NATURAL JOIN RateACity.Hours_Of_Operation\n" +
+                "        \n" +
                 "\tWHERE IsPending = 1 \n" +
                 "\tGROUP BY CName) AS TOTAL\n" +
+                "    \n" +
                 "GROUP BY AttractionName\n" +
                 "ORDER BY AttractionName ASC);";
-        /*
+
         try {
             //Execute query
             ResultSet rs = DBConnection.connection.createStatement().executeQuery(attractionQuery);
@@ -45,8 +48,10 @@ public class PendingAttractionsListController {
                         rs.getString("CityName"),
                         rs.getString("StreetAddress"),
                         rs.getString("Country"),
-                        rs.getString("CName"),
+                        rs.getString("Category"),
                         rs.getString("Description"),
+                        rs.getString("Hours"),
+                        rs.getString("ContactInfo"),
                         rs.getString("UserEmail"),
                         rs.getString("Rating"),
                         rs.getString("Comment")
@@ -61,7 +66,7 @@ public class PendingAttractionsListController {
         }
         return null;
     }
-
+    /*
     public static Callback<TableColumn<PendingCity, String>, TableCell<PendingCity, String>> generateCellFactory(String column) {
         return new Callback<TableColumn<PendingCity, String>, TableCell<PendingCity, String>>() {
             @Override
@@ -100,10 +105,9 @@ public class PendingAttractionsListController {
                     }
                 };
             }
-        };*/
-        return null;
-    }
-
+        };
+    }*/
+/*
     private static void approveCity(PendingCity city) {
         String approveUpdate = "UPDATE RateACity.Reviewable_Entity\n" +
                 "SET isPending=0\n" +
@@ -143,4 +147,5 @@ public class PendingAttractionsListController {
         alert.setContentText("It will be removed from the list of pending cities.");
         return alert.showAndWait();
     }
+    */
 }

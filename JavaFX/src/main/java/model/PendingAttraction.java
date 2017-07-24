@@ -8,6 +8,7 @@ public class PendingAttraction {
     private String attractionName;
     private String city;
     private String address;
+    private String country;
     private String category;
     private String description;
     private String hours;
@@ -17,8 +18,8 @@ public class PendingAttraction {
     private String comment;
 
 
-    public PendingAttraction(String city, String address) {
-        this(city, address,
+    public PendingAttraction(String city, String address, String country) {
+        this(city, address, country,
                 null, null, null, null, null, null, null, null);
     }
 
@@ -26,6 +27,7 @@ public class PendingAttraction {
             String attractionName,
             String city,
             String address,
+            String country,
             String category,
             String description,
             String hours,
@@ -36,6 +38,7 @@ public class PendingAttraction {
         this.attractionName = attractionName;
         this.city = city;
         this.address = address;
+        this.country = country;
         this.category = category;
         this.description = description;
         this.hours = hours;
@@ -47,7 +50,7 @@ public class PendingAttraction {
 
     @Override
     public String toString() {
-        return attractionName + ", " + city;
+        return attractionName + ", " + city + ", " + country;
     }
 
     public String getAttractionName() {
@@ -72,6 +75,14 @@ public class PendingAttraction {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getCountry() {
+        return address;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public String getCategory() {

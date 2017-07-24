@@ -9,6 +9,7 @@ import javafx.scene.layout.BorderPane;
 import main.java.controller.PendingAttractionsListController;
 import main.java.model.City;
 import main.java.model.CurrentState;
+import main.java.model.PendingAttraction;
 
 /**
  * Created by wepperson on 7/18/17.
@@ -27,10 +28,10 @@ public class PendingAttractionsView {
     Button back;
 
     @FXML
-    private TableView<City> pendingAttractionsTable;
+    private TableView<PendingAttraction> pendingAttractionsTable;
 
     @FXML
-    private TableColumn<City, String> attractionNameCol, cityCol, addressCol, categoryCol, descriptionCol,
+    private TableColumn<PendingAttraction, String> attractionNameCol, cityCol, addressCol, countryCol, categoryCol, descriptionCol,
         hoursCol, contactInfoCol, submittedByCol, ratingCol, commentCol, approveCol, deleteCol;
     @FXML
     public void initialize() {
@@ -47,6 +48,8 @@ public class PendingAttractionsView {
                 new PropertyValueFactory<>("city"));
         addressCol.setCellValueFactory(
                 new PropertyValueFactory<>("address"));
+        countryCol.setCellValueFactory(
+                new PropertyValueFactory<>("country"));
         categoryCol.setCellValueFactory(
                 new PropertyValueFactory<>("category"));
         descriptionCol.setCellValueFactory(
@@ -61,10 +64,11 @@ public class PendingAttractionsView {
                 new PropertyValueFactory<>("rating"));
         commentCol.setCellValueFactory(
                 new PropertyValueFactory<>("comment"));
-        approveCol.setCellValueFactory(
-                new PropertyValueFactory<>("approve"));
+
+        pendingAttractionsTable.setItems(PendingAttractionsListController.buildData());
+        /*approveCol.setCellValueFactory(
+                new PropertyValueFactory<>("some magical approve stuff"));
         deleteCol.setCellValueFactory(
-                new PropertyValueFactory<>("delete"));
-        //pendingAttractionsTable.setItems(PendingAttractionsListController.buildData());
+                new PropertyValueFactory<>("some magical delete stuff"));*/
     }
 }

@@ -234,6 +234,16 @@ INSERT INTO RATEACITY.CITY (CityEID, CityName, Country, State)
 		,'Georgia');
 
         /* Beltline */
+INSERT INTO RATEACITY.HOURS_OF_OPERATION (AttractionEID, Hours)
+    VALUES
+        (6
+        ,'08:00 - 12:00');
+        
+INSERT INTO RATEACITY.contact_info (ContactInfo, AttractionEID)
+	VALUES
+		('696-420-9001'
+        ,6);
+        
 INSERT INTO RATEACITY.REVIEWABLE_ENTITY (IsPending, UserEmail)
     VALUES
         (1
