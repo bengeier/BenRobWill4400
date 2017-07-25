@@ -35,10 +35,12 @@ public class CategoriesListController {
 
     public static ObservableList<Category> buildData() {
         ObservableList<Category> data = FXCollections.observableArrayList();
-        String categoryQuery = "SELECT CName as Category, COUNT(FALLS_UNDER.AttractionEID) AS NumAttractions\n" +
-                "\tFROM RateACity.CATEGORY \n" +
-                "\tNATURAL LEFT JOIN RateACity.FALLS_UNDER\n" +
-                "\tGROUP BY Category;";
+        String categoryQuery = "SELECT * FROM \n" +
+                "\t(SELECT CName as Category, COUNT(FALLS_UNDER.AttractionEID) AS NumAttractions\n" +
+                "\t\tFROM RateACity.CATEGORY \n" +
+                "\t\tNATURAL LEFT JOIN RateACity.FALLS_UNDER\n" +
+                "\t\tGROUP BY Category) AS Result\n" +
+                "\tORDER BY Category;";
 
         try {
             ResultSet rs = DBConnection.connection.createStatement().executeQuery(categoryQuery);

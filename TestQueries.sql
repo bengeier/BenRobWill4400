@@ -308,10 +308,32 @@ INSERT INTO RateACity.CATEGORY (CNAME) VALUES('myCategory');
 ----- CATEGORIES -----
 */
 
-SELECT CName as Category, COUNT(FALLS_UNDER.AttractionEID) AS NumAttractions
-	FROM RateACity.CATEGORY 
-	NATURAL LEFT JOIN RateACity.FALLS_UNDER
-	GROUP BY Category;
+SELECT * FROM 
+	(SELECT CName as Category, COUNT(FALLS_UNDER.AttractionEID) AS NumAttractions
+		FROM RateACity.CATEGORY 
+		NATURAL LEFT JOIN RateACity.FALLS_UNDER
+		GROUP BY Category) AS Result
+	ORDER BY Category;
+/*
+SELECT * FROM 
+	(SELECT CName as Category, COUNT(FALLS_UNDER.AttractionEID) AS NumAttractions
+		FROM RateACity.CATEGORY 
+		NATURAL LEFT JOIN RateACity.FALLS_UNDER
+		GROUP BY Category) AS Result
+	ORDER BY Category DESC;
+SELECT * FROM 
+	(SELECT CName as Category, COUNT(FALLS_UNDER.AttractionEID) AS NumAttractions
+		FROM RateACity.CATEGORY 
+		NATURAL LEFT JOIN RateACity.FALLS_UNDER
+		GROUP BY Category) AS Result
+	ORDER BY NumAttractions ASC;
+SELECT * FROM 
+	(SELECT CName as Category, COUNT(FALLS_UNDER.AttractionEID) AS NumAttractions
+		FROM RateACity.CATEGORY 
+		NATURAL LEFT JOIN RateACity.FALLS_UNDER
+		GROUP BY Category) AS Result
+	ORDER BY Category DESC;
+*/
 
 /*
 ----- USERS LIST -----

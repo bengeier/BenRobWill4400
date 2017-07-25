@@ -30,8 +30,6 @@ public class TODO {
 		//(mySQL DELETE and delete button to appear if isManager)
 
 	//TODO managers should be able to delete any review they want from an attraction
-	
-	//TODO mySQL for category sorts alphabetically, reverse alphabetically, by number of attractions ASC and DESC
 
 	//TODO suspended users should not be able to add new attractions, 
 		//also should not be able to review attractions from a attractions "all reviews" page 
