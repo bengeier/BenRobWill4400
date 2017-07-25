@@ -13,6 +13,7 @@ public class TODO {
 
 
     // LOW PRIORITY
+    // TODO Make some tables bigger (especially pending attractions)
     // TODO change background color / image
     // TODO Make table columns non editable
     // TODO Make info / link columns non-sortable
