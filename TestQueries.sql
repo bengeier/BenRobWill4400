@@ -89,10 +89,16 @@ DELETE FROM RateACity.REVIEW
 SELECT Email, Rating, Comment FROM
 	(SELECT * FROM RateACity.USER
 	NATURAL LEFT JOIN RateACity.REVIEW) AS RESULT
-    
-    /*+ order by through java controller, make different sort.setItems
-    and listeners for value property (see UserView's sort) */
-;
+    order by Email;
+SELECT Email, Rating, Comment FROM
+	(SELECT * FROM RateACity.USER
+	NATURAL LEFT JOIN RateACity.REVIEW) AS RESULT
+    order by Rating;
+SELECT Email, Rating, Comment FROM
+	(SELECT * FROM RateACity.USER
+	NATURAL LEFT JOIN RateACity.REVIEW) AS RESULT
+    order by Comment;
+
 #manager option to delete review
 DELETE FROM RateACity.REVIEW   
 	WHERE UserEmail = ''/*get selected user email in table*/ 
@@ -569,31 +575,6 @@ where AttractionName="Arc de Triomf"  and CityName="Barcelona" and CName="Monume
 ----- Cities List -----
 */
 
-SELECT * from
-(select CityEID, CityName, ave, coun, attr from (select CityName, avg(Rating) as ave, count(Rating) as coun, CityEID  from (
-(select * from rateacity.city join rateacity.reviewable_entity where IsPending=0 AND CityEID=EntityID) as filter) join
-RATEACITY.review where ReviewableEID=CityEID group by CityEid) as c natural left join
-(select CityEid, count(attractionEID) as attr from rateacity.attraction group by CityEID) as final) AS Result
-ORDER BY CityName;
 
-SELECT * from
-(select CityEID, CityName, ave, coun, attr from (select CityName, avg(Rating) as ave, count(Rating) as coun, CityEID  from (
-(select * from rateacity.city join rateacity.reviewable_entity where IsPending=0 AND CityEID=EntityID) as filter) join
 RATEACITY.review where ReviewableEID=CityEID group by CityEid) as c natural left join
-(select CityEid, count(attractionEID) as attr from rateacity.attraction group by CityEID) as final) AS Result
-ORDER BY ave;
-
-SELECT * from
-(select CityEID, CityName, ave, coun, attr from (select CityName, avg(Rating) as ave, count(Rating) as coun, CityEID  from (
-(select * from rateacity.city join rateacity.reviewable_entity where IsPending=0 AND CityEID=EntityID) as filter) join
-RATEACITY.review where ReviewableEID=CityEID group by CityEid) as c natural left join
-(select CityEid, count(attractionEID) as attr from rateacity.attraction group by CityEID) as final) AS Result
-ORDER BY coun;
-
-SELECT * from
-(select CityEID, CityName, ave, coun, attr from (select CityName, avg(Rating) as ave, count(Rating) as coun, CityEID  from (
-(select * from rateacity.city join rateacity.reviewable_entity where IsPending=0 AND CityEID=EntityID) as filter) join
-RATEACITY.review where ReviewableEID=CityEID group by CityEid) as c natural left join
-(select CityEid, count(attractionEID) as attr from rateacity.attraction group by CityEID) as final) AS Result
-ORDER BY attr;
 
