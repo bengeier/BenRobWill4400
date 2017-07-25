@@ -96,6 +96,10 @@ public class NewAttractionController {
                     "(" + lastIndex + ", \'" + hours + "\')";
             stmt.executeUpdate(insertHoursQuery);
 
+            String insertCategoryQuery = "INSERT INTO RateACity.Falls_Under (AttractionEID, CName) VALUES " +
+                    "(" + lastIndex + ", \'" + category + "\');";
+            stmt.executeUpdate(insertCategoryQuery);
+
             stmt.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());

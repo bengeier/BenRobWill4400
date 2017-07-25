@@ -16,11 +16,9 @@ import main.java.model.CurrentState;
 public class NewAttractionView {
 
     private static String fxml = "NewAttractionForm.fxml";
-    private static BorderPane instance;
 
     public static BorderPane getInstance() {
-        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
-        return instance;
+        return (BorderPane) FXBuilder.getFXMLView(fxml);
     }
 
     @FXML
@@ -56,7 +54,7 @@ public class NewAttractionView {
                     contactField.getText(),
                     commentField.getText(),
                     cities.getValue(),
-                    categories.getPromptText(),
+                    categories.getValue(),
                     ((Double)ratingSlider.getValue()).toString()
             );
             RootView.instance.setCenter(AttractionView.getInstance());

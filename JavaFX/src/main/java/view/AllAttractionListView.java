@@ -37,6 +37,8 @@ public class AllAttractionListView {
     @FXML
     private TableColumn<Attraction, String> nameCol, categoryCol, locationCol, avgCol, numCol, link;
 
+    private TableColumn<Attraction, String> deleteCol = new TableColumn<>();
+
     @FXML
     public void initialize() {
         updateTable();
@@ -73,11 +75,7 @@ public class AllAttractionListView {
                 new PropertyValueFactory<>("numRatings"));
         link.setCellValueFactory(new PropertyValueFactory<>("link"));
 
-        link.setCellFactory(AllAttractionsListViewController.generateCellFactory());
-
         ObservableList<Attraction> forTable = combineCategories(AllAttractionsListViewController.buildData());
-
-
         //  check here for if matches search category
         if (CurrentState.getCurrentCategory() != null && !CurrentState.getCurrentCategory().equals("")) {
 
@@ -90,8 +88,16 @@ public class AllAttractionListView {
                 }
             }
         }
-
         attractionsTable.setItems(forTable);
+
+        link.setCellFactory(AllAttractionsListViewController.generateCellFactory("page"));
+
+        if (CurrentState.isManagerView()) {
+            attractionsTable.getColumns().add(deleteCol);
+            deleteCol.setCellValueFactory(
+                new PropertyValueFactory<>("delete"));
+            deleteCol.setCellFactory(AllAttractionsListViewController.generateCellFactory("delete"));
+        }
     }
 
     private ObservableList<Attraction> combineCategories(ObservableList<Attraction> toCombine) {
