@@ -27,7 +27,7 @@ public class AllUsersListController {
                         "\tFROM RateACity.User";
 
         try {
-            if (CurrentState.peek() == "ManagerPage.fxml") {
+            if (!CurrentState.getAttractionSearchParam().equals("")) {
                 userQuery += " where Email=\'" + CurrentState.getAttractionSearchParam() + "\'";
             }
             ResultSet rs = DBConnection.connection.createStatement().executeQuery(userQuery);

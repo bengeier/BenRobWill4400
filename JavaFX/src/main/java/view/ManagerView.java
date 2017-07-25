@@ -86,6 +86,7 @@ public class ManagerView {
 
         viewAllUsers.setOnAction((event -> {
             CurrentState.push(fxml);
+            CurrentState.setAttractionSearchParam("");
             RootView.instance.setCenter(AllUsersListView.getInstance());
 
         }));
