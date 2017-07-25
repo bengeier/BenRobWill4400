@@ -53,8 +53,8 @@ public class AttractionAllReviewView {
                 RootView.instance.setCenter(ReviewView.getInstance());
             } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Cannot Add New Attraction");
-                alert.setHeaderText("Suspended Users Cannot Add New Attractions.");
+                alert.setTitle("Cannot Add New Review");
+                alert.setHeaderText("Suspended Users Cannot Add New Reviews.");
                 alert.setContentText("Please contact a manager if you wish to remove suspension.");
                 alert.showAndWait();
             }

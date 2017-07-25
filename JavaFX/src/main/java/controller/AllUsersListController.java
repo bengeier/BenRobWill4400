@@ -24,7 +24,8 @@ public class AllUsersListController {
         ObservableList<User> data = FXCollections.observableArrayList();
         String userQuery =
                 "SELECT Email, DateJoined, isManager, isSuspended\n" +
-                        "\tFROM RateACity.User";
+                        "\tFROM RateACity.User\n" +
+                        "ORDER BY Email;";
 
         try {
             if (!CurrentState.getAttractionSearchParam().equals("")) {
