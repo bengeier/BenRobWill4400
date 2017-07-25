@@ -10,6 +10,7 @@ import main.java.controller.AttractionController;
 import main.java.controller.SearchController;
 import main.java.model.Attraction;
 import main.java.model.CurrentState;
+import main.java.model.Review;
 import main.java.sql.DBConnection;
 
 import java.sql.ResultSet;
@@ -73,6 +74,10 @@ public class AttractionView {
                     ? "Review This City" : "Edit Review");
             reviewThisAttraction.setOnAction((event -> {
                 if (!CurrentState.isSuspended()) {
+                    CurrentState.setCurrentReview(new Review(
+                            CurrentState.getEmail(),
+                            CurrentState.getCurrentAttraction().getAttractionEID()
+                    ));
                     CurrentState.push(fxml);
                     RootView.instance.setCenter(ReviewView.getInstance());
                 } else {
