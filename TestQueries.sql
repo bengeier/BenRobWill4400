@@ -351,6 +351,7 @@ SELECT Email, DateJoined, isManager, isSuspended
 	FROM RateACity.User
 ORDER BY isSuspended;
 */
+delete from rateacity.user where Email = CurrentState.getEmail()
 
 /*
 ----- PENDING CITIES -----
