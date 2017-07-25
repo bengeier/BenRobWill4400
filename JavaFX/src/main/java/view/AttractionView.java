@@ -41,7 +41,6 @@ public class AttractionView {
 
         if (CurrentState.isAttractionSearch()) {
 
-            System.out.println("It's a search!");
 
             curAttraction = SearchController.search();
 
@@ -91,7 +90,6 @@ public class AttractionView {
 
         } else {
 
-            System.out.println("FAILED SEARCH AAAAAAHHHHHH");
             reviewThisAttraction.setDisable(true);
             viewAllReviews.setDisable(true);
 
