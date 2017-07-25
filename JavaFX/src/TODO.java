@@ -6,8 +6,7 @@ public class TODO {
 // HIGH PRIORITY
 
 	//TODO adding a new attraction should be sent to manager for approval
-
-	//TODO managers should be able to delete a city
+    
 	//TODO managers should be able to delete any review they want from a city 
 		//(mySQL DELETE and delete button to appear if isManager)
 	//TODO managers should be able to delete any review they want from an attraction
