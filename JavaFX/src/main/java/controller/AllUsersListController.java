@@ -8,7 +8,9 @@ import main.java.model.CurrentState;
 import main.java.model.User;
 import main.java.sql.DBConnection;
 import main.java.view.AllUsersListView;
+import main.java.view.LoginView;
 import main.java.view.RootView;
+import main.java.view.UserView;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -90,7 +92,12 @@ public class AllUsersListController {
                                                 displayManagerError();
                                             } else if (promptForDemote().get() == ButtonType.OK) {
                                                 demoteUser(user);
-                                                RootView.instance.setCenter(AllUsersListView.getInstance());
+                                                if (user.getEmail().equals(CurrentState.getEmail())) {
+                                                    CurrentState.setManagerView(false);
+                                                    RootView.instance.setCenter(UserView.getInstance());
+                                                } else {
+                                                    RootView.instance.setCenter(AllUsersListView.getInstance());
+                                                }
                                             }
                                         }
                                     });
@@ -118,7 +125,12 @@ public class AllUsersListController {
                                             displayManagerError();
                                         } else if (promptForDelete().get() == ButtonType.OK) {
                                             deleteUser(user);
-                                            RootView.instance.setCenter(AllUsersListView.getInstance());
+                                            if (user.getEmail().equals(CurrentState.getEmail())) {
+                                                CurrentState.setManagerView(false);
+                                                RootView.instance.setCenter(LoginView.getInstance());
+                                            } else {
+                                                RootView.instance.setCenter(AllUsersListView.getInstance());
+                                            }
                                         }
                                     });
                                     break;

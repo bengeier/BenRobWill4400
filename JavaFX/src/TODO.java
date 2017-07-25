@@ -11,7 +11,6 @@ public class TODO {
     // TODO Manager...
         // TODO	Search user
         // TODO	Users List
-        // Manager is not kicked out of all user list when he/she deletes or demotes their account
 
     // TODO approve pending city doesn't actually approve
 
