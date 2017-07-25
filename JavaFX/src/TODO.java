@@ -5,9 +5,6 @@ public class TODO {
 
     // HIGH PRIORITY
 
-    // TODO RateACityDatabase.sql is broken
-    // (insert into rateacity.hours_of_operation values(6, '08:00-12:00') violates foreign key constraint)
-
     // TODO Manager...
         // TODO	Search user
         // TODO	Users List
