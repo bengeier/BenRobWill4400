@@ -22,7 +22,7 @@ public class UserReviewsPageController {
 
     public static ObservableList<Review> buildData() {
         ObservableList<Review> data = FXCollections.observableArrayList();
-        String query = "SELECT CityName AS EntityName, Rating, Comment, ReviewableEID\n" +
+        String query = "SELECT * FROM (SELECT CityName AS EntityName, Rating, Comment, ReviewableEID\n" +
                 "FROM \n" +
                 "(SELECT * FROM RateACity.CITY AS C JOIN RateACity.REVIEW AS R " +
                 "ON C.CityEID=R.ReviewableEID ) \n" +
@@ -33,7 +33,7 @@ public class UserReviewsPageController {
                 "FROM (SELECT * FROM RateACity.ATTRACTION AS A " +
                 "JOIN RateACity.REVIEW AS R ON A.AttractionEID=R.ReviewableEID) " +
                 "AS UserAttractionReviews\n" +
-                "WHERE UserEmail = '" + CurrentState.getEmail() +"';";
+                "WHERE UserEmail = '" + CurrentState.getEmail() +"') AS Result ORDER BY EntityName;";
 
         try {
             ResultSet rs = DBConnection.connection.createStatement().executeQuery(query);

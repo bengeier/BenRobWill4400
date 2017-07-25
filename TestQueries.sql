@@ -114,16 +114,48 @@ DELETE FROM RateACity.REVIEW
 ----- USER'S REVIEW PAGE -----
 */
 #populates table with both user's city and attraction reviews
-SELECT CityName, Rating, Comment
-	FROM (SELECT * FROM RateACity.CITY NATURAL JOIN RateACity.REVIEW) AS UserCityReviews
-    WHERE UserEmail = ''/*get current user email*/
-UNION
-SELECT AttractionName, Rating, Comment 
-	FROM (SELECT * FROM RateACity.ATTRACTION NATURAL JOIN RateACity.REVIEW) AS UserAttractionReviews
-    #WHERE UserEmail = '' /*get current user email*/
-    ;
-    /*+ order by through java controller, make different sort.setItems
-    and listeners for value property (see UserView's sort) */
+SELECT * FROM 
+	(SELECT CityName AS EntityName, Rating, Comment, ReviewableEID
+		FROM
+		(SELECT * FROM RateACity.CITY AS C JOIN RateACity.REVIEW AS R
+		ON C.CityEID=R.ReviewableEID )
+		AS UserCityReviews
+		WHERE UserEmail = CurrentState.getEmail()
+		UNION
+		SELECT AttractionName, Rating, Comment, AttractionEID
+		FROM (SELECT * FROM RateACity.ATTRACTION AS A
+		JOIN RateACity.REVIEW AS R ON A.AttractionEID=R.ReviewableEID)
+		AS UserAttractionReviews
+		WHERE UserEmail = CurrentState.getEmail()) AS Result
+	ORDER BY EntityName;
+SELECT * FROM 
+	(SELECT CityName AS EntityName, Rating, Comment, ReviewableEID
+		FROM
+		(SELECT * FROM RateACity.CITY AS C JOIN RateACity.REVIEW AS R
+		ON C.CityEID=R.ReviewableEID )
+		AS UserCityReviews
+		WHERE UserEmail = CurrentState.getEmail()
+		UNION
+		SELECT AttractionName, Rating, Comment, AttractionEID
+		FROM (SELECT * FROM RateACity.ATTRACTION AS A
+		JOIN RateACity.REVIEW AS R ON A.AttractionEID=R.ReviewableEID)
+		AS UserAttractionReviews
+		WHERE UserEmail = CurrentState.getEmail()) AS Result
+	ORDER BY Rating;
+SELECT * FROM 
+	(SELECT CityName AS EntityName, Rating, Comment, ReviewableEID
+		FROM
+		(SELECT * FROM RateACity.CITY AS C JOIN RateACity.REVIEW AS R
+		ON C.CityEID=R.ReviewableEID )
+		AS UserCityReviews
+		WHERE UserEmail = CurrentState.getEmail()
+		UNION
+		SELECT AttractionName, Rating, Comment, AttractionEID
+		FROM (SELECT * FROM RateACity.ATTRACTION AS A
+		JOIN RateACity.REVIEW AS R ON A.AttractionEID=R.ReviewableEID)
+		AS UserAttractionReviews
+		WHERE UserEmail = CurrentState.getEmail()) AS Result
+	ORDER BY ReviewableEID;
 
 
 /*
