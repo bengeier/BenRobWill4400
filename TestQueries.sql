@@ -248,7 +248,32 @@ SELECT * FROM (
         #AND A.AttractionName = CurrentState.getCurrentAttraction().getAttractionName();
         ) AS Result
 	ORDER BY R.Rating DESC;
-        
+/*
+SELECT * FROM (
+	SELECT R.UserEmail, R.Rating, R.Comment
+
+		FROM RateACity.REVIEW AS R 
+		JOIN RATEACITY.REVIEWABLE_ENTITY AS E 
+		ON (R.ReviewableEID = E.EntityID)
+		JOIN RATEACITY.ATTRACTION AS A ON (A.AttractionEID = E.EntityID)
+		WHERE E.IsPending = 0 
+        #the following lines are commenteed out b/c they rely on javafx
+        #AND A.AttractionName = CurrentState.getCurrentAttraction().getAttractionName();
+        ) AS Result
+	ORDER BY UserEmail;
+SELECT * FROM (
+	SELECT R.UserEmail, R.Rating, R.Comment
+
+		FROM RateACity.REVIEW AS R 
+		JOIN RATEACITY.REVIEWABLE_ENTITY AS E 
+		ON (R.ReviewableEID = E.EntityID)
+		JOIN RATEACITY.ATTRACTION AS A ON (A.AttractionEID = E.EntityID)
+		WHERE E.IsPending = 0 
+        #the following lines are commenteed out b/c they rely on javafx
+        #AND A.AttractionName = CurrentState.getCurrentAttraction().getAttractionName();
+        ) AS Result
+	ORDER BY Comment;
+*/
         
 /*
 ----- NEW ATTRACTION FORM -----

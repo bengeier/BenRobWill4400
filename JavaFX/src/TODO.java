@@ -28,9 +28,8 @@ public class TODO {
 	//TODO managers should be able to delete an attraction
 	//TODO managers should be able to delete any review they want from a city 
 		//(mySQL DELETE and delete button to appear if isManager)
-	//TODO managers should be able to delete any review they want from an attraction
 
-	//TODO Attraction's reviews page should be default sorted high to low (also need to write mySQL for other sorts)
+	//TODO managers should be able to delete any review they want from an attraction
 	
 	//TODO mySQL for category sorts alphabetically, reverse alphabetically, by number of attractions ASC and DESC
 
