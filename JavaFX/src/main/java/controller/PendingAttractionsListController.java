@@ -19,16 +19,16 @@ import java.util.Optional;
 public class PendingAttractionsListController {
     public static ObservableList<PendingAttraction> buildData() {
         ObservableList<PendingAttraction> data = FXCollections.observableArrayList();
-        String attractionQuery = "SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName AS Category, Description, Hours, ContactInfo, T.UserEmail, Rating, Comment \n" +
-                "FROM \n" +
-                "\t(SELECT *\n" +
-                "\tFROM RateACity.ATTRACTION AS ATTR JOIN RateACity.REVIEWABLE_ENTITY AS E ON ATTR.AttractionEID = E.EntityID\n" +
-                "\tWHERE IsPending = 1) AS T\n" +
-                "JOIN RateACity.REVIEW ON REVIEW.UserEmail = T.UserEmail AND REVIEW.ReviewableEID = T.AttractionEID\n" +
-                "NATURAL JOIN RATEACITY.CITY\n" +
-                "NATURAL LEFT JOIN RATEACITY.CONTACT_INFO\n" +
+        String attractionQuery = "SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName AS Category, Description, Hours, ContactInfo, T.UserEmail, Rating, Comment " +
+                "FROM " +
+                "(SELECT * " +
+                "FROM RateACity.ATTRACTION AS ATTR JOIN RateACity.REVIEWABLE_ENTITY AS E ON ATTR.AttractionEID = E.EntityID " +
+                "WHERE IsPending = 1) AS T " +
+                "JOIN RateACity.REVIEW ON REVIEW.UserEmail = T.UserEmail AND REVIEW.ReviewableEID = T.AttractionEID " +
+                "NATURAL JOIN RATEACITY.CITY " +
+                "NATURAL LEFT JOIN RATEACITY.CONTACT_INFO " +
                 "NATURAL JOIN RATEACITY.FALLS_UNDER\n" +
-                "NATURAL LEFT JOIN RATEACITY.HOURS_OF_OPERATION\n" +
+                "NATURAL LEFT JOIN RATEACITY.HOURS_OF_OPERATION " +
                 "ORDER BY AttractionName;";
 
         try {
