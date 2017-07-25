@@ -162,8 +162,8 @@ ORDER BY City ASC);
 /*
 ----- PENDING ATTRACTIONS -----
 */
-(SELECT AttractionName, CityName, StreetAddress, Country, CName As Category, Description, Hours, ContactInfo, UserEmail, Rating, Comment FROM
-	(SELECT *
+(SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, Category, Description, Hours, ContactInfo, UserEmail, Rating, Comment FROM
+	(SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName As Category, Description, Hours, ContactInfo, UserEmail, Rating, Comment
 	FROM RateACity.Attraction AS Attr 
 		NATURAL JOIN RateACity.City 
 		NATURAL JOIN RateACity.FALLS_UNDER
