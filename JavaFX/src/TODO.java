@@ -24,11 +24,8 @@ public class TODO {
 		//(mySQL DELETE and delete button to appear if isManager)
 	//TODO managers should be able to delete any review they want from an attraction
 
-	//TODO suspended users should not be able to add new attractions, 
-		//also should not be able to review attractions from a attractions "all reviews" page 
+	//TODO suspended users should not be able to review attractions from a attractions "all reviews" page 
 		//same goes for not reviewing cities from "all reviews" page
-
-	//TODO pending attractions approve button should say "It will be added to the list of attractions" not "It will be added to the list of cities"
 
 // LOW PRIORITY
 
@@ -39,7 +36,6 @@ public class TODO {
     // TODO change background color / image
     // TODO Make table columns non editable
     // TODO Make info / link columns non-sortable
-    // TODO 
 
 
 }
