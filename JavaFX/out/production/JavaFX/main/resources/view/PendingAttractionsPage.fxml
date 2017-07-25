@@ -53,7 +53,7 @@
             </TableColumn>
                 <TableColumn fx:id="categoryCol" prefWidth="120.0">
                     <graphic>
-                        <Label alignment="CENTER" text="Category" textAlignment="CENTER" wrapText="true">
+                        <Label fx:id="categoryLabel" alignment="CENTER" text="Category" textAlignment="CENTER" wrapText="true">
                             <font>
                                 <Font size="10.0" />
                             </font></Label>

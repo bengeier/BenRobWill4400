@@ -9,8 +9,6 @@ public class TODO {
         // TODO	Search user
         // TODO	Users List
 
-    // TODO approve pending city doesn't actually approve
-
 
     // LOW PRIORITY
     // TODO Make some tables bigger (especially pending attractions)
