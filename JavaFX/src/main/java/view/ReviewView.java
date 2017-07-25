@@ -42,7 +42,7 @@ public class ReviewView {
 
         back.setOnAction((event -> RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()))));
 
-        deleteButton.setVisible(CurrentState.peek().equals("UserReviewsPage.fxml"));
+        deleteButton.setVisible(isNewReview());
         deleteButton.setOnAction(event -> {
                     ReviewViewController.deleteReview(CurrentState.getCurrentReview());
                     RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
@@ -61,12 +61,26 @@ public class ReviewView {
             RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
         }));
     }
+
     private String getTitleText() {
         if (CurrentState.peek().equals("UserReviewsPage.fxml")) {
             return "Edit Review for " + CurrentState.getCurrentReview().getEntityName();
         }
-        return CurrentState.peek().equals("AttractionPage.fxml") ? "New Attraction Review For " +
-                CurrentState.getCurrentAttraction().getAttractionName() : "New City Review For " +
-                CurrentState.getCurrentCity().getCityName();
+        if (CurrentState.peek().equals("AttractionPage.fxml")) {
+            return (ReviewViewController.isNewReview(CurrentState.getCurrentAttraction().getAttractionEID()) ?
+                    "New Review For " : "Edit Review For ") + CurrentState.getCurrentAttraction().getAttractionName();
+        }
+        return (ReviewViewController.isNewReview(CurrentState.getCurrentCity().getCityEID()) ?
+                "New Review For " : "Edit Review For ") + CurrentState.getCurrentCity().getCityName();
+    }
+
+    private boolean isNewReview() {
+        if (CurrentState.peek().equals("UserReviewsPage.fxml")) {
+            return false;
+        }
+        if (CurrentState.peek().equals("AttractionPage.fxml")) {
+            return ReviewViewController.isNewReview(CurrentState.getCurrentAttraction().getAttractionEID());
+        }
+        return ReviewViewController.isNewReview(CurrentState.getCurrentCity().getCityEID());
     }
 }
