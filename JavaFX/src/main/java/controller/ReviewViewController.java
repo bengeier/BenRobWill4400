@@ -41,7 +41,7 @@ public class ReviewViewController {
         }
     }
 
-    public static boolean newReview(String entityID) {
+    public static boolean isNewReview(String entityID) {
         String reviewedQuery = "SELECT COUNT(*) FROM RateACity.Review\n" +
                 "WHERE UserEmail='" + CurrentState.getEmail() + "'\n" +
                 "AND ReviewableEID='" + entityID + "';";
