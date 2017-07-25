@@ -23,9 +23,10 @@
    <center>
       <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="nameCol" editable="false" prefWidth="118.0" text="City/Attraction" />
-          <TableColumn fx:id="ratingCol" editable="false" prefWidth="70.0" text="Rating" />
-            <TableColumn fx:id="commentCol" editable="false" prefWidth="411.0" sortable="false" text="Comment" />
+          <TableColumn fx:id="nameCol" editable="false" prefWidth="151.0" text="City/Attraction" />
+          <TableColumn fx:id="ratingCol" editable="false" prefWidth="102.0" text="Rating" />
+            <TableColumn fx:id="commentCol" editable="false" prefWidth="246.0" sortable="false" text="Comment" />
+            <TableColumn fx:id="editCol" minWidth="0.0" prefWidth="100.0" text="Edit" />
         </columns>
       </TableView>
    </center>

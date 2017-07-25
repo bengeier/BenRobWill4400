@@ -34,7 +34,7 @@ public class UserReviewsView {
     private TableView<Review> table;
 
     @FXML
-    private TableColumn<Review, String> nameCol, ratingCol, commentCol;
+    private TableColumn<Review, String> nameCol, ratingCol, commentCol, editCol;
 
     @FXML
     public void initialize() {
@@ -52,12 +52,15 @@ public class UserReviewsView {
     private void updateTable() {
 
         nameCol.setCellValueFactory(
-                new PropertyValueFactory<>("userEmail"));
+                new PropertyValueFactory<>("EntityName"));
         ratingCol.setCellValueFactory(
                 new PropertyValueFactory<>("rating"));
         commentCol.setCellValueFactory(
                 new PropertyValueFactory<>("comment"));
+        editCol.setCellValueFactory(
+                new PropertyValueFactory<>("edit"));
 
         table.setItems(UserReviewsPageController.buildData());
+        editCol.setCellFactory(UserReviewsPageController.generateCellFactory());
     }
 }

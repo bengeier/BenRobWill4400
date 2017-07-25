@@ -63,7 +63,7 @@ public class AllAttractionsListViewController {
             @Override
             public TableCell<Attraction, String> call(TableColumn<Attraction, String> param) {
                 return new TableCell<Attraction, String>() {
-                    final Hyperlink pageLink = new Hyperlink("Page");
+                    final Hyperlink pageLink = new Hyperlink("");
 
                     @Override
                     public void updateItem(String item, boolean empty) {

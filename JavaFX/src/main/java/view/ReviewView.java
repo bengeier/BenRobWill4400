@@ -34,9 +34,7 @@ public class ReviewView {
 
     @FXML
     public void initialize() {
-        title.setText(CurrentState.peek().equals("AttractionPage.fxml") ? "New Attraction Review For " +
-                CurrentState.getCurrentAttraction().getAttractionName() : "New City Review For " +
-                CurrentState.getCurrentCity().getCityName());
+        title.setText(getTitleText());
 
         back.setOnAction((event -> RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()))));
 
@@ -53,5 +51,13 @@ public class ReviewView {
             RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
         }));
     }
-
+    private String getTitleText() {
+        if (CurrentState.peek().equals("UserReviewsPage.fxml")) {
+            return "Edit Review for " + CurrentState.getCurrentReview().getEntityName();
+        } else {
+            return CurrentState.peek().equals("AttractionPage.fxml") ? "New Attraction Review For " +
+                    CurrentState.getCurrentAttraction().getAttractionName() : "New City Review For " +
+                    CurrentState.getCurrentCity().getCityName();
+        }
+    }
 }

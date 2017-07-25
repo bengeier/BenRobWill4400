@@ -18,7 +18,7 @@ public class CityAllReviewController {
         ObservableList<Review> data = FXCollections.observableArrayList();
         String query = "SELECT R.UserEmail, R.Rating, R.Comment\n" +
                 "FROM RateACity.REVIEW AS R \n" +
-                "JOIN RATEACITY.REVIEWABLE_ENTITY AS E \n" +
+                "JOIN RateACity.REVIEWABLE_ENTITY AS E \n" +
                 "ON (R.ReviewableEID = E.EntityID)\n" +
                 "WHERE E.IsPending = 0 AND E.EntityID = "
                 + CurrentState.getCurrentCity().getCityEID() + ";";
@@ -30,7 +30,9 @@ public class CityAllReviewController {
                 Review review = new Review(
                         rs.getString("UserEmail"),
                         rs.getString("Rating"),
-                        rs.getString("Comment")
+                        rs.getString("Comment"),
+                        CurrentState.getCurrentCity().getCityEID(),
+                        CurrentState.getCurrentCity().getCityName()
                 );
 
                 data.add(review);

@@ -1,8 +1,10 @@
 package main.java.controller;
 
 import javafx.scene.control.Alert;
+import main.java.model.CurrentState;
 import main.java.sql.DBConnection;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ReviewViewController {
@@ -22,6 +24,22 @@ public class ReviewViewController {
 
                 alert.showAndWait();
             }
+        }
+        return false;
+    }
+
+    public static boolean newReview(String entityID) {
+        String reviewedQuery = "SELECT COUNT(*) FROM RateACity.Review\n" +
+                "WHERE UserEmail='" + CurrentState.getEmail() + "'\n" +
+                "AND ReviewableEID='" + entityID + "';";
+
+        try {
+            ResultSet rs = DBConnection.connection.createStatement().executeQuery(reviewedQuery);
+            if (rs.next()) {
+                return rs.getString("COUNT(*)").equals("0");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
         return false;
     }

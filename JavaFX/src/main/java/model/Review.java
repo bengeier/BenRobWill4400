@@ -5,12 +5,14 @@ package main.java.model;
  */
 public class Review {
 
-    private String userEmail, rating, comment;
+    private String userEmail, rating, comment, reviewableEID, entityName;
 
-    public Review(String userEmail, String rating, String comment) {
+    public Review(String userEmail, String rating, String comment, String reviewableEID, String entityName) {
         this.userEmail = userEmail;
         this.rating = rating;
         this.comment = comment;
+        this.reviewableEID = reviewableEID;
+        this.entityName = entityName;
     }
 
     public String getUserEmail() {
@@ -35,5 +37,21 @@ public class Review {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public String getReviewableEID() {
+        return reviewableEID;
+    }
+
+    public void setReviewableEID(String reviewableEID) {
+        this.reviewableEID = reviewableEID;
+    }
+
+    public String getEntityName() {
+        return entityName;
+    }
+
+    public void setEntityName(String entityName) {
+        this.entityName = entityName;
     }
 }

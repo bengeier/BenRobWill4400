@@ -22,8 +22,8 @@ public class AttractionAllReviewController {
                 "JOIN RATEACITY.REVIEWABLE_ENTITY AS E \n" +
                 "ON (R.ReviewableEID = E.EntityID)\n" +
                 "JOIN RATEACITY.ATTRACTION AS A ON (A.AttractionEID = E.EntityID)\n" +
-                "WHERE E.IsPending = 0 AND A.AttractionName = \""
-                + CurrentState.getCurrentAttraction().getAttractionName() + " \" ) AS Result ORDER BY Rating DESC;";
+                "WHERE E.IsPending = 0 AND A.AttractionEID = \""
+                + CurrentState.getCurrentAttraction().getAttractionEID() + " \" ) AS Result ORDER BY Rating DESC;";
 
         try {
             ResultSet rs = DBConnection.connection.createStatement().executeQuery(query);
@@ -32,8 +32,9 @@ public class AttractionAllReviewController {
                 Review review = new Review(
                         rs.getString("UserEmail"),
                         rs.getString("Rating"),
-                        rs.getString("Comment")
-
+                        rs.getString("Comment"),
+                        CurrentState.getCurrentAttraction().getAttractionEID(),
+                        CurrentState.getCurrentAttraction().getAttractionName()
                 );
 
                 data.add(review);

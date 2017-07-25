@@ -7,6 +7,7 @@ public class CurrentState {
     private static String email = "";
     private static City currentCity;
     private static String currentCategory = "";
+    private static Review currentReview;
     private static Attraction currentAttraction;
     private static boolean managerView = false;
     private static boolean suspended = false;
@@ -87,5 +88,13 @@ public class CurrentState {
 
     public static void setAttractionSearchParam(String attractionSearchParam) {
         CurrentState.attractionSearchParam = attractionSearchParam;
+    }
+
+    public static Review getCurrentReview() {
+        return currentReview;
+    }
+
+    public static void setCurrentReview(Review currentReview) {
+        CurrentState.currentReview = currentReview;
     }
 }
