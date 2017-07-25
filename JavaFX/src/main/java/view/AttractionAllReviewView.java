@@ -23,15 +23,13 @@ import main.java.model.Review;
 public class AttractionAllReviewView {
 
     private static String fxml = "AttractionAllReview.fxml";
-    private static BorderPane instance;
 
     public static BorderPane getInstance() {
-        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
-        return instance;
+        return (BorderPane) FXBuilder.getFXMLView(fxml);
     }
 
     @FXML
-    Button reviewAttraction, back;
+    private Button reviewAttraction, back;
 
     @FXML
     private Label attractionNameID;

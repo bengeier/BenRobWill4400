@@ -24,11 +24,9 @@ import java.util.Iterator;
 public class PendingAttractionsView {
 
     private static String fxml = "PendingAttractionsPage.fxml";
-    private static BorderPane instance;
 
     public static BorderPane getInstance() {
-        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
-        return instance;
+        return (BorderPane) FXBuilder.getFXMLView(fxml);
     }
 
     @FXML
@@ -77,7 +75,9 @@ public class PendingAttractionsView {
 
         pendingAttractionsTable.setItems(PendingAttractionsListController.buildData());
         approveCol.setCellFactory(PendingAttractionsListController.generateCellFactory("approve"));
+        approveCol.setSortable(false);
         deleteCol.setCellFactory(PendingAttractionsListController.generateCellFactory("delete"));
+        deleteCol.setSortable(false);
 
         ObservableList<PendingAttraction> forTable = combineCategories(PendingAttractionsListController.buildData());
 

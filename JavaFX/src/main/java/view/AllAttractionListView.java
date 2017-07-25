@@ -20,11 +20,9 @@ import java.util.Iterator;
 public class AllAttractionListView {
 
     private static String fxml = "AllAttractionList.fxml";
-    private static BorderPane instance;
 
     public static BorderPane getInstance() {
-        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
-        return instance;
+        return (BorderPane) FXBuilder.getFXMLView(fxml);
     }
 
     @FXML
@@ -64,44 +62,16 @@ public class AllAttractionListView {
                 new PropertyValueFactory<>("aveRating"));
         numCol.setCellValueFactory(
                 new PropertyValueFactory<>("numRatings"));
-        /*
-            Unfortunately this code works. You could probably refactor it idk
-         */
-        link.setCellValueFactory(new PropertyValueFactory<>("dummy"));
-        Callback<TableColumn<Attraction, String>, TableCell<Attraction, String>> cellFactory
-                = new Callback<TableColumn<Attraction, String>, TableCell<Attraction, String>>() {
-            @Override
-            public TableCell<Attraction, String> call(TableColumn<Attraction, String> param) {
-                return new TableCell<Attraction, String>() {
-                    final Hyperlink pageLink = new Hyperlink("Page");
+        link.setCellValueFactory(new PropertyValueFactory<>("link"));
+        link.setSortable(false);
 
-                    @Override
-                    public void updateItem(String item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (empty) {
-                            setGraphic(null);
-                            setText(null);
-                        } else {
-                            pageLink.setOnAction(event -> {
-                                Attraction attraction = getTableView().getItems().get(getIndex());
-                                CurrentState.setCurrentAttraction(attraction);
-                                CurrentState.push(fxml);
-                                RootView.instance.setCenter(AttractionView.getInstance());
-                            });
-                            setGraphic(pageLink);
-                            setText(null);
-                        }
-                    }
-                };
-            }
-        };
-        link.setCellFactory(cellFactory);
+        link.setCellFactory(AllAttractionsListViewController.generateCellFactory());
 
         ObservableList<Attraction> forTable = combineCategories(AllAttractionsListViewController.buildData());
 
 
         //  check here for if matches search category
-        if (!CurrentState.getCurrentCategory().equals("") && !CurrentState.getCurrentCategory().equals(null)) {
+        if (CurrentState.getCurrentCategory() != null && !CurrentState.getCurrentCategory().equals("")) {
 
             categoryLabel.setText("Showing attractions for Category: " + CurrentState.getCurrentCategory());
 

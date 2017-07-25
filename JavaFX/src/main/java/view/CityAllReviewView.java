@@ -20,15 +20,13 @@ import main.java.model.Review;
 public class CityAllReviewView {
 
     private static String fxml = "CityAllReviewPage.fxml";
-    private static BorderPane instance;
 
     public static BorderPane getInstance() {
-        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
-        return instance;
+        return (BorderPane) FXBuilder.getFXMLView(fxml);
     }
 
     @FXML
-    Button reviewCity, back;
+    private Button reviewCity, back;
 
     @FXML
     private Label cityID;

@@ -59,6 +59,7 @@ public class AllCitiesView {
         numAttractionCol.setCellValueFactory(
                 new PropertyValueFactory<>("numAttractions"));
         link.setCellValueFactory(new PropertyValueFactory<>("dummy"));
+        link.setSortable(false);
 
         citiesTable.setItems(AllCitiesListController.buildData());
 

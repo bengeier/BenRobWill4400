@@ -60,6 +60,7 @@ public class AllUsersListView {
                 new PropertyValueFactory<>("userClass"));
         deleteCol.setCellValueFactory(
                 new PropertyValueFactory<>("delete"));
+        deleteCol.setSortable(false);
 
         usersTable.setItems(AllUsersListController.buildData());
 

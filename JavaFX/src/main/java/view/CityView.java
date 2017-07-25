@@ -76,6 +76,7 @@ public class CityView {
         numRatCol.setCellValueFactory(
                 new PropertyValueFactory<>("numRatings"));
         infoCol.setCellValueFactory(new PropertyValueFactory<>("dummy"));
+        infoCol.setSortable(false);
         
         ObservableList<Attraction> forTable = combineCategories(CityViewController.buildData());
         table.setItems(forTable);

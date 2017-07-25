@@ -65,8 +65,10 @@ public class CategoryView {
                 new PropertyValueFactory<>("numAttractions"));
         editCol.setCellValueFactory(
                 new PropertyValueFactory<>("edit"));
+        editCol.setSortable(false);
         deleteCol.setCellValueFactory(
                 new PropertyValueFactory<>("delete"));
+        deleteCol.setSortable(false);
 
         categoriesTable.setItems(CategoriesListController.buildData());
         editCol.setCellFactory(CategoriesListController.generateCellFactory("edit"));

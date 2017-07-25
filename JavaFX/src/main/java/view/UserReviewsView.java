@@ -19,15 +19,13 @@ import main.java.model.Review;
 public class UserReviewsView {
 
     private static String fxml = "UserReviewsPage.fxml";
-    private static BorderPane instance;
 
     public static BorderPane getInstance() {
-        instance = (BorderPane) FXBuilder.getFXMLView(fxml);
-        return instance;
+        return (BorderPane) FXBuilder.getFXMLView(fxml);
     }
 
     @FXML
-    Button back;
+    private Button back;
 
     @FXML
     private Label userID;
