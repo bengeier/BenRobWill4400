@@ -9,6 +9,7 @@ import main.java.controller.NewCategoryController;
 import main.java.controller.UserController;
 import main.java.model.City;
 import main.java.model.CurrentState;
+import sun.util.resources.cldr.ta.CurrencyNames_ta;
 
 import java.util.Optional;
 
@@ -25,10 +26,10 @@ public class ManagerView {
 
     @FXML
     private Button logOut, viewAllCities, viewAllAttractions, viewAllCategories, viewAllUsers, viewPendingCities,
-        viewPendingAttractions, addNewCity, addNewUser, addNewAttraction, addNewCategory, search;
+        viewPendingAttractions, addNewCity, addNewUser, addNewAttraction, addNewCategory, search, searchUsers;
 
     @FXML
-    private Label welcomeMessage, searchFail;
+    private Label welcomeMessage;
 
     @FXML
     private ComboBox<City> cities;
@@ -37,7 +38,7 @@ public class ManagerView {
     private ComboBox<String> categories;
 
     @FXML
-    private TextField attractionName;
+    private TextField attractionName, userParam;
 
     @FXML
     public void initialize() {
@@ -48,6 +49,10 @@ public class ManagerView {
 
         search.setOnAction(event -> {
             search();
+        });
+
+        searchUsers.setOnAction(event -> {
+            searchU();
         });
 
         logOut.setOnAction((event -> {
@@ -140,7 +145,6 @@ public class ManagerView {
 
     @FXML
     private void search() {
-        searchFail.setText("");
         CurrentState.push(fxml);
 
         if(attractionName.getText().isEmpty()) {
@@ -194,6 +198,14 @@ public class ManagerView {
 
             RootView.instance.setCenter(AttractionView.getInstance());
 
+        }
+    }
+
+    private void searchU() {
+        if (!userParam.getText().equals("")) {
+            CurrentState.push(fxml);
+            CurrentState.setAttractionSearchParam(userParam.getText());
+            RootView.instance.setCenter(AllUsersListView.getInstance());
         }
     }
 

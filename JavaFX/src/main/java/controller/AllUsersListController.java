@@ -24,9 +24,12 @@ public class AllUsersListController {
         ObservableList<User> data = FXCollections.observableArrayList();
         String userQuery =
                 "SELECT Email, DateJoined, isManager, isSuspended\n" +
-                        "\tFROM RateACity.User;";
+                        "\tFROM RateACity.User";
 
         try {
+            if (CurrentState.peek() == "ManagerPage.fxml") {
+                userQuery += " where Email=\'" + CurrentState.getAttractionSearchParam() + "\'";
+            }
             ResultSet rs = DBConnection.connection.createStatement().executeQuery(userQuery);
 
             while (rs.next()) {

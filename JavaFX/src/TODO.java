@@ -1,14 +1,7 @@
-/**
- * Created by wepperson on 7/24/17.
- */
+
 public class TODO {
 
     // HIGH PRIORITY
-
-    // TODO Manager...
-        // TODO	Search user
-        // TODO	Users List
-
 
     // LOW PRIORITY
     // TODO Make some tables bigger (especially pending attractions)
