@@ -46,8 +46,17 @@ public class AllAttractionListView {
         }));
 
         add.setOnAction((event -> {
-            CurrentState.push(fxml);
-            RootView.instance.setCenter(NewAttractionView.getInstance());
+            if (!CurrentState.isSuspended()) {
+                CurrentState.push(fxml);
+                RootView.instance.setCenter(NewAttractionView.getInstance());
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Cannot Add New Attraction");
+                alert.setHeaderText("Suspended Users Cannot Add New Attractions.");
+                alert.setContentText("Please contact a manager if you wish to remove suspension.");
+                alert.showAndWait();
+            }
+
         }));
     }
 

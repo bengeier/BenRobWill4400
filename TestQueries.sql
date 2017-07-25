@@ -344,10 +344,51 @@ SELECT Email, DateJoined, isManager, isSuspended
 /*
 ----- PENDING CITIES -----
 */
-select CityEID, CityName, ave, coun, attr from (select CityName, avg(Rating) as ave, count(Rating) as coun, CityEID  from (
+#old code, obsolete
+/*select CityEID, CityName, ave, coun, attr from (select CityName, avg(Rating) as ave, count(Rating) as coun, CityEID  from (
 (select * from rateacity.city join rateacity.reviewable_entity where IsPending=0 AND CityEID=EntityID) as filter) join
 RATEACITY.review where ReviewableEID=CityEID group by CityEid) as c natural left join 
 (select CityEid, count(attractionEID) as attr from rateacity.attraction group by CityEID) as final;
+*/
+(SELECT CityEID, City, Country, UserEmail, Rating, Comment FROM
+                (SELECT CityEID, CityName AS City, Country, Rating, Comment
+                    FROM RateACity.Review AS E JOIN RateACity.City AS S ON E.ReviewableEID=S.CityEID) AS T
+                    JOIN RateACity.Reviewable_Entity AS R
+                WHERE IsPending = 1 AND R.EntityID = CityEID
+                ORDER BY City ASC);
+/*
+(SELECT CityEID, City, Country, UserEmail, Rating, Comment FROM
+                (SELECT CityEID, CityName AS City, Country, Rating, Comment
+                    FROM RateACity.Review AS E JOIN RateACity.City AS S ON E.ReviewableEID=S.CityEID) AS T
+                    JOIN RateACity.Reviewable_Entity AS R
+                WHERE IsPending = 1 AND R.EntityID = CityEID
+                ORDER BY CityEID);
+(SELECT CityEID, City, Country, UserEmail, Rating, Comment FROM
+                (SELECT CityEID, CityName AS City, Country, Rating, Comment
+                    FROM RateACity.Review AS E JOIN RateACity.City AS S ON E.ReviewableEID=S.CityEID) AS T
+                    JOIN RateACity.Reviewable_Entity AS R
+                WHERE IsPending = 1 AND R.EntityID = CityEID
+                ORDER BY Country);
+(SELECT CityEID, City, Country, UserEmail, Rating, Comment FROM
+                (SELECT CityEID, CityName AS City, Country, Rating, Comment
+                    FROM RateACity.Review AS E JOIN RateACity.City AS S ON E.ReviewableEID=S.CityEID) AS T
+                    JOIN RateACity.Reviewable_Entity AS R
+                WHERE IsPending = 1 AND R.EntityID = CityEID
+                ORDER BY UserEmail);
+(SELECT CityEID, City, Country, UserEmail, Rating, Comment FROM
+                (SELECT CityEID, CityName AS City, Country, Rating, Comment
+                    FROM RateACity.Review AS E JOIN RateACity.City AS S ON E.ReviewableEID=S.CityEID) AS T
+                    JOIN RateACity.Reviewable_Entity AS R
+                WHERE IsPending = 1 AND R.EntityID = CityEID
+                ORDER BY Rating);
+(SELECT CityEID, City, Country, UserEmail, Rating, Comment FROM
+                (SELECT CityEID, CityName AS City, Country, Rating, Comment
+                    FROM RateACity.Review AS E JOIN RateACity.City AS S ON E.ReviewableEID=S.CityEID) AS T
+                    JOIN RateACity.Reviewable_Entity AS R
+                WHERE IsPending = 1 AND R.EntityID = CityEID
+                ORDER BY Comment);
+*/
+
 /*
 ----- PENDING ATTRACTIONS -----
 */
@@ -362,6 +403,129 @@ NATURAL LEFT JOIN RATEACITY.CONTACT_INFO
 NATURAL JOIN RATEACITY.FALLS_UNDER
 NATURAL LEFT JOIN RATEACITY.HOURS_OF_OPERATION
 ORDER BY AttractionName;
+/*
+SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName AS Category, Description, Hours, ContactInfo, T.UserEmail, Rating, Comment 
+FROM 
+	(SELECT *
+	FROM RateACity.ATTRACTION AS ATTR JOIN RateACity.REVIEWABLE_ENTITY AS E ON ATTR.AttractionEID = E.EntityID
+	WHERE IsPending = 1) AS T
+JOIN RateACity.REVIEW ON REVIEW.UserEmail = T.UserEmail AND REVIEW.ReviewableEID = T.AttractionEID
+NATURAL JOIN RATEACITY.CITY
+NATURAL LEFT JOIN RATEACITY.CONTACT_INFO
+NATURAL JOIN RATEACITY.FALLS_UNDER
+NATURAL LEFT JOIN RATEACITY.HOURS_OF_OPERATION
+ORDER BY AttractionEID;
+SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName AS Category, Description, Hours, ContactInfo, T.UserEmail, Rating, Comment 
+FROM 
+	(SELECT *
+	FROM RateACity.ATTRACTION AS ATTR JOIN RateACity.REVIEWABLE_ENTITY AS E ON ATTR.AttractionEID = E.EntityID
+	WHERE IsPending = 1) AS T
+JOIN RateACity.REVIEW ON REVIEW.UserEmail = T.UserEmail AND REVIEW.ReviewableEID = T.AttractionEID
+NATURAL JOIN RATEACITY.CITY
+NATURAL LEFT JOIN RATEACITY.CONTACT_INFO
+NATURAL JOIN RATEACITY.FALLS_UNDER
+NATURAL LEFT JOIN RATEACITY.HOURS_OF_OPERATION
+ORDER BY CityName;
+SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName AS Category, Description, Hours, ContactInfo, T.UserEmail, Rating, Comment 
+FROM 
+	(SELECT *
+	FROM RateACity.ATTRACTION AS ATTR JOIN RateACity.REVIEWABLE_ENTITY AS E ON ATTR.AttractionEID = E.EntityID
+	WHERE IsPending = 1) AS T
+JOIN RateACity.REVIEW ON REVIEW.UserEmail = T.UserEmail AND REVIEW.ReviewableEID = T.AttractionEID
+NATURAL JOIN RATEACITY.CITY
+NATURAL LEFT JOIN RATEACITY.CONTACT_INFO
+NATURAL JOIN RATEACITY.FALLS_UNDER
+NATURAL LEFT JOIN RATEACITY.HOURS_OF_OPERATION
+ORDER BY StreetAddress;
+SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName AS Category, Description, Hours, ContactInfo, T.UserEmail, Rating, Comment 
+FROM 
+	(SELECT *
+	FROM RateACity.ATTRACTION AS ATTR JOIN RateACity.REVIEWABLE_ENTITY AS E ON ATTR.AttractionEID = E.EntityID
+	WHERE IsPending = 1) AS T
+JOIN RateACity.REVIEW ON REVIEW.UserEmail = T.UserEmail AND REVIEW.ReviewableEID = T.AttractionEID
+NATURAL JOIN RATEACITY.CITY
+NATURAL LEFT JOIN RATEACITY.CONTACT_INFO
+NATURAL JOIN RATEACITY.FALLS_UNDER
+NATURAL LEFT JOIN RATEACITY.HOURS_OF_OPERATION
+ORDER BY Country;
+SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName AS Category, Description, Hours, ContactInfo, T.UserEmail, Rating, Comment 
+FROM 
+	(SELECT *
+	FROM RateACity.ATTRACTION AS ATTR JOIN RateACity.REVIEWABLE_ENTITY AS E ON ATTR.AttractionEID = E.EntityID
+	WHERE IsPending = 1) AS T
+JOIN RateACity.REVIEW ON REVIEW.UserEmail = T.UserEmail AND REVIEW.ReviewableEID = T.AttractionEID
+NATURAL JOIN RATEACITY.CITY
+NATURAL LEFT JOIN RATEACITY.CONTACT_INFO
+NATURAL JOIN RATEACITY.FALLS_UNDER
+NATURAL LEFT JOIN RATEACITY.HOURS_OF_OPERATION
+ORDER BY Category;
+SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName AS Category, Description, Hours, ContactInfo, T.UserEmail, Rating, Comment 
+FROM 
+	(SELECT *
+	FROM RateACity.ATTRACTION AS ATTR JOIN RateACity.REVIEWABLE_ENTITY AS E ON ATTR.AttractionEID = E.EntityID
+	WHERE IsPending = 1) AS T
+JOIN RateACity.REVIEW ON REVIEW.UserEmail = T.UserEmail AND REVIEW.ReviewableEID = T.AttractionEID
+NATURAL JOIN RATEACITY.CITY
+NATURAL LEFT JOIN RATEACITY.CONTACT_INFO
+NATURAL JOIN RATEACITY.FALLS_UNDER
+NATURAL LEFT JOIN RATEACITY.HOURS_OF_OPERATION
+ORDER BY Description;
+SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName AS Category, Description, Hours, ContactInfo, T.UserEmail, Rating, Comment 
+FROM 
+	(SELECT *
+	FROM RateACity.ATTRACTION AS ATTR JOIN RateACity.REVIEWABLE_ENTITY AS E ON ATTR.AttractionEID = E.EntityID
+	WHERE IsPending = 1) AS T
+JOIN RateACity.REVIEW ON REVIEW.UserEmail = T.UserEmail AND REVIEW.ReviewableEID = T.AttractionEID
+NATURAL JOIN RATEACITY.CITY
+NATURAL LEFT JOIN RATEACITY.CONTACT_INFO
+NATURAL JOIN RATEACITY.FALLS_UNDER
+NATURAL LEFT JOIN RATEACITY.HOURS_OF_OPERATION
+ORDER BY Hours;
+SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName AS Category, Description, Hours, ContactInfo, T.UserEmail, Rating, Comment 
+FROM 
+	(SELECT *
+	FROM RateACity.ATTRACTION AS ATTR JOIN RateACity.REVIEWABLE_ENTITY AS E ON ATTR.AttractionEID = E.EntityID
+	WHERE IsPending = 1) AS T
+JOIN RateACity.REVIEW ON REVIEW.UserEmail = T.UserEmail AND REVIEW.ReviewableEID = T.AttractionEID
+NATURAL JOIN RATEACITY.CITY
+NATURAL LEFT JOIN RATEACITY.CONTACT_INFO
+NATURAL JOIN RATEACITY.FALLS_UNDER
+NATURAL LEFT JOIN RATEACITY.HOURS_OF_OPERATION
+ORDER BY ContactInfo;
+SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName AS Category, Description, Hours, ContactInfo, T.UserEmail, Rating, Comment 
+FROM 
+	(SELECT *
+	FROM RateACity.ATTRACTION AS ATTR JOIN RateACity.REVIEWABLE_ENTITY AS E ON ATTR.AttractionEID = E.EntityID
+	WHERE IsPending = 1) AS T
+JOIN RateACity.REVIEW ON REVIEW.UserEmail = T.UserEmail AND REVIEW.ReviewableEID = T.AttractionEID
+NATURAL JOIN RATEACITY.CITY
+NATURAL LEFT JOIN RATEACITY.CONTACT_INFO
+NATURAL JOIN RATEACITY.FALLS_UNDER
+NATURAL LEFT JOIN RATEACITY.HOURS_OF_OPERATION
+ORDER BY UserEmail;
+SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName AS Category, Description, Hours, ContactInfo, T.UserEmail, Rating, Comment 
+FROM 
+	(SELECT *
+	FROM RateACity.ATTRACTION AS ATTR JOIN RateACity.REVIEWABLE_ENTITY AS E ON ATTR.AttractionEID = E.EntityID
+	WHERE IsPending = 1) AS T
+JOIN RateACity.REVIEW ON REVIEW.UserEmail = T.UserEmail AND REVIEW.ReviewableEID = T.AttractionEID
+NATURAL JOIN RATEACITY.CITY
+NATURAL LEFT JOIN RATEACITY.CONTACT_INFO
+NATURAL JOIN RATEACITY.FALLS_UNDER
+NATURAL LEFT JOIN RATEACITY.HOURS_OF_OPERATION
+ORDER BY Rating;
+SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName AS Category, Description, Hours, ContactInfo, T.UserEmail, Rating, Comment 
+FROM 
+	(SELECT *
+	FROM RateACity.ATTRACTION AS ATTR JOIN RateACity.REVIEWABLE_ENTITY AS E ON ATTR.AttractionEID = E.EntityID
+	WHERE IsPending = 1) AS T
+JOIN RateACity.REVIEW ON REVIEW.UserEmail = T.UserEmail AND REVIEW.ReviewableEID = T.AttractionEID
+NATURAL JOIN RATEACITY.CITY
+NATURAL LEFT JOIN RATEACITY.CONTACT_INFO
+NATURAL JOIN RATEACITY.FALLS_UNDER
+NATURAL LEFT JOIN RATEACITY.HOURS_OF_OPERATION
+ORDER BY Comment;
+*/
 
 /*
 ----- search-----

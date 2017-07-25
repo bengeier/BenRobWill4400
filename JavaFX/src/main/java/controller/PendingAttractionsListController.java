@@ -133,7 +133,7 @@ public class PendingAttractionsListController {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirm Approval");
         alert.setHeaderText("Are You Sure You Want to Approve?");
-        alert.setContentText("It will be added to the list of cities.");
+        alert.setContentText("It will be added to the list of attractions.");
         return alert.showAndWait();
     }
 
@@ -141,7 +141,7 @@ public class PendingAttractionsListController {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirm Delete");
         alert.setHeaderText("Are You Sure You Want to Delete?");
-        alert.setContentText("It will be removed from the list of pending cities.");
+        alert.setContentText("It will be removed from the list of pending attractions.");
         return alert.showAndWait();
     }
 
