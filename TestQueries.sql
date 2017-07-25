@@ -106,6 +106,89 @@ select StreetAddress, Description, attractionEID, AttractionName, CName, CityNam
                     from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID) AS B
 	ORDER BY CityName;
 /*
+SELECT * FROM (
+select StreetAddress, Description, attractionEID, AttractionName, CName, CityName, AveRating, CountRating, ContactInfo, Hours
+                    from (select * from rateacity.attraction natural left join RATEACITY.hours_of_operation
+                    natural left join rateacity.contact_info natural left join rateacity.falls_under
+                    natural left join rateacity.city inner join rateacity.reviewable_entity
+                    where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0)
+                    as A inner join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating
+                    from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID) AS B
+	ORDER BY StreetAddress;
+SELECT * FROM (
+select StreetAddress, Description, attractionEID, AttractionName, CName, CityName, AveRating, CountRating, ContactInfo, Hours
+                    from (select * from rateacity.attraction natural left join RATEACITY.hours_of_operation
+                    natural left join rateacity.contact_info natural left join rateacity.falls_under
+                    natural left join rateacity.city inner join rateacity.reviewable_entity
+                    where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0)
+                    as A inner join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating
+                    from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID) AS B
+	ORDER BY Description;
+SELECT * FROM (
+select StreetAddress, Description, attractionEID, AttractionName, CName, CityName, AveRating, CountRating, ContactInfo, Hours
+                    from (select * from rateacity.attraction natural left join RATEACITY.hours_of_operation
+                    natural left join rateacity.contact_info natural left join rateacity.falls_under
+                    natural left join rateacity.city inner join rateacity.reviewable_entity
+                    where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0)
+                    as A inner join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating
+                    from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID) AS B
+	ORDER BY attractionEID;
+SELECT * FROM (
+select StreetAddress, Description, attractionEID, AttractionName, CName, CityName, AveRating, CountRating, ContactInfo, Hours
+                    from (select * from rateacity.attraction natural left join RATEACITY.hours_of_operation
+                    natural left join rateacity.contact_info natural left join rateacity.falls_under
+                    natural left join rateacity.city inner join rateacity.reviewable_entity
+                    where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0)
+                    as A inner join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating
+                    from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID) AS B
+	ORDER BY AttractionName;
+SELECT * FROM (
+select StreetAddress, Description, attractionEID, AttractionName, CName, CityName, AveRating, CountRating, ContactInfo, Hours
+                    from (select * from rateacity.attraction natural left join RATEACITY.hours_of_operation
+                    natural left join rateacity.contact_info natural left join rateacity.falls_under
+                    natural left join rateacity.city inner join rateacity.reviewable_entity
+                    where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0)
+                    as A inner join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating
+                    from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID) AS B
+	ORDER BY CName;
+SELECT * FROM (
+select StreetAddress, Description, attractionEID, AttractionName, CName, CityName, AveRating, CountRating, ContactInfo, Hours
+                    from (select * from rateacity.attraction natural left join RATEACITY.hours_of_operation
+                    natural left join rateacity.contact_info natural left join rateacity.falls_under
+                    natural left join rateacity.city inner join rateacity.reviewable_entity
+                    where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0)
+                    as A inner join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating
+                    from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID) AS B
+	ORDER BY AveRating;
+SELECT * FROM (
+select StreetAddress, Description, attractionEID, AttractionName, CName, CityName, AveRating, CountRating, ContactInfo, Hours
+                    from (select * from rateacity.attraction natural left join RATEACITY.hours_of_operation
+                    natural left join rateacity.contact_info natural left join rateacity.falls_under
+                    natural left join rateacity.city inner join rateacity.reviewable_entity
+                    where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0)
+                    as A inner join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating
+                    from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID) AS B
+	ORDER BY CountRating;
+SELECT * FROM (
+select StreetAddress, Description, attractionEID, AttractionName, CName, CityName, AveRating, CountRating, ContactInfo, Hours
+                    from (select * from rateacity.attraction natural left join RATEACITY.hours_of_operation
+                    natural left join rateacity.contact_info natural left join rateacity.falls_under
+                    natural left join rateacity.city inner join rateacity.reviewable_entity
+                    where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0)
+                    as A inner join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating
+                    from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID) AS B
+	ORDER BY ContactInfo;
+SELECT * FROM (
+select StreetAddress, Description, attractionEID, AttractionName, CName, CityName, AveRating, CountRating, ContactInfo, Hours
+                    from (select * from rateacity.attraction natural left join RATEACITY.hours_of_operation
+                    natural left join rateacity.contact_info natural left join rateacity.falls_under
+                    natural left join rateacity.city inner join rateacity.reviewable_entity
+                    where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0)
+                    as A inner join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating
+                    from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID) AS B
+	ORDER BY Hours;
+*/
+/*
 ----- ATTRACTION PAGE -----
 */
 select AttractionName, CName, CityName, AveRating, CountRating
