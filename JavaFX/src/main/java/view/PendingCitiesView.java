@@ -52,10 +52,8 @@ public class PendingCitiesView {
                 new PropertyValueFactory<>("comment"));
         approveCol.setCellValueFactory(
                 new PropertyValueFactory<>("approve"));
-        approveCol.setSortable(false);
         deleteCol.setCellValueFactory(
                 new PropertyValueFactory<>("delete"));
-        deleteCol.setSortable(false);
 
         pendingCitiesTable.setItems(PendingCitiesListController.buildData());
         approveCol.setCellFactory(PendingCitiesListController.generateCellFactory("approve"));

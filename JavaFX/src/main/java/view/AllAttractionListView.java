@@ -63,7 +63,6 @@ public class AllAttractionListView {
         numCol.setCellValueFactory(
                 new PropertyValueFactory<>("numRatings"));
         link.setCellValueFactory(new PropertyValueFactory<>("link"));
-        link.setSortable(false);
 
         link.setCellFactory(AllAttractionsListViewController.generateCellFactory());
 

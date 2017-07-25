@@ -18,12 +18,15 @@
    <center>
       <TableView fx:id="citiesTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="cityCol" prefWidth="120.0" text="City" />
-          <TableColumn fx:id="avgRatingCol" prefWidth="120.0" text="Avg. Rating" />
-            <TableColumn fx:id="numRatingCol" prefWidth="120.0" text="Num. Ratings" />
-            <TableColumn fx:id="numAttractionCol" prefWidth="120.0" text="# of Attractions" />
-            <TableColumn fx:id="link" prefWidth="120.0" text="City Page" />
+          <TableColumn fx:id="cityCol" editable="false" prefWidth="120.0" text="City" />
+          <TableColumn fx:id="avgRatingCol" editable="false" prefWidth="120.0" text="Avg. Rating" />
+            <TableColumn fx:id="numRatingCol" editable="false" prefWidth="120.0" text="Num. Ratings" />
+            <TableColumn fx:id="numAttractionCol" editable="false" prefWidth="120.0" text="# of Attractions" />
+            <TableColumn fx:id="link" editable="false" prefWidth="120.0" sortable="false" text="City Page" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
    </center>
    <top>
