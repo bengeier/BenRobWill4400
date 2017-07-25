@@ -15,6 +15,10 @@ import java.sql.SQLException;
 public class NewCityController {
 
     public static boolean addNewCity(String name, String country, String state, String rating, String comment) {
+        if (name == null || country == null || rating == null || comment == null || name.equals("")
+                || country.equals("") || rating.equals("") || comment.equals("")) {
+            return false;
+        }
 
         // Creates Reviewable_Entity
         String insertReviewableQuery =

@@ -9,10 +9,8 @@ public class TODO {
         // TODO	Search user
         // TODO	Users List
 
-    // TODO approve pending city doesn't actually approve
 
-	//TODO Users should not be able submit an empty city form, must fill in required fields
-	//TODO adding a new city must insert new review to table, reading data from fields
+	//TODO adding a new city must insert new review to table, reading data from fields -- does this feature not work?
 	//TODO adding a new attraction should be sent to manager for approval
 
 	//TODO users that have already reviewed a city should get an "Edit my Review" button (we need to write mySQL UPDATE)
@@ -50,8 +48,6 @@ public class TODO {
     // "Outdoors" instead of "Outdoors, Good View"
     // TODO change background color / image
     // TODO Make table columns non editable
-    // TODO Make info / link columns non-sortable
-    // TODO 
 
 
 }
