@@ -15,7 +15,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         BorderPane root = RootView.instance;
         primaryStage.setTitle("Rate a City");
-        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.setScene(new Scene(root, 1000, 800));
         BorderPane loginPane = LoginView.getInstance();
         root.setCenter(loginPane);
         primaryStage.show();

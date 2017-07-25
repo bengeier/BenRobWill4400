@@ -1,12 +1,7 @@
 package main.java.view;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Callback;
@@ -53,8 +48,17 @@ public class AttractionAllReviewView {
         }));
 
         reviewAttraction.setOnAction((event -> {
-            CurrentState.push(fxml);
-            RootView.instance.setCenter(ReviewView.getInstance());
+            if (!CurrentState.isSuspended()) {
+                CurrentState.push(fxml);
+                RootView.instance.setCenter(ReviewView.getInstance());
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Cannot Add New Attraction");
+                alert.setHeaderText("Suspended Users Cannot Add New Attractions.");
+                alert.setContentText("Please contact a manager if you wish to remove suspension.");
+                alert.showAndWait();
+            }
+
         }));
 
         updateTable();

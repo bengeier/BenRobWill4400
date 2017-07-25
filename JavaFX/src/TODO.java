@@ -26,6 +26,7 @@ public class TODO {
 
 	//TODO suspended users should not be able to review attractions from a attractions "all reviews" page 
 		//same goes for not reviewing cities from "all reviews" page
+	//QUESTION: do we want user to be taken to a city/attraction screen after adding that city/attraction, even if it is still pending?
 
 // LOW PRIORITY
 
