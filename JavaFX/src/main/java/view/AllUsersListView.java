@@ -57,7 +57,7 @@ public class AllUsersListView {
         suspendedCol.setCellValueFactory(
                 new PropertyValueFactory<>("suspended"));
         userClassCol.setCellValueFactory(
-                new PropertyValueFactory<>("dummy"));
+                new PropertyValueFactory<>("userClass"));
         deleteCol.setCellValueFactory(
                 new PropertyValueFactory<>("delete"));
 
