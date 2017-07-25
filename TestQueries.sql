@@ -91,24 +91,29 @@ ON U.AttractionEID = V.EntityID)
 ----- CITY REVIEW / UPDATE REVIEW FORM-----
 */
 #insert new review
-INSERT INTO RateACity.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) 
-	VALUES 
-    (/*get current user email,*/
-    /*get current city EID,*/ 
-    /*get rating input,*/ 
-    /*get comment input,*/ 
-    /*get current date*/);
+INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES (
+                #javafx stuff
+                #\'" + email + "\', \'" + reviewableEID + "\', \'" +  rating + "\', \'" + comment + "'
+                );
     
 #update old review
-UPDATE RateACity.REVIEW
-	SET Rating = 0/*get rating input*/, Comment = ''/*get comment input*/
-    WHERE (UserEmail = ''/*get current user email*/ 
-    AND ReviewableEID = 0/*get current cities' EID*/);
+#UPDATE RateACity.Review "
+                #"SET Rating=\'" + rating + "\'," + " Comment=\'" + comment + "\'\n" +
+                #"WHERE ReviewableEID=\'" + eid + "\' " +
+                #"AND UserEmail=\'" + CurrentState.getEmail() + "'
+                ;
 
 #delete old review
-DELETE FROM RateACity.REVIEW   
-	WHERE UserEmail = ''/*get current user email*/ AND ReviewableEID = 0/*get current cities' EID*/;
+#DELETE FROM RateACity.Review
+#" +
+#                "WHERE ReviewableEID=\'" + review.getReviewableEID() + "\' " +
+#                "AND UserEmail=\'" + review.getUserEmail() + "';
 
+#isNewReview
+#SELECT COUNT(*) FROM RateACity.Review
+#" +
+#                "WHERE UserEmail='" + CurrentState.getEmail() + "'\n" +
+#                "AND ReviewableEID='" + entityID + "';
 
 /*
 ----- CITY REVIEWS PAGE -----
