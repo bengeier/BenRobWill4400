@@ -14,6 +14,7 @@ import main.java.controller.CityViewController;
 import main.java.controller.DeleteCityController;
 import main.java.model.Attraction;
 import main.java.model.CurrentState;
+import main.java.model.Review;
 import org.omg.CORBA.Current;
 import sun.util.resources.cldr.ebu.CurrencyNames_ebu;
 
@@ -60,6 +61,10 @@ public class CityView {
         );
         reviewThisCity.setOnAction((event -> {
             if (!CurrentState.isSuspended()) {
+                CurrentState.setCurrentReview(new Review(
+                        CurrentState.getEmail(),
+                        CurrentState.getCurrentCity().getCityEID()
+                ));
                 CurrentState.push(fxml);
                 RootView.instance.setCenter(ReviewView.getInstance());
             } else {

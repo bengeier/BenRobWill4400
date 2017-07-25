@@ -7,6 +7,10 @@ public class Review {
 
     private String userEmail, rating, comment, reviewableEID, entityName;
 
+    public Review(String userEmail, String reviewableEID) {
+        this(userEmail, null, null, reviewableEID, null);
+    }
+
     public Review(String userEmail, String rating, String comment, String reviewableEID, String entityName) {
         this.userEmail = userEmail;
         this.rating = rating;
