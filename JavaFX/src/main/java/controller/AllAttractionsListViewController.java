@@ -27,7 +27,7 @@ public class AllAttractionsListViewController {
                 "                    where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0)\n" +
                 "                    as A inner join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating\n" +
                 "                    from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID) AS B\n" +
-                "\tORDER BY CityName; ";
+                "\tORDER BY attractionEID; ";
 
         try {
             ResultSet rs = DBConnection.connection.createStatement()
