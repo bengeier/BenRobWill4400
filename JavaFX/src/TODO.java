@@ -7,7 +7,6 @@ public class TODO {
 
 	//TODO adding a new attraction should be sent to manager for approval
 
-	//TODO managers should be able to delete an attraction
     //TODO managers should be able to delete an attraction in CityView
 	//TODO managers should be able to delete any review they want from a city
 		//(mySQL DELETE and delete button to appear if isManager)
