@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.Integer?>
 <?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
@@ -15,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.ReviewView">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.ReviewView">
 <top>
     <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <children>
@@ -67,6 +73,7 @@
                <VBox.margin>
                   <Insets top="15.0" />
                </VBox.margin></Button>
+            <Button fx:id="deleteButton" mnemonicParsing="false" prefWidth="166.0" text="Delete" />
             <Button fx:id="back" mnemonicParsing="false" prefHeight="27.0" prefWidth="166.0" text="Back" />
         </children>
     </VBox>

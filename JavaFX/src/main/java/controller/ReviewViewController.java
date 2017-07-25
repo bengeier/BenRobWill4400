@@ -2,6 +2,7 @@ package main.java.controller;
 
 import javafx.scene.control.Alert;
 import main.java.model.CurrentState;
+import main.java.model.Review;
 import main.java.sql.DBConnection;
 
 import java.sql.ResultSet;
@@ -26,6 +27,18 @@ public class ReviewViewController {
             }
         }
         return false;
+    }
+
+    public static void deleteReview(Review review) {
+        String reviewDelete = "DELETE FROM RateACity.Review\n" +
+                "WHERE ReviewableEID=\'" + review.getReviewableEID() + "\' " +
+                "AND UserEmail=\'" + review.getUserEmail() + "\';";
+
+        try {
+            DBConnection.connection.createStatement().executeUpdate(reviewDelete);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static boolean newReview(String entityID) {

@@ -72,6 +72,7 @@ public class AllAttractionsListViewController {
                             setGraphic(null);
                             setText(null);
                         } else {
+                            pageLink.setText("Page");
                             pageLink.setOnAction(event -> {
                                 Attraction attraction = getTableView().getItems().get(getIndex());
                                 CurrentState.setCurrentAttraction(attraction);
