@@ -10,6 +10,8 @@ import main.java.controller.NewAttractionController;
 import main.java.model.City;
 import main.java.model.CurrentState;
 
+import java.util.regex.Pattern;
+
 /**
  * Created by Rob on 7/18/2017.
  */
@@ -57,7 +59,11 @@ public class NewAttractionView {
                     categories.getValue(),
                     ((Double)ratingSlider.getValue()).toString()
             );
-            RootView.instance.setCenter(AttractionView.getInstance());
+            if (CurrentState.isManagerView()) {
+                RootView.instance.setCenter(AttractionView.getInstance());
+            } else {
+                RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
+            }
         }));
     }
 }

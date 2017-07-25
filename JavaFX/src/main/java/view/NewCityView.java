@@ -52,7 +52,11 @@ public class NewCityView{
                     stateField.getText(),
                     ((Double) ratingSlider.getValue()).toString(),
                     commentField.getText())) {
-                RootView.instance.setCenter(CityView.getInstance());
+                if (CurrentState.isManagerView()) {
+                    RootView.instance.setCenter(CityView.getInstance());
+                } else {
+                    RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
+                }
             }
             errorLabel.setText("Please fill in required fields.");
         }));
