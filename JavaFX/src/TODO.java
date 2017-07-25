@@ -4,18 +4,19 @@
 public class TODO {
 
     // HIGH PRIORITY
-    // TODO Error popup for bad log in not working
+
+    // TODO RateACityDatabase.sql is broken
+    // (insert into rateacity.hours_of_operation values(6, '08:00-12:00') violates foreign key constraint)
 
     // TODO Manager...
         // TODO	Search user
         // TODO	Users List
-        // TODO Shouldn’t be able to demote himself if last
-        // TODO Shouldn’t be able to delete himself if last
 
-    // TODO approve pending city doesnt actually approve
+    // TODO approve pending city doesn't actually approve
 
 
     // LOW PRIORITY
+    // TODO Users cannot be sorted by user class
     // TODO change background color / image
     // TODO Make table columns non editable
     // TODO Make info / link columns non-sortable

@@ -9,18 +9,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.PendingAttractionsView">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.PendingAttractionsView">
     <center>
         <TableView fx:id="pendingAttractionsTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <columns>
-                <TableColumn editable="false" maxWidth="0.0" prefWidth="0.0" sortable="false">
-                    <columns>
-                        <TableColumn editable="false" maxWidth="0.0" prefWidth="0.0" />
-                    </columns>
-                </TableColumn>
-                <TableColumn prefWidth="120.0">
+                <TableColumn fx:id="attractionNameCol" prefWidth="120.0">
                     <graphic>
-                        <Label fx:id="attractionNameCol" alignment="CENTER" text="Attraction Name" textAlignment="CENTER" wrapText="true">
+                        <Label alignment="CENTER" text="Attraction Name" textAlignment="CENTER" wrapText="true">
                             <font>
                                 <Font size="10.0" />
                             </font></Label>
@@ -34,49 +29,58 @@
                             </font></Label>
                     </graphic>
                 </TableColumn>
-                <TableColumn prefWidth="120.0">
+                <TableColumn fx:id="addressCol" prefWidth="120.0">
                     <graphic>
-                        <Label fx:id="addressCol" alignment="CENTER" text="Address" textAlignment="CENTER" wrapText="true">
+                        <Label alignment="CENTER" text="Address" textAlignment="CENTER" wrapText="true">
                             <font>
                                 <Font size="10.0" />
                             </font></Label>
                     </graphic>
                 </TableColumn>
-                <TableColumn prefWidth="120.0">
+            <TableColumn fx:id="countryCol" prefWidth="120.0">
+               <graphic>
+                  <Label alignment="CENTER" text="Country" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </graphic>
+            </TableColumn>
+                <TableColumn fx:id="categoryCol" prefWidth="120.0">
                     <graphic>
-                        <Label fx:id="categoryCol" alignment="CENTER" text="Category" textAlignment="CENTER" wrapText="true">
+                        <Label alignment="CENTER" text="Category" textAlignment="CENTER" wrapText="true">
                             <font>
                                 <Font size="10.0" />
                             </font></Label>
                     </graphic>
                 </TableColumn>
-                <TableColumn prefWidth="120.0">
+                <TableColumn fx:id="descriptionCol" prefWidth="120.0">
                     <graphic>
-                        <Label fx:id="descriptionCol" alignment="CENTER" text="Description" textAlignment="CENTER" wrapText="true">
+                        <Label alignment="CENTER" text="Description" textAlignment="CENTER" wrapText="true">
                             <font>
                                 <Font size="10.0" />
                             </font></Label>
                     </graphic>
                 </TableColumn>
-                <TableColumn prefWidth="120.0">
+                <TableColumn fx:id="hoursCol" prefWidth="120.0">
                     <graphic>
-                        <Label fx:id="hoursCol" alignment="CENTER" text="Hours" textAlignment="CENTER" wrapText="true">
+                        <Label alignment="CENTER" text="Hours" textAlignment="CENTER" wrapText="true">
                             <font>
                                 <Font size="10.0" />
                             </font></Label>
                     </graphic>
                 </TableColumn>
-                <TableColumn prefWidth="120.0">
+                <TableColumn fx:id="contactInfoCol" prefWidth="120.0">
                     <graphic>
-                        <Label fx:id="contactInfoCol" alignment="CENTER" text="Contact Info" textAlignment="CENTER" wrapText="true">
+                        <Label alignment="CENTER" text="Contact Info" textAlignment="CENTER" wrapText="true">
                             <font>
                                 <Font size="10.0" />
                             </font></Label>
                     </graphic>
                 </TableColumn>
-                <TableColumn prefWidth="120.0">
+                <TableColumn fx:id="submittedByCol" prefWidth="120.0">
                     <graphic>
-                        <Label fx:id="submittedByCol" alignment="CENTER" text="Submitted By" textAlignment="CENTER" wrapText="true">
+                        <Label alignment="CENTER" text="Submitted By" textAlignment="CENTER" wrapText="true">
                             <font>
                                 <Font size="10.0" />
                             </font></Label>
@@ -90,25 +94,25 @@
                             </font></Label>
                     </graphic>
                 </TableColumn>
-                <TableColumn prefWidth="120.0">
+                <TableColumn fx:id="commentCol" prefWidth="120.0">
                     <graphic>
-                        <Label fx:id="commentCol" alignment="CENTER" text="Comment" textAlignment="CENTER" wrapText="true">
+                        <Label alignment="CENTER" text="Comment" textAlignment="CENTER" wrapText="true">
                             <font>
                                 <Font size="10.0" />
                             </font></Label>
                     </graphic>
                 </TableColumn>
-                <TableColumn prefWidth="120.0">
+                <TableColumn fx:id="approveCol" prefWidth="120.0">
                     <graphic>
-                        <Label fx:id="approveCol" alignment="CENTER" text="Approve" textAlignment="CENTER" wrapText="true">
+                        <Label alignment="CENTER" text="Approve" textAlignment="CENTER" wrapText="true">
                             <font>
                                 <Font size="10.0" />
                             </font></Label>
                     </graphic>
                 </TableColumn>
-                <TableColumn prefWidth="120.0">
+                <TableColumn fx:id="deleteCol" prefWidth="120.0">
                     <graphic>
-                        <Label fx:id="deleteCol" alignment="CENTER" text="Delete" textAlignment="CENTER" wrapText="true">
+                        <Label alignment="CENTER" text="Delete" textAlignment="CENTER" wrapText="true">
                             <font>
                                 <Font size="10.0" />
                             </font></Label>

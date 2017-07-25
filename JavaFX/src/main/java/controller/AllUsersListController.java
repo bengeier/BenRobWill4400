@@ -8,7 +8,9 @@ import main.java.model.CurrentState;
 import main.java.model.User;
 import main.java.sql.DBConnection;
 import main.java.view.AllUsersListView;
+import main.java.view.LoginView;
 import main.java.view.RootView;
+import main.java.view.UserView;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -86,9 +88,16 @@ public class AllUsersListController {
                                                 RootView.instance.setCenter(AllUsersListView.getInstance());
                                             }
                                         } else {
-                                            if (promptForDemote().get() == ButtonType.OK) {
+                                            if (onlyOneManager()) {
+                                                displayManagerError();
+                                            } else if (promptForDemote().get() == ButtonType.OK) {
                                                 demoteUser(user);
-                                                RootView.instance.setCenter(AllUsersListView.getInstance());
+                                                if (user.getEmail().equals(CurrentState.getEmail())) {
+                                                    CurrentState.setManagerView(false);
+                                                    RootView.instance.setCenter(UserView.getInstance());
+                                                } else {
+                                                    RootView.instance.setCenter(AllUsersListView.getInstance());
+                                                }
                                             }
                                         }
                                     });
@@ -112,9 +121,16 @@ public class AllUsersListController {
                                 case "delete":
                                     link.setText("Delete");
                                     link.setOnAction(event -> {
-                                        if (promptForDelete().get() == ButtonType.OK) {
+                                        if (onlyOneManager()) {
+                                            displayManagerError();
+                                        } else if (promptForDelete().get() == ButtonType.OK) {
                                             deleteUser(user);
-                                            RootView.instance.setCenter(AllUsersListView.getInstance());
+                                            if (user.getEmail().equals(CurrentState.getEmail())) {
+                                                CurrentState.setManagerView(false);
+                                                RootView.instance.setCenter(LoginView.getInstance());
+                                            } else {
+                                                RootView.instance.setCenter(AllUsersListView.getInstance());
+                                            }
                                         }
                                     });
                                     break;
@@ -223,5 +239,27 @@ public class AllUsersListController {
         alert.setContentText("This will remove all comments and ratings associated "
                 + " with this user.");
         return alert.showAndWait();
+    }
+
+    private static boolean onlyOneManager() {
+        String managerCountQuery = "SELECT COUNT(*) FROM RateACity.User\n" +
+                "WHERE isManager=1";
+        try {
+            ResultSet rs = DBConnection.connection.createStatement().executeQuery(managerCountQuery);
+            if (rs.next()) {
+                return rs.getString("COUNT(*)").equals("1");
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+    private static void displayManagerError() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Error");
+        alert.setHeaderText("Unable to Perform That Action");
+        alert.setContentText("There must be at least one manager in the database.");
+        alert.showAndWait();
     }
 }
