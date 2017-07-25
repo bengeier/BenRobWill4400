@@ -339,7 +339,18 @@ SELECT * FROM
 ----- USERS LIST -----
 */
 SELECT Email, DateJoined, isManager, isSuspended
-	FROM RateACity.User;
+	FROM RateACity.User
+ORDER BY Email;/*
+SELECT Email, DateJoined, isManager, isSuspended
+	FROM RateACity.User
+ORDER BY DateJoined;
+SELECT Email, DateJoined, isManager, isSuspended
+	FROM RateACity.User
+ORDER BY isManager;
+SELECT Email, DateJoined, isManager, isSuspended
+	FROM RateACity.User
+ORDER BY isSuspended;
+*/
 
 /*
 ----- PENDING CITIES -----
