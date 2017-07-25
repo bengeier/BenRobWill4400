@@ -101,7 +101,7 @@ select AttractionName, CName, CityName, AveRating, CountRating
 	natural left join rateacity.falls_under 
 	natural left join rateacity.city
 	inner join rateacity.reviewable_entity 
-		where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0) as A inner join
+		where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0) as A join
 	(select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating 
 		from rateacity.review group by ReviewableEID) as R 
 			on A.AttractionEID=R.ReviewableEID); 
@@ -160,21 +160,17 @@ RATEACITY.review where ReviewableEID=CityEID group by CityEid) as c natural left
 /*
 ----- PENDING ATTRACTIONS -----
 */
-(SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName as Category, Description, Hours, ContactInfo, UserEmail, Rating, Comment FROM
+SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName AS Category, Description, Hours, ContactInfo, T.UserEmail, Rating, Comment 
+FROM 
 	(SELECT *
-	FROM RateACity.Attraction AS Attr 
-		NATURAL JOIN RateACity.City 
-		NATURAL JOIN RateACity.FALLS_UNDER
-		NATURAL JOIN RateACity.Category
-		JOIN RateACity.Reviewable_Entity AS RE ON RE.EntityID = AttractionEID
-		NATURAL JOIN RateACity.Review
-        NATURAL JOIN RateACity.Contact_Info
-        NATURAL JOIN RateACity.Hours_Of_Operation
-        
-	WHERE IsPending = 1 
-	GROUP BY CName) AS TOTAL    
-#GROUP BY AttractionName
-ORDER BY AttractionName ASC);
+	FROM RateACity.ATTRACTION AS ATTR JOIN RateACity.REVIEWABLE_ENTITY AS E ON ATTR.AttractionEID = E.EntityID
+	WHERE IsPending = 1) AS T
+JOIN RateACity.REVIEW ON REVIEW.UserEmail = T.UserEmail AND REVIEW.ReviewableEID = T.AttractionEID
+NATURAL JOIN RATEACITY.CITY
+NATURAL LEFT JOIN RATEACITY.CONTACT_INFO
+NATURAL JOIN RATEACITY.FALLS_UNDER
+NATURAL LEFT JOIN RATEACITY.HOURS_OF_OPERATION
+ORDER BY AttractionName;
 
 /*
 ----- search-----
