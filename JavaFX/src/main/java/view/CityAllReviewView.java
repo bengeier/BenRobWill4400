@@ -4,9 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
-import main.java.controller.AttractionAllReviewController;
 import main.java.controller.CityAllReviewController;
-import main.java.model.Attraction;
 import main.java.model.City;
 import main.java.model.CurrentState;
 import main.java.model.Review;
@@ -33,6 +31,8 @@ public class CityAllReviewView {
 
     @FXML
     private TableColumn<Review, String> usernameCol, ratingCol, commentCol;
+
+    private TableColumn<Review, String> deleteCol = new TableColumn<>("Delete");
 
     @FXML
     public void initialize() {
@@ -72,5 +72,12 @@ public class CityAllReviewView {
                 new PropertyValueFactory<>("comment"));
 
         table.setItems(CityAllReviewController.buildData());
+
+        if (CurrentState.isManagerView()) {
+            table.getColumns().add(deleteCol);
+            deleteCol.setCellValueFactory(
+                    new PropertyValueFactory<>("delete"));
+            deleteCol.setCellFactory(CityAllReviewController.generateCellFactory("delete"));
+        }
     }
 }
