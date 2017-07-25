@@ -25,10 +25,12 @@ public class AllCitiesListController {
 
     public static ObservableList<City> buildData() {
         ObservableList<City> data = FXCollections.observableArrayList();
-        String cityQuery = "select CityEID, CityName, ave, coun, attr from (select CityName, avg(Rating) as ave, count(Rating) as coun, CityEID  from ( " +
-                "(select * from rateacity.city join rateacity.reviewable_entity where IsPending=0 AND CityEID=EntityID) as filter) join " +
-                "RATEACITY.review where ReviewableEID=CityEID group by CityEid) as c natural left join " +
-                "(select CityEid, count(attractionEID) as attr from rateacity.attraction group by CityEID) as final;";
+        String cityQuery = "SELECT * from\n" +
+                "(select CityEID, CityName, ave, coun, attr from (select CityName, avg(Rating) as ave, count(Rating) as coun, CityEID  from (\n" +
+                "                (select * from rateacity.city join rateacity.reviewable_entity where IsPending=0 AND CityEID=EntityID) as filter) join\n" +
+                "                RATEACITY.review where ReviewableEID=CityEID group by CityEid) as c natural left join\n" +
+                "                (select CityEid, count(attractionEID) as attr from rateacity.attraction group by CityEID) as final) AS Result\n" +
+                "ORDER BY CityName;";
 
 
         try {

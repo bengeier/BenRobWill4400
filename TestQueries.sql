@@ -1,6 +1,7 @@
 /* 
 ----- CITY LIST -----
 */
+/*old query, obsolete
 SELECT City, AvgRating, NumRatings, NumAttractions FROM
 (SELECT * FROM
 (SELECT CityEID, CityName AS City, AVG(Rating) AS AvgRating, COUNT(Rating) AS NumRatings
@@ -11,7 +12,39 @@ FROM RateACity.Attraction AS A JOIN RateACity.City AS S ON A.CityEID = S.CityEID
 GROUP BY S.CityEID) AS U
 JOIN RateACity.Reviewable_Entity AS R
 WHERE IsPending = 0 AND R.EntityID = CityEID
-ORDER BY City ASC) AS Result;
+ORDER BY City ASC) AS Result;*/
+SELECT * from
+(select CityEID, CityName, ave, coun, attr from (select CityName, avg(Rating) as ave, count(Rating) as coun, CityEID  from (
+                (select * from rateacity.city join rateacity.reviewable_entity where IsPending=0 AND CityEID=EntityID) as filter) join
+                RATEACITY.review where ReviewableEID=CityEID group by CityEid) as c natural left join
+                (select CityEid, count(attractionEID) as attr from rateacity.attraction group by CityEID) as final) AS Result
+ORDER BY CityName;
+/*
+SELECT * from
+(select CityEID, CityName, ave, coun, attr from (select CityName, avg(Rating) as ave, count(Rating) as coun, CityEID  from (
+                (select * from rateacity.city join rateacity.reviewable_entity where IsPending=0 AND CityEID=EntityID) as filter) join
+                RATEACITY.review where ReviewableEID=CityEID group by CityEid) as c natural left join
+                (select CityEid, count(attractionEID) as attr from rateacity.attraction group by CityEID) as final) AS Result
+ORDER BY CityEID;
+SELECT * from
+(select CityEID, CityName, ave, coun, attr from (select CityName, avg(Rating) as ave, count(Rating) as coun, CityEID  from (
+                (select * from rateacity.city join rateacity.reviewable_entity where IsPending=0 AND CityEID=EntityID) as filter) join
+                RATEACITY.review where ReviewableEID=CityEID group by CityEid) as c natural left join
+                (select CityEid, count(attractionEID) as attr from rateacity.attraction group by CityEID) as final) AS Result
+ORDER BY ave;
+SELECT * from
+(select CityEID, CityName, ave, coun, attr from (select CityName, avg(Rating) as ave, count(Rating) as coun, CityEID  from (
+                (select * from rateacity.city join rateacity.reviewable_entity where IsPending=0 AND CityEID=EntityID) as filter) join
+                RATEACITY.review where ReviewableEID=CityEID group by CityEid) as c natural left join
+                (select CityEid, count(attractionEID) as attr from rateacity.attraction group by CityEID) as final) AS Result
+ORDER BY coun;
+SELECT * from
+(select CityEID, CityName, ave, coun, attr from (select CityName, avg(Rating) as ave, count(Rating) as coun, CityEID  from (
+                (select * from rateacity.city join rateacity.reviewable_entity where IsPending=0 AND CityEID=EntityID) as filter) join
+                RATEACITY.review where ReviewableEID=CityEID group by CityEid) as c natural left join
+                (select CityEid, count(attractionEID) as attr from rateacity.attraction group by CityEID) as final) AS Result
+ORDER BY attr;
+*/
 
 /* 
 ----- NEW CITY FORM -----
