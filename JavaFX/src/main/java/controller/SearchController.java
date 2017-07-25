@@ -23,7 +23,7 @@ public class SearchController {
         ObservableList<Attraction> data = FXCollections.observableArrayList();
 
 
-        String attractionQuery = "select StreetAddress, Description, attractionEID, \n" +
+        String attractionQuery = "SELECT * FROM (select StreetAddress, Description, attractionEID, \n" +
                 "AttractionName, CName, CityName, AveRating, CountRating, ContactInfo, Hours \n" +
                 "from ((select * from rateacity.attraction natural left join RATEACITY.hours_of_operation \n" +
                 "natural left join rateacity.contact_info natural left join rateacity.falls_under \n" +
@@ -39,7 +39,7 @@ public class SearchController {
             attractionQuery += add;
         }
 
-        attractionQuery += ";";
+        attractionQuery += ") AS Result ORDER BY AttractionName;";
 
         System.out.println(attractionQuery);
 
