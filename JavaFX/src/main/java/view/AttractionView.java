@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import main.java.controller.AttractionController;
 import main.java.controller.SearchController;
 import main.java.model.Attraction;
 import main.java.model.CurrentState;
@@ -58,7 +59,6 @@ public class AttractionView {
         }
 
         if (safe) {
-
             curAttraction = CurrentState.getCurrentAttraction();
             attractionNameID.setText(curAttraction.getAttractionName());
             addressLabel.setText(curAttraction.getAddress());
@@ -69,6 +69,8 @@ public class AttractionView {
             contactLabel.setText(curAttraction.getContact() == null ? "N/A" : curAttraction.getContact());
             categoryLabel.setText(curAttraction.getCategory());
 
+            reviewThisAttraction.setText(AttractionController.isNewReview()
+                    ? "Review This City" : "Edit Review");
             reviewThisAttraction.setOnAction((event -> {
                 if (!CurrentState.isSuspended()) {
                     CurrentState.push(fxml);
@@ -89,17 +91,7 @@ public class AttractionView {
             viewAllReviews.setDisable(true);
 
             attractionNameID.setText("No Match!");
-
-//            Alert alert = new Alert(Alert.AlertType.ERROR);
-//            alert.setTitle("Error");
-//            alert.setHeaderText("Error!");
-//            alert.setContentText("The attraction that you searched for does not exist. " +
-//                    "Please hit OK to go back to home page");
-//            alert.showAndWait();
-
-
         }
-
 
         viewAllReviews.setOnAction((event -> {
             CurrentState.push(fxml);

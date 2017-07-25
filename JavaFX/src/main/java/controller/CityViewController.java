@@ -94,4 +94,20 @@ public class CityViewController {
             }
         };
     }
+
+    public static boolean isNewReview(String entityID) {
+        String reviewedQuery = "SELECT COUNT(*) FROM RateACity.Review\n" +
+                "WHERE UserEmail='" + CurrentState.getEmail() + "'\n" +
+                "AND ReviewableEID='" + entityID + "';";
+
+        try {
+            ResultSet rs = DBConnection.connection.createStatement().executeQuery(reviewedQuery);
+            if (rs.next()) {
+                return rs.getString("COUNT(*)").equals("0");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
 }

@@ -43,6 +43,10 @@ public class CityView {
 
         avgRatingText.setText(CurrentState.getCurrentCity().getAvgRating() + "/5");
 
+        reviewThisCity.setText(
+                CityViewController.isNewReview(CurrentState.getCurrentCity().getCityEID()) ?
+                        "Review This City" : "Edit Review"
+        );
         reviewThisCity.setOnAction((event -> {
             if (!CurrentState.isSuspended()) {
                 CurrentState.push(fxml);

@@ -29,6 +29,19 @@ public class ReviewViewController {
         return false;
     }
 
+    public static void updateReview(String eid, String rating, String comment) {
+        String updateReview = "UPDATE RateACity.Review\n" +
+                "SET Rating=\'" + rating + "\'," + " Comment=\'" + comment + "\'\n" +
+                "WHERE ReviewableEID=\'" + eid + "\' " +
+                "AND UserEmail=\'" + CurrentState.getEmail() + "\';";
+
+        try {
+            DBConnection.connection.createStatement().executeUpdate(updateReview);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public static void deleteReview(Review review) {
         String reviewDelete = "DELETE FROM RateACity.Review\n" +
                 "WHERE ReviewableEID=\'" + review.getReviewableEID() + "\' " +

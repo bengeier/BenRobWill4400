@@ -1,15 +1,13 @@
 package main.java.view;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import main.java.controller.ReviewViewController;
 import main.java.model.Attraction;
 import main.java.model.City;
 import main.java.model.CurrentState;
+import org.omg.CORBA.Current;
 
 import java.util.zip.CRC32;
 
@@ -42,22 +40,37 @@ public class ReviewView {
 
         back.setOnAction((event -> RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()))));
 
-        deleteButton.setVisible(isNewReview());
+        deleteButton.setVisible(!isNewReview());
         deleteButton.setOnAction(event -> {
                     ReviewViewController.deleteReview(CurrentState.getCurrentReview());
                     RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
         });
 
         submitReview.setOnAction((event -> {
-            ReviewViewController.addNewReview(
-                    CurrentState.getEmail(),
-                    CurrentState.peek().equals("AttractionPage.fxml") ?
-                            CurrentState.getCurrentAttraction().getAttractionEID() :
-                            CurrentState.getCurrentCity().getCityEID(),
-                    rating.getValue().toString(),
-                    comment.getText()
-
-            );
+            if (isNewReview()) {
+                ReviewViewController.addNewReview(
+                        CurrentState.getEmail(),
+                        CurrentState.peek().equals("AttractionPage.fxml") ?
+                                CurrentState.getCurrentAttraction().getAttractionEID() :
+                                CurrentState.getCurrentCity().getCityEID(),
+                        rating.getValue().toString(),
+                        comment.getText()
+                );
+            } else {
+                String eid;
+                if (CurrentState.peek().equals("UserReviewsPage.fxml")) {
+                    eid = CurrentState.getCurrentReview().getReviewableEID();
+                } else if (CurrentState.peek().equals("AttractionPage.fxml")) {
+                    eid = CurrentState.getCurrentAttraction().getAttractionEID();
+                } else {
+                    eid = CurrentState.getCurrentCity().getCityEID();
+                }
+                ReviewViewController.updateReview(
+                        eid,
+                        rating.getValue().toString(),
+                        comment.getText()
+                );
+            }
             RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
         }));
     }
