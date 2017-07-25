@@ -1,31 +1,3 @@
-/*
------ SIGN UP -----
-*/
-INSERT INTO RATEACITY.USER (Email, Password) VALUES ("" + email + "\", \"" + password); 
-/* 
------ Search -----
-*/
-SELECT * FROM (select StreetAddress, Description, attractionEID,
-                AttractionName, CName, CityName, AveRating, CountRating, ContactInfo, Hours
-                from ((select * from rateacity.attraction natural left join RATEACITY.hours_of_operation
-                natural left join rateacity.contact_info natural left join rateacity.falls_under 
-                natural left join rateacity.city join rateacity.reviewable_entity
-                where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0)
-                as A join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating 
-                from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID)
-                
-#javafx stuff
-#                where AttractionName = CurrentState.getAttractionSearchParam()
-#        if (!(CurrentState.getCurrentCity() == null)
-#                && !CurrentState.getCurrentCity().equals("")) {
-#            String add = " and CityName=\"" + CurrentState.getCurrentCity() 
-#            attractionQuery += add;
-#        }
-#       attractionQuery += "
-) AS Result 
-#ORDER BY AttractionName;"
-;
-
 /* 
 ----- CITY LIST -----
 */
@@ -91,29 +63,24 @@ ON U.AttractionEID = V.EntityID)
 ----- CITY REVIEW / UPDATE REVIEW FORM-----
 */
 #insert new review
-INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES (
-                #javafx stuff
-                #\'" + email + "\', \'" + reviewableEID + "\', \'" +  rating + "\', \'" + comment + "'
-                );
+INSERT INTO RateACity.REVIEW (UserEmail, ReviewableEID, Rating, Comment, CreateDate) 
+	VALUES 
+    (/*get current user email,*/
+    /*get current city EID,*/ 
+    /*get rating input,*/ 
+    /*get comment input,*/ 
+    /*get current date*/);
     
 #update old review
-#UPDATE RateACity.Review "
-                #"SET Rating=\'" + rating + "\'," + " Comment=\'" + comment + "\'\n" +
-                #"WHERE ReviewableEID=\'" + eid + "\' " +
-                #"AND UserEmail=\'" + CurrentState.getEmail() + "'
-                ;
+UPDATE RateACity.REVIEW
+	SET Rating = 0/*get rating input*/, Comment = ''/*get comment input*/
+    WHERE (UserEmail = ''/*get current user email*/ 
+    AND ReviewableEID = 0/*get current cities' EID*/);
 
 #delete old review
-#DELETE FROM RateACity.Review
-#" +
-#                "WHERE ReviewableEID=\'" + review.getReviewableEID() + "\' " +
-#                "AND UserEmail=\'" + review.getUserEmail() + "';
+DELETE FROM RateACity.REVIEW   
+	WHERE UserEmail = ''/*get current user email*/ AND ReviewableEID = 0/*get current cities' EID*/;
 
-#isNewReview
-#SELECT COUNT(*) FROM RateACity.Review
-#" +
-#                "WHERE UserEmail='" + CurrentState.getEmail() + "'\n" +
-#                "AND ReviewableEID='" + entityID + "';
 
 /*
 ----- CITY REVIEWS PAGE -----
@@ -711,3 +678,5 @@ ORDER BY Hours;
 ----- delete-----
 */
 DELETE FROM RateACity.REVIEWABLE_ENTITY WHERE EntityID=17 ;
+
+DELETE FROM RateACity.REVIEW WHERE UserEmail='anthony@vr.com' and ReviewableEID=21;
