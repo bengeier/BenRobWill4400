@@ -6,12 +6,17 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 import main.java.controller.AllAttractionsListViewController;
 import main.java.controller.CityViewController;
+import main.java.controller.DeleteCityController;
 import main.java.model.Attraction;
 import main.java.model.CurrentState;
 import org.omg.CORBA.Current;
+
+import java.util.Optional;
 
 public class CityView {
 
@@ -32,6 +37,9 @@ public class CityView {
 
     @FXML
     private TableColumn<Attraction, String> nameCol, addressCol, categoryCol, avgCol, numRatCol, infoCol;
+
+    @FXML
+    private GridPane gridPane;
 
     @FXML
     public void initialize() {
@@ -66,6 +74,32 @@ public class CityView {
         }));
 
         back.setOnAction((event -> RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()))));
+
+        if (CurrentState.isManagerView()) {
+            Button delete = new Button();
+            delete.setText("Delete This City");
+
+            GridPane.setConstraints(delete, 1, 0);
+
+            gridPane.getChildren().add(delete);
+
+            delete.setOnAction((event -> {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirm Delete City");
+                alert.setHeaderText("Are You Sure?");
+                alert.setContentText("Deleting your account will get rid of all information f" +
+                        "or this city including any reviews.");
+                Optional<ButtonType> result = alert.showAndWait();
+
+                if (result.get() == ButtonType.OK) {
+
+                    deleteCity();
+                }
+
+            }));
+
+
+        }
     }
 
     private void updateTable() {
@@ -106,5 +140,15 @@ public class CityView {
             }
         }
         return toReturn;
+    }
+
+    private void deleteCity() {
+        System.out.println("Gonna delete this shit");
+        if (DeleteCityController.deleteCurrentCity() == 1) {
+            // success
+            RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
+        } else {
+            cityAndCategory.setText("Error deleting!");
+        }
     }
 }
