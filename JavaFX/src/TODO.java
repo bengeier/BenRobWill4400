@@ -9,8 +9,10 @@ public class TODO {
         // TODO	Search user
         // TODO	Users List
 
+    // TODO approve pending city doesn't actually approve
 
-	//TODO adding a new city must insert new review to table, reading data from fields -- does this feature not work?
+	//TODO Users should not be able submit an empty city form, must fill in required fields
+	//TODO adding a new city must insert new review to table, reading data from fields
 	//TODO adding a new attraction should be sent to manager for approval
 
 	//TODO users that have already reviewed a city should get an "Edit my Review" button (we need to write mySQL UPDATE)
@@ -26,7 +28,6 @@ public class TODO {
 	//TODO managers should be able to delete an attraction
 	//TODO managers should be able to delete any review they want from a city 
 		//(mySQL DELETE and delete button to appear if isManager)
-
 	//TODO managers should be able to delete any review they want from an attraction
 
 	//TODO suspended users should not be able to add new attractions, 
@@ -34,7 +35,6 @@ public class TODO {
 		//same goes for not reviewing cities from "all reviews" page
 
 	//TODO mySQL for pending cities sorts 
-	//TODO mySQL for pending attractions sorts 
 
 	//TODO pending attractions approve button should say "It will be added to the list of attractions" not "It will be added to the list of cities"
 
@@ -46,6 +46,8 @@ public class TODO {
     // "Outdoors" instead of "Outdoors, Good View"
     // TODO change background color / image
     // TODO Make table columns non editable
+    // TODO Make info / link columns non-sortable
+    // TODO 
 
 
 }
