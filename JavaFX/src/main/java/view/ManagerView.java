@@ -9,6 +9,7 @@ import main.java.controller.NewCategoryController;
 import main.java.controller.UserController;
 import main.java.model.City;
 import main.java.model.CurrentState;
+import org.omg.CORBA.Current;
 import sun.util.resources.cldr.ta.CurrencyNames_ta;
 
 import java.util.Optional;
@@ -26,7 +27,7 @@ public class ManagerView {
 
     @FXML
     private Button logOut, viewAllCities, viewAllAttractions, viewAllCategories, viewAllUsers, viewPendingCities,
-        viewPendingAttractions, addNewCity, addNewUser, addNewAttraction, addNewCategory, search, searchUsers;
+        viewPendingAttractions, addNewCity, addNewUser, addNewAttraction, addNewCategory, search, searchUsers, myReviews;
 
     @FXML
     private Label welcomeMessage;
@@ -121,6 +122,10 @@ public class ManagerView {
 
         }));
 
+        myReviews.setOnAction((event -> {
+            CurrentState.push(fxml);
+            RootView.instance.setCenter(UserReviewsView.getInstance());
+        }));
 
         addNewCategory.setOnAction((event -> {
             TextInputDialog newCategoryDialog = new TextInputDialog();

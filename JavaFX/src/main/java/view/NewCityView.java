@@ -2,6 +2,7 @@ package main.java.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
@@ -32,6 +33,9 @@ public class NewCityView{
     private Slider ratingSlider;
 
     @FXML
+    private Label errorLabel;
+
+    @FXML
     public void initialize() {
         if (CurrentState.isManagerView()) {
             submit.setText("Submit");
@@ -41,14 +45,16 @@ public class NewCityView{
         }));
 
         submit.setOnAction((event -> {
-            NewCityController.addNewCity(
+            errorLabel.setText("");
+            if (NewCityController.addNewCity(
                     nameField.getText(),
                     countryField.getText(),
                     stateField.getText(),
                     ((Double) ratingSlider.getValue()).toString(),
-                    commentField.getText()
-                    );
-            RootView.instance.setCenter(CityView.getInstance());
+                    commentField.getText())) {
+                RootView.instance.setCenter(CityView.getInstance());
+            }
+            errorLabel.setText("Please fill in required fields.");
         }));
     }
 }
