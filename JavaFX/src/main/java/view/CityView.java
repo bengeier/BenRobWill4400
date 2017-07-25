@@ -15,6 +15,7 @@ import main.java.controller.DeleteCityController;
 import main.java.model.Attraction;
 import main.java.model.CurrentState;
 import org.omg.CORBA.Current;
+import sun.util.resources.cldr.ebu.CurrencyNames_ebu;
 
 import java.util.Optional;
 
@@ -37,6 +38,8 @@ public class CityView {
 
     @FXML
     private TableColumn<Attraction, String> nameCol, addressCol, categoryCol, avgCol, numRatCol, infoCol;
+
+    private TableColumn<Attraction, String> deleteCol = new TableColumn<>("Delete");
 
     @FXML
     private GridPane gridPane;
@@ -118,7 +121,14 @@ public class CityView {
         
         ObservableList<Attraction> forTable = combineCategories(CityViewController.buildData());
         table.setItems(forTable);
-        infoCol.setCellFactory(CityViewController.generateCellFactory());
+
+        infoCol.setCellFactory(CityViewController.generateCellFactory("page"));
+        if (CurrentState.isManagerView()) {
+            table.getColumns().add(deleteCol);
+            deleteCol.setCellValueFactory(
+                    new PropertyValueFactory<>("delete"));
+            deleteCol.setCellFactory(CityViewController.generateCellFactory("delete"));
+        }
     }
 
     private ObservableList<Attraction> combineCategories(ObservableList<Attraction> toCombine) {

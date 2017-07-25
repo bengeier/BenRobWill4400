@@ -37,15 +37,13 @@ public class AllAttractionListView {
     @FXML
     private TableColumn<Attraction, String> nameCol, categoryCol, locationCol, avgCol, numCol, link;
 
-    private TableColumn<Attraction, String> deleteCol = new TableColumn<>();
+    private TableColumn<Attraction, String> deleteCol = new TableColumn<>("Delete");
 
     @FXML
     public void initialize() {
         updateTable();
 
-        back.setOnAction((event -> {
-            RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
-        }));
+        back.setOnAction((event -> RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()))));
 
         add.setOnAction((event -> {
             if (!CurrentState.isSuspended()) {
