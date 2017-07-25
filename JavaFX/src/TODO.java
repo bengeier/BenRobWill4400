@@ -23,9 +23,6 @@ public class TODO {
     
 	//TODO on user's review page, they should be able to EDIT their reviews
 
-	//TODO clicking View All attractions buttons on both user and manager pages for some reason 
-		//only gives attractions filtered by Good View
-
 	//TODO user that have already reviewed an attraction should be able to update their review from that attraction page 
 		//(button should say edit instead of review) and should be able to delete this review
 
@@ -38,6 +35,15 @@ public class TODO {
 	//TODO Attraction's reviews page should be default sorted high to low (also need to write mySQL for other sorts)
 	
 	//TODO mySQL for category sorts alphabetically, reverse alphabetically, by number of attractions ASC and DESC
+
+	//TODO suspended users should not be able to add new attractions, 
+		//also should not be able to review attractions from a attractions "all reviews" page 
+		//same goes for not reviewing cities from "all reviews" page
+
+	//TODO mySQL for pending cities sorts 
+	//TODO mySQL for pending attractions sorts 
+
+	//TODO pending attractions approve button should say "It will be added to the list of attractions" not "It will be added to the list of cities"
 
 // LOW PRIORITY
 
