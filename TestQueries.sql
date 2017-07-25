@@ -1,3 +1,31 @@
+/*
+----- SIGN UP -----
+*/
+INSERT INTO RATEACITY.USER (Email, Password) VALUES ("" + email + "\", \"" + password); 
+/* 
+----- Search -----
+*/
+SELECT * FROM (select StreetAddress, Description, attractionEID,
+                AttractionName, CName, CityName, AveRating, CountRating, ContactInfo, Hours
+                from ((select * from rateacity.attraction natural left join RATEACITY.hours_of_operation
+                natural left join rateacity.contact_info natural left join rateacity.falls_under 
+                natural left join rateacity.city join rateacity.reviewable_entity
+                where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0)
+                as A join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating 
+                from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID)
+                
+#javafx stuff
+#                where AttractionName = CurrentState.getAttractionSearchParam()
+#        if (!(CurrentState.getCurrentCity() == null)
+#                && !CurrentState.getCurrentCity().equals("")) {
+#            String add = " and CityName=\"" + CurrentState.getCurrentCity() 
+#            attractionQuery += add;
+#        }
+#       attractionQuery += "
+) AS Result 
+#ORDER BY AttractionName;"
+;
+
 /* 
 ----- CITY LIST -----
 */
