@@ -5,9 +5,6 @@ public class TODO {
 
     // HIGH PRIORITY
 
-    // TODO RateACityDatabase.sql is broken
-    // (insert into rateacity.hours_of_operation values(6, '08:00-12:00') violates foreign key constraint)
-
     // TODO Manager...
         // TODO	Search user
         // TODO	Users List
@@ -16,7 +13,7 @@ public class TODO {
 
 
     // LOW PRIORITY
-    // TODO Users cannot be sorted by user class
+    // TODO Make some tables bigger (especially pending attractions)
     // TODO change background color / image
     // TODO Make table columns non editable
     // TODO Make info / link columns non-sortable
