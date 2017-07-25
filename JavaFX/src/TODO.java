@@ -34,8 +34,6 @@ public class TODO {
 		//also should not be able to review attractions from a attractions "all reviews" page 
 		//same goes for not reviewing cities from "all reviews" page
 
-	//TODO mySQL for pending cities sorts 
-
 	//TODO pending attractions approve button should say "It will be added to the list of attractions" not "It will be added to the list of cities"
 
 // LOW PRIORITY
