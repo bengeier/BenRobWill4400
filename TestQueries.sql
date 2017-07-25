@@ -162,8 +162,8 @@ ORDER BY City ASC);
 /*
 ----- PENDING ATTRACTIONS -----
 */
-(SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, Category, Description, Hours, ContactInfo, UserEmail, Rating, Comment FROM
-	(SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName As Category, Description, Hours, ContactInfo, UserEmail, Rating, Comment
+(SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName as Category, Description, Hours, ContactInfo, UserEmail, Rating, Comment FROM
+	(SELECT *
 	FROM RateACity.Attraction AS Attr 
 		NATURAL JOIN RateACity.City 
 		NATURAL JOIN RateACity.FALLS_UNDER
@@ -174,9 +174,8 @@ ORDER BY City ASC);
         NATURAL JOIN RateACity.Hours_Of_Operation
         
 	WHERE IsPending = 1 
-	GROUP BY CName) AS TOTAL
-    
-GROUP BY AttractionName
+	GROUP BY CName) AS TOTAL    
+#GROUP BY AttractionName
 ORDER BY AttractionName ASC);
 
 /*
