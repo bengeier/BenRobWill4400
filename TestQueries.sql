@@ -160,7 +160,7 @@ RATEACITY.review where ReviewableEID=CityEID group by CityEid) as c natural left
 /*
 ----- PENDING ATTRACTIONS -----
 */
-(SELECT AttractionName, CityName, StreetAddress, Country, CName As Category, Description, Hours, ContactInfo, UserEmail, Rating, Comment FROM
+(SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName as Category, Description, Hours, ContactInfo, UserEmail, Rating, Comment FROM
 	(SELECT *
 	FROM RateACity.Attraction AS Attr 
 		NATURAL JOIN RateACity.City 
@@ -172,9 +172,8 @@ RATEACITY.review where ReviewableEID=CityEID group by CityEid) as c natural left
         NATURAL JOIN RateACity.Hours_Of_Operation
         
 	WHERE IsPending = 1 
-	GROUP BY CName) AS TOTAL
-    
-GROUP BY AttractionName
+	GROUP BY CName) AS TOTAL    
+#GROUP BY AttractionName
 ORDER BY AttractionName ASC);
 
 /*

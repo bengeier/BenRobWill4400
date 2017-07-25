@@ -1,5 +1,7 @@
 package main.java.model;
 
+import java.util.ArrayList;
+
 /**
  * Created by Michael Xiao Local on 7/24/2017.
  */
@@ -17,6 +19,7 @@ public class PendingAttraction {
     private String rating;
     private String comment;
 
+    private ArrayList<String> categoryList = new ArrayList<>();
 
     public PendingAttraction(String attractionEID) {
         this(attractionEID,
@@ -95,8 +98,32 @@ public class PendingAttraction {
         this.country = country;
     }
 
-    public String getCategory() {
-        return category;
+    public String getCategory() {if (categoryList.isEmpty()) {
+        return null;
+    }
+
+        if (categoryList.size() == 1) {
+            return categoryList.get(0);
+        }
+
+        String x = "";
+        for (int i = 0; i < categoryList.size(); i++) {
+            if (i < categoryList.size() - 1) {
+                x += categoryList.get(i) + ", ";
+            } else {
+                x += categoryList.get(i);
+            }
+        }
+
+        return x;
+    }
+
+    public void addCategory(String category) {
+
+        categoryList.add(category);
+    }
+    public ArrayList<String> getCategoryList() {
+        return categoryList;
     }
 
     public void setCategory(String category) {
