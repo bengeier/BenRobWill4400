@@ -5,12 +5,6 @@ public class TODO {
 
 // HIGH PRIORITY
 
-    // TODO Manager...
-        // TODO	Search user
-        // TODO	Users List
-
-    // TODO approve pending city doesn't actually approve
-
 	//TODO Users should not be able submit an empty city form, must fill in required fields
 	//TODO adding a new city must insert new review to table, reading data from fields
 	//TODO adding a new attraction should be sent to manager for approval
