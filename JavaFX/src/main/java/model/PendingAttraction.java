@@ -44,7 +44,7 @@ public class PendingAttraction {
         this.city = city;
         this.address = address;
         this.country = country;
-        this.category = category;
+        addCategory(category);
         this.description = description;
         this.hours = hours;
         this.contactInfo = contactInfo;
@@ -98,9 +98,11 @@ public class PendingAttraction {
         this.country = country;
     }
 
-    public String getCategory() {if (categoryList.isEmpty()) {
-        return null;
-    }
+    public String getCategory() {
+
+        if (categoryList.isEmpty()) {
+            return null;
+        }
 
         if (categoryList.size() == 1) {
             return categoryList.get(0);
@@ -122,12 +124,9 @@ public class PendingAttraction {
 
         categoryList.add(category);
     }
+
     public ArrayList<String> getCategoryList() {
         return categoryList;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 
     public String getDescription() {

@@ -18,30 +18,22 @@ import java.util.Optional;
  */
 public class PendingAttractionsListController {
     public static ObservableList<PendingAttraction> buildData() {
-        //Create variable for data to return in form of ObservableList
         ObservableList<PendingAttraction> data = FXCollections.observableArrayList();
-        //Create string holding mySQL query
-        String attractionQuery = "(SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName AS Category, Description, Hours, ContactInfo, UserEmail, Rating, Comment FROM\n" +
+        String attractionQuery = "SELECT AttractionEID, AttractionName, CityName, StreetAddress, Country, CName AS Category, Description, Hours, ContactInfo, T.UserEmail, Rating, Comment \n" +
+                "FROM \n" +
                 "\t(SELECT *\n" +
-                "\tFROM RateACity.Attraction AS Attr \n" +
-                "\t\tNATURAL JOIN RateACity.City \n" +
-                "\t\tNATURAL JOIN RateACity.FALLS_UNDER\n" +
-                "\t\tNATURAL JOIN RateACity.Category\n" +
-                "\t\tJOIN RateACity.Reviewable_Entity AS RE ON RE.EntityID = AttractionEID\n" +
-                "\t\tNATURAL JOIN RateACity.Review\n" +
-                "        NATURAL JOIN RateACity.Contact_Info\n" +
-                "        NATURAL JOIN RateACity.Hours_Of_Operation\n" +
-                "        \n" +
-                "\tWHERE IsPending = 1 \n" +
-                "\tGROUP BY CName) AS TOTAL\n" +
-                "    \n" +
-                "GROUP BY AttractionName\n" +
-                "ORDER BY AttractionName ASC);";
+                "\tFROM RateACity.ATTRACTION AS ATTR JOIN RateACity.REVIEWABLE_ENTITY AS E ON ATTR.AttractionEID = E.EntityID\n" +
+                "\tWHERE IsPending = 1) AS T\n" +
+                "JOIN RateACity.REVIEW ON REVIEW.UserEmail = T.UserEmail AND REVIEW.ReviewableEID = T.AttractionEID\n" +
+                "NATURAL JOIN RATEACITY.CITY\n" +
+                "NATURAL LEFT JOIN RATEACITY.CONTACT_INFO\n" +
+                "NATURAL JOIN RATEACITY.FALLS_UNDER\n" +
+                "NATURAL LEFT JOIN RATEACITY.HOURS_OF_OPERATION\n" +
+                "ORDER BY AttractionName;";
 
         try {
-            //Execute query
             ResultSet rs = DBConnection.connection.createStatement().executeQuery(attractionQuery);
-            //Get each column from mySQL query, getStrings corresponding with each column's entry for a tuple
+
             while (rs.next()) {
                 PendingAttraction pendingAttraction = new PendingAttraction(
                         rs.getString("AttractionEID"),
@@ -58,6 +50,8 @@ public class PendingAttractionsListController {
                         rs.getString("Comment")
 
                 );
+
+
                 data.add(pendingAttraction);
             }
 

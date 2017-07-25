@@ -41,7 +41,7 @@
         <VBox alignment="CENTER" prefHeight="105.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <children>
                 <Button fx:id="reviewAttraction" mnemonicParsing="false" prefHeight="27.0" prefWidth="170.0" text="Review This Attraction" />
-                <Button fx:id="back" mnemonicParsing="false" prefHeight="27.0" prefWidth="170.0" text="Back" />
+                <Button fx:id="back" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="170.0" text="Back" />
             </children>
             <BorderPane.margin>
                 <Insets top="10.0" />

@@ -685,7 +685,7 @@ INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES
 
     
 INSERT INTO RATEACITY.REVIEW (UserEmail, ReviewableEID, Rating, Comment) VALUES 
-    ('will@hotmail.net', 
+    ('epp@erson.com', 
     11, 
     1, 
     'I');

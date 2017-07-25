@@ -73,7 +73,6 @@ public class PendingAttractionsView {
         commentCol.setCellValueFactory(
                 new PropertyValueFactory<>("comment"));
 
-        pendingAttractionsTable.setItems(PendingAttractionsListController.buildData());
         approveCol.setCellFactory(PendingAttractionsListController.generateCellFactory("approve"));
         approveCol.setSortable(false);
         deleteCol.setCellFactory(PendingAttractionsListController.generateCellFactory("delete"));
@@ -81,20 +80,9 @@ public class PendingAttractionsView {
 
         ObservableList<PendingAttraction> forTable = combineCategories(PendingAttractionsListController.buildData());
 
+        pendingAttractionsTable.setItems(forTable);
 
-        //  check here for if matches search category
-        if (!CurrentState.getCurrentCategory().equals("") && !CurrentState.getCurrentCategory().equals(null)) {
-
-            categoryLabel.setText("Showing attractions for Category: " + CurrentState.getCurrentCategory());
-
-            Iterator<PendingAttraction> itr = forTable.iterator();
-            while (itr.hasNext()) {
-                if (!itr.next().getCategoryList().contains(CurrentState.getCurrentCategory())) {
-                    itr.remove();
-                }
-            }
-        }
-
+        
     }
 
     private ObservableList<PendingAttraction> combineCategories(ObservableList<PendingAttraction> toCombine) {
