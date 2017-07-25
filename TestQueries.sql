@@ -572,9 +572,104 @@ from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.Reviewab
 where AttractionName="Arc de Triomf"  and CityName="Barcelona" and CName="Monument";
 
 /*
------ Cities List -----
+----- City View Controller Review Table
 */
+select StreetAddress, Description, attractionEID, AttractionName, CName, CityName, AveRating, CountRating, ContactInfo, Hours
+from ((select * from rateacity.attraction natural left join RATEACITY.hours_of_operation
+natural left join rateacity.contact_info natural left join rateacity.falls_under
+natural left join rateacity.city inner join rateacity.reviewable_entity
+where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0
+AND city.CityEID=
++ CurrentState.getCurrentCity().getCityEID() + (currentCategory.equals("") ? " " : " AND CName=\'" + currentCategory + "\'") +
+) as A inner join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating 
+from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID)
+ORDER BY StreetAddress;
 
+select StreetAddress, Description, attractionEID, AttractionName, CName, CityName, AveRating, CountRating, ContactInfo, Hours
+from ((select * from rateacity.attraction natural left join RATEACITY.hours_of_operation
+natural left join rateacity.contact_info natural left join rateacity.falls_under
+natural left join rateacity.city inner join rateacity.reviewable_entity
+where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0
+AND city.CityEID=
++ CurrentState.getCurrentCity().getCityEID() + (currentCategory.equals("") ? " " : " AND CName=\'" + currentCategory + "\'") +
+) as A inner join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating 
+from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID)
+ORDER BY Description;
 
-RATEACITY.review where ReviewableEID=CityEID group by CityEid) as c natural left join
+select StreetAddress, Description, attractionEID, AttractionName, CName, CityName, AveRating, CountRating, ContactInfo, Hours
+from ((select * from rateacity.attraction natural left join RATEACITY.hours_of_operation
+natural left join rateacity.contact_info natural left join rateacity.falls_under
+natural left join rateacity.city inner join rateacity.reviewable_entity
+where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0
+AND city.CityEID=
++ CurrentState.getCurrentCity().getCityEID() + (currentCategory.equals("") ? " " : " AND CName=\'" + currentCategory + "\'") +
+) as A inner join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating 
+from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID)
+ORDER BY AttractionName;
+
+select StreetAddress, Description, attractionEID, AttractionName, CName, CityName, AveRating, CountRating, ContactInfo, Hours
+from ((select * from rateacity.attraction natural left join RATEACITY.hours_of_operation
+natural left join rateacity.contact_info natural left join rateacity.falls_under
+natural left join rateacity.city inner join rateacity.reviewable_entity
+where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0
+AND city.CityEID=
++ CurrentState.getCurrentCity().getCityEID() + (currentCategory.equals("") ? " " : " AND CName=\'" + currentCategory + "\'") +
+) as A inner join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating 
+from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID)
+ORDER BY CName;
+
+select StreetAddress, Description, attractionEID, AttractionName, CName, CityName, AveRating, CountRating, ContactInfo, Hours
+from ((select * from rateacity.attraction natural left join RATEACITY.hours_of_operation
+natural left join rateacity.contact_info natural left join rateacity.falls_under
+natural left join rateacity.city inner join rateacity.reviewable_entity
+where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0
+AND city.CityEID=
++ CurrentState.getCurrentCity().getCityEID() + (currentCategory.equals("") ? " " : " AND CName=\'" + currentCategory + "\'") +
+) as A inner join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating 
+from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID)
+ORDER BY CityName;
+
+select StreetAddress, Description, attractionEID, AttractionName, CName, CityName, AveRating, CountRating, ContactInfo, Hours
+from ((select * from rateacity.attraction natural left join RATEACITY.hours_of_operation
+natural left join rateacity.contact_info natural left join rateacity.falls_under
+natural left join rateacity.city inner join rateacity.reviewable_entity
+where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0
+AND city.CityEID=
++ CurrentState.getCurrentCity().getCityEID() + (currentCategory.equals("") ? " " : " AND CName=\'" + currentCategory + "\'") +
+) as A inner join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating 
+from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID)
+ORDER BY AveRating;
+
+select StreetAddress, Description, attractionEID, AttractionName, CName, CityName, AveRating, CountRating, ContactInfo, Hours
+from ((select * from rateacity.attraction natural left join RATEACITY.hours_of_operation
+natural left join rateacity.contact_info natural left join rateacity.falls_under
+natural left join rateacity.city inner join rateacity.reviewable_entity
+where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0
+AND city.CityEID=
++ CurrentState.getCurrentCity().getCityEID() + (currentCategory.equals("") ? " " : " AND CName=\'" + currentCategory + "\'") +
+) as A inner join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating 
+from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID)
+ORDER BY CountRating;
+
+select StreetAddress, Description, attractionEID, AttractionName, CName, CityName, AveRating, CountRating, ContactInfo, Hours
+from ((select * from rateacity.attraction natural left join RATEACITY.hours_of_operation
+natural left join rateacity.contact_info natural left join rateacity.falls_under
+natural left join rateacity.city inner join rateacity.reviewable_entity
+where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0
+AND city.CityEID=
++ CurrentState.getCurrentCity().getCityEID() + (currentCategory.equals("") ? " " : " AND CName=\'" + currentCategory + "\'") +
+) as A inner join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating 
+from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID)
+ORDER BY ContactInfo;
+
+select StreetAddress, Description, attractionEID, AttractionName, CName, CityName, AveRating, CountRating, ContactInfo, Hours
+from ((select * from rateacity.attraction natural left join RATEACITY.hours_of_operation
+natural left join rateacity.contact_info natural left join rateacity.falls_under
+natural left join rateacity.city inner join rateacity.reviewable_entity
+where reviewable_entity.EntityID=attraction.AttractionEID AND reviewable_entity.IsPending=0
+AND city.CityEID=
++ CurrentState.getCurrentCity().getCityEID() + (currentCategory.equals("") ? " " : " AND CName=\'" + currentCategory + "\'") +
+) as A inner join (select ReviewableEID, avg(rating) as AveRating, count(rating) as CountRating 
+from rateacity.review group by ReviewableEID) as R on A.AttractionEID=R.ReviewableEID)
+ORDER BY Hours;
 
