@@ -11,6 +11,7 @@ import main.java.model.City;
 import main.java.model.CurrentState;
 import main.java.sql.DBConnection;
 import main.java.view.AttractionView;
+import main.java.view.CityView;
 import main.java.view.RootView;
 
 import java.sql.ResultSet;
@@ -66,12 +67,12 @@ public class CityViewController {
      * Generates Callback to create a cell factory for city attraction link column
      * @return Callback to set as CellFactory for attraction link column
      */
-    public static Callback<TableColumn<Attraction, String>, TableCell<Attraction, String>> generateCellFactory() {
+    public static Callback<TableColumn<Attraction, String>, TableCell<Attraction, String>> generateCellFactory(String column) {
         return new Callback<TableColumn<Attraction, String>, TableCell<Attraction, String>>() {
             @Override
             public TableCell<Attraction, String> call(TableColumn<Attraction, String> param) {
                 return new TableCell<Attraction, String>() {
-                    final Hyperlink pageLink = new Hyperlink("Page");
+                    final Hyperlink pageLink = new Hyperlink("");
 
                     @Override
                     public void updateItem(String item, boolean empty) {
@@ -80,12 +81,21 @@ public class CityViewController {
                             setGraphic(null);
                             setText(null);
                         } else {
-                            pageLink.setOnAction(event -> {
-                                Attraction attraction = getTableView().getItems().get(getIndex());
-                                CurrentState.setCurrentAttraction(attraction);
-                                CurrentState.push("CityPage.fxml");
-                                RootView.instance.setCenter(AttractionView.getInstance());
-                            });
+                            Attraction attraction = getTableView().getItems().get(getIndex());
+                            if (column.equals("page")) {
+                                pageLink.setText("Page");
+                                pageLink.setOnAction(event -> {
+                                    CurrentState.setCurrentAttraction(attraction);
+                                    CurrentState.push("CityPage.fxml");
+                                    RootView.instance.setCenter(AttractionView.getInstance());
+                                });
+                            } else if (column.equals("delete")) {
+                                pageLink.setText("Delete");
+                                pageLink.setOnAction(event -> {
+                                    deleteAttraction(attraction);
+                                    RootView.instance.setCenter(CityView.getInstance());
+                                });
+                            }
                             setGraphic(pageLink);
                             setText(null);
                         }
@@ -93,6 +103,17 @@ public class CityViewController {
                 };
             }
         };
+    }
+
+    private static void deleteAttraction(Attraction attraction) {
+        String deleteStatement = "DELETE FROM RateACity.Reviewable_Entity\n" +
+                "WHERE EntityID=\'" + attraction.getAttractionEID() + "\';";
+
+        try {
+            DBConnection.connection.createStatement().executeUpdate(deleteStatement);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static boolean isNewReview(String entityID) {

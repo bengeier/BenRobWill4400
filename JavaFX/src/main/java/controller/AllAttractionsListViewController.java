@@ -98,8 +98,8 @@ public class AllAttractionsListViewController {
     }
 
     private static void deleteAttraction(Attraction attraction) {
-        String deleteStatement = "DELETE FROM RateACity.Attraction\n" +
-                "WHERE AttractionEID=\'" + attraction.getAttractionEID() + "\';";
+        String deleteStatement = "DELETE FROM RateACity.Reviewable_Entity\n" +
+                "WHERE EntityID=\'" + attraction.getAttractionEID() + "\';";
         try {
             DBConnection.connection.createStatement().executeUpdate(deleteStatement);
         } catch (SQLException e) {
