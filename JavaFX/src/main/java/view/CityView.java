@@ -158,7 +158,6 @@ public class CityView {
     }
 
     private void deleteCity() {
-        System.out.println("Gonna delete this shit");
         if (DeleteCityController.deleteCurrentCity() == 1) {
             // success
             RootView.instance.setCenter(FXBuilder.getFXMLView(CurrentState.pop()));
