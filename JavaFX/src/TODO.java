@@ -13,7 +13,6 @@ public class TODO {
 
 
     // LOW PRIORITY
-    // TODO Users cannot be sorted by user class
     // TODO change background color / image
     // TODO Make table columns non editable
     // TODO Make info / link columns non-sortable
