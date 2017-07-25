@@ -11,8 +11,6 @@ public class TODO {
 
     // TODO approve pending city doesn't actually approve
 
-	//TODO all cities list MUST BE sorted alphabetically by city name by default (also need to write mySQL for other Sorts)
-	//TODO all attractions list MUST BE sorted alphabetically by location name (also need to write mySQL for other Sorts)
 	//TODO Users should not be able submit an empty city form, must fill in required fields
 	//TODO adding a new city must insert new review to table, reading data from fields
 	//TODO adding a new attraction should be sent to manager for approval
