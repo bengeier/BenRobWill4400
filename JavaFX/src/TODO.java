@@ -20,7 +20,6 @@ public class TODO {
     // TODO change background color / image
     // TODO Make table columns non editable
     // TODO Make info / link columns non-sortable
-    // TODO change link color -- cant see when table row highlighted
 
 
 
