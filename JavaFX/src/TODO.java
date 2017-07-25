@@ -21,6 +21,4 @@ public class TODO {
     // TODO Make table columns non editable
     // TODO Make info / link columns non-sortable
 
-
-
 }

@@ -60,6 +60,8 @@ public class PendingAttractionsListController {
                 );
                 data.add(pendingAttraction);
             }
+
+            
             return data;
 
         } catch (SQLException e) {
