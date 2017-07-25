@@ -153,12 +153,10 @@ SELECT Email, DateJoined, isManager, isSuspended
 /*
 ----- PENDING CITIES -----
 */
-(SELECT City, Country, UserEmail, Rating, Comment FROM
-(SELECT CityEID, CityName AS City, Country, Rating, Comment
-FROM RateACity.Review AS E JOIN RateACity.City AS S ON E.ReviewableEID=S.CityEID ) AS T 
-JOIN RateACity.Reviewable_Entity AS R
-WHERE IsPending = 1 AND R.EntityID = CityEID
-ORDER BY City ASC);
+select CityEID, CityName, ave, coun, attr from (select CityName, avg(Rating) as ave, count(Rating) as coun, CityEID  from (
+(select * from rateacity.city join rateacity.reviewable_entity where IsPending=0 AND CityEID=EntityID) as filter) join
+RATEACITY.review where ReviewableEID=CityEID group by CityEid) as c natural left join 
+(select CityEid, count(attractionEID) as attr from rateacity.attraction group by CityEID) as final;
 /*
 ----- PENDING ATTRACTIONS -----
 */

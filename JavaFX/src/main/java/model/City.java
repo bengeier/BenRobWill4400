@@ -19,7 +19,11 @@ public class City {
         this.cityName = cityName;
         this.avgRating = avgRating;
         this.numRatings = numRatings;
-        this.numAttractions = numAttractions;
+        if (numAttractions == null) {
+            this.numAttractions = "0";
+        } else {
+            this.numAttractions = numAttractions;
+        }
     }
 
     @Override

@@ -25,19 +25,11 @@ public class AllCitiesListController {
 
     public static ObservableList<City> buildData() {
         ObservableList<City> data = FXCollections.observableArrayList();
-        String cityQuery =
-                "SELECT CityEID, City, AvgRating, NumRatings, NumAttractions FROM\n" +
-                        "(SELECT * FROM\n" +
-                        "(SELECT CityEID, CityName AS City, AVG(Rating) AS AvgRating, COUNT(Rating) AS NumRatings\n" +
-                        "FROM RateACity.Review AS E JOIN RateACity.City AS S ON E.ReviewableEID=S.CityEID \n" +
-                        "GROUP BY S.CITYEID) AS T \n" +
-                        "NATURAL JOIN (SELECT S.CityEID, Count(AttractionEID) as NumAttractions \n" +
-                        "FROM RateACity.Attraction AS A RIGHT OUTER JOIN RateACity.City AS S ON A.CityEID = S.CityEID " +
-                        "JOIN RATEACITY.REVIEWABLE_ENTITY AS E ON E.EntityID = A.AttractionEID WHERE E.IsPending = 0\n" +
-                        "GROUP BY S.CityEID) AS U\n" +
-                        "JOIN RateACity.Reviewable_Entity AS R\n" +
-                        "WHERE IsPending = 0 AND R.EntityID = CityEID\n" +
-                        "ORDER BY City ASC) AS Result;";
+        String cityQuery = "select CityEID, CityName, ave, coun, attr from (select CityName, avg(Rating) as ave, count(Rating) as coun, CityEID  from ( " +
+                "(select * from rateacity.city join rateacity.reviewable_entity where IsPending=0 AND CityEID=EntityID) as filter) join " +
+                "RATEACITY.review where ReviewableEID=CityEID group by CityEid) as c natural left join " +
+                "(select CityEid, count(attractionEID) as attr from rateacity.attraction group by CityEID) as final;";
+
 
         try {
             ResultSet rs = DBConnection.connection.createStatement().executeQuery(cityQuery);
@@ -45,10 +37,10 @@ public class AllCitiesListController {
             while (rs.next()) {
                 City city = new City(
                         rs.getString("CityEID"),
-                        rs.getString("City"),
-                        rs.getString("AvgRating"),
-                        rs.getString("NumRatings"),
-                        rs.getString("NumAttractions")
+                        rs.getString("CityName"),
+                        rs.getString("ave"),
+                        rs.getString("coun"),
+                        rs.getString("attr")
                 );
                 data.add(city);
             }
