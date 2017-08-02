@@ -1,4 +1,4 @@
-# Thirsty Goat
+# Rate A City
 
 ### A JavaFX Application that lets users rate their favorite cities and attractions
 
@@ -8,12 +8,12 @@
 
 ## Screenshots
 ### Login Page
-![Login Page](https://github.com/bengeier/ThirstyGoat/blob/master/Images/LogIn.png "Login Page")
-### Home Screen
-![Home Screen](https://github.com/bengeier/ThirstyGoat/blob/master/Images/Home.png "Home Screen")
-### Add Report Form
-![Add Report Form](https://github.com/bengeier/ThirstyGoat/blob/master/Images/AddReport.png "Add Report Form")
-### Map of Sources
-![Map of Sources](https://github.com/bengeier/ThirstyGoat/blob/master/Images/Map.png "Map of Sources")
-### List of Sources
-![Sources List](https://github.com/bengeier/ThirstyGoat/blob/master/Images/SourceList.png "Sources List")
+![Login Page](https://github.com/bengeier/BenRobWill4400/blob/master/ScreenShots/Login.png "Login Page")
+### Manager Home Screen
+![Manager Home Screen](https://github.com/bengeier/BenRobWill4400/blob/master/ScreenShots/ManagerMain.png "Manager Home Screen")
+### User Home Screen
+![User Home Screen](https://github.com/bengeier/BenRobWill4400/blob/master/ScreenShots/UserMain.png "User Home Screen")
+### List of Attractions
+![List of Attractions](https://github.com/bengeier/BenRobWill4400/blob/master/ScreenShots/Attractions.png "List of Attractions")
+### New City Form
+![New City Form](https://github.com/bengeier/BenRobWill4400/blob/master/ScreenShots/NewCity.png "New City Form")
