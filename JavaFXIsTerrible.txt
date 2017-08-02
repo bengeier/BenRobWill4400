@@ -1,3 +1,0 @@
-JavaFX is Terrible.
-
-Ben Geier, Michael Xiao, Will Epperson, Rob Firstman
