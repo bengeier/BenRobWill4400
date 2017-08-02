@@ -1,8 +1,19 @@
-# CS 4400 Final Project
+# Thirsty Goat
 
-### Members of the Dream Team
+### A JavaFX Application that lets users rate their favorite cities and attractions
 
-* Mike "10,000 calorie diet" Xiao
-* Rob "guys I swear I have a girlfriend" Secondman
-* Ben "yes I own shirts that arent OX" Geier
-* Will "I swear she's into me...we made eye contact" Epperson
+#### Technologies Utilized:
+* Java
+* MySQL
+
+## Screenshots
+### Login Page
+![Login Page](https://github.com/bengeier/ThirstyGoat/blob/master/Images/LogIn.png "Login Page")
+### Home Screen
+![Home Screen](https://github.com/bengeier/ThirstyGoat/blob/master/Images/Home.png "Home Screen")
+### Add Report Form
+![Add Report Form](https://github.com/bengeier/ThirstyGoat/blob/master/Images/AddReport.png "Add Report Form")
+### Map of Sources
+![Map of Sources](https://github.com/bengeier/ThirstyGoat/blob/master/Images/Map.png "Map of Sources")
+### List of Sources
+![Sources List](https://github.com/bengeier/ThirstyGoat/blob/master/Images/SourceList.png "Sources List")
